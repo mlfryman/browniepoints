@@ -23,7 +23,7 @@ env:
   global:
     - DATABASE_URL=postgres://postgres@localhost/browniepoints_test
     - AWS_BUCKET=mlf-browniepoints-test
-    # AWS_ACCESS_KEY_ID
     # AWS_SECRET_ACCESS_KEY
-    # SAUCE_ACCESS_KEY
-    # SAUCE_USERNAME
+    - secure: VmPrj7W4S6LgtO/iORTLW6TSZBXLeC+KHbZ6d3fHrQ3D9GTwvT18UoZfvTIQzfYdgisMROackf8dAKqVCWGz5YEGKHWUqX2gAFKZKDaOAIyvMpct6IZm+udTKKrq3Bop2IDwn7RCy78bOkEhuSd3IjU0IJ3Jb7V1u1Gas0WOa6M=
+    # AWS_ACCESS_KEY_ID
+    - secure: PTIMmhboQymaPdqhyN2rLeoRGsNK3LF9qMXiIUCfY1IuU65Ww2EaAOY944q8EVI6qASdj/aLJ78lPEDJloJE/hFTde8+QnsX1CIgnwNMUk4iqJKaG0UIjwILjMkDDi9J81dT/BDzxY8Mcvb8OB8Zf6uS3hUdjVlEEWTPWCeM5MA=
