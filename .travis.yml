@@ -1,0 +1,29 @@
+language: node_js
+node_js:
+  - "0.10.33"
+services:
+  - postgresql
+addons:
+  postgresql: "9.3"
+  sauce_connect: true
+notifications:
+  email: false
+script:
+  - npm run syntax
+  - npm test
+before_script:
+  - psql -c 'create database browniepoints_test;' -U postgres
+  - cd test/scripts; ./create-db.sh browniepoints_test; cd ../..;
+  - PORT=9001 node server/index.js&
+  - sleep 5
+after_script:
+  - npm run coveralls
+  - npm run e2e
+env:
+  global:
+    - DATABASE_URL=postgres://postgres@localhost/browniepoints_test
+    - AWS_BUCKET=mlf-browniepoints-test
+    # AWS_ACCESS_KEY_ID
+    # AWS_SECRET_ACCESS_KEY
+    # SAUCE_ACCESS_KEY
+    # SAUCE_USERNAME
