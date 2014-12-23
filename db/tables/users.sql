@@ -5,5 +5,6 @@ CREATE TABLE users(
   password char(60) NOT NULL,
   avatar varchar(200) NOT NULL,
   token char(96) NOT NULL,
-  created_at timestamp NOT NULL DEFAULT now()
+  created_at timestamp NOT NULL DEFAULT now(),
+  points integer
 );
