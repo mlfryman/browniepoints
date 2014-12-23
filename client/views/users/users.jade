@@ -10,7 +10,7 @@
             label(for='username') Username
             input#username(type='text', name='username', ng-model='user.username', autofocus)
           .small-6.columns
-        .row
+        .row(ng-show='mode === "register"')
           .small-6.columns
             label(for='email') Email
             input#email(type='email', name='email', ng-model='user.email')
