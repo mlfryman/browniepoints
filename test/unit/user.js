@@ -33,6 +33,7 @@ describe('User', function(){
   describe('.register', function(){
     it('should register a new User', function(done){
       User.register({username:'sam', email:'sam@sam.com', password:'456', avatar:'http://images.apple.com/global/elements/flags/16x16/usa_2x.png'}, function(err){
+        console.log('SERVER UNIT TEST - .register: ', err);
         expect(err).to.be.null;
         done();
       });

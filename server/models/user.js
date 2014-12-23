@@ -22,6 +22,8 @@ User.register = function(obj, cb){
     var psqlString = 'INSERT INTO users (username, email, password, avatar, token) VALUES ($1, $2, $3, $4, $5) RETURNING id',
         psqlParams = [user.username, user.email, user.password, user.avatar, user.token];
     pg.query(psqlString, psqlParams, function(err, results){
+      console.log('SERVER USER MODEL - User.register ERROR: ', err);
+      console.log('SERVER USER MODEL - User.register RESULTS: ', results);
       if(err){return cb(true);}
       download(obj.avatar, file, cb);
     });
