@@ -13,7 +13,7 @@ describe('login', function(){
     element(by.model('user.username')).sendKeys('bob');
     element(by.model('user.password')).sendKeys('123');
     element(by.css('button[ng-click]')).click();
-    expect(element(by.css('.header-content > h1')).getText()).toEqual('Evernode');
+    expect(element(by.css('.header-content > h1')).getText()).toEqual('BrowniePoints');
   });
 
   it('should NOT login a User - bad credentials', function(){

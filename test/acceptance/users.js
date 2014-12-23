@@ -43,6 +43,7 @@ describe('Users', function(){
         url: '/register',
         payload: {
           username: 'sam',
+          email: 'sam@sam.com',
           password: '456',
           avatar: 'http://images.apple.com/global/elements/flags/16x16/usa_2x.png'
         }

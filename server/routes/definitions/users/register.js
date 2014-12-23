@@ -9,13 +9,15 @@ module.exports = {
   validate: {
     payload: {
       username: Joi.string().min(3).max(12).required(),
-      email: Joi.string().min(5).required(),
+      email: Joi.string().email().min(5).required(),
       password: Joi.string().min(3).required(),
       avatar: Joi.string().required()
     }
   },
   auth: false,
   handler: function(request, reply){
+    console.log('SERVER HAPI REGISTER -  request: ', request);
+    console.log('SERVER HAPI REGISTER -  reply: ', reply);
     User.register(request.payload, function(err){
       reply().code(err ? 400 : 200);
     });
