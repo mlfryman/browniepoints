@@ -15,7 +15,7 @@ Brownie Points v.2.0
 <!-- ![Image1](https://raw.githubusercontent.com/mlfryman/browniepoints/master/docs/screenshots/browniepoints_home.png) -->
 
 ### Description
-Forthcoming.
+Forthcoming
 
 ### Models
 ```
