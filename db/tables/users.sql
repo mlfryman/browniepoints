@@ -3,8 +3,11 @@ CREATE TABLE users(
   username varchar(255) NOT NULL UNIQUE,
   email varchar(255) NOT NULL UNIQUE,
   password char(60) NOT NULL,
-  avatar varchar(200) NOT NULL,
+  created_at timestamptz NOT NULL DEFAULT now(),
   token char(96) NOT NULL,
-  created_at timestamp NOT NULL DEFAULT now(),
-  points integer
+  gravatar varchar(200),
+  first_name varchar(50),
+  last_name varchar(50),
+  tagline varchar(255),
+  points integer NOT NULL DEFAULT 0
 );
