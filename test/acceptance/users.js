@@ -42,8 +42,8 @@ describe('Users', function(){
         method: 'POST',
         url: '/register',
         payload: {
-          username: 'sam',
-          email: 'sam@sam.com',
+          username: 'frank',
+          email: 'frank@frank.com',
           password: '456789'
         }
       };
