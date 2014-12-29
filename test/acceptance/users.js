@@ -23,7 +23,7 @@ describe('Users', function(){
         url: '/login',
         payload: {
           username: 'bob',
-          password: '123'
+          password: '123456'
         }
       };
 
@@ -44,8 +44,7 @@ describe('Users', function(){
         payload: {
           username: 'sam',
           email: 'sam@sam.com',
-          password: '456',
-          avatar: 'http://images.apple.com/global/elements/flags/16x16/usa_2x.png'
+          password: '456789'
         }
       };
 
@@ -60,8 +59,8 @@ describe('Users', function(){
         url: '/register',
         payload: {
           username: 'bob',
-          password: '123',
-          avatar: 'http://images.apple.com/global/elements/flags/16x16/usa_2x.png'
+          email: 'bob@boberson.com',
+          password: '123456'
         }
       };
 
@@ -79,7 +78,7 @@ describe('Users', function(){
         url: '/login',
         payload: {
           username: 'bob',
-          password: '123'
+          password: '123456'
         }
       };
 
@@ -95,7 +94,7 @@ describe('Users', function(){
         url: '/login',
         payload: {
           username: 'sally',
-          password: '876'
+          password: '987654'
         }
       };
 

@@ -11,14 +11,14 @@ describe('login', function(){
 
   it('should login a User', function(){
     element(by.model('user.username')).sendKeys('bob');
-    element(by.model('user.password')).sendKeys('123');
+    element(by.model('user.password')).sendKeys('123456');
     element(by.css('button[ng-click]')).click();
     expect(element(by.css('.header-content > h1')).getText()).toEqual('BrowniePoints');
   });
 
   it('should NOT login a User - bad credentials', function(){
     element(by.model('user.username')).sendKeys('bob');
-    element(by.model('user.password')).sendKeys('1234');
+    element(by.model('user.password')).sendKeys('wrong');
     element(by.css('button[ng-click]')).click();
     expect(element(by.css('.section-header > h1')).getText()).toEqual('LOGIN');
   });
