@@ -8,8 +8,8 @@ module.exports = {
   tags:['users'],
   validate: {
     payload: {
-      username: Joi.string().min(3).max(12).required(),
-      password: Joi.string().min(3).required()
+      username: Joi.string().min(3).max(20).required(),
+      password: Joi.string().min(6).required()
     }
   },
   // allows us to test mobile app

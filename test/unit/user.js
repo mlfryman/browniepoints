@@ -22,23 +22,31 @@ describe('User', function(){
 
   describe('constructor', function(){
     it('should create a User object', function(done){
-      var user = new User({username:'bob'});
+      var user = new User({username:'bob', email:'bob@boberson.com'});
 
       expect(user).to.be.instanceof(User);
       expect(user.username).to.equal('bob');
+      expect(user.email).to.equal('bob@boberson.com');
       done();
     });
   });
 
   describe('.register', function(){
     it('should register a new User', function(done){
-      User.register({username:'sam', email:'sam@sam.com', password:'456', avatar:'http://images.apple.com/global/elements/flags/16x16/usa_2x.png'}, function(err){
+      User.register({username:'sam', email:'sam@sam.com', password:'456789'}, function(err, results){
+        // console.log('SERVER USER UNIT TEST - should register ERROR: ', err);
+        // console.log('SERVER USER UNIT TEST - should register RESULTS: ', results);
         expect(err).to.be.null;
+        expect(results).to.be.ok;
+        // expect(results).to.be.above(0);
+        expect(results).to.have.property('id');
         done();
       });
     });
-    it('should NOT register a new User - duplicate', function(done){
-      User.register({username:'bob', email:'bob@boberson.com', password:'123', avatar:'http://images.apple.com/global/elements/flags/16x16/usa_2x.png'}, function(err){
+    it('should NOT register a new User - duplicate user', function(done){
+      User.register({username:'bob', email:'bob@boberson.com', password:'123456'}, function(err, results){
+        // console.log('SERVER USER UNIT TEST - should NOT register ERROR: ', err);
+        // console.log('SERVER USER UNIT TEST - should NOT register RESULTS: ', results);
         expect(err).to.be.ok;
         done();
       });
@@ -47,18 +55,18 @@ describe('User', function(){
 
   describe('.login', function(){
     it('should login a User', function(done){
-      User.login({username:'bob', password:'123'}, function(user){
+      User.login({username:'bob', password:'123456'}, function(user){
         expect(user.username).to.equal('bob');
         done();
       });
     });
-    it('should NOT login a User - bad username', function(done){
-      User.login({username:'wrong', password:'123'}, function(user){
+    it('should NOT login a User - wrong username', function(done){
+      User.login({username:'wrong', password:'123456'}, function(user){
         expect(user).to.be.undefined;
         done();
       });
     });
-    it('should NOT login a User - bad password', function(done){
+    it('should NOT login a User - wrong password', function(done){
       User.login({username:'bob', password:'wrong'}, function(user){
         expect(user).to.be.undefined;
         done();

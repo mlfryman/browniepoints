@@ -5,8 +5,8 @@ var bcrypt  = require('bcrypt'),
     pg      = require('../postgres/manager');
 
 function User(obj){
-  this.username = obj.username;
-  this.email    = obj.email;
+  this.username   = obj.username;
+  this.email      = obj.email;
 }
 
 User.register = function(obj, cb){
@@ -17,7 +17,9 @@ User.register = function(obj, cb){
   var psqlString = 'INSERT INTO users (username, email, password, token) VALUES ($1, $2, $3, $4) RETURNING id',
       psqlParams = [user.username, user.email, user.password, user.token];
   pg.query(psqlString, psqlParams, function(err, results){
-    if(err){return cb(true);}
+    // console.log('SERVER USER MODEL - REGISTER, ERROR: ', err);
+    // console.log('SERVER USER MODEL - REGISTER, RESULTS: ', results);
+    cb(err, results && results.rows ? results.rows[0] : null);
   });
 };
 
