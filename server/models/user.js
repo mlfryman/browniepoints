@@ -14,8 +14,12 @@ User.register = function(obj, cb){
   user.password = bcrypt.hashSync(obj.password, 8);
   user.token    = crypto.createHash('sha1').update(obj.email).digest('hex');
 
-  var psqlString = 'INSERT INTO users (username, email, password, token) VALUES ($1, $2, $3, $4) RETURNING id',
-      psqlParams = [user.username, user.email, user.password, user.token];
+  var cleanEmail = user.email.toLowerCase().trim(),
+      emailHash  = crypto.createHash('md5').update(cleanEmail).digest('hex');
+  user.gravatar  = 'https://secure.gravatar.com/avatar/' + emailHash + '?s=200&d=mm&f=y';
+
+  var psqlString = 'INSERT INTO users (username, email, password, token, gravatar) VALUES ($1, $2, $3, $4, $5) RETURNING id',
+      psqlParams = [user.username, user.email, user.password, user.token, user.gravatar];
   pg.query(psqlString, psqlParams, function(err, results){
     // console.log('SERVER USER MODEL - REGISTER, ERROR: ', err);
     // console.log('SERVER USER MODEL - REGISTER, RESULTS: ', results);
