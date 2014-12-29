@@ -33,20 +33,17 @@ describe('User', function(){
 
   describe('.register', function(){
     it('should register a new User', function(done){
-      User.register({username:'sam', email:'sam@sam.com', password:'456789'}, function(err, results){
+      User.register({username:'frank', email:'frank@frank.com', password:'456789'}, function(err, results){
         console.log('SERVER USER UNIT TEST - should register ERROR: ', err);
         console.log('SERVER USER UNIT TEST - should register RESULTS: ', results);
         expect(err).to.be.null;
         expect(results).to.be.ok;
-        // expect(results).to.be.above(0);
         expect(results).to.have.property('id');
         done();
       });
     });
     it('should NOT register a new User - duplicate user', function(done){
       User.register({username:'bob', email:'bob@boberson.com', password:'123456'}, function(err, results){
-        // console.log('SERVER USER UNIT TEST - should NOT register ERROR: ', err);
-        // console.log('SERVER USER UNIT TEST - should NOT register RESULTS: ', results);
         expect(err).to.be.ok;
         done();
       });
