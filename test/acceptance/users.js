@@ -16,7 +16,6 @@ describe('Users', function(){
 
   beforeEach(function(done){
     h.cleanDB();
-    h.populateDB();
     var options = {
       method: 'POST',
       url: '/login',
@@ -47,8 +46,8 @@ describe('Users', function(){
       };
 
       server.inject(options, function(response){
-        console.log('SERVER USER ACCEPTANCE TEST - should register OPTIONS: ', options);
-        console.log('SERVER USER ACCEPTANCE TEST - should register RESPONSE: ', response);
+        // console.log('SERVER USER ACCEPTANCE TEST - should register OPTIONS: ', options);
+        // console.log('SERVER USER ACCEPTANCE TEST - should register RESPONSE: ', response);
         expect(response.statusCode).to.equal(200);
         done();
       });

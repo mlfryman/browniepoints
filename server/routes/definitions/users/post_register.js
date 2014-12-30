@@ -15,10 +15,10 @@ module.exports = {
   },
   auth: false,
   handler: function(request, reply){
-    console.log('SERVER USER CTRL - post_register REQUEST: ', request);
-    console.log('SERVER USER CTRL - post_register REPLY: ', reply);
+    // console.log('SERVER USER CTRL - post_register REQUEST: ', request);
+    // console.log('SERVER USER CTRL - post_register REPLY: ', reply);
     User.register(request.payload, function(err){
-      console.log('SERVER USER CTRL - post_register ERROR: ', err);
+      // console.log('SERVER USER CTRL - post_register ERROR: ', err);
       reply().code(err ? 400 : 200);
     });
   }

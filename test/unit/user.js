@@ -3,7 +3,6 @@
 'use strict';
 
 var expect     = require('chai').expect,
-    // cp         = require('child_process'),
     h          = require('../helpers/helpers'),
     User       = require('../../server/models/user'),
     Lab        = require('lab'),
@@ -11,13 +10,10 @@ var expect     = require('chai').expect,
     describe   = lab.describe,
     it         = lab.it,
     beforeEach = lab.beforeEach;
-    // db         = h.getDB();
 
 describe('User', function(){
   beforeEach(function(done){
-    h.cleanDB();
-    h.populateDB();
-    done();
+    h.cleanDB(done);
   });
 
   describe('constructor', function(){
@@ -34,8 +30,8 @@ describe('User', function(){
   describe('.register', function(){
     it('should register a new User', function(done){
       User.register({username:'frank', email:'frank@frank.com', password:'456789'}, function(err, results){
-        console.log('SERVER USER UNIT TEST - should register ERROR: ', err);
-        console.log('SERVER USER UNIT TEST - should register RESULTS: ', results);
+        // console.log('SERVER USER UNIT TEST - should register ERROR: ', err);
+        // console.log('SERVER USER UNIT TEST - should register RESULTS: ', results);
         expect(err).to.be.null;
         expect(results).to.be.ok;
         expect(results).to.have.property('id');

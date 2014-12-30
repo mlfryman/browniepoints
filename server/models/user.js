@@ -22,7 +22,7 @@ User.register = function(obj, cb){
       psqlParams = [user.username, user.email, user.password, user.token, user.gravatar];
   pg.query(psqlString, psqlParams, function(err, results){
     console.log('SERVER USER MODEL - REGISTER, ERROR: ', err);
-    console.log('SERVER USER MODEL - REGISTER, RESULTS: ', results);
+    // console.log('SERVER USER MODEL - REGISTER, RESULTS: ', results);
     cb(err, results && results.rows ? results.rows[0] : null);
   });
 };
