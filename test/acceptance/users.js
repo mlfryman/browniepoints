@@ -49,8 +49,8 @@ describe('Users', function(){
       };
 
       server.inject(options, function(response){
-        console.log('SERVER USER ACCEPTANCE TEST - should register options: ', options);
-        console.log('SERVER USER ACCEPTANCE TEST - should register response: ', response);
+        console.log('SERVER USER ACCEPTANCE TEST - should register OPTIONS: ', options);
+        console.log('SERVER USER ACCEPTANCE TEST - should register RESPONSE: ', response);
         expect(response.statusCode).to.equal(200);
         done();
       });
