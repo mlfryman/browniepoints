@@ -3,37 +3,35 @@
 'use strict';
 
 var expect     = require('chai').expect,
-    cp         = require('child_process'),
     h          = require('../helpers/helpers'),
     server     = require('../../server/index'),
     Lab        = require('lab'),
     lab        = exports.lab = Lab.script(),
     describe   = lab.describe,
     it         = lab.it,
-    beforeEach = lab.beforeEach,
-    db         = h.getDB();
+    beforeEach = lab.beforeEach;
 
 describe('Users', function(){
   var cookie;
 
   beforeEach(function(done){
-    cp.execFile(__dirname + '/../scripts/clean-db.sh', [db], {cwd:__dirname + '/../scripts'}, function(err, stdout, stderr){
-      var options = {
-        method: 'POST',
-        url: '/login',
-        payload: {
-          username: 'bob',
-          password: '123456'
-        }
-      };
+    h.cleanDB();
+    h.populateDB();
+    var options = {
+      method: 'POST',
+      url: '/login',
+      payload: {
+        username: 'bob',
+        password: '123456'
+      }
+    };
 
-      server.inject(options, function(response){
-        // must put set-cookie in brackets since property name is invalid JS syntax
-        // @ index[0], since it returns an array of cookies
-        cookie = response.headers['set-cookie'][0].match(/hapi-cookie=[^;]+/)[0];
-        done();
-      });
+    server.inject(options, function(response){
+      // must put set-cookie in brackets since property name is invalid JS syntax
+      // @ index[0], since it returns an array of cookies
+      cookie = response.headers['set-cookie'][0].match(/hapi-cookie=[^;]+/)[0];
     });
+    done();
   });
 
   describe('POST /register', function(){
