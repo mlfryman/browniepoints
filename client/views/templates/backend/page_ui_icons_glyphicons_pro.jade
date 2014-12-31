@@ -1,0 +1,2254 @@
+doctype html
+//if IE 9
+  html.no-js.lt-ie10  
+// [if gt IE 9] <!
+html.no-js
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    title AppUI - Web App Bootstrap Admin Template
+    meta(name='description', content='AppUI is a Web App Bootstrap Admin Template created by pixelcave and published on Themeforest')
+    meta(name='author', content='pixelcave')
+    meta(name='robots', content='noindex, nofollow')
+    meta(name='viewport', content='width=device-width,initial-scale=1,maximum-scale=1.0')
+    // Icons
+    // The following icons can be replaced with your own, they are used by desktop and mobile browsers
+    link(rel='shortcut icon', href='img/favicon.png')
+    link(rel='apple-touch-icon', href='img/icon57.png', sizes='57x57')
+    link(rel='apple-touch-icon', href='img/icon72.png', sizes='72x72')
+    link(rel='apple-touch-icon', href='img/icon76.png', sizes='76x76')
+    link(rel='apple-touch-icon', href='img/icon114.png', sizes='114x114')
+    link(rel='apple-touch-icon', href='img/icon120.png', sizes='120x120')
+    link(rel='apple-touch-icon', href='img/icon144.png', sizes='144x144')
+    link(rel='apple-touch-icon', href='img/icon152.png', sizes='152x152')
+    link(rel='apple-touch-icon', href='img/icon180.png', sizes='180x180')
+    // END Icons
+    // Stylesheets
+    // Bootstrap is included in its original form, unaltered
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    // Related styles of various icon packs and plugins
+    link(rel='stylesheet', href='css/plugins.css')
+    // The main stylesheet of this template. All Bootstrap overwrites are defined in here
+    link(rel='stylesheet', href='css/main.css')
+    // Include a specific file here from css/themes/ folder to alter the default theme of the template
+    // The themes stylesheet of this template (for using specific theme color in individual elements - must included last)
+    link(rel='stylesheet', href='css/themes.css')
+    // END Stylesheets
+    // Modernizr (browser feature detection library)
+    script(src='js/vendor/modernizr-2.8.3.min.js')
+  body
+    // Page Wrapper
+    // In the PHP version you can set the following options from inc/config file
+    //
+      Available classes:
+      'page-loading'      enables page preloader
+    #page-wrapper.page-loading
+      // Preloader
+      // Preloader functionality (initialized in js/app.js) - pageLoading()
+      // Used only if page preloader enabled from inc/config (PHP version) or the class 'page-loading' is added in #page-wrapper element (HTML version)
+      .preloader
+        .inner
+          // Animation spinner for all modern browsers
+          .preloader-spinner.themed-background.hidden-lt-ie10
+          // Text for IE9
+          h3.text-primary.visible-lt-ie10
+            strong Loading..
+      // END Preloader
+      // Page Container
+      // In the PHP version you can set the following options from inc/config file
+      //
+        Available #page-container classes:
+        'sidebar-light'                                 for a light main sidebar (You can add it along with any other class)
+        'sidebar-visible-lg-mini'                       main sidebar condensed - Mini Navigation (> 991px)
+        'sidebar-visible-lg-full'                       main sidebar full - Full Navigation (> 991px)
+        'sidebar-alt-visible-lg'                        alternative sidebar visible by default (> 991px) (You can add it along with any other class)
+        'header-fixed-top'                              has to be added only if the class 'navbar-fixed-top' was added on header.navbar
+        'header-fixed-bottom'                           has to be added only if the class 'navbar-fixed-bottom' was added on header.navbar
+        'fixed-width'                                   for a fixed width layout (can only be used with a static header/main sidebar layout)
+        'enable-cookies'                                enables cookies for remembering active color theme when changed from the sidebar links (You can add it along with any other class)
+      #page-container.header-fixed-top.sidebar-visible-lg-full
+        // Alternative Sidebar
+        #sidebar-alt(tabindex='-1', aria-hidden='true')
+          // Toggle Alternative Sidebar Button (visible only in static layout)
+          a#sidebar-alt-close(href='javascript:void(0)', onclick="App.sidebar('toggle-sidebar-alt');")
+            i.fa.fa-times
+          // Wrapper for scrolling functionality
+          #sidebar-scroll-alt
+            // Sidebar Content
+            .sidebar-content
+              // Profile
+              .sidebar-section
+                h2.text-light Profile
+                form.form-control-borderless(action='index.html', method='post', onsubmit='return false;')
+                  .form-group
+                    label(for='side-profile-name') Name
+                    input#side-profile-name.form-control(type='text', name='side-profile-name', value='John Doe')
+                  .form-group
+                    label(for='side-profile-email') Email
+                    input#side-profile-email.form-control(type='email', name='side-profile-email', value='john.doe@example.com')
+                  .form-group
+                    label(for='side-profile-password') New Password
+                    input#side-profile-password.form-control(type='password', name='side-profile-password')
+                  .form-group
+                    label(for='side-profile-password-confirm') Confirm New Password
+                    input#side-profile-password-confirm.form-control(type='password', name='side-profile-password-confirm')
+                  .form-group.remove-margin
+                    button.btn.btn-effect-ripple.btn-primary(type='submit', onclick="App.sidebar('close-sidebar-alt');") Save
+              // END Profile
+              // Settings
+              .sidebar-section
+                h2.text-light Settings
+                form.form-horizontal.form-control-borderless(action='index.html', method='post', onsubmit='return false;')
+                  .form-group
+                    label.col-xs-7.control-label-fixed Notifications
+                    .col-xs-5
+                      label.switch.switch-success
+                        input(type='checkbox', checked='')
+                        span
+                  .form-group
+                    label.col-xs-7.control-label-fixed Public Profile
+                    .col-xs-5
+                      label.switch.switch-success
+                        input(type='checkbox', checked='')
+                        span
+                  .form-group
+                    label.col-xs-7.control-label-fixed Enable API
+                    .col-xs-5
+                      label.switch.switch-success
+                        input(type='checkbox')
+                        span
+                  .form-group.remove-margin
+                    button.btn.btn-effect-ripple.btn-primary(type='submit', onclick="App.sidebar('close-sidebar-alt');") Save
+              // END Settings
+            // END Sidebar Content
+          // END Wrapper for scrolling functionality
+        // END Alternative Sidebar
+        // Main Sidebar
+        #sidebar
+          // Sidebar Brand
+          #sidebar-brand.themed-background
+            a.sidebar-title(href='index.html')
+              i.fa.fa-cube
+              span.sidebar-nav-mini-hide
+                | App
+                strong UI
+          // END Sidebar Brand
+          // Wrapper for scrolling functionality
+          #sidebar-scroll
+            // Sidebar Content
+            .sidebar-content
+              // Sidebar Navigation
+              ul.sidebar-nav
+                li
+                  a(href='index.html')
+                    i.gi.gi-compass.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Dashboard
+                li.sidebar-separator
+                  i.fa.fa-ellipsis-h
+                li.active
+                  a.sidebar-nav-menu(href='#')
+                    i.fa.fa-chevron-left.sidebar-nav-indicator.sidebar-nav-mini-hide
+                    i.fa.fa-rocket.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide User Interface
+                  ul
+                    li
+                      a(href='page_ui_widgets.html') Widgets
+                    li
+                      a.sidebar-nav-submenu(href='#')
+                        i.fa.fa-chevron-left.sidebar-nav-indicator
+                        | Elements
+                      ul
+                        li
+                          a(href='page_ui_blocks_grid.html') Blocks &amp; Grid
+                        li
+                          a(href='page_ui_typography.html') Typography
+                        li
+                          a(href='page_ui_buttons_dropdowns.html') Buttons &amp; Dropdowns
+                        li
+                          a(href='page_ui_navigation_more.html') Navigation &amp; More
+                        li
+                          a(href='page_ui_progress_loading.html') Progress &amp; Loading
+                        li
+                          a(href='page_ui_tables.html') Tables
+                    li
+                      a.sidebar-nav-submenu(href='#')
+                        i.fa.fa-chevron-left.sidebar-nav-indicator
+                        | Forms
+                      ul
+                        li
+                          a(href='page_forms_components.html') Components
+                        li
+                          a(href='page_forms_wizard.html') Wizard
+                        li
+                          a(href='page_forms_validation.html') Validation
+                    li.active
+                      a.sidebar-nav-submenu(href='#')
+                        i.fa.fa-chevron-left.sidebar-nav-indicator
+                        | Icon Packs
+                      ul
+                        li
+                          a(href='page_ui_icons_fontawesome.html') Font Awesome
+                        li
+                          a.active(href='page_ui_icons_glyphicons_pro.html') Glyphicons Pro
+                li
+                  a.sidebar-nav-menu(href='#')
+                    i.fa.fa-chevron-left.sidebar-nav-indicator.sidebar-nav-mini-hide
+                    i.gi.gi-airplane.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Components
+                  ul
+                    li
+                      a(href='page_comp_todo.html') To-do List
+                    li
+                      a(href='page_comp_gallery.html') Gallery
+                    li
+                      a(href='page_comp_maps.html') Google Maps
+                    li
+                      a(href='page_comp_calendar.html') Calendar
+                    li
+                      a(href='page_comp_charts.html') Charts
+                    li
+                      a(href='page_comp_animations.html') CSS3 Animations
+                    li
+                      a(href='page_comp_tree.html') Tree View Lists
+                    li
+                      a(href='page_comp_nestable.html') Nestable &amp; Sortable Lists
+                li
+                  a.sidebar-nav-menu(href='#')
+                    i.fa.fa-chevron-left.sidebar-nav-indicator.sidebar-nav-mini-hide
+                    i.gi.gi-more_items.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide UI Layouts
+                  ul
+                    li
+                      a(href='page_layout_static.html') Static
+                    li
+                      a(href='page_layout_static_fixed_width.html') Static Fixed Width
+                    li
+                      a(href='page_layout_fixed_top.html') Top Header (Fixed)
+                    li
+                      a(href='page_layout_fixed_bottom.html') Bottom Header (Fixed)
+                    li
+                      a(href='page_layout_static_sidebar_mini.html') Sidebar Mini (Static)
+                    li
+                      a(href='page_layout_fixed_sidebar_mini.html') Sidebar Mini (Fixed)
+                    li
+                      a(href='page_layout_alternative_sidebar_visible.html') Visible Alternative Sidebar
+                li
+                  a.sidebar-nav-menu(href='#')
+                    i.fa.fa-chevron-left.sidebar-nav-indicator.sidebar-nav-mini-hide
+                    i.fa.fa-gift.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Extra Pages
+                  ul
+                    li
+                      a(href='page_ready_error.html') Error Page
+                    li
+                      a(href='page_ready_blank.html') Blank
+                    li
+                      a(href='page_ready_article.html') Article
+                    li
+                      a(href='page_ready_timeline.html') Timeline
+                    li
+                      a(href='page_ready_invoice.html') Invoice
+                    li
+                      a(href='page_ready_search_results.html') Search Results
+                    li
+                      a(href='page_ready_pricing_tables.html') Pricing Tables
+                    li
+                      a(href='page_ready_faq.html') FAQ
+                    li
+                      a(href='page_ready_profile.html') User Profile
+                    li
+                      a.sidebar-nav-submenu(href='#')
+                        i.fa.fa-chevron-left.sidebar-nav-indicator
+                        | Login, Register &amp; Lock
+                      ul
+                        li
+                          a(href='page_ready_login.html') Login
+                        li
+                          a(href='page_ready_reminder.html') Password Reminder
+                        li
+                          a(href='page_ready_register.html') Register
+                        li
+                          a(href='page_ready_lock_screen.html') Lock Screen
+                li.sidebar-separator
+                  i.fa.fa-ellipsis-h
+                li
+                  a(href='page_app_email.html')
+                    i.gi.gi-inbox.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Email Center
+                li
+                  a(href='page_app_social.html')
+                    i.fa.fa-share-alt.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Social Net
+                li
+                  a(href='page_app_media.html')
+                    i.gi.gi-picture.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Media Box
+                li
+                  a(href='page_app_estore.html')
+                    i.gi.gi-shopping_cart.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide eStore
+              // END Sidebar Navigation
+              // Color Themes
+              // Preview a theme on a page functionality can be found in js/app.js - colorThemePreview()
+              .sidebar-section.sidebar-nav-mini-hide
+                .sidebar-separator.push
+                  i.fa.fa-ellipsis-h
+                ul.sidebar-themes.clearfix
+                  li
+                    a.themed-background-default(href='javascript:void(0)', data-toggle='tooltip', title='Default', data-theme='default', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-default
+                      span.section-content
+                  li
+                    a.themed-background-classy(href='javascript:void(0)', data-toggle='tooltip', title='Classy', data-theme='css/themes/classy.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-classy
+                      span.section-content
+                  li
+                    a.themed-background-social(href='javascript:void(0)', data-toggle='tooltip', title='Social', data-theme='css/themes/social.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-social
+                      span.section-content
+                  li
+                    a.themed-background-flat(href='javascript:void(0)', data-toggle='tooltip', title='Flat', data-theme='css/themes/flat.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-flat
+                      span.section-content
+                  li
+                    a.themed-background-amethyst(href='javascript:void(0)', data-toggle='tooltip', title='Amethyst', data-theme='css/themes/amethyst.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-amethyst
+                      span.section-content
+                  li
+                    a.themed-background-creme(href='javascript:void(0)', data-toggle='tooltip', title='Creme', data-theme='css/themes/creme.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-creme
+                      span.section-content
+                  li
+                    a.themed-background-passion(href='javascript:void(0)', data-toggle='tooltip', title='Passion', data-theme='css/themes/passion.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-passion
+                      span.section-content
+                  li
+                    a.themed-background-default(href='javascript:void(0)', data-toggle='tooltip', title='Default + Light Sidebar', data-theme='default', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-classy(href='javascript:void(0)', data-toggle='tooltip', title='Classy + Light Sidebar', data-theme='css/themes/classy.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-social(href='javascript:void(0)', data-toggle='tooltip', title='Social + Light Sidebar', data-theme='css/themes/social.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-flat(href='javascript:void(0)', data-toggle='tooltip', title='Flat + Light Sidebar', data-theme='css/themes/flat.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-amethyst(href='javascript:void(0)', data-toggle='tooltip', title='Amethyst + Light Sidebar', data-theme='css/themes/amethyst.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-creme(href='javascript:void(0)', data-toggle='tooltip', title='Creme + Light Sidebar', data-theme='css/themes/creme.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-passion(href='javascript:void(0)', data-toggle='tooltip', title='Passion + Light Sidebar', data-theme='css/themes/passion.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-default(href='javascript:void(0)', data-toggle='tooltip', title='Default + Light Header', data-theme='default', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-default
+                      span.section-content
+                  li
+                    a.themed-background-classy(href='javascript:void(0)', data-toggle='tooltip', title='Classy + Light Header', data-theme='css/themes/classy.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-classy
+                      span.section-content
+                  li
+                    a.themed-background-social(href='javascript:void(0)', data-toggle='tooltip', title='Social + Light Header', data-theme='css/themes/social.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-social
+                      span.section-content
+                  li
+                    a.themed-background-flat(href='javascript:void(0)', data-toggle='tooltip', title='Flat + Light Header', data-theme='css/themes/flat.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-flat
+                      span.section-content
+                  li
+                    a.themed-background-amethyst(href='javascript:void(0)', data-toggle='tooltip', title='Amethyst + Light Header', data-theme='css/themes/amethyst.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-amethyst
+                      span.section-content
+                  li
+                    a.themed-background-creme(href='javascript:void(0)', data-toggle='tooltip', title='Creme + Light Header', data-theme='css/themes/creme.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-creme
+                      span.section-content
+                  li
+                    a.themed-background-passion(href='javascript:void(0)', data-toggle='tooltip', title='Passion + Light Header', data-theme='css/themes/passion.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-passion
+                      span.section-content
+              // END Color Themes
+            // END Sidebar Content
+          // END Wrapper for scrolling functionality
+          // Sidebar Extra Info
+          #sidebar-extra-info.sidebar-content.sidebar-nav-mini-hide
+            .push-bit
+              span.pull-right
+                a.text-muted(href='javascript:void(0)')
+                  i.fa.fa-plus
+              small
+                strong 78 GB
+                |  / 100 GB
+            .progress.progress-mini.push-bit
+              .progress-bar.progress-bar-primary(role='progressbar', aria-valuenow='78', aria-valuemin='0', aria-valuemax='100', style='width: 78%')
+            .text-center
+              small
+                | Crafted with 
+                i.fa.fa-heart.text-danger
+                |  by 
+                a(href='http://goo.gl/vNS3I', target='_blank') pixelcave
+              br
+              small
+                span#year-copy
+                |  &copy; 
+                a(href='http://goo.gl/RcsdAh', target='_blank') AppUI 2.1
+          // END Sidebar Extra Info
+        // END Main Sidebar
+        // Main Container
+        #main-container
+          // Header
+          // In the PHP version you can set the following options from inc/config file
+          //
+            Available header.navbar classes:
+            'navbar-default'            for the default light header
+            'navbar-inverse'            for an alternative dark header
+            'navbar-fixed-top'          for a top fixed header (fixed main sidebar with scroll will be auto initialized, functionality can be found in js/app.js - handleSidebar())
+            'header-fixed-top'      has to be added on #page-container only if the class 'navbar-fixed-top' was added
+            'navbar-fixed-bottom'       for a bottom fixed header (fixed main sidebar with scroll will be auto initialized, functionality can be found in js/app.js - handleSidebar()))
+            'header-fixed-bottom'   has to be added on #page-container only if the class 'navbar-fixed-bottom' was added
+          header.navbar.navbar-inverse.navbar-fixed-top
+            // Left Header Navigation
+            ul.nav.navbar-nav-custom
+              // Main Sidebar Toggle Button
+              li
+                a(href='javascript:void(0)', onclick="App.sidebar('toggle-sidebar');")
+                  i#sidebar-toggle-mini.fa.fa-ellipsis-v.fa-fw.animation-fadeInRight
+                  i#sidebar-toggle-full.fa.fa-bars.fa-fw.animation-fadeInRight
+              // END Main Sidebar Toggle Button
+              // Header Link
+              li.hidden-xs.animation-fadeInQuick
+                a(href='')
+                  strong ICON PACKS
+              // END Header Link
+            // END Left Header Navigation
+            // Right Header Navigation
+            ul.nav.navbar-nav-custom.pull-right
+              // Search Form
+              li
+                form.navbar-form-custom(action='page_ready_search_results.html', method='post', role='search')
+                  input#top-search.form-control(type='text', name='top-search', placeholder='Search..')
+              // END Search Form
+              // Alternative Sidebar Toggle Button
+              li
+                a(href='javascript:void(0)', onclick="App.sidebar('toggle-sidebar-alt');")
+                  i.gi.gi-settings
+              // END Alternative Sidebar Toggle Button
+              // User Dropdown
+              li.dropdown
+                a.dropdown-toggle(href='javascript:void(0)', data-toggle='dropdown')
+                  img(src='img/placeholders/avatars/avatar9.jpg', alt='avatar')
+                ul.dropdown-menu.dropdown-menu-right
+                  li.dropdown-header
+                    strong ADMINISTRATOR
+                  li
+                    a(href='page_app_email.html')
+                      i.fa.fa-inbox.fa-fw.pull-right
+                      |                                             Inbox
+                  li
+                    a(href='page_app_social.html')
+                      i.fa.fa-pencil-square.fa-fw.pull-right
+                      |                                             Profile
+                  li
+                    a(href='page_app_media.html')
+                      i.fa.fa-picture-o.fa-fw.pull-right
+                      |                                             Media Manager
+                  li.divider
+                  li
+                  li
+                    a(href='javascript:void(0)', onclick="App.sidebar('toggle-sidebar-alt');")
+                      i.gi.gi-settings.fa-fw.pull-right
+                      |                                             Settings
+                  li
+                    a(href='page_ready_lock_screen.html')
+                      i.gi.gi-lock.fa-fw.pull-right
+                      |                                             Lock Account
+                  li
+                    a(href='page_ready_login.html')
+                      i.fa.fa-power-off.fa-fw.pull-right
+                      |                                             Log out
+              // END User Dropdown
+            // END Right Header Navigation
+          // END Header
+          // Page content
+          #page-content
+            // Glyphicons Pro Header
+            .content-header
+              .row
+                .col-sm-6
+                  .header-section
+                    h1 Glyphicons Pro 1.8.1 (save $59)
+                .col-sm-6.hidden-xs
+                  .header-section
+                    ul.breadcrumb.breadcrumb-top
+                      li User Interface
+                      li Icon Packs
+                      li
+                        a(href='') Glyphicons Pro
+            // END Glyphicons Pro Header
+            // Icon Generator Block
+            #icon-gen.block.full
+              // Icon Generator Title
+              .block-title
+                h2 Icon Code Generator
+              // END Icon Generator Title
+              // Icon Generator Content
+              input#icon-gen-input.form-control.input-lg.text-center(type='text', name='icon-gen-input', placeholder='Click an icon to get its code..')
+              // END Icon Generator Content
+            // END Icon Generator Block
+            // All Icons Block
+            .block
+              // All Icons Title
+              .block-title
+                h2 All Icons
+              // END All Icons Title
+              // Glyphicons
+              .block-section
+                h3 Glyphicons
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-glass')
+                  i.gi.gi-glass
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-leaf')
+                  i.gi.gi-leaf
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-dog')
+                  i.gi.gi-dog
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-user')
+                  i.gi.gi-user
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-girl')
+                  i.gi.gi-girl
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-car')
+                  i.gi.gi-car
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-user_add')
+                  i.gi.gi-user_add
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-user_remove')
+                  i.gi.gi-user_remove
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-film')
+                  i.gi.gi-film
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-magic')
+                  i.gi.gi-magic
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-envelope')
+                  i.gi.gi-envelope
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-camera')
+                  i.gi.gi-camera
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-heart')
+                  i.gi.gi-heart
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-beach_umbrella')
+                  i.gi.gi-beach_umbrella
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-train')
+                  i.gi.gi-train
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-print')
+                  i.gi.gi-print
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-bin')
+                  i.gi.gi-bin
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-music')
+                  i.gi.gi-music
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-note')
+                  i.gi.gi-note
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-heart_empty')
+                  i.gi.gi-heart_empty
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-home')
+                  i.gi.gi-home
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-snowflake')
+                  i.gi.gi-snowflake
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-fire')
+                  i.gi.gi-fire
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-magnet')
+                  i.gi.gi-magnet
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-parents')
+                  i.gi.gi-parents
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-binoculars')
+                  i.gi.gi-binoculars
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-road')
+                  i.gi.gi-road
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-search')
+                  i.gi.gi-search
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-cars')
+                  i.gi.gi-cars
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-notes_2')
+                  i.gi.gi-notes_2
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-pencil')
+                  i.gi.gi-pencil
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-bus')
+                  i.gi.gi-bus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-wifi_alt')
+                  i.gi.gi-wifi_alt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-luggage')
+                  i.gi.gi-luggage
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-old_man')
+                  i.gi.gi-old_man
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-woman')
+                  i.gi.gi-woman
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-file')
+                  i.gi.gi-file
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-coins')
+                  i.gi.gi-coins
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-airplane')
+                  i.gi.gi-airplane
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-notes')
+                  i.gi.gi-notes
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-stats')
+                  i.gi.gi-stats
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-charts')
+                  i.gi.gi-charts
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-pie_chart')
+                  i.gi.gi-pie_chart
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-group')
+                  i.gi.gi-group
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-keys')
+                  i.gi.gi-keys
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-calendar')
+                  i.gi.gi-calendar
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-router')
+                  i.gi.gi-router
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-camera_small')
+                  i.gi.gi-camera_small
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-dislikes')
+                  i.gi.gi-dislikes
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-star')
+                  i.gi.gi-star
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-link')
+                  i.gi.gi-link
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-eye_open')
+                  i.gi.gi-eye_open
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-eye_close')
+                  i.gi.gi-eye_close
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-alarm')
+                  i.gi.gi-alarm
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-clock')
+                  i.gi.gi-clock
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-stopwatch')
+                  i.gi.gi-stopwatch
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-projector')
+                  i.gi.gi-projector
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-history')
+                  i.gi.gi-history
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-truck')
+                  i.gi.gi-truck
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-cargo')
+                  i.gi.gi-cargo
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-compass')
+                  i.gi.gi-compass
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-keynote')
+                  i.gi.gi-keynote
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-paperclip')
+                  i.gi.gi-paperclip
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-power')
+                  i.gi.gi-power
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-lightbulb')
+                  i.gi.gi-lightbulb
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-tag')
+                  i.gi.gi-tag
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-tags')
+                  i.gi.gi-tags
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-cleaning')
+                  i.gi.gi-cleaning
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-ruller')
+                  i.gi.gi-ruller
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-gift')
+                  i.gi.gi-gift
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-umbrella')
+                  i.gi.gi-umbrella
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-book')
+                  i.gi.gi-book
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-bookmark')
+                  i.gi.gi-bookmark
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-wifi')
+                  i.gi.gi-wifi
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-cup')
+                  i.gi.gi-cup
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-stroller')
+                  i.gi.gi-stroller
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-headphones')
+                  i.gi.gi-headphones
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-headset')
+                  i.gi.gi-headset
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-warning_sign')
+                  i.gi.gi-warning_sign
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-signal')
+                  i.gi.gi-signal
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-retweet')
+                  i.gi.gi-retweet
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-refresh')
+                  i.gi.gi-refresh
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-roundabout')
+                  i.gi.gi-roundabout
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-random')
+                  i.gi.gi-random
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-heat')
+                  i.gi.gi-heat
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-repeat')
+                  i.gi.gi-repeat
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-display')
+                  i.gi.gi-display
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-log_book')
+                  i.gi.gi-log_book
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-address_book')
+                  i.gi.gi-address_book
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-building')
+                  i.gi.gi-building
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-eyedropper')
+                  i.gi.gi-eyedropper
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-adjust')
+                  i.gi.gi-adjust
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-tint')
+                  i.gi.gi-tint
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-crop')
+                  i.gi.gi-crop
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-vector_path_square')
+                  i.gi.gi-vector_path_square
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-vector_path_circle')
+                  i.gi.gi-vector_path_circle
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-vector_path_polygon')
+                  i.gi.gi-vector_path_polygon
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-vector_path_line')
+                  i.gi.gi-vector_path_line
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-vector_path_curve')
+                  i.gi.gi-vector_path_curve
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-vector_path_all')
+                  i.gi.gi-vector_path_all
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-font')
+                  i.gi.gi-font
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-italic')
+                  i.gi.gi-italic
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-bold')
+                  i.gi.gi-bold
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-text_underline')
+                  i.gi.gi-text_underline
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-text_strike')
+                  i.gi.gi-text_strike
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-text_height')
+                  i.gi.gi-text_height
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-text_width')
+                  i.gi.gi-text_width
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-text_resize')
+                  i.gi.gi-text_resize
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-left_indent')
+                  i.gi.gi-left_indent
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-right_indent')
+                  i.gi.gi-right_indent
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-align_left')
+                  i.gi.gi-align_left
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-align_center')
+                  i.gi.gi-align_center
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-align_right')
+                  i.gi.gi-align_right
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-justify')
+                  i.gi.gi-justify
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-list')
+                  i.gi.gi-list
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-text_smaller')
+                  i.gi.gi-text_smaller
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-text_bigger')
+                  i.gi.gi-text_bigger
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-embed')
+                  i.gi.gi-embed
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-embed_close')
+                  i.gi.gi-embed_close
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-table')
+                  i.gi.gi-table
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-message_full')
+                  i.gi.gi-message_full
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-message_empty')
+                  i.gi.gi-message_empty
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-message_in')
+                  i.gi.gi-message_in
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-message_out')
+                  i.gi.gi-message_out
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-message_plus')
+                  i.gi.gi-message_plus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-message_minus')
+                  i.gi.gi-message_minus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-message_ban')
+                  i.gi.gi-message_ban
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-message_flag')
+                  i.gi.gi-message_flag
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-message_lock')
+                  i.gi.gi-message_lock
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-message_new')
+                  i.gi.gi-message_new
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-inbox')
+                  i.gi.gi-inbox
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-inbox_plus')
+                  i.gi.gi-inbox_plus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-inbox_minus')
+                  i.gi.gi-inbox_minus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-inbox_lock')
+                  i.gi.gi-inbox_lock
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-inbox_in')
+                  i.gi.gi-inbox_in
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-inbox_out')
+                  i.gi.gi-inbox_out
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-cogwheel')
+                  i.gi.gi-cogwheel
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-cogwheels')
+                  i.gi.gi-cogwheels
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-picture')
+                  i.gi.gi-picture
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-adjust_alt')
+                  i.gi.gi-adjust_alt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-database_lock')
+                  i.gi.gi-database_lock
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-database_plus')
+                  i.gi.gi-database_plus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-database_minus')
+                  i.gi.gi-database_minus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-database_ban')
+                  i.gi.gi-database_ban
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-folder_open')
+                  i.gi.gi-folder_open
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-folder_plus')
+                  i.gi.gi-folder_plus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-folder_minus')
+                  i.gi.gi-folder_minus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-folder_lock')
+                  i.gi.gi-folder_lock
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-folder_flag')
+                  i.gi.gi-folder_flag
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-folder_new')
+                  i.gi.gi-folder_new
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-edit')
+                  i.gi.gi-edit
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-new_window')
+                  i.gi.gi-new_window
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-check')
+                  i.gi.gi-check
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-unchecked')
+                  i.gi.gi-unchecked
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-more_windows')
+                  i.gi.gi-more_windows
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-show_big_thumbnails')
+                  i.gi.gi-show_big_thumbnails
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-show_thumbnails')
+                  i.gi.gi-show_thumbnails
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-show_thumbnails_with_lines')
+                  i.gi.gi-show_thumbnails_with_lines
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-show_lines')
+                  i.gi.gi-show_lines
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-playlist')
+                  i.gi.gi-playlist
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-imac')
+                  i.gi.gi-imac
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-macbook')
+                  i.gi.gi-macbook
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-ipad')
+                  i.gi.gi-ipad
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-iphone')
+                  i.gi.gi-iphone
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-iphone_transfer')
+                  i.gi.gi-iphone_transfer
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-iphone_exchange')
+                  i.gi.gi-iphone_exchange
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-ipod')
+                  i.gi.gi-ipod
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-ipod_shuffle')
+                  i.gi.gi-ipod_shuffle
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-ear_plugs')
+                  i.gi.gi-ear_plugs
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-record')
+                  i.gi.gi-record
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-step_backward')
+                  i.gi.gi-step_backward
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-fast_backward')
+                  i.gi.gi-fast_backward
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-rewind')
+                  i.gi.gi-rewind
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-play')
+                  i.gi.gi-play
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-pause')
+                  i.gi.gi-pause
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-stop')
+                  i.gi.gi-stop
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-forward')
+                  i.gi.gi-forward
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-fast_forward')
+                  i.gi.gi-fast_forward
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-step_forward')
+                  i.gi.gi-step_forward
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-eject')
+                  i.gi.gi-eject
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-facetime_video')
+                  i.gi.gi-facetime_video
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-download_alt')
+                  i.gi.gi-download_alt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-mute')
+                  i.gi.gi-mute
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-volume_down')
+                  i.gi.gi-volume_down
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-volume_up')
+                  i.gi.gi-volume_up
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-screenshot')
+                  i.gi.gi-screenshot
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-move')
+                  i.gi.gi-move
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-more')
+                  i.gi.gi-more
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-brightness_reduce')
+                  i.gi.gi-brightness_reduce
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-brightness_increase')
+                  i.gi.gi-brightness_increase
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-circle_plus')
+                  i.gi.gi-circle_plus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-circle_minus')
+                  i.gi.gi-circle_minus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-circle_remove')
+                  i.gi.gi-circle_remove
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-circle_ok')
+                  i.gi.gi-circle_ok
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-circle_question_mark')
+                  i.gi.gi-circle_question_mark
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-circle_info')
+                  i.gi.gi-circle_info
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-circle_exclamation_mark')
+                  i.gi.gi-circle_exclamation_mark
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-remove')
+                  i.gi.gi-remove
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-ok')
+                  i.gi.gi-ok
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-ban')
+                  i.gi.gi-ban
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-download')
+                  i.gi.gi-download
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-upload')
+                  i.gi.gi-upload
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-shopping_cart')
+                  i.gi.gi-shopping_cart
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-lock')
+                  i.gi.gi-lock
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-unlock')
+                  i.gi.gi-unlock
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-electricity')
+                  i.gi.gi-electricity
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-ok_2')
+                  i.gi.gi-ok_2
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-remove_2')
+                  i.gi.gi-remove_2
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-cart_out')
+                  i.gi.gi-cart_out
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-cart_in')
+                  i.gi.gi-cart_in
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-left_arrow')
+                  i.gi.gi-left_arrow
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-right_arrow')
+                  i.gi.gi-right_arrow
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-down_arrow')
+                  i.gi.gi-down_arrow
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-up_arrow')
+                  i.gi.gi-up_arrow
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-resize_small')
+                  i.gi.gi-resize_small
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-resize_full')
+                  i.gi.gi-resize_full
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-circle_arrow_left')
+                  i.gi.gi-circle_arrow_left
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-circle_arrow_right')
+                  i.gi.gi-circle_arrow_right
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-circle_arrow_top')
+                  i.gi.gi-circle_arrow_top
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-circle_arrow_down')
+                  i.gi.gi-circle_arrow_down
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-play_button')
+                  i.gi.gi-play_button
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-unshare')
+                  i.gi.gi-unshare
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-share')
+                  i.gi.gi-share
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-chevron-right')
+                  i.gi.gi-chevron-right
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-chevron-left')
+                  i.gi.gi-chevron-left
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-bluetooth')
+                  i.gi.gi-bluetooth
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-euro')
+                  i.gi.gi-euro
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-usd')
+                  i.gi.gi-usd
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-gbp')
+                  i.gi.gi-gbp
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-retweet_2')
+                  i.gi.gi-retweet_2
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-moon')
+                  i.gi.gi-moon
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-sun')
+                  i.gi.gi-sun
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-cloud')
+                  i.gi.gi-cloud
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-direction')
+                  i.gi.gi-direction
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-brush')
+                  i.gi.gi-brush
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-pen')
+                  i.gi.gi-pen
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-zoom_in')
+                  i.gi.gi-zoom_in
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-zoom_out')
+                  i.gi.gi-zoom_out
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-pin')
+                  i.gi.gi-pin
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-albums')
+                  i.gi.gi-albums
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-rotation_lock')
+                  i.gi.gi-rotation_lock
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-flash')
+                  i.gi.gi-flash
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-google_maps')
+                  i.gi.gi-google_maps
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-anchor')
+                  i.gi.gi-anchor
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-conversation')
+                  i.gi.gi-conversation
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-chat')
+                  i.gi.gi-chat
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-male')
+                  i.gi.gi-male
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-female')
+                  i.gi.gi-female
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-asterisk')
+                  i.gi.gi-asterisk
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-divide')
+                  i.gi.gi-divide
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-snorkel_diving')
+                  i.gi.gi-snorkel_diving
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-scuba_diving')
+                  i.gi.gi-scuba_diving
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-oxygen_bottle')
+                  i.gi.gi-oxygen_bottle
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-fins')
+                  i.gi.gi-fins
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-fishes')
+                  i.gi.gi-fishes
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-boat')
+                  i.gi.gi-boat
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-delete')
+                  i.gi.gi-delete
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-sheriffs_star')
+                  i.gi.gi-sheriffs_star
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-qrcode')
+                  i.gi.gi-qrcode
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-barcode')
+                  i.gi.gi-barcode
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-pool')
+                  i.gi.gi-pool
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-buoy')
+                  i.gi.gi-buoy
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-spade')
+                  i.gi.gi-spade
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-bank')
+                  i.gi.gi-bank
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-vcard')
+                  i.gi.gi-vcard
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-electrical_plug')
+                  i.gi.gi-electrical_plug
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-flag')
+                  i.gi.gi-flag
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-credit_card')
+                  i.gi.gi-credit_card
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-keyboard-wireless')
+                  i.gi.gi-keyboard-wireless
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-keyboard-wired')
+                  i.gi.gi-keyboard-wired
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-shield')
+                  i.gi.gi-shield
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-ring')
+                  i.gi.gi-ring
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-cake')
+                  i.gi.gi-cake
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-drink')
+                  i.gi.gi-drink
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-beer')
+                  i.gi.gi-beer
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-fast_food')
+                  i.gi.gi-fast_food
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-cutlery')
+                  i.gi.gi-cutlery
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-pizza')
+                  i.gi.gi-pizza
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-birthday_cake')
+                  i.gi.gi-birthday_cake
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-tablet')
+                  i.gi.gi-tablet
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-settings')
+                  i.gi.gi-settings
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-bullets')
+                  i.gi.gi-bullets
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-cardio')
+                  i.gi.gi-cardio
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-t-shirt')
+                  i.gi.gi-t-shirt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-pants')
+                  i.gi.gi-pants
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-sweater')
+                  i.gi.gi-sweater
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-fabric')
+                  i.gi.gi-fabric
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-leather')
+                  i.gi.gi-leather
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-scissors')
+                  i.gi.gi-scissors
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-bomb')
+                  i.gi.gi-bomb
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-skull')
+                  i.gi.gi-skull
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-celebration')
+                  i.gi.gi-celebration
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-tea_kettle')
+                  i.gi.gi-tea_kettle
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-french_press')
+                  i.gi.gi-french_press
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-coffee_cup')
+                  i.gi.gi-coffee_cup
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-pot')
+                  i.gi.gi-pot
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-grater')
+                  i.gi.gi-grater
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-kettle')
+                  i.gi.gi-kettle
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-hospital')
+                  i.gi.gi-hospital
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-hospital_h')
+                  i.gi.gi-hospital_h
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-microphone')
+                  i.gi.gi-microphone
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-webcam')
+                  i.gi.gi-webcam
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-temple_christianity_church')
+                  i.gi.gi-temple_christianity_church
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-temple_islam')
+                  i.gi.gi-temple_islam
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-temple_hindu')
+                  i.gi.gi-temple_hindu
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-temple_buddhist')
+                  i.gi.gi-temple_buddhist
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-bicycle')
+                  i.gi.gi-bicycle
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-life_preserver')
+                  i.gi.gi-life_preserver
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-share_alt')
+                  i.gi.gi-share_alt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-comments')
+                  i.gi.gi-comments
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-flower')
+                  i.gi.gi-flower
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-baseball')
+                  i.gi.gi-baseball
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-rugby')
+                  i.gi.gi-rugby
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-ax')
+                  i.gi.gi-ax
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-table_tennis')
+                  i.gi.gi-table_tennis
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-bowling')
+                  i.gi.gi-bowling
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-tree_conifer')
+                  i.gi.gi-tree_conifer
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-tree_deciduous')
+                  i.gi.gi-tree_deciduous
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-more_items')
+                  i.gi.gi-more_items
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-sort')
+                  i.gi.gi-sort
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-filter')
+                  i.gi.gi-filter
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-gamepad')
+                  i.gi.gi-gamepad
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-playing_dices')
+                  i.gi.gi-playing_dices
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-calculator')
+                  i.gi.gi-calculator
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-tie')
+                  i.gi.gi-tie
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-wallet')
+                  i.gi.gi-wallet
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-piano')
+                  i.gi.gi-piano
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-sampler')
+                  i.gi.gi-sampler
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-podium')
+                  i.gi.gi-podium
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-soccer_ball')
+                  i.gi.gi-soccer_ball
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-blog')
+                  i.gi.gi-blog
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-dashboard')
+                  i.gi.gi-dashboard
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-certificate')
+                  i.gi.gi-certificate
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-bell')
+                  i.gi.gi-bell
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-candle')
+                  i.gi.gi-candle
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-pushpin')
+                  i.gi.gi-pushpin
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-iphone_shake')
+                  i.gi.gi-iphone_shake
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-pin_flag')
+                  i.gi.gi-pin_flag
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-turtle')
+                  i.gi.gi-turtle
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-rabbit')
+                  i.gi.gi-rabbit
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-globe')
+                  i.gi.gi-globe
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-briefcase')
+                  i.gi.gi-briefcase
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-hdd')
+                  i.gi.gi-hdd
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-thumbs_up')
+                  i.gi.gi-thumbs_up
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-thumbs_down')
+                  i.gi.gi-thumbs_down
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-hand_right')
+                  i.gi.gi-hand_right
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-hand_left')
+                  i.gi.gi-hand_left
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-hand_up')
+                  i.gi.gi-hand_up
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-hand_down')
+                  i.gi.gi-hand_down
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-fullscreen')
+                  i.gi.gi-fullscreen
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-shopping_bag')
+                  i.gi.gi-shopping_bag
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-book_open')
+                  i.gi.gi-book_open
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-nameplate')
+                  i.gi.gi-nameplate
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-nameplate_alt')
+                  i.gi.gi-nameplate_alt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-vases')
+                  i.gi.gi-vases
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-bullhorn')
+                  i.gi.gi-bullhorn
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-dumbbell')
+                  i.gi.gi-dumbbell
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-suitcase')
+                  i.gi.gi-suitcase
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-file_import')
+                  i.gi.gi-file_import
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-file_export')
+                  i.gi.gi-file_export
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-bug')
+                  i.gi.gi-bug
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-crown')
+                  i.gi.gi-crown
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-smoking')
+                  i.gi.gi-smoking
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-cloud-upload')
+                  i.gi.gi-cloud-upload
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-cloud-download')
+                  i.gi.gi-cloud-download
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-restart')
+                  i.gi.gi-restart
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-security_camera')
+                  i.gi.gi-security_camera
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-expand')
+                  i.gi.gi-expand
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-collapse')
+                  i.gi.gi-collapse
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-collapse_top')
+                  i.gi.gi-collapse_top
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-globe_af')
+                  i.gi.gi-globe_af
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-global')
+                  i.gi.gi-global
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-spray')
+                  i.gi.gi-spray
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-nails')
+                  i.gi.gi-nails
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-claw_hammer')
+                  i.gi.gi-claw_hammer
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-classic_hammer')
+                  i.gi.gi-classic_hammer
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-hand_saw')
+                  i.gi.gi-hand_saw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-riflescope')
+                  i.gi.gi-riflescope
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-electrical_socket_eu')
+                  i.gi.gi-electrical_socket_eu
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-electrical_socket_us')
+                  i.gi.gi-electrical_socket_us
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-message_forward')
+                  i.gi.gi-message_forward
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-coat_hanger')
+                  i.gi.gi-coat_hanger
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-dress')
+                  i.gi.gi-dress
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-bathrobe')
+                  i.gi.gi-bathrobe
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-shirt')
+                  i.gi.gi-shirt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-underwear')
+                  i.gi.gi-underwear
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-log_in')
+                  i.gi.gi-log_in
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-log_out')
+                  i.gi.gi-log_out
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-exit')
+                  i.gi.gi-exit
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-new_window_alt')
+                  i.gi.gi-new_window_alt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-video_sd')
+                  i.gi.gi-video_sd
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-video_hd')
+                  i.gi.gi-video_hd
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-subtitles')
+                  i.gi.gi-subtitles
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-sound_stereo')
+                  i.gi.gi-sound_stereo
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-sound_dolby')
+                  i.gi.gi-sound_dolby
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-sound_5_1')
+                  i.gi.gi-sound_5_1
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-sound_6_1')
+                  i.gi.gi-sound_6_1
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-sound_7_1')
+                  i.gi.gi-sound_7_1
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-copyright_mark')
+                  i.gi.gi-copyright_mark
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-registration_mark')
+                  i.gi.gi-registration_mark
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-radar')
+                  i.gi.gi-radar
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-skateboard')
+                  i.gi.gi-skateboard
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-golf_course')
+                  i.gi.gi-golf_course
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-sorting')
+                  i.gi.gi-sorting
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-sort-by-alphabet')
+                  i.gi.gi-sort-by-alphabet
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-sort-by-alphabet-alt')
+                  i.gi.gi-sort-by-alphabet-alt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-sort-by-order')
+                  i.gi.gi-sort-by-order
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-sort-by-order-alt')
+                  i.gi.gi-sort-by-order-alt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-sort-by-attributes')
+                  i.gi.gi-sort-by-attributes
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-sort-by-attributes-alt')
+                  i.gi.gi-sort-by-attributes-alt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-compressed')
+                  i.gi.gi-compressed
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-package')
+                  i.gi.gi-package
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-cloud_plus')
+                  i.gi.gi-cloud_plus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-cloud_minus')
+                  i.gi.gi-cloud_minus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-disk_save')
+                  i.gi.gi-disk_save
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-disk_open')
+                  i.gi.gi-disk_open
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-disk_saved')
+                  i.gi.gi-disk_saved
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-disk_remove')
+                  i.gi.gi-disk_remove
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-disk_import')
+                  i.gi.gi-disk_import
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-disk_export')
+                  i.gi.gi-disk_export
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-tower')
+                  i.gi.gi-tower
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-send')
+                  i.gi.gi-send
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-git_branch')
+                  i.gi.gi-git_branch
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-git_create')
+                  i.gi.gi-git_create
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-git_private')
+                  i.gi.gi-git_private
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-git_delete')
+                  i.gi.gi-git_delete
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-git_merge')
+                  i.gi.gi-git_merge
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-git_pull_request')
+                  i.gi.gi-git_pull_request
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-git_compare')
+                  i.gi.gi-git_compare
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-git_commit')
+                  i.gi.gi-git_commit
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-construction_cone')
+                  i.gi.gi-construction_cone
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-shoe_steps')
+                  i.gi.gi-shoe_steps
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-plus')
+                  i.gi.gi-plus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-minus')
+                  i.gi.gi-minus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-redo')
+                  i.gi.gi-redo
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-undo')
+                  i.gi.gi-undo
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-golf')
+                  i.gi.gi-golf
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-hockey')
+                  i.gi.gi-hockey
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-pipe')
+                  i.gi.gi-pipe
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-wrench')
+                  i.gi.gi-wrench
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-folder_closed')
+                  i.gi.gi-folder_closed
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-phone_alt')
+                  i.gi.gi-phone_alt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-earphone')
+                  i.gi.gi-earphone
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-floppy_disk')
+                  i.gi.gi-floppy_disk
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-floppy_saved')
+                  i.gi.gi-floppy_saved
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-floppy_remove')
+                  i.gi.gi-floppy_remove
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-floppy_save')
+                  i.gi.gi-floppy_save
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-floppy_open')
+                  i.gi.gi-floppy_open
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-translate')
+                  i.gi.gi-translate
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-fax')
+                  i.gi.gi-fax
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-factory')
+                  i.gi.gi-factory
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-shop_window')
+                  i.gi.gi-shop_window
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-shop')
+                  i.gi.gi-shop
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-kiosk')
+                  i.gi.gi-kiosk
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-kiosk_wheels')
+                  i.gi.gi-kiosk_wheels
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-kiosk_light')
+                  i.gi.gi-kiosk_light
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-kiosk_food')
+                  i.gi.gi-kiosk_food
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-transfer')
+                  i.gi.gi-transfer
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-money')
+                  i.gi.gi-money
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-header')
+                  i.gi.gi-header
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-blacksmith')
+                  i.gi.gi-blacksmith
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-saw_blade')
+                  i.gi.gi-saw_blade
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-basketball')
+                  i.gi.gi-basketball
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-server')
+                  i.gi.gi-server
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-server_plus')
+                  i.gi.gi-server_plus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-server_minus')
+                  i.gi.gi-server_minus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-server_ban')
+                  i.gi.gi-server_ban
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-server_flag')
+                  i.gi.gi-server_flag
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-server_lock')
+                  i.gi.gi-server_lock
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='gi gi-server_new')
+                  i.gi.gi-server_new
+              // END Glyphicons
+              // Social
+              .block-section
+                h3 Social
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-pinterest')
+                  i.si.si-pinterest
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-dropbox')
+                  i.si.si-dropbox
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-google_plus')
+                  i.si.si-google_plus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-jolicloud')
+                  i.si.si-jolicloud
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-yahoo')
+                  i.si.si-yahoo
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-blogger')
+                  i.si.si-blogger
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-picasa')
+                  i.si.si-picasa
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-amazon')
+                  i.si.si-amazon
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-tumblr')
+                  i.si.si-tumblr
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-wordpress')
+                  i.si.si-wordpress
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-instapaper')
+                  i.si.si-instapaper
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-evernote')
+                  i.si.si-evernote
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-xing')
+                  i.si.si-xing
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-zootool')
+                  i.si.si-zootool
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-dribbble')
+                  i.si.si-dribbble
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-deviantart')
+                  i.si.si-deviantart
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-read_it_later')
+                  i.si.si-read_it_later
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-linked_in')
+                  i.si.si-linked_in
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-forrst')
+                  i.si.si-forrst
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-pinboard')
+                  i.si.si-pinboard
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-behance')
+                  i.si.si-behance
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-github')
+                  i.si.si-github
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-youtube')
+                  i.si.si-youtube
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-skitch')
+                  i.si.si-skitch
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-foursquare')
+                  i.si.si-foursquare
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-quora')
+                  i.si.si-quora
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-badoo')
+                  i.si.si-badoo
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-spotify')
+                  i.si.si-spotify
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-stumbleupon')
+                  i.si.si-stumbleupon
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-readability')
+                  i.si.si-readability
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-facebook')
+                  i.si.si-facebook
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-twitter')
+                  i.si.si-twitter
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-instagram')
+                  i.si.si-instagram
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-posterous_spaces')
+                  i.si.si-posterous_spaces
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-vimeo')
+                  i.si.si-vimeo
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-flickr')
+                  i.si.si-flickr
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-last_fm')
+                  i.si.si-last_fm
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-rss')
+                  i.si.si-rss
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-skype')
+                  i.si.si-skype
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-e-mail')
+                  i.si.si-e-mail
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-vine')
+                  i.si.si-vine
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-myspace')
+                  i.si.si-myspace
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-goodreads')
+                  i.si.si-goodreads
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-apple')
+                  i.si.si-apple
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-windows')
+                  i.si.si-windows
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-yelp')
+                  i.si.si-yelp
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-playstation')
+                  i.si.si-playstation
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-xbox')
+                  i.si.si-xbox
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-android')
+                  i.si.si-android
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='si si-ios')
+                  i.si.si-ios
+              // END Social
+              // Halflings
+              .block-section
+                h3 Halflings
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-glass')
+                  i.hi.hi-glass
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-music')
+                  i.hi.hi-music
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-search')
+                  i.hi.hi-search
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-envelope')
+                  i.hi.hi-envelope
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-heart')
+                  i.hi.hi-heart
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-star')
+                  i.hi.hi-star
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-star-empty')
+                  i.hi.hi-star-empty
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-user')
+                  i.hi.hi-user
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-film')
+                  i.hi.hi-film
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-th-large')
+                  i.hi.hi-th-large
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-th')
+                  i.hi.hi-th
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-th-list')
+                  i.hi.hi-th-list
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-ok')
+                  i.hi.hi-ok
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-remove')
+                  i.hi.hi-remove
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-zoom-in')
+                  i.hi.hi-zoom-in
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-zoom-out')
+                  i.hi.hi-zoom-out
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-off')
+                  i.hi.hi-off
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-signal')
+                  i.hi.hi-signal
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-cog')
+                  i.hi.hi-cog
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-trash')
+                  i.hi.hi-trash
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-home')
+                  i.hi.hi-home
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-file')
+                  i.hi.hi-file
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-time')
+                  i.hi.hi-time
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-road')
+                  i.hi.hi-road
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-download-alt')
+                  i.hi.hi-download-alt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-download')
+                  i.hi.hi-download
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-upload')
+                  i.hi.hi-upload
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-inbox')
+                  i.hi.hi-inbox
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-play-circle')
+                  i.hi.hi-play-circle
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-repeat')
+                  i.hi.hi-repeat
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-refresh')
+                  i.hi.hi-refresh
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-list-alt')
+                  i.hi.hi-list-alt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-lock')
+                  i.hi.hi-lock
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-flag')
+                  i.hi.hi-flag
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-headphones')
+                  i.hi.hi-headphones
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-volume-off')
+                  i.hi.hi-volume-off
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-volume-down')
+                  i.hi.hi-volume-down
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-volume-up')
+                  i.hi.hi-volume-up
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-qrcode')
+                  i.hi.hi-qrcode
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-barcode')
+                  i.hi.hi-barcode
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-tag')
+                  i.hi.hi-tag
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-tags')
+                  i.hi.hi-tags
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-book')
+                  i.hi.hi-book
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-bookmark')
+                  i.hi.hi-bookmark
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-print')
+                  i.hi.hi-print
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-camera')
+                  i.hi.hi-camera
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-font')
+                  i.hi.hi-font
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-bold')
+                  i.hi.hi-bold
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-italic')
+                  i.hi.hi-italic
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-text-height')
+                  i.hi.hi-text-height
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-text-width')
+                  i.hi.hi-text-width
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-align-left')
+                  i.hi.hi-align-left
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-align-center')
+                  i.hi.hi-align-center
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-align-right')
+                  i.hi.hi-align-right
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-align-justify')
+                  i.hi.hi-align-justify
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-list')
+                  i.hi.hi-list
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-indent-left')
+                  i.hi.hi-indent-left
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-indent-right')
+                  i.hi.hi-indent-right
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-facetime-video')
+                  i.hi.hi-facetime-video
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-picture')
+                  i.hi.hi-picture
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-pencil')
+                  i.hi.hi-pencil
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-map-marker')
+                  i.hi.hi-map-marker
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-adjust')
+                  i.hi.hi-adjust
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-tint')
+                  i.hi.hi-tint
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-edit')
+                  i.hi.hi-edit
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-share')
+                  i.hi.hi-share
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-check')
+                  i.hi.hi-check
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-move')
+                  i.hi.hi-move
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-step-backward')
+                  i.hi.hi-step-backward
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-fast-backward')
+                  i.hi.hi-fast-backward
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-backward')
+                  i.hi.hi-backward
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-play')
+                  i.hi.hi-play
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-pause')
+                  i.hi.hi-pause
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-stop')
+                  i.hi.hi-stop
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-forward')
+                  i.hi.hi-forward
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-fast-forward')
+                  i.hi.hi-fast-forward
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-step-forward')
+                  i.hi.hi-step-forward
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-eject')
+                  i.hi.hi-eject
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-chevron-left')
+                  i.hi.hi-chevron-left
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-chevron-right')
+                  i.hi.hi-chevron-right
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-plus-sign')
+                  i.hi.hi-plus-sign
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-minus-sign')
+                  i.hi.hi-minus-sign
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-remove-sign')
+                  i.hi.hi-remove-sign
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-ok-sign')
+                  i.hi.hi-ok-sign
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-question-sign')
+                  i.hi.hi-question-sign
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-info-sign')
+                  i.hi.hi-info-sign
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-screenshot')
+                  i.hi.hi-screenshot
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-remove-circle')
+                  i.hi.hi-remove-circle
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-ok-circle')
+                  i.hi.hi-ok-circle
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-ban-circle')
+                  i.hi.hi-ban-circle
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-arrow-left')
+                  i.hi.hi-arrow-left
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-arrow-right')
+                  i.hi.hi-arrow-right
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-arrow-up')
+                  i.hi.hi-arrow-up
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-arrow-down')
+                  i.hi.hi-arrow-down
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-share-alt')
+                  i.hi.hi-share-alt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-resize-full')
+                  i.hi.hi-resize-full
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-resize-small')
+                  i.hi.hi-resize-small
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-plus')
+                  i.hi.hi-plus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-minus')
+                  i.hi.hi-minus
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-asterisk')
+                  i.hi.hi-asterisk
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-exclamation-sign')
+                  i.hi.hi-exclamation-sign
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-gift')
+                  i.hi.hi-gift
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-leaf')
+                  i.hi.hi-leaf
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-fire')
+                  i.hi.hi-fire
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-eye-open')
+                  i.hi.hi-eye-open
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-eye-close')
+                  i.hi.hi-eye-close
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-warning-sign')
+                  i.hi.hi-warning-sign
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-plane')
+                  i.hi.hi-plane
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-calendar')
+                  i.hi.hi-calendar
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-random')
+                  i.hi.hi-random
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-comments')
+                  i.hi.hi-comments
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-magnet')
+                  i.hi.hi-magnet
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-chevron-up')
+                  i.hi.hi-chevron-up
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-chevron-down')
+                  i.hi.hi-chevron-down
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-retweet')
+                  i.hi.hi-retweet
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-shopping-cart')
+                  i.hi.hi-shopping-cart
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-folder-close')
+                  i.hi.hi-folder-close
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-folder-open')
+                  i.hi.hi-folder-open
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-resize-vertical')
+                  i.hi.hi-resize-vertical
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-resize-horizontal')
+                  i.hi.hi-resize-horizontal
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-hdd')
+                  i.hi.hi-hdd
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-bullhorn')
+                  i.hi.hi-bullhorn
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-bell')
+                  i.hi.hi-bell
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-certificate')
+                  i.hi.hi-certificate
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-thumbs-up')
+                  i.hi.hi-thumbs-up
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-thumbs-down')
+                  i.hi.hi-thumbs-down
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-hand-right')
+                  i.hi.hi-hand-right
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-hand-left')
+                  i.hi.hi-hand-left
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-hand-top')
+                  i.hi.hi-hand-top
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-hand-down')
+                  i.hi.hi-hand-down
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-circle-arrow-right')
+                  i.hi.hi-circle-arrow-right
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-circle-arrow-left')
+                  i.hi.hi-circle-arrow-left
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-circle-arrow-top')
+                  i.hi.hi-circle-arrow-top
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-circle-arrow-down')
+                  i.hi.hi-circle-arrow-down
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-globe')
+                  i.hi.hi-globe
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-wrench')
+                  i.hi.hi-wrench
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-tasks')
+                  i.hi.hi-tasks
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-filter')
+                  i.hi.hi-filter
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-briefcase')
+                  i.hi.hi-briefcase
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-fullscreen')
+                  i.hi.hi-fullscreen
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-dashboard')
+                  i.hi.hi-dashboard
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-paperclip')
+                  i.hi.hi-paperclip
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-heart-empty')
+                  i.hi.hi-heart-empty
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-link')
+                  i.hi.hi-link
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-phone')
+                  i.hi.hi-phone
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-pushpin')
+                  i.hi.hi-pushpin
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-euro')
+                  i.hi.hi-euro
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-usd')
+                  i.hi.hi-usd
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-gbp')
+                  i.hi.hi-gbp
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-sort')
+                  i.hi.hi-sort
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-sort-by-alphabet')
+                  i.hi.hi-sort-by-alphabet
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-sort-by-alphabet-alt')
+                  i.hi.hi-sort-by-alphabet-alt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-sort-by-order')
+                  i.hi.hi-sort-by-order
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-sort-by-order-alt')
+                  i.hi.hi-sort-by-order-alt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-sort-by-attributes')
+                  i.hi.hi-sort-by-attributes
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-sort-by-attributes-alt')
+                  i.hi.hi-sort-by-attributes-alt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-unchecked')
+                  i.hi.hi-unchecked
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-expand')
+                  i.hi.hi-expand
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-collapse')
+                  i.hi.hi-collapse
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-collapse-top')
+                  i.hi.hi-collapse-top
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-log_in')
+                  i.hi.hi-log_in
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-flash')
+                  i.hi.hi-flash
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-log_out')
+                  i.hi.hi-log_out
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-new_window')
+                  i.hi.hi-new_window
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-record')
+                  i.hi.hi-record
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-save')
+                  i.hi.hi-save
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-open')
+                  i.hi.hi-open
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-saved')
+                  i.hi.hi-saved
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-import')
+                  i.hi.hi-import
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-export')
+                  i.hi.hi-export
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-send')
+                  i.hi.hi-send
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-floppy_disk')
+                  i.hi.hi-floppy_disk
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-floppy_saved')
+                  i.hi.hi-floppy_saved
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-floppy_remove')
+                  i.hi.hi-floppy_remove
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-floppy_save')
+                  i.hi.hi-floppy_save
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-floppy_open')
+                  i.hi.hi-floppy_open
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-credit_card')
+                  i.hi.hi-credit_card
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-transfer')
+                  i.hi.hi-transfer
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-cutlery')
+                  i.hi.hi-cutlery
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-header')
+                  i.hi.hi-header
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-compressed')
+                  i.hi.hi-compressed
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-earphone')
+                  i.hi.hi-earphone
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-phone_alt')
+                  i.hi.hi-phone_alt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-tower')
+                  i.hi.hi-tower
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-stats')
+                  i.hi.hi-stats
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-sd_video')
+                  i.hi.hi-sd_video
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-hd_video')
+                  i.hi.hi-hd_video
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-subtitles')
+                  i.hi.hi-subtitles
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-sound_stereo')
+                  i.hi.hi-sound_stereo
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-sound_dolby')
+                  i.hi.hi-sound_dolby
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-sound_5_1')
+                  i.hi.hi-sound_5_1
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-sound_6_1')
+                  i.hi.hi-sound_6_1
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-sound_7_1')
+                  i.hi.hi-sound_7_1
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-copyright_mark')
+                  i.hi.hi-copyright_mark
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-registration_mark')
+                  i.hi.hi-registration_mark
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-cloud')
+                  i.hi.hi-cloud
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-cloud_download')
+                  i.hi.hi-cloud_download
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-cloud_upload')
+                  i.hi.hi-cloud_upload
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-tree_conifer')
+                  i.hi.hi-tree_conifer
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='hi hi-tree_deciduous')
+                  i.hi.hi-tree_deciduous
+              // END Halflings
+              // Filetypes
+              .block-section
+                h3 Filetypes
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-txt')
+                  i.fa-2x.fi.fi-txt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-doc')
+                  i.fa-2x.fi.fi-doc
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-rtf')
+                  i.fa-2x.fi.fi-rtf
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-log')
+                  i.fa-2x.fi.fi-log
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-tex')
+                  i.fa-2x.fi.fi-tex
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-msg')
+                  i.fa-2x.fi.fi-msg
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-text')
+                  i.fa-2x.fi.fi-text
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-wpd')
+                  i.fa-2x.fi.fi-wpd
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-wps')
+                  i.fa-2x.fi.fi-wps
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-docx')
+                  i.fa-2x.fi.fi-docx
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-page')
+                  i.fa-2x.fi.fi-page
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-csv')
+                  i.fa-2x.fi.fi-csv
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-dat')
+                  i.fa-2x.fi.fi-dat
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-tar')
+                  i.fa-2x.fi.fi-tar
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-xml')
+                  i.fa-2x.fi.fi-xml
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-vcf')
+                  i.fa-2x.fi.fi-vcf
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-pps')
+                  i.fa-2x.fi.fi-pps
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-key')
+                  i.fa-2x.fi.fi-key
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-ppt')
+                  i.fa-2x.fi.fi-ppt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-pptx')
+                  i.fa-2x.fi.fi-pptx
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-sdf')
+                  i.fa-2x.fi.fi-sdf
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-gbr')
+                  i.fa-2x.fi.fi-gbr
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-ged')
+                  i.fa-2x.fi.fi-ged
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-mp3')
+                  i.fa-2x.fi.fi-mp3
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-m4a')
+                  i.fa-2x.fi.fi-m4a
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-waw')
+                  i.fa-2x.fi.fi-waw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-wma')
+                  i.fa-2x.fi.fi-wma
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-mpa')
+                  i.fa-2x.fi.fi-mpa
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-iff')
+                  i.fa-2x.fi.fi-iff
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-aif')
+                  i.fa-2x.fi.fi-aif
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-ra')
+                  i.fa-2x.fi.fi-ra
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-mid')
+                  i.fa-2x.fi.fi-mid
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-m3v')
+                  i.fa-2x.fi.fi-m3v
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-e_3gp')
+                  i.fa-2x.fi.fi-e_3gp
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-shf')
+                  i.fa-2x.fi.fi-shf
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-avi')
+                  i.fa-2x.fi.fi-avi
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-asx')
+                  i.fa-2x.fi.fi-asx
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-mp4')
+                  i.fa-2x.fi.fi-mp4
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-e_3g2')
+                  i.fa-2x.fi.fi-e_3g2
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-mpg')
+                  i.fa-2x.fi.fi-mpg
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-asf')
+                  i.fa-2x.fi.fi-asf
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-vob')
+                  i.fa-2x.fi.fi-vob
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-wmv')
+                  i.fa-2x.fi.fi-wmv
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-mov')
+                  i.fa-2x.fi.fi-mov
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-srt')
+                  i.fa-2x.fi.fi-srt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-m4v')
+                  i.fa-2x.fi.fi-m4v
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-flv')
+                  i.fa-2x.fi.fi-flv
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-rm')
+                  i.fa-2x.fi.fi-rm
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-png')
+                  i.fa-2x.fi.fi-png
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-psd')
+                  i.fa-2x.fi.fi-psd
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-psp')
+                  i.fa-2x.fi.fi-psp
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-jpg')
+                  i.fa-2x.fi.fi-jpg
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-tif')
+                  i.fa-2x.fi.fi-tif
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-tiff')
+                  i.fa-2x.fi.fi-tiff
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-gif')
+                  i.fa-2x.fi.fi-gif
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-bmp')
+                  i.fa-2x.fi.fi-bmp
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-tga')
+                  i.fa-2x.fi.fi-tga
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-thm')
+                  i.fa-2x.fi.fi-thm
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-yuv')
+                  i.fa-2x.fi.fi-yuv
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-dds')
+                  i.fa-2x.fi.fi-dds
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-ai')
+                  i.fa-2x.fi.fi-ai
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-eps')
+                  i.fa-2x.fi.fi-eps
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-ps')
+                  i.fa-2x.fi.fi-ps
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-svg')
+                  i.fa-2x.fi.fi-svg
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-pdf')
+                  i.fa-2x.fi.fi-pdf
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-pct')
+                  i.fa-2x.fi.fi-pct
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-indd')
+                  i.fa-2x.fi.fi-indd
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-xlr')
+                  i.fa-2x.fi.fi-xlr
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-xls')
+                  i.fa-2x.fi.fi-xls
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-xlsx')
+                  i.fa-2x.fi.fi-xlsx
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-db')
+                  i.fa-2x.fi.fi-db
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-dbf')
+                  i.fa-2x.fi.fi-dbf
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-mdb')
+                  i.fa-2x.fi.fi-mdb
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-pdb')
+                  i.fa-2x.fi.fi-pdb
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-sql')
+                  i.fa-2x.fi.fi-sql
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-aacd')
+                  i.fa-2x.fi.fi-aacd
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-app')
+                  i.fa-2x.fi.fi-app
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-exe')
+                  i.fa-2x.fi.fi-exe
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-com')
+                  i.fa-2x.fi.fi-com
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-bat')
+                  i.fa-2x.fi.fi-bat
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-apk')
+                  i.fa-2x.fi.fi-apk
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-jar')
+                  i.fa-2x.fi.fi-jar
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-hsf')
+                  i.fa-2x.fi.fi-hsf
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-pif')
+                  i.fa-2x.fi.fi-pif
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-vb')
+                  i.fa-2x.fi.fi-vb
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-cgi')
+                  i.fa-2x.fi.fi-cgi
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-css')
+                  i.fa-2x.fi.fi-css
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-js')
+                  i.fa-2x.fi.fi-js
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-php')
+                  i.fa-2x.fi.fi-php
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-xhtml')
+                  i.fa-2x.fi.fi-xhtml
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-htm')
+                  i.fa-2x.fi.fi-htm
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-html')
+                  i.fa-2x.fi.fi-html
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-asp')
+                  i.fa-2x.fi.fi-asp
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-cer')
+                  i.fa-2x.fi.fi-cer
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-jsp')
+                  i.fa-2x.fi.fi-jsp
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-cfm')
+                  i.fa-2x.fi.fi-cfm
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-aspx')
+                  i.fa-2x.fi.fi-aspx
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-rss')
+                  i.fa-2x.fi.fi-rss
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-csr')
+                  i.fa-2x.fi.fi-csr
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-less')
+                  i.fa-2x.fi.fi-less
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-otf')
+                  i.fa-2x.fi.fi-otf
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-ttf')
+                  i.fa-2x.fi.fi-ttf
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-font')
+                  i.fa-2x.fi.fi-font
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-fnt')
+                  i.fa-2x.fi.fi-fnt
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-eot')
+                  i.fa-2x.fi.fi-eot
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-woff')
+                  i.fa-2x.fi.fi-woff
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-zip')
+                  i.fa-2x.fi.fi-zip
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-zipx')
+                  i.fa-2x.fi.fi-zipx
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-rar')
+                  i.fa-2x.fi.fi-rar
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-targ')
+                  i.fa-2x.fi.fi-targ
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-sitx')
+                  i.fa-2x.fi.fi-sitx
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-deb')
+                  i.fa-2x.fi.fi-deb
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-e_7z')
+                  i.fa-2x.fi.fi-e_7z
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-pkg')
+                  i.fa-2x.fi.fi-pkg
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-rpm')
+                  i.fa-2x.fi.fi-rpm
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-cbr')
+                  i.fa-2x.fi.fi-cbr
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-gz')
+                  i.fa-2x.fi.fi-gz
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-dmg')
+                  i.fa-2x.fi.fi-dmg
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-cue')
+                  i.fa-2x.fi.fi-cue
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-bin')
+                  i.fa-2x.fi.fi-bin
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-iso')
+                  i.fa-2x.fi.fi-iso
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-hdf')
+                  i.fa-2x.fi.fi-hdf
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-vcd')
+                  i.fa-2x.fi.fi-vcd
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-bak')
+                  i.fa-2x.fi.fi-bak
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-tmp')
+                  i.fa-2x.fi.fi-tmp
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-ics')
+                  i.fa-2x.fi.fi-ics
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-msi')
+                  i.fa-2x.fi.fi-msi
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-cfg')
+                  i.fa-2x.fi.fi-cfg
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-ini')
+                  i.fa-2x.fi.fi-ini
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fi fi-prf')
+                  i.fa-2x.fi.fi-prf
+              // END Filetypes
+            // END All Icons Block
+          // END Page Content
+        // END Main Container
+      // END Page Container
+    // END Page Wrapper
+    // Include Jquery library from Google's CDN but if something goes wrong get Jquery from local file (Remove 'http:' if you have SSL)
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+    script.
+      !window.jQuery && document.write(decodeURI('%3Cscript src="js/vendor/jquery-2.1.1.min.js"%3E%3C/script%3E'));
+    // Bootstrap.js, Jquery plugins and Custom JS code
+    script(src='js/vendor/bootstrap.min.js')
+    script(src='js/plugins.js')
+    script(src='js/app.js')
+    // Load and execute javascript code used only in this page
+    script(src='js/pages/uiIcons.js')
+    script.
+      $(function(){ UiIcons.init(); });

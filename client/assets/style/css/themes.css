@@ -1,0 +1,21 @@
+/*
+=================================================================
+THEME DEFAULT
+=================================================================
+*/
+
+.themed-color-default {
+    color: #5ccdde !important;
+}
+
+.themed-background-default {
+    background-color: #5ccdde !important;
+}
+
+.themed-color-dark-default {
+    color: #454e59 !important;
+}
+
+.themed-background-dark-default {
+    background-color: #454e59 !important;
+}

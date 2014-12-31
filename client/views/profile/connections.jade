@@ -1,0 +1,38 @@
+// Connections
+.block
+  .block-title
+    h2.fa.fa-database &nbsp; Users
+  .block-content
+    .row
+      table.table.table-striped.table-borderless.table-vcenter.remove-margin-bottom
+        tbody
+          tr.animation-fadeInQuick2(data-ng-repeat='friend in friends')
+            td.text-center(style='width: 100px;')
+              img.gravatar.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{friend.gravatar}}' )
+            td
+              h4
+                strong {{friend.first_name}} {{friend.last_name}}
+              i.fa.fa-fw.fa-user.text-primary
+              |  {{friend.username}}
+              br
+              i.fa.fa-fw.fa-star.text-success
+              |  {{friend.points}} Brownie Points
+            td.text-left(style='width: 40%;')
+              a.btn.btn-effect-ripple.btn-danger
+                i.gi.gi-gift
+              a.btn.btn-effect-ripple.btn-primary
+                i.gi.gi-celebration
+              a.btn.btn-effect-ripple.btn-warning
+                i.gi.gi-cutlery
+              a.btn.btn-effect-ripple.btn-success
+                i.gi.gi-hockey
+              a.btn.btn-effect-ripple.btn-primary
+                i.fa.fa-terminal
+              a.btn.btn-effect-ripple.btn-danger
+                i.gi.gi-heart
+            td.text-center(style='width: 20%;')
+              h6
+                strong Points
+              a.btn.btn-effect-ripple.btn-danger
+              a.btn.btn-effect-ripple.btn-success
+                i.gi.gi-plus

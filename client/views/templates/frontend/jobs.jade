@@ -1,0 +1,328 @@
+doctype html
+//if IE 9
+  html.no-js.lt-ie10  
+// [if gt IE 9] <!
+html.no-js
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    title AppUI Frontend - Responsive Bootstrap Site Template
+    meta(name='description', content='AppUI Frontend is a Responsive Bootstrap Site Template created by pixelcave and added as a bonus in AppUI Admin Template package')
+    meta(name='author', content='pixelcave')
+    meta(name='robots', content='noindex, nofollow')
+    meta(name='viewport', content='width=device-width,initial-scale=1,maximum-scale=1.0')
+    // Icons
+    // The following icons can be replaced with your own, they are used by desktop and mobile browsers
+    link(rel='shortcut icon', href='img/favicon.png')
+    link(rel='apple-touch-icon', href='img/icon57.png', sizes='57x57')
+    link(rel='apple-touch-icon', href='img/icon72.png', sizes='72x72')
+    link(rel='apple-touch-icon', href='img/icon76.png', sizes='76x76')
+    link(rel='apple-touch-icon', href='img/icon114.png', sizes='114x114')
+    link(rel='apple-touch-icon', href='img/icon120.png', sizes='120x120')
+    link(rel='apple-touch-icon', href='img/icon144.png', sizes='144x144')
+    link(rel='apple-touch-icon', href='img/icon152.png', sizes='152x152')
+    link(rel='apple-touch-icon', href='img/icon180.png', sizes='180x180')
+    // END Icons
+    // Stylesheets
+    // Bootstrap is included in its original form, unaltered
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    // Related styles of various icon packs and plugins
+    link(rel='stylesheet', href='css/plugins.css')
+    // The main stylesheet of this template. All Bootstrap overwrites are defined in here
+    link(rel='stylesheet', href='css/main.css')
+    // The themes stylesheet of this template (for using specific theme color in individual elements - must included last)
+    link(rel='stylesheet', href='css/themes.css')
+    // END Stylesheets
+    // Modernizr (browser feature detection library)
+    script(src='js/vendor/modernizr-2.8.3.min.js')
+  body
+    // Page Container
+    #page-container
+      // Site Header
+      header
+        .container
+          // Site Logo
+          a.site-logo(href='index.html')
+            i.fa.fa-cube
+            |  App
+            strong UI
+          // END Site Logo
+          // Site Navigation
+          nav
+            // Menu Toggle
+            // Toggles menu on small screens
+            a.btn.btn-default.site-menu-toggle.visible-xs.visible-sm(href='javascript:void(0)')
+              | Menu
+            // END Menu Toggle
+            // Main Menu
+            ul.site-nav
+              li
+                a(href='index.html') Welcome
+              li
+                a(href='features.html') Features
+              li
+                a(href='pricing.html') Pricing
+              li
+                a(href='contact.html') Contact
+              li.active
+                a.site-nav-sub(href='javascript:void(0)')
+                  i.fa.fa-angle-down.site-nav-arrow
+                  | Pages
+                ul
+                  li
+                    a(href='blog.html') Blog
+                  li
+                    a(href='blog_post.html') Blog Post
+                  li
+                    a(href='portfolio.html') Portfolio
+                  li
+                    a(href='project.html') Project
+                  li
+                    a(href='team.html') Team
+                  li
+                    a(href='faq.html') FAQ
+                  li
+                    a.active(href='jobs.html') Jobs
+                  li
+                    a(href='search_results.html') Search Results
+              li
+                a.featured(href='http://pixelcave.com/demo/appui')
+                  | Get Started 
+                  i.fa.fa-arrow-right
+            // END Main Menu
+          // END Site Navigation
+      // END Site Header
+      // Intro
+      section.site-section.site-section-top.site-section-light.themed-background-dark
+        .container
+          h1.text-center.animation-fadeInQuickInv
+            strong Find the perfect service.
+      // END Intro
+      // Jobs
+      section.site-content.site-section
+        .container
+          .row.push-bit
+            .col-md-4
+              a.portfolio-item.themed-background-danger.visibility-none(href='javascript:void(0)', data-toggle='animation-appear', data-animation-class='animation-fadeInQuick', data-element-offset='-20')
+                h2.site-heading.h3.text-center
+                  strong.text-uppercase Web Design
+                .portfolio-item-icon
+                  i.gi.gi-briefcase.text-dark-op
+                .row
+                  .col-xs-6
+                    div
+                      strong Design Studio
+                    em 5 Projects
+                  .col-xs-6.text-right
+                    span.h2.text-light-op
+                      strong $899
+            .col-md-4
+              a.portfolio-item.themed-background-info.visibility-none(href='javascript:void(0)', data-toggle='animation-appear', data-animation-class='animation-fadeInQuick', data-element-offset='-20')
+                h2.site-heading.h3.text-center
+                  strong.text-uppercase Web Development
+                .portfolio-item-icon
+                  i.gi.gi-cogwheels.text-dark-op
+                .row
+                  .col-xs-6
+                    div
+                      strong Develop Studio
+                    em 10 Projects
+                  .col-xs-6.text-right
+                    span.h2.text-light-op
+                      strong $999
+            .col-md-4
+              a.portfolio-item.themed-background-amethyst.visibility-none(href='javascript:void(0)', data-toggle='animation-appear', data-animation-class='animation-fadeInQuick', data-element-offset='-20')
+                h2.site-heading.h3.text-center
+                  strong.text-uppercase Logo Design
+                .portfolio-item-icon
+                  i.gi.gi-vector_path_circle.text-dark-op
+                .row
+                  .col-xs-6
+                    div
+                      strong Logo Studio
+                    em 25 Projects
+                  .col-xs-6.text-right
+                    span.h2.text-light-op
+                      strong $399
+            .col-md-4
+              a.portfolio-item.themed-background-flat.visibility-none(href='javascript:void(0)', data-toggle='animation-appear', data-animation-class='animation-fadeInQuick', data-element-offset='-20')
+                h2.site-heading.h3.text-center
+                  strong.text-uppercase Icon Design
+                .portfolio-item-icon
+                  i.gi.gi-webcam.text-dark-op
+                .row
+                  .col-xs-6
+                    div
+                      strong Icon Studio
+                    em 3 Projects
+                  .col-xs-6.text-right
+                    span.h2.text-light-op
+                      strong $499
+            .col-md-4
+              a.portfolio-item.themed-background-social.visibility-none(href='javascript:void(0)', data-toggle='animation-appear', data-animation-class='animation-fadeInQuick', data-element-offset='-20')
+                h2.site-heading.h3.text-center
+                  strong.text-uppercase Marketing
+                .portfolio-item-icon
+                  i.gi.gi-charts.text-dark-op
+                .row
+                  .col-xs-6
+                    div
+                      strong Marketing Studio
+                    em 9 Projects
+                  .col-xs-6.text-right
+                    span.h2.text-light-op
+                      strong $599
+            .col-md-4
+              a.portfolio-item.themed-background-classy.visibility-none(href='javascript:void(0)', data-toggle='animation-appear', data-animation-class='animation-fadeInQuick', data-element-offset='-20')
+                h2.site-heading.h3.text-center
+                  strong.text-uppercase Web hosting
+                .portfolio-item-icon
+                  i.gi.gi-server.text-dark-op
+                .row
+                  .col-xs-6
+                    div
+                      strong Hosting Studio
+                    em 65 Projects
+                  .col-xs-6.text-right
+                    span.h2.text-light-op
+                      strong $29
+            .col-md-4
+              a.portfolio-item.themed-background-creme.visibility-none(href='javascript:void(0)', data-toggle='animation-appear', data-animation-class='animation-fadeInQuick', data-element-offset='-20')
+                h2.site-heading.h3.text-center
+                  strong.text-uppercase App Design
+                .portfolio-item-icon
+                  i.gi.gi-iphone.text-dark-op
+                .row
+                  .col-xs-6
+                    div
+                      strong App Studio
+                    em 7 Projects
+                  .col-xs-6.text-right
+                    span.h2.text-light-op
+                      strong $999
+            .col-md-4
+              a.portfolio-item.themed-background-warning.visibility-none(href='javascript:void(0)', data-toggle='animation-appear', data-animation-class='animation-fadeInQuick', data-element-offset='-20')
+                h2.site-heading.h3.text-center
+                  strong.text-uppercase App Development
+                .portfolio-item-icon
+                  i.gi.gi-settings.text-dark-op
+                .row
+                  .col-xs-6
+                    div
+                      strong App Studio
+                    em 15 Projects
+                  .col-xs-6.text-right
+                    span.h2.text-light-op
+                      strong $3499
+            .col-md-4
+              a.portfolio-item.themed-background-success.visibility-none(href='javascript:void(0)', data-toggle='animation-appear', data-animation-class='animation-fadeInQuick', data-element-offset='-20')
+                h2.site-heading.h3.text-center
+                  strong.text-uppercase Consultant
+                .portfolio-item-icon
+                  i.gi.gi-suitcase.text-dark-op
+                .row
+                  .col-xs-6
+                    div
+                      strong Pro Studio
+                    em 19 Projects
+                  .col-xs-6.text-right
+                    span.h2.text-light-op
+                      strong $699
+      // END Jobs
+      // Quick Stats
+      section.site-content.site-section.themed-background-default
+        .container
+          // Stats Row
+          // CountTo (initialized in js/app.js), for more examples you can check out https://github.com/mhuggins/jquery-countTo
+          .row
+            .col-sm-4
+              .counter.site-block
+                span(data-toggle='countTo', data-to='600', data-after='+')
+                small Jobs
+            .col-sm-4
+              .counter.site-block
+                span(data-toggle='countTo', data-to='5500', data-after='+')
+                small Customers
+            .col-sm-4
+              .counter.site-block
+                span(data-toggle='countTo', data-to='7400', data-after='+')
+                small Projects
+          // END Stats Row
+      // END Quick Stats
+      // Footer
+      footer.site-footer.site-section.site-section-light
+        .container
+          // Footer Links
+          .row
+            .col-sm-4
+              h4.footer-heading Company
+              ul.footer-nav.ul-breath.list-unstyled
+                li
+                  a(href='javascript:void(0)') About Us
+                li
+                  a(href='javascript:void(0)') Our Team
+                li
+                  a(href='javascript:void(0)') Memberships
+                li
+                  a(href='javascript:void(0)') Terms &amp; Conditions
+                li
+                  a(href='javascript:void(0)') Privacy Policy
+            .col-sm-4
+              h4.footer-heading Need support?
+              ul.footer-nav.footer-nav-links.list-inline
+                li
+                  a(href='javascript:void(0)')
+                    i.fa.fa-fw.fa-book
+                    |  Knowledge Base
+                li
+                  a(href='javascript:void(0)')
+                    i.fa.fa-fw.fa-support
+                    |  FAQ
+              h4.footer-heading We are social!
+              ul.footer-nav.footer-nav-links.list-inline
+                li
+                  a.social-facebook(href='javascript:void(0)', data-toggle='tooltip', title='Like our Facebook page')
+                    i.fa.fa-fw.fa-facebook
+                li
+                  a.social-twitter(href='javascript:void(0)', data-toggle='tooltip', title='Follow us on Twitter')
+                    i.fa.fa-fw.fa-twitter
+                li
+                  a.social-google-plus(href='javascript:void(0)', data-toggle='tooltip', title='Like our Google+ page')
+                    i.fa.fa-fw.fa-google-plus
+                li
+                  a.social-dribbble(href='javascript:void(0)', data-toggle='tooltip', title='Follow us on Dribbble')
+                    i.fa.fa-fw.fa-dribbble
+                li
+                  a.social-youtube(href='javascript:void(0)', data-toggle='tooltip', title='Subscribe to our Youtube channel')
+                    i.fa.fa-fw.fa-youtube-play
+            .col-sm-4
+              h4.footer-heading Newsletter
+              form.form-inline(action='index.html', method='post', onsubmit='return false;')
+                .form-group
+                  label.sr-only(for='register-email') Your Email
+                  .input-group
+                    input#register-email.form-control(type='email', name='register-email', placeholder='Your Email..')
+                    span.input-group-btn
+                      button.btn.btn-primary(type='submit') Subscribe
+              h4.footer-heading
+                a(href='http://goo.gl/RcsdAh') AppUI - Frontend
+              em
+                span#year-copy
+              |  &copy; Crafted with 
+              i.fa.fa-heart.text-danger
+              |  by 
+              a(href='http://goo.gl/WCS84b') pixelcave
+          // END Footer Links
+      // END Footer
+    // END Page Container
+    // Scroll to top link, initialized in js/app.js - scrollToTop()
+    a#to-top(href='#')
+      i.fa.fa-arrow-up
+    // Include Jquery library from Google's CDN but if something goes wrong get Jquery from local file (Remove 'http:' if you have SSL)
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+    script.
+      !window.jQuery && document.write(decodeURI('%3Cscript src="js/vendor/jquery-2.1.1.min.js"%3E%3C/script%3E'));
+    // Bootstrap.js, Jquery plugins and Custom JS code
+    script(src='js/vendor/bootstrap.min.js')
+    script(src='js/plugins.js')
+    script(src='js/app.js')

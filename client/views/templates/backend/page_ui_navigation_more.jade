@@ -1,0 +1,1064 @@
+doctype html
+//if IE 9
+  html.no-js.lt-ie10  
+// [if gt IE 9] <!
+html.no-js
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    title AppUI - Web App Bootstrap Admin Template
+    meta(name='description', content='AppUI is a Web App Bootstrap Admin Template created by pixelcave and published on Themeforest')
+    meta(name='author', content='pixelcave')
+    meta(name='robots', content='noindex, nofollow')
+    meta(name='viewport', content='width=device-width,initial-scale=1,maximum-scale=1.0')
+    // Icons
+    // The following icons can be replaced with your own, they are used by desktop and mobile browsers
+    link(rel='shortcut icon', href='img/favicon.png')
+    link(rel='apple-touch-icon', href='img/icon57.png', sizes='57x57')
+    link(rel='apple-touch-icon', href='img/icon72.png', sizes='72x72')
+    link(rel='apple-touch-icon', href='img/icon76.png', sizes='76x76')
+    link(rel='apple-touch-icon', href='img/icon114.png', sizes='114x114')
+    link(rel='apple-touch-icon', href='img/icon120.png', sizes='120x120')
+    link(rel='apple-touch-icon', href='img/icon144.png', sizes='144x144')
+    link(rel='apple-touch-icon', href='img/icon152.png', sizes='152x152')
+    link(rel='apple-touch-icon', href='img/icon180.png', sizes='180x180')
+    // END Icons
+    // Stylesheets
+    // Bootstrap is included in its original form, unaltered
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    // Related styles of various icon packs and plugins
+    link(rel='stylesheet', href='css/plugins.css')
+    // The main stylesheet of this template. All Bootstrap overwrites are defined in here
+    link(rel='stylesheet', href='css/main.css')
+    // Include a specific file here from css/themes/ folder to alter the default theme of the template
+    // The themes stylesheet of this template (for using specific theme color in individual elements - must included last)
+    link(rel='stylesheet', href='css/themes.css')
+    // END Stylesheets
+    // Modernizr (browser feature detection library)
+    script(src='js/vendor/modernizr-2.8.3.min.js')
+  body
+    // Page Wrapper
+    // In the PHP version you can set the following options from inc/config file
+    //
+      Available classes:
+      'page-loading'      enables page preloader
+    #page-wrapper.page-loading
+      // Preloader
+      // Preloader functionality (initialized in js/app.js) - pageLoading()
+      // Used only if page preloader enabled from inc/config (PHP version) or the class 'page-loading' is added in #page-wrapper element (HTML version)
+      .preloader
+        .inner
+          // Animation spinner for all modern browsers
+          .preloader-spinner.themed-background.hidden-lt-ie10
+          // Text for IE9
+          h3.text-primary.visible-lt-ie10
+            strong Loading..
+      // END Preloader
+      // Page Container
+      // In the PHP version you can set the following options from inc/config file
+      //
+        Available #page-container classes:
+        'sidebar-light'                                 for a light main sidebar (You can add it along with any other class)
+        'sidebar-visible-lg-mini'                       main sidebar condensed - Mini Navigation (> 991px)
+        'sidebar-visible-lg-full'                       main sidebar full - Full Navigation (> 991px)
+        'sidebar-alt-visible-lg'                        alternative sidebar visible by default (> 991px) (You can add it along with any other class)
+        'header-fixed-top'                              has to be added only if the class 'navbar-fixed-top' was added on header.navbar
+        'header-fixed-bottom'                           has to be added only if the class 'navbar-fixed-bottom' was added on header.navbar
+        'fixed-width'                                   for a fixed width layout (can only be used with a static header/main sidebar layout)
+        'enable-cookies'                                enables cookies for remembering active color theme when changed from the sidebar links (You can add it along with any other class)
+      #page-container.header-fixed-top.sidebar-visible-lg-full
+        // Alternative Sidebar
+        #sidebar-alt(tabindex='-1', aria-hidden='true')
+          // Toggle Alternative Sidebar Button (visible only in static layout)
+          a#sidebar-alt-close(href='javascript:void(0)', onclick="App.sidebar('toggle-sidebar-alt');")
+            i.fa.fa-times
+          // Wrapper for scrolling functionality
+          #sidebar-scroll-alt
+            // Sidebar Content
+            .sidebar-content
+              // Profile
+              .sidebar-section
+                h2.text-light Profile
+                form.form-control-borderless(action='index.html', method='post', onsubmit='return false;')
+                  .form-group
+                    label(for='side-profile-name') Name
+                    input#side-profile-name.form-control(type='text', name='side-profile-name', value='John Doe')
+                  .form-group
+                    label(for='side-profile-email') Email
+                    input#side-profile-email.form-control(type='email', name='side-profile-email', value='john.doe@example.com')
+                  .form-group
+                    label(for='side-profile-password') New Password
+                    input#side-profile-password.form-control(type='password', name='side-profile-password')
+                  .form-group
+                    label(for='side-profile-password-confirm') Confirm New Password
+                    input#side-profile-password-confirm.form-control(type='password', name='side-profile-password-confirm')
+                  .form-group.remove-margin
+                    button.btn.btn-effect-ripple.btn-primary(type='submit', onclick="App.sidebar('close-sidebar-alt');") Save
+              // END Profile
+              // Settings
+              .sidebar-section
+                h2.text-light Settings
+                form.form-horizontal.form-control-borderless(action='index.html', method='post', onsubmit='return false;')
+                  .form-group
+                    label.col-xs-7.control-label-fixed Notifications
+                    .col-xs-5
+                      label.switch.switch-success
+                        input(type='checkbox', checked='')
+                        span
+                  .form-group
+                    label.col-xs-7.control-label-fixed Public Profile
+                    .col-xs-5
+                      label.switch.switch-success
+                        input(type='checkbox', checked='')
+                        span
+                  .form-group
+                    label.col-xs-7.control-label-fixed Enable API
+                    .col-xs-5
+                      label.switch.switch-success
+                        input(type='checkbox')
+                        span
+                  .form-group.remove-margin
+                    button.btn.btn-effect-ripple.btn-primary(type='submit', onclick="App.sidebar('close-sidebar-alt');") Save
+              // END Settings
+            // END Sidebar Content
+          // END Wrapper for scrolling functionality
+        // END Alternative Sidebar
+        // Main Sidebar
+        #sidebar
+          // Sidebar Brand
+          #sidebar-brand.themed-background
+            a.sidebar-title(href='index.html')
+              i.fa.fa-cube
+              span.sidebar-nav-mini-hide
+                | App
+                strong UI
+          // END Sidebar Brand
+          // Wrapper for scrolling functionality
+          #sidebar-scroll
+            // Sidebar Content
+            .sidebar-content
+              // Sidebar Navigation
+              ul.sidebar-nav
+                li
+                  a(href='index.html')
+                    i.gi.gi-compass.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Dashboard
+                li.sidebar-separator
+                  i.fa.fa-ellipsis-h
+                li.active
+                  a.sidebar-nav-menu(href='#')
+                    i.fa.fa-chevron-left.sidebar-nav-indicator.sidebar-nav-mini-hide
+                    i.fa.fa-rocket.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide User Interface
+                  ul
+                    li
+                      a(href='page_ui_widgets.html') Widgets
+                    li.active
+                      a.sidebar-nav-submenu(href='#')
+                        i.fa.fa-chevron-left.sidebar-nav-indicator
+                        | Elements
+                      ul
+                        li
+                          a(href='page_ui_blocks_grid.html') Blocks &amp; Grid
+                        li
+                          a(href='page_ui_typography.html') Typography
+                        li
+                          a(href='page_ui_buttons_dropdowns.html') Buttons &amp; Dropdowns
+                        li
+                          a.active(href='page_ui_navigation_more.html') Navigation &amp; More
+                        li
+                          a(href='page_ui_progress_loading.html') Progress &amp; Loading
+                        li
+                          a(href='page_ui_tables.html') Tables
+                    li
+                      a.sidebar-nav-submenu(href='#')
+                        i.fa.fa-chevron-left.sidebar-nav-indicator
+                        | Forms
+                      ul
+                        li
+                          a(href='page_forms_components.html') Components
+                        li
+                          a(href='page_forms_wizard.html') Wizard
+                        li
+                          a(href='page_forms_validation.html') Validation
+                    li
+                      a.sidebar-nav-submenu(href='#')
+                        i.fa.fa-chevron-left.sidebar-nav-indicator
+                        | Icon Packs
+                      ul
+                        li
+                          a(href='page_ui_icons_fontawesome.html') Font Awesome
+                        li
+                          a(href='page_ui_icons_glyphicons_pro.html') Glyphicons Pro
+                li
+                  a.sidebar-nav-menu(href='#')
+                    i.fa.fa-chevron-left.sidebar-nav-indicator.sidebar-nav-mini-hide
+                    i.gi.gi-airplane.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Components
+                  ul
+                    li
+                      a(href='page_comp_todo.html') To-do List
+                    li
+                      a(href='page_comp_gallery.html') Gallery
+                    li
+                      a(href='page_comp_maps.html') Google Maps
+                    li
+                      a(href='page_comp_calendar.html') Calendar
+                    li
+                      a(href='page_comp_charts.html') Charts
+                    li
+                      a(href='page_comp_animations.html') CSS3 Animations
+                    li
+                      a(href='page_comp_tree.html') Tree View Lists
+                    li
+                      a(href='page_comp_nestable.html') Nestable &amp; Sortable Lists
+                li
+                  a.sidebar-nav-menu(href='#')
+                    i.fa.fa-chevron-left.sidebar-nav-indicator.sidebar-nav-mini-hide
+                    i.gi.gi-more_items.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide UI Layouts
+                  ul
+                    li
+                      a(href='page_layout_static.html') Static
+                    li
+                      a(href='page_layout_static_fixed_width.html') Static Fixed Width
+                    li
+                      a(href='page_layout_fixed_top.html') Top Header (Fixed)
+                    li
+                      a(href='page_layout_fixed_bottom.html') Bottom Header (Fixed)
+                    li
+                      a(href='page_layout_static_sidebar_mini.html') Sidebar Mini (Static)
+                    li
+                      a(href='page_layout_fixed_sidebar_mini.html') Sidebar Mini (Fixed)
+                    li
+                      a(href='page_layout_alternative_sidebar_visible.html') Visible Alternative Sidebar
+                li
+                  a.sidebar-nav-menu(href='#')
+                    i.fa.fa-chevron-left.sidebar-nav-indicator.sidebar-nav-mini-hide
+                    i.fa.fa-gift.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Extra Pages
+                  ul
+                    li
+                      a(href='page_ready_error.html') Error Page
+                    li
+                      a(href='page_ready_blank.html') Blank
+                    li
+                      a(href='page_ready_article.html') Article
+                    li
+                      a(href='page_ready_timeline.html') Timeline
+                    li
+                      a(href='page_ready_invoice.html') Invoice
+                    li
+                      a(href='page_ready_search_results.html') Search Results
+                    li
+                      a(href='page_ready_pricing_tables.html') Pricing Tables
+                    li
+                      a(href='page_ready_faq.html') FAQ
+                    li
+                      a(href='page_ready_profile.html') User Profile
+                    li
+                      a.sidebar-nav-submenu(href='#')
+                        i.fa.fa-chevron-left.sidebar-nav-indicator
+                        | Login, Register &amp; Lock
+                      ul
+                        li
+                          a(href='page_ready_login.html') Login
+                        li
+                          a(href='page_ready_reminder.html') Password Reminder
+                        li
+                          a(href='page_ready_register.html') Register
+                        li
+                          a(href='page_ready_lock_screen.html') Lock Screen
+                li.sidebar-separator
+                  i.fa.fa-ellipsis-h
+                li
+                  a(href='page_app_email.html')
+                    i.gi.gi-inbox.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Email Center
+                li
+                  a(href='page_app_social.html')
+                    i.fa.fa-share-alt.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Social Net
+                li
+                  a(href='page_app_media.html')
+                    i.gi.gi-picture.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Media Box
+                li
+                  a(href='page_app_estore.html')
+                    i.gi.gi-shopping_cart.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide eStore
+              // END Sidebar Navigation
+              // Color Themes
+              // Preview a theme on a page functionality can be found in js/app.js - colorThemePreview()
+              .sidebar-section.sidebar-nav-mini-hide
+                .sidebar-separator.push
+                  i.fa.fa-ellipsis-h
+                ul.sidebar-themes.clearfix
+                  li
+                    a.themed-background-default(href='javascript:void(0)', data-toggle='tooltip', title='Default', data-theme='default', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-default
+                      span.section-content
+                  li
+                    a.themed-background-classy(href='javascript:void(0)', data-toggle='tooltip', title='Classy', data-theme='css/themes/classy.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-classy
+                      span.section-content
+                  li
+                    a.themed-background-social(href='javascript:void(0)', data-toggle='tooltip', title='Social', data-theme='css/themes/social.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-social
+                      span.section-content
+                  li
+                    a.themed-background-flat(href='javascript:void(0)', data-toggle='tooltip', title='Flat', data-theme='css/themes/flat.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-flat
+                      span.section-content
+                  li
+                    a.themed-background-amethyst(href='javascript:void(0)', data-toggle='tooltip', title='Amethyst', data-theme='css/themes/amethyst.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-amethyst
+                      span.section-content
+                  li
+                    a.themed-background-creme(href='javascript:void(0)', data-toggle='tooltip', title='Creme', data-theme='css/themes/creme.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-creme
+                      span.section-content
+                  li
+                    a.themed-background-passion(href='javascript:void(0)', data-toggle='tooltip', title='Passion', data-theme='css/themes/passion.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-passion
+                      span.section-content
+                  li
+                    a.themed-background-default(href='javascript:void(0)', data-toggle='tooltip', title='Default + Light Sidebar', data-theme='default', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-classy(href='javascript:void(0)', data-toggle='tooltip', title='Classy + Light Sidebar', data-theme='css/themes/classy.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-social(href='javascript:void(0)', data-toggle='tooltip', title='Social + Light Sidebar', data-theme='css/themes/social.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-flat(href='javascript:void(0)', data-toggle='tooltip', title='Flat + Light Sidebar', data-theme='css/themes/flat.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-amethyst(href='javascript:void(0)', data-toggle='tooltip', title='Amethyst + Light Sidebar', data-theme='css/themes/amethyst.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-creme(href='javascript:void(0)', data-toggle='tooltip', title='Creme + Light Sidebar', data-theme='css/themes/creme.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-passion(href='javascript:void(0)', data-toggle='tooltip', title='Passion + Light Sidebar', data-theme='css/themes/passion.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-default(href='javascript:void(0)', data-toggle='tooltip', title='Default + Light Header', data-theme='default', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-default
+                      span.section-content
+                  li
+                    a.themed-background-classy(href='javascript:void(0)', data-toggle='tooltip', title='Classy + Light Header', data-theme='css/themes/classy.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-classy
+                      span.section-content
+                  li
+                    a.themed-background-social(href='javascript:void(0)', data-toggle='tooltip', title='Social + Light Header', data-theme='css/themes/social.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-social
+                      span.section-content
+                  li
+                    a.themed-background-flat(href='javascript:void(0)', data-toggle='tooltip', title='Flat + Light Header', data-theme='css/themes/flat.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-flat
+                      span.section-content
+                  li
+                    a.themed-background-amethyst(href='javascript:void(0)', data-toggle='tooltip', title='Amethyst + Light Header', data-theme='css/themes/amethyst.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-amethyst
+                      span.section-content
+                  li
+                    a.themed-background-creme(href='javascript:void(0)', data-toggle='tooltip', title='Creme + Light Header', data-theme='css/themes/creme.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-creme
+                      span.section-content
+                  li
+                    a.themed-background-passion(href='javascript:void(0)', data-toggle='tooltip', title='Passion + Light Header', data-theme='css/themes/passion.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-passion
+                      span.section-content
+              // END Color Themes
+            // END Sidebar Content
+          // END Wrapper for scrolling functionality
+          // Sidebar Extra Info
+          #sidebar-extra-info.sidebar-content.sidebar-nav-mini-hide
+            .push-bit
+              span.pull-right
+                a.text-muted(href='javascript:void(0)')
+                  i.fa.fa-plus
+              small
+                strong 78 GB
+                |  / 100 GB
+            .progress.progress-mini.push-bit
+              .progress-bar.progress-bar-primary(role='progressbar', aria-valuenow='78', aria-valuemin='0', aria-valuemax='100', style='width: 78%')
+            .text-center
+              small
+                | Crafted with 
+                i.fa.fa-heart.text-danger
+                |  by 
+                a(href='http://goo.gl/vNS3I', target='_blank') pixelcave
+              br
+              small
+                span#year-copy
+                |  &copy; 
+                a(href='http://goo.gl/RcsdAh', target='_blank') AppUI 2.1
+          // END Sidebar Extra Info
+        // END Main Sidebar
+        // Main Container
+        #main-container
+          // Header
+          // In the PHP version you can set the following options from inc/config file
+          //
+            Available header.navbar classes:
+            'navbar-default'            for the default light header
+            'navbar-inverse'            for an alternative dark header
+            'navbar-fixed-top'          for a top fixed header (fixed main sidebar with scroll will be auto initialized, functionality can be found in js/app.js - handleSidebar())
+            'header-fixed-top'      has to be added on #page-container only if the class 'navbar-fixed-top' was added
+            'navbar-fixed-bottom'       for a bottom fixed header (fixed main sidebar with scroll will be auto initialized, functionality can be found in js/app.js - handleSidebar()))
+            'header-fixed-bottom'   has to be added on #page-container only if the class 'navbar-fixed-bottom' was added
+          header.navbar.navbar-inverse.navbar-fixed-top
+            // Left Header Navigation
+            ul.nav.navbar-nav-custom
+              // Main Sidebar Toggle Button
+              li
+                a(href='javascript:void(0)', onclick="App.sidebar('toggle-sidebar');")
+                  i#sidebar-toggle-mini.fa.fa-ellipsis-v.fa-fw.animation-fadeInRight
+                  i#sidebar-toggle-full.fa.fa-bars.fa-fw.animation-fadeInRight
+              // END Main Sidebar Toggle Button
+              // Header Link
+              li.hidden-xs.animation-fadeInQuick
+                a(href='')
+                  strong UI ELEMENTS
+              // END Header Link
+            // END Left Header Navigation
+            // Right Header Navigation
+            ul.nav.navbar-nav-custom.pull-right
+              // Search Form
+              li
+                form.navbar-form-custom(action='page_ready_search_results.html', method='post', role='search')
+                  input#top-search.form-control(type='text', name='top-search', placeholder='Search..')
+              // END Search Form
+              // Alternative Sidebar Toggle Button
+              li
+                a(href='javascript:void(0)', onclick="App.sidebar('toggle-sidebar-alt');")
+                  i.gi.gi-settings
+              // END Alternative Sidebar Toggle Button
+              // User Dropdown
+              li.dropdown
+                a.dropdown-toggle(href='javascript:void(0)', data-toggle='dropdown')
+                  img(src='img/placeholders/avatars/avatar9.jpg', alt='avatar')
+                ul.dropdown-menu.dropdown-menu-right
+                  li.dropdown-header
+                    strong ADMINISTRATOR
+                  li
+                    a(href='page_app_email.html')
+                      i.fa.fa-inbox.fa-fw.pull-right
+                      |                                             Inbox
+                  li
+                    a(href='page_app_social.html')
+                      i.fa.fa-pencil-square.fa-fw.pull-right
+                      |                                             Profile
+                  li
+                    a(href='page_app_media.html')
+                      i.fa.fa-picture-o.fa-fw.pull-right
+                      |                                             Media Manager
+                  li.divider
+                  li
+                  li
+                    a(href='javascript:void(0)', onclick="App.sidebar('toggle-sidebar-alt');")
+                      i.gi.gi-settings.fa-fw.pull-right
+                      |                                             Settings
+                  li
+                    a(href='page_ready_lock_screen.html')
+                      i.gi.gi-lock.fa-fw.pull-right
+                      |                                             Lock Account
+                  li
+                    a(href='page_ready_login.html')
+                      i.fa.fa-power-off.fa-fw.pull-right
+                      |                                             Log out
+              // END User Dropdown
+            // END Right Header Navigation
+          // END Header
+          // Page content
+          #page-content
+            // Navigation - Extras Header
+            .content-header
+              .row
+                .col-sm-6
+                  .header-section
+                    h1 Navigation &amp; More
+                .col-sm-6.hidden-xs
+                  .header-section
+                    ul.breadcrumb.breadcrumb-top
+                      li User Interface
+                      li Elements
+                      li
+                        a(href='') Navigation &amp; More
+            // END Navigation - Extras Header
+            // Sidebars Row
+            .row
+              .col-sm-6
+                // Main Sidebar Block
+                .block.full
+                  // Main Sidebar Title
+                  .block-title
+                    h2 Main Sidebar
+                  // END Main Sidebar Title
+                  // Main Sidebar Content
+                  button.btn.btn-effect-ripple.btn-success(onclick="App.sidebar('open-sidebar');") Open
+                  button.btn.btn-effect-ripple.btn-danger(onclick="App.sidebar('close-sidebar');") Close
+                  button.btn.btn-effect-ripple.btn-primary(onclick="App.sidebar('toggle-sidebar');") Toggle
+                  // END Main Sidebar Content
+                // END Main Sidebar Block
+              .col-sm-6
+                // Alternative Sidebar Block
+                .block.full
+                  // Alternative Sidebar Title
+                  .block-title
+                    h2 Alternative Sidebar
+                  // END Alternative Sidebar Title
+                  // Alternative Sidebar Content
+                  button.btn.btn-effect-ripple.btn-success(onclick="App.sidebar('open-sidebar-alt');") Open
+                  button.btn.btn-effect-ripple.btn-danger(onclick="App.sidebar('close-sidebar-alt');") Close
+                  button.btn.btn-effect-ripple.btn-primary(onclick="App.sidebar('toggle-sidebar-alt');") Toggle
+                  // END Alternative Sidebar Content
+                // END Alternative Sidebar Block
+            // END Sidebars Row
+            // Various Carousels Row
+            .row
+              .col-sm-4
+                // Info Carousel Block
+                .block
+                  // Info Carousel Title
+                  .block-title
+                    h2 Info
+                  // END Info Carousel Title
+                  // Info Carousel Content
+                  .block-content-full
+                    #info-carousel.carousel.slide.remove-margin
+                      // Indicators
+                      ol.carousel-indicators
+                        li.active(data-target='#info-carousel', data-slide-to='0')
+                        li(data-target='#info-carousel', data-slide-to='1')
+                        li(data-target='#info-carousel', data-slide-to='2')
+                        li(data-target='#info-carousel', data-slide-to='3')
+                      // END Indicators
+                      // Wrapper for slides
+                      .carousel-inner
+                        .item.active
+                          img(src='img/placeholders/photos/photo8.jpg', alt='image')
+                          .carousel-caption
+                            h3
+                              strong City by Night
+                        .item
+                          img(src='img/placeholders/photos/photo7.jpg', alt='image')
+                          .carousel-caption
+                            h3
+                              strong Lonely Road
+                        .item
+                          img(src='img/placeholders/photos/photo11.jpg', alt='image')
+                          .carousel-caption
+                            h3
+                              strong Yummy Pizza
+                        .item
+                          img(src='img/placeholders/photos/photo10.jpg', alt='image')
+                          .carousel-caption
+                            h3
+                              strong City in the Clouds
+                      // END Wrapper for slides
+                      // Controls
+                      a.left.carousel-control(href='#info-carousel', data-slide='prev')
+                        span
+                          i.fa.fa-chevron-left
+                      a.right.carousel-control(href='#info-carousel', data-slide='next')
+                        span
+                          i.fa.fa-chevron-right
+                      // END Controls
+                  // END Info Carousel Content
+                // END Info Carousel Block
+              .col-sm-4
+                // Simple Carousel Block
+                .block
+                  // Simple Carousel Title
+                  .block-title
+                    h2 Simple
+                  // END Simple Carousel Title
+                  // Simple Carousel Content
+                  .block-content-full
+                    #simple-carousel.carousel.remove-margin
+                      // Wrapper for slides
+                      .carousel-inner
+                        .item.active
+                          img(src='img/placeholders/photos/photo11.jpg', alt='image')
+                        .item
+                          img(src='img/placeholders/photos/photo14.jpg', alt='image')
+                        .item
+                          img(src='img/placeholders/photos/photo2.jpg', alt='image')
+                        .item
+                          img(src='img/placeholders/photos/photo15.jpg', alt='image')
+                      // END Wrapper for slides
+                      // Controls
+                      a.left.carousel-control(href='#simple-carousel', data-slide='prev')
+                        span
+                          i.fa.fa-chevron-left
+                      a.right.carousel-control(href='#simple-carousel', data-slide='next')
+                        span
+                          i.fa.fa-chevron-right
+                      // END Controls
+                  // END Simple Carousel Content
+                // END Simple Carousel Block
+              .col-sm-4
+                // Animation and Auto Slide Carousel Block
+                .block
+                  // Animation and Auto Slide Carousel Title
+                  .block-title
+                    h2 Animation &amp; Auto Slide
+                  // END Animation and Auto Slide Carousel Title
+                  // Animation and Auto Slide Carousel Content
+                  .block-content-full
+                    #animation-carousel.carousel.slide.remove-margin(data-ride='carousel', data-interval='1500')
+                      // Wrapper for slides
+                      .carousel-inner
+                        .item.active
+                          img(src='img/placeholders/photos/photo18.jpg', alt='image')
+                        .item
+                          img(src='img/placeholders/photos/photo19.jpg', alt='image')
+                        .item
+                          img(src='img/placeholders/photos/photo21.jpg', alt='image')
+                        .item
+                          img(src='img/placeholders/photos/photo7.jpg', alt='image')
+                      // END Wrapper for slides
+                      // Controls
+                      a.left.carousel-control(href='#animation-carousel', data-slide='prev')
+                        span
+                          i.fa.fa-chevron-left
+                      a.right.carousel-control(href='#animation-carousel', data-slide='next')
+                        span
+                          i.fa.fa-chevron-right
+                      // END Controls
+                  // END Animation and Auto Slide Carousel Content
+                // END Animation and Auto Slide Carousel Block
+            // END Various Carousels Row
+            // Nav Row
+            .row
+              .col-md-6
+                // List Groups Block
+                .block
+                  // List Groups Title
+                  .block-title
+                    h2 List Groups
+                  // END List Groups Title
+                  // List Groups Content
+                  .list-group
+                    a.list-group-item.active(href='javascript:void(0)')
+                      span.badge
+                        i.fa.fa-fw.fa-inbox
+                      h4.list-group-item-heading
+                        strong Inbox
+                      p.list-group-item-text Your new messages
+                    a.list-group-item(href='javascript:void(0)')
+                      span.badge
+                        i.fa.fa-fw.fa-send
+                      h4.list-group-item-heading
+                        strong Sent
+                      p.list-group-item-text Everything you&apos;ve sent it&apos;s here
+                    a.list-group-item(href='javascript:void(0)')
+                      span.badge
+                        i.fa.fa-fw.fa-archive
+                      h4.list-group-item-heading
+                        strong Archive
+                      p.list-group-item-text All your archived messages
+                    a.list-group-item(href='javascript:void(0)')
+                      span.badge
+                        i.fa.fa-fw.fa-trash-o
+                      h4.list-group-item-heading
+                        strong Trash
+                      p.list-group-item-text All your deleted messages
+                  .list-group
+                    a.list-group-item.active(href='javascript:void(0)')
+                      span.badge 9
+                      h4.list-group-item-heading
+                        strong Inbox
+                    a.list-group-item(href='javascript:void(0)')
+                      span.badge 2.5k
+                      h4.list-group-item-heading
+                        strong Sent
+                    a.list-group-item(href='javascript:void(0)')
+                      span.badge 3k
+                      h4.list-group-item-heading
+                        strong Archive
+                    a.list-group-item(href='javascript:void(0)')
+                      span.badge 150
+                      h4.list-group-item-heading
+                        strong Trash
+                  // END List Groups Content
+                // END List Groups Block
+                // Pagination Block
+                .block
+                  // Pagination Title
+                  .block-title
+                    h2 Pagination
+                  // END Pagination Title
+                  // Default Pagination and States
+                  ul.pagination
+                    li.disabled
+                      a(href='javascript:void(0)') Prev
+                    li.active
+                      a(href='javascript:void(0)') 1
+                    li
+                      a(href='javascript:void(0)') 2
+                    li
+                      a(href='javascript:void(0)') 3
+                    li
+                      a(href='javascript:void(0)') Next
+                  // END Default Pagination and States
+                  // Pagination Sizes
+                  h4.sub-header Sizes
+                  div
+                    ul.pagination.pagination-sm
+                      li
+                        a(href='javascript:void(0)')
+                          i.fa.fa-chevron-left
+                      li
+                        a(href='javascript:void(0)') 1
+                      li.active
+                        a(href='javascript:void(0)') 2
+                      li
+                        a(href='javascript:void(0)') 3
+                      li
+                        a(href='javascript:void(0)')
+                          i.fa.fa-chevron-right
+                  div
+                    ul.pagination
+                      li
+                        a(href='javascript:void(0)')
+                          i.fa.fa-chevron-left
+                      li
+                        a(href='javascript:void(0)') 1
+                      li.active
+                        a(href='javascript:void(0)') 2
+                      li
+                        a(href='javascript:void(0)') 3
+                      li
+                        a(href='javascript:void(0)')
+                          i.fa.fa-chevron-right
+                  div
+                    ul.pagination.pagination-lg
+                      li
+                        a(href='javascript:void(0)')
+                          i.fa.fa-chevron-left
+                      li
+                        a(href='javascript:void(0)') 1
+                      li.active
+                        a(href='javascript:void(0)') 2
+                      li
+                        a(href='javascript:void(0)') 3
+                      li
+                        a(href='javascript:void(0)')
+                          i.fa.fa-chevron-right
+                  // END Pagination Sizes
+                  // Pagination Alignment
+                  h4.sub-header Alignments
+                  div
+                    ul.pagination
+                      li
+                        a(href='javascript:void(0)')
+                          i.fa.fa-chevron-left
+                      li
+                        a(href='javascript:void(0)') 1
+                      li.active
+                        a(href='javascript:void(0)') 2
+                      li
+                        a(href='javascript:void(0)') 3
+                      li
+                        a(href='javascript:void(0)')
+                          i.fa.fa-chevron-right
+                  .text-center
+                    ul.pagination
+                      li
+                        a(href='javascript:void(0)')
+                          i.fa.fa-chevron-left
+                      li
+                        a(href='javascript:void(0)') 1
+                      li.active
+                        a(href='javascript:void(0)') 2
+                      li
+                        a(href='javascript:void(0)') 3
+                      li
+                        a(href='javascript:void(0)')
+                          i.fa.fa-chevron-right
+                  .text-right
+                    ul.pagination
+                      li
+                        a(href='javascript:void(0)')
+                          i.fa.fa-chevron-left
+                      li
+                        a(href='javascript:void(0)') 1
+                      li.active
+                        a(href='javascript:void(0)') 2
+                      li
+                        a(href='javascript:void(0)') 3
+                      li
+                        a(href='javascript:void(0)')
+                          i.fa.fa-chevron-right
+                  // END Pagination Alignment
+                // END Pagination Block
+              .col-md-6
+                // Popovers, Tooltips and Modals Block
+                .block
+                  // Popovers, Tooltips and Modals Title
+                  .block-title
+                    h2 Popovers, Tooltips &amp; Modals
+                  // END Popovers, Tooltips and Modals Title
+                  // Popovers, you can also use the class 'enable-popover' instead of data-toggle attribute
+                  .block-section
+                    button.btn.btn-effect-ripple.btn-default(data-toggle='popover', data-content='Content..', title='Title') Popover
+                    button.btn.btn-effect-ripple.btn-primary(data-toggle='popover', data-content='Content..', data-placement='top', title='Title')
+                      i.fa.fa-chevron-up.fa-fw
+                    button.btn.btn-effect-ripple.btn-primary(data-toggle='popover', data-content='Content..', data-placement='right', title='Title')
+                      i.fa.fa-chevron-right.fa-fw
+                    button.btn.btn-effect-ripple.btn-primary(data-toggle='popover', data-content='Content..', data-placement='bottom', title='Title')
+                      i.fa.fa-chevron-down.fa-fw
+                    button.btn.btn-effect-ripple.btn-primary(data-toggle='popover', data-content='Content..', data-placement='left', title='Title')
+                      i.fa.fa-chevron-left.fa-fw
+                  // END Popovers
+                  // Tooltips, you can also use the class 'enable-tooltip' instead of data-toggle attribute
+                  .block-section
+                    a.btn.btn-effect-ripple.btn-default(href='javascript:void(0)', data-toggle='tooltip', title='Tooltip') Tooltip
+                    a.btn.btn-effect-ripple.btn-primary(href='javascript:void(0)', data-toggle='tooltip', data-placement='top', title='Top Tooltip')
+                      i.fa.fa-chevron-up.fa-fw
+                    a.btn.btn-effect-ripple.btn-primary(href='javascript:void(0)', data-toggle='tooltip', data-placement='right', title='Right Tooltip')
+                      i.fa.fa-chevron-right.fa-fw
+                    a.btn.btn-effect-ripple.btn-primary(href='javascript:void(0)', data-toggle='tooltip', data-placement='bottom', title='Bottom Tooltip')
+                      i.fa.fa-chevron-down.fa-fw
+                    a.btn.btn-effect-ripple.btn-primary(href='javascript:void(0)', data-toggle='tooltip', data-placement='left', title='Left Tooltip')
+                      i.fa.fa-chevron-left.fa-fw
+                  // END Tooltips
+                  // Modals
+                  // For advanced modal usage you can check out http://getbootstrap.com/javascript/#modals
+                  .block-section
+                    // Modal links
+                    a.btn.btn-effect-ripple.btn-default(href='#modal-regular', data-toggle='modal') Modal
+                    a.btn.btn-effect-ripple.btn-primary(href='#modal-small', data-toggle='modal') Small
+                    a.btn.btn-effect-ripple.btn-primary(href='#modal-large', data-toggle='modal') Large
+                    a.btn.btn-effect-ripple.btn-danger(href='#modal-fade', data-toggle='modal') Fade In
+                    a.btn.btn-effect-ripple.btn-warning(href='#modal-tabs', data-toggle='modal') Tabs
+                  // END Modals
+                  // Regular Modal
+                  #modal-regular.modal(tabindex='-1', role='dialog', aria-hidden='true')
+                    .modal-dialog
+                      .modal-content
+                        .modal-header
+                          button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+                          h3.modal-title
+                            strong Modal
+                        .modal-body
+                          | Content..
+                        .modal-footer
+                          button.btn.btn-effect-ripple.btn-primary(type='button') Save
+                          button.btn.btn-effect-ripple.btn-danger(type='button', data-dismiss='modal') Close
+                  // END Regular Modal
+                  // Small Modal
+                  #modal-small.modal(tabindex='-1', role='dialog', aria-hidden='true')
+                    .modal-dialog.modal-sm
+                      .modal-content
+                        .modal-header
+                          button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+                          h3.modal-title
+                            strong Small Modal
+                        .modal-body
+                          | Content..
+                        .modal-footer
+                          button.btn.btn-effect-ripple.btn-primary(type='button') Save
+                          button.btn.btn-effect-ripple.btn-danger(type='button', data-dismiss='modal') Close
+                  // END Small Modal
+                  // Large Modal
+                  #modal-large.modal(tabindex='-1', role='dialog', aria-hidden='true')
+                    .modal-dialog.modal-lg
+                      .modal-content
+                        .modal-header
+                          button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+                          h3.modal-title
+                            strong Large Modal
+                        .modal-body
+                          | Content..
+                        .modal-footer
+                          button.btn.btn-effect-ripple.btn-primary(type='button') Save
+                          button.btn.btn-effect-ripple.btn-danger(type='button', data-dismiss='modal') Close
+                  // END Large Modal
+                  // Regular Fade
+                  #modal-fade.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+                    .modal-dialog
+                      .modal-content
+                        .modal-header
+                          button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+                          h3.modal-title
+                            strong Modal
+                        .modal-body
+                          | Content..
+                        .modal-footer
+                          button.btn.btn-effect-ripple.btn-primary(type='button') Save
+                          button.btn.btn-effect-ripple.btn-danger(type='button', data-dismiss='modal') Close
+                  // END Regular Fade
+                  // Regular Tabs
+                  #modal-tabs.modal.fade(tabindex='-1', role='dialog', aria-hidden='true')
+                    .modal-dialog
+                      .modal-content
+                        .modal-header
+                          button.close(type='button', data-dismiss='modal', aria-hidden='true') &times;
+                          ul.nav.nav-tabs(data-toggle='tabs')
+                            li.active
+                              a(href='#modal-tabs-home')
+                                i.fa.fa-home
+                                |  Home
+                            li
+                              a(href='#modal-tabs-settings', data-toggle='tooltip', title='Settings')
+                                i.gi.gi-settings
+                                |  Settings
+                        .modal-body
+                          .tab-content
+                            #modal-tabs-home.tab-pane.active Home..
+                            #modal-tabs-settings.tab-pane Settings..
+                        .modal-footer
+                          button.btn.btn-effect-ripple.btn-primary(type='button') Save
+                          button.btn.btn-effect-ripple.btn-danger(type='button', data-dismiss='modal') Close
+                  // END Regular Tabs
+                // END Popovers, Tooltips and Modals Block
+                // Block Tabs
+                .block.full
+                  // Block Tabs Title
+                  .block-title
+                    .block-options.pull-right
+                      a.btn.btn-effect-ripple.btn-default(href='javascript:void(0)', data-toggle='tooltip', title='Settings')
+                        i.fa.fa-cog
+                    ul.nav.nav-tabs(data-toggle='tabs')
+                      li.active
+                        a(href='#block-tabs-home') Home
+                      li
+                        a(href='#block-tabs-profile') Profile
+                      li
+                        a(href='#block-tabs-settings', data-toggle='tooltip', title='Settings')
+                          i.gi.gi-settings
+                  // END Block Tabs Title
+                  // Tabs Content
+                  .tab-content
+                    #block-tabs-home.tab-pane.active Block Tabs..
+                    #block-tabs-profile.tab-pane Profile..
+                    #block-tabs-settings.tab-pane Settings..
+                  // END Tabs Content
+                // END Block Tabs
+                // Navs Block
+                .block
+                  // Navs Title
+                  .block-title
+                    h2 Navigation Elements
+                  // END Navs Title
+                  // Breadcrumb
+                  .block-section
+                    h4.sub-header Breadcrumb
+                    ol.breadcrumb
+                      li
+                        a(href='javascript:void(0)')
+                          i.fa.fa-home
+                      li
+                        a(href='javascript:void(0)') Profile
+                      li
+                        a(href='javascript:void(0)') Settings
+                  // END Breadcrumb
+                  // Tabs
+                  .block-section
+                    h4.sub-header Tabs
+                    ul.nav.nav-tabs
+                      li.active
+                        a(href='javascript:void(0)') Home
+                      li
+                        a(href='javascript:void(0)') News
+                      li
+                        a(href='javascript:void(0)')
+                          i.gi.gi-settings
+                  // END Tabs
+                  // Pills
+                  .block-section
+                    h4.sub-header Pills
+                    ul.nav.nav-pills
+                      li.active
+                        a(href='javascript:void(0)') Home
+                      li
+                        a(href='javascript:void(0)') News
+                      li.disabled
+                        a(href='javascript:void(0)') Disabled
+                  // END Pills
+                  // Stacked Pills
+                  .block-section
+                    h4.sub-header Stacked Pills
+                    .row
+                      .col-md-6
+                        ul.nav.nav-pills.nav-stacked
+                          li.active
+                            a(href='javascript:void(0)')
+                              span.badge.pull-right 3
+                              i.fa.fa-fw.fa-home.icon-push
+                              |  Home
+                          li
+                            a(href='javascript:void(0)')
+                              span.badge.pull-right 9
+                              i.fa.fa-fw.fa-tasks.icon-push
+                              |  Notifications
+                          li
+                            a(href='javascript:void(0)')
+                              span.badge.pull-right 5
+                              i.fa.fa-fw.fa-asterisk.icon-push
+                              |  News
+                      .col-md-6
+                        ul.nav.nav-pills.nav-stacked
+                          li.active
+                            a(href='javascript:void(0)')
+                              span.badge.pull-right 1
+                              | Home
+                          li
+                            a(href='javascript:void(0)')
+                              span.badge.pull-right 3
+                              | News
+                          li.disabled
+                            a(href='javascript:void(0)') Disabled
+                  // END Stacked Pills
+                  // Pager
+                  .block-section
+                    h4.sub-header Pager
+                    .block.full
+                      ul.pager
+                        li.previous
+                          a(href='javascript:void(0)') Previous
+                        li.next.disabled
+                          a(href='javascript:void(0)') Next
+                    .block.full
+                      ul.pager
+                        li.previous
+                          a(href='javascript:void(0)')
+                            i.fa.fa-arrow-left
+                        li.next
+                          a(href='javascript:void(0)')
+                            i.fa.fa-arrow-right
+                  // END Pager
+                // END Navs Block
+            // END Nav Row
+          // END Page Content
+        // END Main Container
+      // END Page Container
+    // END Page Wrapper
+    // Include Jquery library from Google's CDN but if something goes wrong get Jquery from local file (Remove 'http:' if you have SSL)
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+    script.
+      !window.jQuery && document.write(decodeURI('%3Cscript src="js/vendor/jquery-2.1.1.min.js"%3E%3C/script%3E'));
+    // Bootstrap.js, Jquery plugins and Custom JS code
+    script(src='js/vendor/bootstrap.min.js')
+    script(src='js/plugins.js')
+    script(src='js/app.js')

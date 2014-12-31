@@ -2,33 +2,32 @@
   h1 {{mode | uppercase}}
 
 .row
-  .large-4.small-3.columns
+  .col-md-4.col-lg-3
     .widget
       .widget-image.widget-image-sm
         img(src='../assets/img/placeholders/photo1@2x.jpg', alt='image')
         .widget-image-content.text-center
           a.gravLink(href='https://en.gravatar.com/'): img.gravatar.img-circle.img-thumbnail.img-thumbnail-transparent.img-thumbnail-avatar-2x.push(ng-src='{{rootuser.gravatar}}' alt='Create your own Gravatar!')
-          //- img#avatarimg(ng-src='{{rootuser.gravatar}}')
           h2.widget-heading.text-light
             strong {{rootuser.first_name}} {{rootuser.last_name}}
           h4.widget-heading.text-light-op
             em {{rootuser.username}}
       .widget-content.widget-content-border
         .row.text-center
-          .large-6.small-6.columns
+          .col-xs-6
             h3.widget-heading
-              i.fa.fa-star.text-success.push
+              i.gi.gi-star.text-success.push
               br
               small
                 strong {{rootuser.points}}
                 |  Brownie Points
-          .large-6.small-6.columns
+          .col-xs-6
             h3.widget-heading
-              i.fa.fa-group.text-primary.push
+              i.gi.gi-group.text-primary.push
               br
               small
                 strong {{users.length || 0}}
                 |  Connections
-  .large-8.small-9.columns
-    //- include connections
+  .col-md-8.col-lg-9
+    include connections
 

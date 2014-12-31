@@ -1,0 +1,1622 @@
+doctype html
+//if IE 9
+  html.no-js.lt-ie10  
+// [if gt IE 9] <!
+html.no-js
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    title AppUI - Web App Bootstrap Admin Template
+    meta(name='description', content='AppUI is a Web App Bootstrap Admin Template created by pixelcave and published on Themeforest')
+    meta(name='author', content='pixelcave')
+    meta(name='robots', content='noindex, nofollow')
+    meta(name='viewport', content='width=device-width,initial-scale=1,maximum-scale=1.0')
+    // Icons
+    // The following icons can be replaced with your own, they are used by desktop and mobile browsers
+    link(rel='shortcut icon', href='img/favicon.png')
+    link(rel='apple-touch-icon', href='img/icon57.png', sizes='57x57')
+    link(rel='apple-touch-icon', href='img/icon72.png', sizes='72x72')
+    link(rel='apple-touch-icon', href='img/icon76.png', sizes='76x76')
+    link(rel='apple-touch-icon', href='img/icon114.png', sizes='114x114')
+    link(rel='apple-touch-icon', href='img/icon120.png', sizes='120x120')
+    link(rel='apple-touch-icon', href='img/icon144.png', sizes='144x144')
+    link(rel='apple-touch-icon', href='img/icon152.png', sizes='152x152')
+    link(rel='apple-touch-icon', href='img/icon180.png', sizes='180x180')
+    // END Icons
+    // Stylesheets
+    // Bootstrap is included in its original form, unaltered
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    // Related styles of various icon packs and plugins
+    link(rel='stylesheet', href='css/plugins.css')
+    // The main stylesheet of this template. All Bootstrap overwrites are defined in here
+    link(rel='stylesheet', href='css/main.css')
+    // Include a specific file here from css/themes/ folder to alter the default theme of the template
+    // The themes stylesheet of this template (for using specific theme color in individual elements - must included last)
+    link(rel='stylesheet', href='css/themes.css')
+    // END Stylesheets
+    // Modernizr (browser feature detection library)
+    script(src='js/vendor/modernizr-2.8.3.min.js')
+  body
+    // Page Wrapper
+    // In the PHP version you can set the following options from inc/config file
+    //
+      Available classes:
+      'page-loading'      enables page preloader
+    #page-wrapper.page-loading
+      // Preloader
+      // Preloader functionality (initialized in js/app.js) - pageLoading()
+      // Used only if page preloader enabled from inc/config (PHP version) or the class 'page-loading' is added in #page-wrapper element (HTML version)
+      .preloader
+        .inner
+          // Animation spinner for all modern browsers
+          .preloader-spinner.themed-background.hidden-lt-ie10
+          // Text for IE9
+          h3.text-primary.visible-lt-ie10
+            strong Loading..
+      // END Preloader
+      // Page Container
+      // In the PHP version you can set the following options from inc/config file
+      //
+        Available #page-container classes:
+        'sidebar-light'                                 for a light main sidebar (You can add it along with any other class)
+        'sidebar-visible-lg-mini'                       main sidebar condensed - Mini Navigation (> 991px)
+        'sidebar-visible-lg-full'                       main sidebar full - Full Navigation (> 991px)
+        'sidebar-alt-visible-lg'                        alternative sidebar visible by default (> 991px) (You can add it along with any other class)
+        'header-fixed-top'                              has to be added only if the class 'navbar-fixed-top' was added on header.navbar
+        'header-fixed-bottom'                           has to be added only if the class 'navbar-fixed-bottom' was added on header.navbar
+        'fixed-width'                                   for a fixed width layout (can only be used with a static header/main sidebar layout)
+        'enable-cookies'                                enables cookies for remembering active color theme when changed from the sidebar links (You can add it along with any other class)
+      #page-container.header-fixed-top.sidebar-visible-lg-full
+        // Alternative Sidebar
+        #sidebar-alt(tabindex='-1', aria-hidden='true')
+          // Toggle Alternative Sidebar Button (visible only in static layout)
+          a#sidebar-alt-close(href='javascript:void(0)', onclick="App.sidebar('toggle-sidebar-alt');")
+            i.fa.fa-times
+          // Wrapper for scrolling functionality
+          #sidebar-scroll-alt
+            // Sidebar Content
+            .sidebar-content
+              // Profile
+              .sidebar-section
+                h2.text-light Profile
+                form.form-control-borderless(action='index.html', method='post', onsubmit='return false;')
+                  .form-group
+                    label(for='side-profile-name') Name
+                    input#side-profile-name.form-control(type='text', name='side-profile-name', value='John Doe')
+                  .form-group
+                    label(for='side-profile-email') Email
+                    input#side-profile-email.form-control(type='email', name='side-profile-email', value='john.doe@example.com')
+                  .form-group
+                    label(for='side-profile-password') New Password
+                    input#side-profile-password.form-control(type='password', name='side-profile-password')
+                  .form-group
+                    label(for='side-profile-password-confirm') Confirm New Password
+                    input#side-profile-password-confirm.form-control(type='password', name='side-profile-password-confirm')
+                  .form-group.remove-margin
+                    button.btn.btn-effect-ripple.btn-primary(type='submit', onclick="App.sidebar('close-sidebar-alt');") Save
+              // END Profile
+              // Settings
+              .sidebar-section
+                h2.text-light Settings
+                form.form-horizontal.form-control-borderless(action='index.html', method='post', onsubmit='return false;')
+                  .form-group
+                    label.col-xs-7.control-label-fixed Notifications
+                    .col-xs-5
+                      label.switch.switch-success
+                        input(type='checkbox', checked='')
+                        span
+                  .form-group
+                    label.col-xs-7.control-label-fixed Public Profile
+                    .col-xs-5
+                      label.switch.switch-success
+                        input(type='checkbox', checked='')
+                        span
+                  .form-group
+                    label.col-xs-7.control-label-fixed Enable API
+                    .col-xs-5
+                      label.switch.switch-success
+                        input(type='checkbox')
+                        span
+                  .form-group.remove-margin
+                    button.btn.btn-effect-ripple.btn-primary(type='submit', onclick="App.sidebar('close-sidebar-alt');") Save
+              // END Settings
+            // END Sidebar Content
+          // END Wrapper for scrolling functionality
+        // END Alternative Sidebar
+        // Main Sidebar
+        #sidebar
+          // Sidebar Brand
+          #sidebar-brand.themed-background
+            a.sidebar-title(href='index.html')
+              i.fa.fa-cube
+              span.sidebar-nav-mini-hide
+                | App
+                strong UI
+          // END Sidebar Brand
+          // Wrapper for scrolling functionality
+          #sidebar-scroll
+            // Sidebar Content
+            .sidebar-content
+              // Sidebar Navigation
+              ul.sidebar-nav
+                li
+                  a(href='index.html')
+                    i.gi.gi-compass.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Dashboard
+                li.sidebar-separator
+                  i.fa.fa-ellipsis-h
+                li.active
+                  a.sidebar-nav-menu(href='#')
+                    i.fa.fa-chevron-left.sidebar-nav-indicator.sidebar-nav-mini-hide
+                    i.fa.fa-rocket.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide User Interface
+                  ul
+                    li
+                      a(href='page_ui_widgets.html') Widgets
+                    li
+                      a.sidebar-nav-submenu(href='#')
+                        i.fa.fa-chevron-left.sidebar-nav-indicator
+                        | Elements
+                      ul
+                        li
+                          a(href='page_ui_blocks_grid.html') Blocks &amp; Grid
+                        li
+                          a(href='page_ui_typography.html') Typography
+                        li
+                          a(href='page_ui_buttons_dropdowns.html') Buttons &amp; Dropdowns
+                        li
+                          a(href='page_ui_navigation_more.html') Navigation &amp; More
+                        li
+                          a(href='page_ui_progress_loading.html') Progress &amp; Loading
+                        li
+                          a(href='page_ui_tables.html') Tables
+                    li
+                      a.sidebar-nav-submenu(href='#')
+                        i.fa.fa-chevron-left.sidebar-nav-indicator
+                        | Forms
+                      ul
+                        li
+                          a(href='page_forms_components.html') Components
+                        li
+                          a(href='page_forms_wizard.html') Wizard
+                        li
+                          a(href='page_forms_validation.html') Validation
+                    li.active
+                      a.sidebar-nav-submenu(href='#')
+                        i.fa.fa-chevron-left.sidebar-nav-indicator
+                        | Icon Packs
+                      ul
+                        li
+                          a.active(href='page_ui_icons_fontawesome.html') Font Awesome
+                        li
+                          a(href='page_ui_icons_glyphicons_pro.html') Glyphicons Pro
+                li
+                  a.sidebar-nav-menu(href='#')
+                    i.fa.fa-chevron-left.sidebar-nav-indicator.sidebar-nav-mini-hide
+                    i.gi.gi-airplane.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Components
+                  ul
+                    li
+                      a(href='page_comp_todo.html') To-do List
+                    li
+                      a(href='page_comp_gallery.html') Gallery
+                    li
+                      a(href='page_comp_maps.html') Google Maps
+                    li
+                      a(href='page_comp_calendar.html') Calendar
+                    li
+                      a(href='page_comp_charts.html') Charts
+                    li
+                      a(href='page_comp_animations.html') CSS3 Animations
+                    li
+                      a(href='page_comp_tree.html') Tree View Lists
+                    li
+                      a(href='page_comp_nestable.html') Nestable &amp; Sortable Lists
+                li
+                  a.sidebar-nav-menu(href='#')
+                    i.fa.fa-chevron-left.sidebar-nav-indicator.sidebar-nav-mini-hide
+                    i.gi.gi-more_items.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide UI Layouts
+                  ul
+                    li
+                      a(href='page_layout_static.html') Static
+                    li
+                      a(href='page_layout_static_fixed_width.html') Static Fixed Width
+                    li
+                      a(href='page_layout_fixed_top.html') Top Header (Fixed)
+                    li
+                      a(href='page_layout_fixed_bottom.html') Bottom Header (Fixed)
+                    li
+                      a(href='page_layout_static_sidebar_mini.html') Sidebar Mini (Static)
+                    li
+                      a(href='page_layout_fixed_sidebar_mini.html') Sidebar Mini (Fixed)
+                    li
+                      a(href='page_layout_alternative_sidebar_visible.html') Visible Alternative Sidebar
+                li
+                  a.sidebar-nav-menu(href='#')
+                    i.fa.fa-chevron-left.sidebar-nav-indicator.sidebar-nav-mini-hide
+                    i.fa.fa-gift.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Extra Pages
+                  ul
+                    li
+                      a(href='page_ready_error.html') Error Page
+                    li
+                      a(href='page_ready_blank.html') Blank
+                    li
+                      a(href='page_ready_article.html') Article
+                    li
+                      a(href='page_ready_timeline.html') Timeline
+                    li
+                      a(href='page_ready_invoice.html') Invoice
+                    li
+                      a(href='page_ready_search_results.html') Search Results
+                    li
+                      a(href='page_ready_pricing_tables.html') Pricing Tables
+                    li
+                      a(href='page_ready_faq.html') FAQ
+                    li
+                      a(href='page_ready_profile.html') User Profile
+                    li
+                      a.sidebar-nav-submenu(href='#')
+                        i.fa.fa-chevron-left.sidebar-nav-indicator
+                        | Login, Register &amp; Lock
+                      ul
+                        li
+                          a(href='page_ready_login.html') Login
+                        li
+                          a(href='page_ready_reminder.html') Password Reminder
+                        li
+                          a(href='page_ready_register.html') Register
+                        li
+                          a(href='page_ready_lock_screen.html') Lock Screen
+                li.sidebar-separator
+                  i.fa.fa-ellipsis-h
+                li
+                  a(href='page_app_email.html')
+                    i.gi.gi-inbox.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Email Center
+                li
+                  a(href='page_app_social.html')
+                    i.fa.fa-share-alt.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Social Net
+                li
+                  a(href='page_app_media.html')
+                    i.gi.gi-picture.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Media Box
+                li
+                  a(href='page_app_estore.html')
+                    i.gi.gi-shopping_cart.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide eStore
+              // END Sidebar Navigation
+              // Color Themes
+              // Preview a theme on a page functionality can be found in js/app.js - colorThemePreview()
+              .sidebar-section.sidebar-nav-mini-hide
+                .sidebar-separator.push
+                  i.fa.fa-ellipsis-h
+                ul.sidebar-themes.clearfix
+                  li
+                    a.themed-background-default(href='javascript:void(0)', data-toggle='tooltip', title='Default', data-theme='default', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-default
+                      span.section-content
+                  li
+                    a.themed-background-classy(href='javascript:void(0)', data-toggle='tooltip', title='Classy', data-theme='css/themes/classy.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-classy
+                      span.section-content
+                  li
+                    a.themed-background-social(href='javascript:void(0)', data-toggle='tooltip', title='Social', data-theme='css/themes/social.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-social
+                      span.section-content
+                  li
+                    a.themed-background-flat(href='javascript:void(0)', data-toggle='tooltip', title='Flat', data-theme='css/themes/flat.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-flat
+                      span.section-content
+                  li
+                    a.themed-background-amethyst(href='javascript:void(0)', data-toggle='tooltip', title='Amethyst', data-theme='css/themes/amethyst.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-amethyst
+                      span.section-content
+                  li
+                    a.themed-background-creme(href='javascript:void(0)', data-toggle='tooltip', title='Creme', data-theme='css/themes/creme.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-creme
+                      span.section-content
+                  li
+                    a.themed-background-passion(href='javascript:void(0)', data-toggle='tooltip', title='Passion', data-theme='css/themes/passion.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-passion
+                      span.section-content
+                  li
+                    a.themed-background-default(href='javascript:void(0)', data-toggle='tooltip', title='Default + Light Sidebar', data-theme='default', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-classy(href='javascript:void(0)', data-toggle='tooltip', title='Classy + Light Sidebar', data-theme='css/themes/classy.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-social(href='javascript:void(0)', data-toggle='tooltip', title='Social + Light Sidebar', data-theme='css/themes/social.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-flat(href='javascript:void(0)', data-toggle='tooltip', title='Flat + Light Sidebar', data-theme='css/themes/flat.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-amethyst(href='javascript:void(0)', data-toggle='tooltip', title='Amethyst + Light Sidebar', data-theme='css/themes/amethyst.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-creme(href='javascript:void(0)', data-toggle='tooltip', title='Creme + Light Sidebar', data-theme='css/themes/creme.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-passion(href='javascript:void(0)', data-toggle='tooltip', title='Passion + Light Sidebar', data-theme='css/themes/passion.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-default(href='javascript:void(0)', data-toggle='tooltip', title='Default + Light Header', data-theme='default', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-default
+                      span.section-content
+                  li
+                    a.themed-background-classy(href='javascript:void(0)', data-toggle='tooltip', title='Classy + Light Header', data-theme='css/themes/classy.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-classy
+                      span.section-content
+                  li
+                    a.themed-background-social(href='javascript:void(0)', data-toggle='tooltip', title='Social + Light Header', data-theme='css/themes/social.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-social
+                      span.section-content
+                  li
+                    a.themed-background-flat(href='javascript:void(0)', data-toggle='tooltip', title='Flat + Light Header', data-theme='css/themes/flat.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-flat
+                      span.section-content
+                  li
+                    a.themed-background-amethyst(href='javascript:void(0)', data-toggle='tooltip', title='Amethyst + Light Header', data-theme='css/themes/amethyst.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-amethyst
+                      span.section-content
+                  li
+                    a.themed-background-creme(href='javascript:void(0)', data-toggle='tooltip', title='Creme + Light Header', data-theme='css/themes/creme.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-creme
+                      span.section-content
+                  li
+                    a.themed-background-passion(href='javascript:void(0)', data-toggle='tooltip', title='Passion + Light Header', data-theme='css/themes/passion.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-passion
+                      span.section-content
+              // END Color Themes
+            // END Sidebar Content
+          // END Wrapper for scrolling functionality
+          // Sidebar Extra Info
+          #sidebar-extra-info.sidebar-content.sidebar-nav-mini-hide
+            .push-bit
+              span.pull-right
+                a.text-muted(href='javascript:void(0)')
+                  i.fa.fa-plus
+              small
+                strong 78 GB
+                |  / 100 GB
+            .progress.progress-mini.push-bit
+              .progress-bar.progress-bar-primary(role='progressbar', aria-valuenow='78', aria-valuemin='0', aria-valuemax='100', style='width: 78%')
+            .text-center
+              small
+                | Crafted with 
+                i.fa.fa-heart.text-danger
+                |  by 
+                a(href='http://goo.gl/vNS3I', target='_blank') pixelcave
+              br
+              small
+                span#year-copy
+                |  &copy; 
+                a(href='http://goo.gl/RcsdAh', target='_blank') AppUI 2.1
+          // END Sidebar Extra Info
+        // END Main Sidebar
+        // Main Container
+        #main-container
+          // Header
+          // In the PHP version you can set the following options from inc/config file
+          //
+            Available header.navbar classes:
+            'navbar-default'            for the default light header
+            'navbar-inverse'            for an alternative dark header
+            'navbar-fixed-top'          for a top fixed header (fixed main sidebar with scroll will be auto initialized, functionality can be found in js/app.js - handleSidebar())
+            'header-fixed-top'      has to be added on #page-container only if the class 'navbar-fixed-top' was added
+            'navbar-fixed-bottom'       for a bottom fixed header (fixed main sidebar with scroll will be auto initialized, functionality can be found in js/app.js - handleSidebar()))
+            'header-fixed-bottom'   has to be added on #page-container only if the class 'navbar-fixed-bottom' was added
+          header.navbar.navbar-inverse.navbar-fixed-top
+            // Left Header Navigation
+            ul.nav.navbar-nav-custom
+              // Main Sidebar Toggle Button
+              li
+                a(href='javascript:void(0)', onclick="App.sidebar('toggle-sidebar');")
+                  i#sidebar-toggle-mini.fa.fa-ellipsis-v.fa-fw.animation-fadeInRight
+                  i#sidebar-toggle-full.fa.fa-bars.fa-fw.animation-fadeInRight
+              // END Main Sidebar Toggle Button
+              // Header Link
+              li.hidden-xs.animation-fadeInQuick
+                a(href='')
+                  strong ICON PACKS
+              // END Header Link
+            // END Left Header Navigation
+            // Right Header Navigation
+            ul.nav.navbar-nav-custom.pull-right
+              // Search Form
+              li
+                form.navbar-form-custom(action='page_ready_search_results.html', method='post', role='search')
+                  input#top-search.form-control(type='text', name='top-search', placeholder='Search..')
+              // END Search Form
+              // Alternative Sidebar Toggle Button
+              li
+                a(href='javascript:void(0)', onclick="App.sidebar('toggle-sidebar-alt');")
+                  i.gi.gi-settings
+              // END Alternative Sidebar Toggle Button
+              // User Dropdown
+              li.dropdown
+                a.dropdown-toggle(href='javascript:void(0)', data-toggle='dropdown')
+                  img(src='img/placeholders/avatars/avatar9.jpg', alt='avatar')
+                ul.dropdown-menu.dropdown-menu-right
+                  li.dropdown-header
+                    strong ADMINISTRATOR
+                  li
+                    a(href='page_app_email.html')
+                      i.fa.fa-inbox.fa-fw.pull-right
+                      |                                             Inbox
+                  li
+                    a(href='page_app_social.html')
+                      i.fa.fa-pencil-square.fa-fw.pull-right
+                      |                                             Profile
+                  li
+                    a(href='page_app_media.html')
+                      i.fa.fa-picture-o.fa-fw.pull-right
+                      |                                             Media Manager
+                  li.divider
+                  li
+                  li
+                    a(href='javascript:void(0)', onclick="App.sidebar('toggle-sidebar-alt');")
+                      i.gi.gi-settings.fa-fw.pull-right
+                      |                                             Settings
+                  li
+                    a(href='page_ready_lock_screen.html')
+                      i.gi.gi-lock.fa-fw.pull-right
+                      |                                             Lock Account
+                  li
+                    a(href='page_ready_login.html')
+                      i.fa.fa-power-off.fa-fw.pull-right
+                      |                                             Log out
+              // END User Dropdown
+            // END Right Header Navigation
+          // END Header
+          // Page content
+          #page-content
+            // Font Awesome Header
+            .content-header
+              .row
+                .col-sm-6
+                  .header-section
+                    h1 Font Awesome 4.2.0
+                .col-sm-6.hidden-xs
+                  .header-section
+                    ul.breadcrumb.breadcrumb-top
+                      li User Interface
+                      li Icon Packs
+                      li
+                        a(href='') Font Awesome
+            // END Font Awesome Header
+            // Icon Generator Block
+            #icon-gen.block.full
+              // Icon Generator Title
+              .block-title
+                h2 Icon Code Generator
+              // END Icon Generator Title
+              // Icon Generator Content
+              input#icon-gen-input.form-control.input-lg.text-center(type='text', name='icon-gen-input', placeholder='Click an icon to get its code..')
+              // END Icon Generator Content
+            // END Icon Generator Block
+            // All Icons Block
+            .block
+              // All Icons Title
+              .block-title
+                h2 All Icons
+              // END All Icons Title
+              // Web Application Icons
+              .block-section
+                h3 Web Application Icons
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-adjust')
+                  i.fa.fa-adjust.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-anchor')
+                  i.fa.fa-anchor.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-archive')
+                  i.fa.fa-archive.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-area-chart')
+                  i.fa.fa-area-chart.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-asterisk')
+                  i.fa.fa-asterisk.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-at')
+                  i.fa.fa-at.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-automobile')
+                  i.fa.fa-automobile.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-ban')
+                  i.fa.fa-ban.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bank')
+                  i.fa.fa-bank.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bar-chart-o')
+                  i.fa.fa-bar-chart-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-barcode')
+                  i.fa.fa-barcode.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-flask')
+                  i.fa.fa-flask.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-beer')
+                  i.fa.fa-beer.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bell')
+                  i.fa.fa-bell.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bell-o')
+                  i.fa.fa-bell-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bell-slash')
+                  i.fa.fa-bell-slash.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bell-slash-o')
+                  i.fa.fa-bell-slash-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bicycle')
+                  i.fa.fa-bicycle.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-binoculars')
+                  i.fa.fa-binoculars.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-birthday-cake')
+                  i.fa.fa-birthday-cake.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bolt')
+                  i.fa.fa-bolt.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bomb')
+                  i.fa.fa-bomb.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-book')
+                  i.fa.fa-book.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bookmark')
+                  i.fa.fa-bookmark.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bookmark-o')
+                  i.fa.fa-bookmark-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-briefcase')
+                  i.fa.fa-briefcase.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bug')
+                  i.fa.fa-bug.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-building')
+                  i.fa.fa-building.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-building-o')
+                  i.fa.fa-building-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bullhorn')
+                  i.fa.fa-bullhorn.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bullseye')
+                  i.fa.fa-bullseye.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bus')
+                  i.fa.fa-bus.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-cab')
+                  i.fa.fa-cab.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-calculator')
+                  i.fa.fa-calculator.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-calendar')
+                  i.fa.fa-calendar.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-calendar-o')
+                  i.fa.fa-calendar-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-camera')
+                  i.fa.fa-camera.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-camera-retro')
+                  i.fa.fa-camera-retro.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-car')
+                  i.fa.fa-car.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-cc')
+                  i.fa.fa-cc.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-certificate')
+                  i.fa.fa-certificate.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-check-square-o')
+                  i.fa.fa-check-square-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-square-o')
+                  i.fa.fa-square-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-minus-square-o')
+                  i.fa.fa-minus-square-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-check-square')
+                  i.fa.fa-check-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-child')
+                  i.fa.fa-child.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-circle')
+                  i.fa.fa-circle.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-circle-o')
+                  i.fa.fa-circle-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-circle-o-notch')
+                  i.fa.fa-circle-o-notch.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-circle-thin')
+                  i.fa.fa-circle-thin.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-cloud')
+                  i.fa.fa-cloud.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-cloud-download')
+                  i.fa.fa-cloud-download.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-cloud-upload')
+                  i.fa.fa-cloud-upload.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-code')
+                  i.fa.fa-code.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-code-fork')
+                  i.fa.fa-code-fork.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-coffee')
+                  i.fa.fa-coffee.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-cog')
+                  i.fa.fa-cog.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-cogs')
+                  i.fa.fa-cogs.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-caret-square-o-down')
+                  i.fa.fa-caret-square-o-down.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-plus-square-o')
+                  i.fa.fa-plus-square-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-caret-square-o-up')
+                  i.fa.fa-caret-square-o-up.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-comment')
+                  i.fa.fa-comment.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-comment-o')
+                  i.fa.fa-comment-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-comments')
+                  i.fa.fa-comments.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-comments-o')
+                  i.fa.fa-comments-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-compass')
+                  i.fa.fa-compass.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-copyright')
+                  i.fa.fa-copyright.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-credit-card')
+                  i.fa.fa-credit-card.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-crop')
+                  i.fa.fa-crop.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-tachometer')
+                  i.fa.fa-tachometer.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-desktop')
+                  i.fa.fa-desktop.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-dot-circle-o')
+                  i.fa.fa-dot-circle-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-arrow-circle-o-down')
+                  i.fa.fa-arrow-circle-o-down.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-arrow-circle-o-right')
+                  i.fa.fa-arrow-circle-o-right.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-arrow-circle-o-left')
+                  i.fa.fa-arrow-circle-o-left.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-download')
+                  i.fa.fa-download.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-pencil-square-o')
+                  i.fa.fa-pencil-square-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-pencil-square')
+                  i.fa.fa-pencil-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-ellipsis-h')
+                  i.fa.fa-ellipsis-h.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-ellipsis-v')
+                  i.fa.fa-ellipsis-v.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-envelope')
+                  i.fa.fa-envelope.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-envelope-o')
+                  i.fa.fa-envelope-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-envelope-square')
+                  i.fa.fa-envelope-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-eraser')
+                  i.fa.fa-eraser.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-exchange')
+                  i.fa.fa-exchange.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-exclamation')
+                  i.fa.fa-exclamation.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-exclamation-circle')
+                  i.fa.fa-exclamation-circle.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-caret-square-o-right')
+                  i.fa.fa-caret-square-o-right.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-plus-square-o')
+                  i.fa.fa-plus-square-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-external-link')
+                  i.fa.fa-external-link.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-external-link-square')
+                  i.fa.fa-external-link-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-eye')
+                  i.fa.fa-eye.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-eye-slash')
+                  i.fa.fa-eye-slash.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-eyedropper')
+                  i.fa.fa-eyedropper.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-fax')
+                  i.fa.fa-fax.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-video-camera')
+                  i.fa.fa-video-camera.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-female')
+                  i.fa.fa-female.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-fighter-jet')
+                  i.fa.fa-fighter-jet.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-file-archive-o')
+                  i.fa.fa-file-archive-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-file-audio-o')
+                  i.fa.fa-file-audio-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-file-code-o')
+                  i.fa.fa-file-code-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-file-excel-o')
+                  i.fa.fa-file-excel-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-file-image-o')
+                  i.fa.fa-file-image-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-file-movie-o')
+                  i.fa.fa-file-movie-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-file-pdf-o')
+                  i.fa.fa-file-pdf-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-file-photo-o')
+                  i.fa.fa-file-photo-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-file-picture-o')
+                  i.fa.fa-file-picture-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-file-powerpoint-o')
+                  i.fa.fa-file-powerpoint-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-file-sound-o')
+                  i.fa.fa-file-sound-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-file-video-o')
+                  i.fa.fa-file-video-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-file-word-o')
+                  i.fa.fa-file-word-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-file-zip-o')
+                  i.fa.fa-file-zip-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-film')
+                  i.fa.fa-film.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-filter')
+                  i.fa.fa-filter.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-fire')
+                  i.fa.fa-fire.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-fire-extinguisher')
+                  i.fa.fa-fire-extinguisher.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-flag')
+                  i.fa.fa-flag.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-flag-o')
+                  i.fa.fa-flag-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-flag-checkered')
+                  i.fa.fa-flag-checkered.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-folder')
+                  i.fa.fa-folder.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-folder-o')
+                  i.fa.fa-folder-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-folder-open')
+                  i.fa.fa-folder-open.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-folder-open-o')
+                  i.fa.fa-folder-open-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-cutlery')
+                  i.fa.fa-cutlery.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-dashboard')
+                  i.fa.fa-dashboard.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-database')
+                  i.fa.fa-database.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-frown-o')
+                  i.fa.fa-frown-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-futbol-o')
+                  i.fa.fa-futbol-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-gamepad')
+                  i.fa.fa-gamepad.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-gear')
+                  i.fa.fa-gear.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-gears')
+                  i.fa.fa-gears.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-gift')
+                  i.fa.fa-gift.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-glass')
+                  i.fa.fa-glass.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-globe')
+                  i.fa.fa-globe.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-graduation-cap')
+                  i.fa.fa-graduation-cap.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-users')
+                  i.fa.fa-users.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-hdd-o')
+                  i.fa.fa-hdd-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-headphones')
+                  i.fa.fa-headphones.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-heart')
+                  i.fa.fa-heart.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-heart-o')
+                  i.fa.fa-heart-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-history')
+                  i.fa.fa-history.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-home')
+                  i.fa.fa-home.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-inbox')
+                  i.fa.fa-inbox.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-info')
+                  i.fa.fa-info.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-info-circle')
+                  i.fa.fa-info-circle.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-institution')
+                  i.fa.fa-institution.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-key')
+                  i.fa.fa-key.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-keyboard-o')
+                  i.fa.fa-keyboard-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-language')
+                  i.fa.fa-language.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-laptop')
+                  i.fa.fa-laptop.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-leaf')
+                  i.fa.fa-leaf.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-gavel')
+                  i.fa.fa-gavel.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-lemon-o')
+                  i.fa.fa-lemon-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-level-down')
+                  i.fa.fa-level-down.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-level-up')
+                  i.fa.fa-level-up.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-life-bouy')
+                  i.fa.fa-life-bouy.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-life-ring')
+                  i.fa.fa-life-ring.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-life-saver')
+                  i.fa.fa-life-saver.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-lightbulb-o')
+                  i.fa.fa-lightbulb-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-line-chart')
+                  i.fa.fa-line-chart.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-location-arrow')
+                  i.fa.fa-location-arrow.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-lock')
+                  i.fa.fa-lock.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-magic')
+                  i.fa.fa-magic.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-magnet')
+                  i.fa.fa-magnet.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-share')
+                  i.fa.fa-share.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-share-alt')
+                  i.fa.fa-share-alt.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-share-alt-square')
+                  i.fa.fa-share-alt-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-reply')
+                  i.fa.fa-reply.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-mail-reply-all')
+                  i.fa.fa-mail-reply-all.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-map-marker')
+                  i.fa.fa-map-marker.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-meh-o')
+                  i.fa.fa-meh-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-microphone')
+                  i.fa.fa-microphone.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-microphone-slash')
+                  i.fa.fa-microphone-slash.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-minus')
+                  i.fa.fa-minus.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-minus-circle')
+                  i.fa.fa-minus-circle.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-minus-square')
+                  i.fa.fa-minus-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-mobile')
+                  i.fa.fa-mobile.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-money')
+                  i.fa.fa-money.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-moon-o')
+                  i.fa.fa-moon-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-mortar-board')
+                  i.fa.fa-mortar-board.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-arrows')
+                  i.fa.fa-arrows.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-music')
+                  i.fa.fa-music.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-navicon')
+                  i.fa.fa-navicon.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-newspaper-o')
+                  i.fa.fa-newspaper-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-paint-brush')
+                  i.fa.fa-paint-brush.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-paper-plane')
+                  i.fa.fa-paper-plane.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-paper-plane-o')
+                  i.fa.fa-paper-plane-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-plug')
+                  i.fa.fa-plug.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-paw')
+                  i.fa.fa-paw.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-power-off')
+                  i.fa.fa-power-off.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-check')
+                  i.fa.fa-check.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-check-circle-o')
+                  i.fa.fa-check-circle-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-check-circle')
+                  i.fa.fa-check-circle.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-pencil')
+                  i.fa.fa-pencil.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-phone')
+                  i.fa.fa-phone.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-phone-square')
+                  i.fa.fa-phone-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-picture-o')
+                  i.fa.fa-picture-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-pie-chart')
+                  i.fa.fa-pie-chart.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-plane')
+                  i.fa.fa-plane.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-plus')
+                  i.fa.fa-plus.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-plus-circle')
+                  i.fa.fa-plus-circle.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-plus-square')
+                  i.fa.fa-plus-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-power-off')
+                  i.fa.fa-power-off.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-print')
+                  i.fa.fa-print.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-thumb-tack')
+                  i.fa.fa-thumb-tack.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-puzzle-piece')
+                  i.fa.fa-puzzle-piece.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-qrcode')
+                  i.fa.fa-qrcode.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-question')
+                  i.fa.fa-question.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-question-circle')
+                  i.fa.fa-question-circle.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-quote-left')
+                  i.fa.fa-quote-left.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-quote-right')
+                  i.fa.fa-quote-right.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-random')
+                  i.fa.fa-random.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-recycle')
+                  i.fa.fa-recycle.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-refresh')
+                  i.fa.fa-refresh.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-times')
+                  i.fa.fa-times.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-times-circle-o')
+                  i.fa.fa-times-circle-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-times-circle')
+                  i.fa.fa-times-circle.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bars')
+                  i.fa.fa-bars.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-reply')
+                  i.fa.fa-reply.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-reply-all')
+                  i.fa.fa-reply-all.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-arrows-h')
+                  i.fa.fa-arrows-h.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-arrows-v')
+                  i.fa.fa-arrows-v.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-retweet')
+                  i.fa.fa-retweet.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-road')
+                  i.fa.fa-road.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-rocket')
+                  i.fa.fa-rocket.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-rss')
+                  i.fa.fa-rss.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-rss-square')
+                  i.fa.fa-rss-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-crosshairs')
+                  i.fa.fa-crosshairs.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-cube')
+                  i.fa.fa-cube.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-cubes')
+                  i.fa.fa-cubes.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-search')
+                  i.fa.fa-search.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-search-minus')
+                  i.fa.fa-search-minus.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-search-plus')
+                  i.fa.fa-search-plus.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-send')
+                  i.fa.fa-send.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-send-o')
+                  i.fa.fa-send-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-share-square-o')
+                  i.fa.fa-share-square-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-share')
+                  i.fa.fa-share.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-share-square')
+                  i.fa.fa-share-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-shield')
+                  i.fa.fa-shield.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-shopping-cart')
+                  i.fa.fa-shopping-cart.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-square')
+                  i.fa.fa-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-signal')
+                  i.fa.fa-signal.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-sign-in')
+                  i.fa.fa-sign-in.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-sign-out')
+                  i.fa.fa-sign-out.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-sitemap')
+                  i.fa.fa-sitemap.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-sliders')
+                  i.fa.fa-sliders.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-smile-o')
+                  i.fa.fa-smile-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-soccer-ball-o')
+                  i.fa.fa-soccer-ball-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-sort')
+                  i.fa.fa-sort.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-sort-alpha-asc')
+                  i.fa.fa-sort-alpha-asc.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-sort-alpha-desc')
+                  i.fa.fa-sort-alpha-desc.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-sort-amount-asc')
+                  i.fa.fa-sort-amount-asc.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-sort-amount-desc')
+                  i.fa.fa-sort-amount-desc.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-sort-numeric-asc')
+                  i.fa.fa-sort-numeric-asc.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-sort-numeric-desc')
+                  i.fa.fa-sort-numeric-desc.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-sort-asc')
+                  i.fa.fa-sort-asc.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-sort-desc')
+                  i.fa.fa-sort-desc.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-spinner')
+                  i.fa.fa-spinner.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-star')
+                  i.fa.fa-star.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-star-o')
+                  i.fa.fa-star-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-star-half')
+                  i.fa.fa-star-half.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-star-half-o')
+                  i.fa.fa-star-half-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-star-half-full')
+                  i.fa.fa-star-half-full.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-subscript')
+                  i.fa.fa-subscript.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-suitcase')
+                  i.fa.fa-suitcase.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-sun-o')
+                  i.fa.fa-sun-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-support')
+                  i.fa.fa-support.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-superscript')
+                  i.fa.fa-superscript.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-tablet')
+                  i.fa.fa-tablet.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-tag')
+                  i.fa.fa-tag.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-tags')
+                  i.fa.fa-tags.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-tasks')
+                  i.fa.fa-tasks.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-taxi')
+                  i.fa.fa-taxi.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-terminal')
+                  i.fa.fa-terminal.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-thumbs-down')
+                  i.fa.fa-thumbs-down.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-thumbs-o-down')
+                  i.fa.fa-thumbs-o-down.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-thumbs-up')
+                  i.fa.fa-thumbs-up.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-thumbs-o-up')
+                  i.fa.fa-thumbs-o-up.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-ticket')
+                  i.fa.fa-ticket.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-toggle-off')
+                  i.fa.fa-toggle-off.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-toggle-on')
+                  i.fa.fa-toggle-on.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-clock-o')
+                  i.fa.fa-clock-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-tint')
+                  i.fa.fa-tint.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-trash')
+                  i.fa.fa-trash.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-trash-o')
+                  i.fa.fa-trash-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-tree')
+                  i.fa.fa-tree.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-trophy')
+                  i.fa.fa-trophy.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-truck')
+                  i.fa.fa-truck.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-tty')
+                  i.fa.fa-tty.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-umbrella')
+                  i.fa.fa-umbrella.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-university')
+                  i.fa.fa-university.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-unlock')
+                  i.fa.fa-unlock.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-unlock-alt')
+                  i.fa.fa-unlock-alt.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-arrow-circle-o-up')
+                  i.fa.fa-arrow-circle-o-up.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-upload')
+                  i.fa.fa-upload.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-user')
+                  i.fa.fa-user.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-volume-down')
+                  i.fa.fa-volume-down.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-volume-off')
+                  i.fa.fa-volume-off.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-volume-up')
+                  i.fa.fa-volume-up.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-exclamation-triangle')
+                  i.fa.fa-exclamation-triangle.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-wifi')
+                  i.fa.fa-wifi.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-wrench')
+                  i.fa.fa-wrench.fa-fw
+              // END Web Application Icons
+              // Payment Icons
+              .block-section
+                h3 Payment Icons
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-cc-amex')
+                  i.fa.fa-cc-amex.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-cc-discover')
+                  i.fa.fa-cc-discover.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-cc-mastercard')
+                  i.fa.fa-cc-mastercard.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-cc-paypal')
+                  i.fa.fa-cc-paypal.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-cc-stripe')
+                  i.fa.fa-cc-stripe.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-cc-visa')
+                  i.fa.fa-cc-visa.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-credit-card')
+                  i.fa.fa-credit-card.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-google-wallet')
+                  i.fa.fa-google-wallet.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-paypal')
+                  i.fa.fa-cc-paypal.fa-fw
+              // END Payment Icons
+              // Text Editor Icons
+              .block-section
+                h3 Text Editor Icons
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-align-center')
+                  i.fa.fa-align-center.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-align-justify')
+                  i.fa.fa-align-justify.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-align-left')
+                  i.fa.fa-align-left.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-align-right')
+                  i.fa.fa-align-right.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bold')
+                  i.fa.fa-bold.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-columns')
+                  i.fa.fa-columns.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-files-o')
+                  i.fa.fa-files-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-scissors')
+                  i.fa.fa-scissors.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-eraser')
+                  i.fa.fa-eraser.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-file')
+                  i.fa.fa-file.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-file-o')
+                  i.fa.fa-file-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-file-text')
+                  i.fa.fa-file-text.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-file-text-o')
+                  i.fa.fa-file-text-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-font')
+                  i.fa.fa-font.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-header')
+                  i.fa.fa-header.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-outdent')
+                  i.fa.fa-outdent.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-indent')
+                  i.fa.fa-indent.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-italic')
+                  i.fa.fa-italic.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-link')
+                  i.fa.fa-link.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-list')
+                  i.fa.fa-list.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-list-alt')
+                  i.fa.fa-list-alt.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-list-ol')
+                  i.fa.fa-list-ol.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-list-ul')
+                  i.fa.fa-list-ul.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-paperclip')
+                  i.fa.fa-paperclip.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-paragraph')
+                  i.fa.fa-paragraph.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-clipboard')
+                  i.fa.fa-clipboard.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-repeat')
+                  i.fa.fa-repeat.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-rotate-left')
+                  i.fa.fa-rotate-left.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-rotate-right')
+                  i.fa.fa-rotate-right.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-floppy-o')
+                  i.fa.fa-floppy-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-strikethrough')
+                  i.fa.fa-strikethrough.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-table')
+                  i.fa.fa-table.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-text-height')
+                  i.fa.fa-text-height.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-text-width')
+                  i.fa.fa-text-width.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-th')
+                  i.fa.fa-th.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-th-large')
+                  i.fa.fa-th-large.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-th-list')
+                  i.fa.fa-th-list.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-underline')
+                  i.fa.fa-underline.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-undo')
+                  i.fa.fa-undo.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-chain-broken')
+                  i.fa.fa-chain-broken.fa-fw
+              // END Text Editor Icons
+              // Currency Icons
+              .block-section
+                h3 Currency Icons
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bitcoin')
+                  i.fa.fa-bitcoin.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-btc')
+                  i.fa.fa-btc.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-cny')
+                  i.fa.fa-cny.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-dollar')
+                  i.fa.fa-dollar.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-eur')
+                  i.fa.fa-eur.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-euro')
+                  i.fa.fa-euro.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-gbp')
+                  i.fa.fa-gbp.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-ils')
+                  i.fa.fa-ils.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-inr')
+                  i.fa.fa-inr.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-jpy')
+                  i.fa.fa-jpy.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-krw')
+                  i.fa.fa-krw.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-rub')
+                  i.fa.fa-rub.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-ruble')
+                  i.fa.fa-ruble.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-rouble')
+                  i.fa.fa-rouble.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-rupee')
+                  i.fa.fa-rupee.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-shekel')
+                  i.fa.fa-shekel.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-sheqel')
+                  i.fa.fa-sheqel.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-try')
+                  i.fa.fa-try.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-turkish-lira')
+                  i.fa.fa-turkish-lira.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-usd')
+                  i.fa.fa-usd.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-won')
+                  i.fa.fa-won.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-yen')
+                  i.fa.fa-yen.fa-fw
+              // END Currency Icons
+              // Directional Icons
+              .block-section
+                h3 Directional Icons
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-angle-down')
+                  i.fa.fa-angle-down.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-angle-left')
+                  i.fa.fa-angle-left.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-angle-right')
+                  i.fa.fa-angle-right.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-angle-up')
+                  i.fa.fa-angle-up.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-arrow-down')
+                  i.fa.fa-arrow-down.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-arrow-left')
+                  i.fa.fa-arrow-left.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-arrow-right')
+                  i.fa.fa-arrow-right.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-arrow-up')
+                  i.fa.fa-arrow-up.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-caret-down')
+                  i.fa.fa-caret-down.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-caret-left')
+                  i.fa.fa-caret-left.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-caret-right')
+                  i.fa.fa-caret-right.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-caret-up')
+                  i.fa.fa-caret-up.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-caret-square-o-left')
+                  i.fa.fa-caret-square-o-left.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-chevron-down')
+                  i.fa.fa-chevron-down.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-chevron-left')
+                  i.fa.fa-chevron-left.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-chevron-right')
+                  i.fa.fa-chevron-right.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-chevron-circle-down')
+                  i.fa.fa-chevron-circle-down.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-chevron-circle-left')
+                  i.fa.fa-chevron-circle-left.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-chevron-circle-right')
+                  i.fa.fa-chevron-circle-right.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-chevron-circle-up')
+                  i.fa.fa-chevron-circle-up.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-chevron-up')
+                  i.fa.fa-chevron-up.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-arrow-circle-down')
+                  i.fa.fa-arrow-circle-down.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-arrow-circle-left')
+                  i.fa.fa-arrow-circle-left.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-arrow-circle-right')
+                  i.fa.fa-arrow-circle-right.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-arrow-circle-up')
+                  i.fa.fa-arrow-circle-up.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-angle-double-down')
+                  i.fa.fa-angle-double-down.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-angle-double-left')
+                  i.fa.fa-angle-double-left.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-angle-double-right')
+                  i.fa.fa-angle-double-right.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-angle-double-up')
+                  i.fa.fa-angle-double-up.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-hand-o-down')
+                  i.fa.fa-hand-o-down.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-hand-o-left')
+                  i.fa.fa-hand-o-left.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-hand-o-right')
+                  i.fa.fa-hand-o-right.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-hand-o-up')
+                  i.fa.fa-hand-o-up.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-long-arrow-down')
+                  i.fa.fa-long-arrow-down.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-long-arrow-left')
+                  i.fa.fa-long-arrow-left.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-long-arrow-right')
+                  i.fa.fa-long-arrow-right.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-long-arrow-up')
+                  i.fa.fa-long-arrow-up.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-toggle-left')
+                  i.fa.fa-toggle-left.fa-fw
+              // END Directional Icons
+              // Video Player Icons
+              .block-section
+                h3 Video Player Icons
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-backward')
+                  i.fa.fa-backward.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-eject')
+                  i.fa.fa-eject.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-fast-backward')
+                  i.fa.fa-fast-backward.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-fast-forward')
+                  i.fa.fa-fast-forward.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-forward')
+                  i.fa.fa-forward.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-arrows-alt')
+                  i.fa.fa-arrows-alt.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-pause')
+                  i.fa.fa-pause.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-play')
+                  i.fa.fa-play.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-play-circle-o')
+                  i.fa.fa-play-circle-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-play-circle')
+                  i.fa.fa-play-circle.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-expand')
+                  i.fa.fa-expand.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-compress')
+                  i.fa.fa-compress.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-step-backward')
+                  i.fa.fa-step-backward.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-step-forward')
+                  i.fa.fa-step-forward.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-stop')
+                  i.fa.fa-stop.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-youtube-play')
+                  i.fa.fa-youtube-play.fa-fw
+              // END Video Player Icons
+              // Brand Icons
+              .block-section
+                h3 Brand Icons
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-adn')
+                  i.fa.fa-adn.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-android')
+                  i.fa.fa-android.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-angellist')
+                  i.fa.fa-angellist.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-apple')
+                  i.fa.fa-apple.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-behance')
+                  i.fa.fa-behance.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-behance-square')
+                  i.fa.fa-behance-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bitbucket')
+                  i.fa.fa-bitbucket.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bitbucket-square')
+                  i.fa.fa-bitbucket-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-bitcoin')
+                  i.fa.fa-bitcoin.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-btc')
+                  i.fa.fa-btc.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-codepen')
+                  i.fa.fa-codepen.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-css3')
+                  i.fa.fa-css3.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-delicious')
+                  i.fa.fa-delicious.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-deviantart')
+                  i.fa.fa-deviantart.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-digg')
+                  i.fa.fa-digg.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-dribbble')
+                  i.fa.fa-dribbble.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-dropbox')
+                  i.fa.fa-dropbox.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-drupal')
+                  i.fa.fa-drupal.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-empire')
+                  i.fa.fa-empire.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-facebook')
+                  i.fa.fa-facebook.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-facebook-square')
+                  i.fa.fa-facebook-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-flickr')
+                  i.fa.fa-flickr.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-foursquare')
+                  i.fa.fa-foursquare.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-ge')
+                  i.fa.fa-ge.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-git')
+                  i.fa.fa-git.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-git-square')
+                  i.fa.fa-git-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-github')
+                  i.fa.fa-github.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-github-alt')
+                  i.fa.fa-github-alt.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-github-square')
+                  i.fa.fa-github-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-gittip')
+                  i.fa.fa-gittip.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-google')
+                  i.fa.fa-google.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-google-plus')
+                  i.fa.fa-google-plus.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-google-plus-square')
+                  i.fa.fa-google-plus-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-hacker-news')
+                  i.fa.fa-hacker-news.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-html5')
+                  i.fa.fa-html5.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-instagram')
+                  i.fa.fa-instagram.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-ioxhost')
+                  i.fa.fa-ioxhost.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-joomla')
+                  i.fa.fa-joomla.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-jsfiddle')
+                  i.fa.fa-jsfiddle.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-lastfm')
+                  i.fa.fa-lastfm.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-lastfm-square')
+                  i.fa.fa-lastfm-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-linkedin')
+                  i.fa.fa-linkedin.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-linkedin-square')
+                  i.fa.fa-linkedin-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-linux')
+                  i.fa.fa-linux.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-meanpath')
+                  i.fa.fa-meanpath.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-maxcdn')
+                  i.fa.fa-maxcdn.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-openid')
+                  i.fa.fa-openid.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-pagelines')
+                  i.fa.fa-pagelines.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-pied-piper')
+                  i.fa.fa-pied-piper.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-pied-piper-alt')
+                  i.fa.fa-pied-piper-alt.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-pinterest')
+                  i.fa.fa-pinterest.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-pinterest-square')
+                  i.fa.fa-pinterest-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-qq')
+                  i.fa.fa-qq.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-ra')
+                  i.fa.fa-ra.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-rebel')
+                  i.fa.fa-rebel.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-reddit')
+                  i.fa.fa-reddit.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-reddit-square')
+                  i.fa.fa-reddit-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-renren')
+                  i.fa.fa-renren.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-skype')
+                  i.fa.fa-skype.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-slack')
+                  i.fa.fa-slack.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-slideshare')
+                  i.fa.fa-slideshare.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-soundcloud')
+                  i.fa.fa-soundcloud.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-spotify')
+                  i.fa.fa-spotify.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-stack-exchange')
+                  i.fa.fa-stack-exchange.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-stack-overflow')
+                  i.fa.fa-stack-overflow.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-steam')
+                  i.fa.fa-steam.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-steam-square')
+                  i.fa.fa-steam-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-stumbleupon')
+                  i.fa.fa-stumbleupon.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-stumbleupon-circle')
+                  i.fa.fa-stumbleupon-circle.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-tencent-weibo')
+                  i.fa.fa-tencent-weibo.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-trello')
+                  i.fa.fa-trello.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-tumblr')
+                  i.fa.fa-tumblr.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-tumblr-square')
+                  i.fa.fa-tumblr-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-twitch')
+                  i.fa.fa-twitch.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-twitter')
+                  i.fa.fa-twitter.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-twitter-square')
+                  i.fa.fa-twitter-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-vimeo-square')
+                  i.fa.fa-vimeo-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-vk')
+                  i.fa.fa-vk.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-wechat')
+                  i.fa.fa-wechat.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-vine')
+                  i.fa.fa-vine.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-weibo')
+                  i.fa.fa-weibo.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-weixin')
+                  i.fa.fa-weixin.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-windows')
+                  i.fa.fa-windows.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-wordpress')
+                  i.fa.fa-wordpress.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-xing')
+                  i.fa.fa-xing.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-xing-square')
+                  i.fa.fa-xing-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-yahoo')
+                  i.fa.fa-yahoo.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-yelp')
+                  i.fa.fa-yelp.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-youtube')
+                  i.fa.fa-youtube.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-youtube-play')
+                  i.fa.fa-youtube-play.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-youtube-square')
+                  i.fa.fa-youtube-square.fa-fw
+              // END Brand Icons
+              // Medical Icons
+              .block-section
+                h3 Medical Icons
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-ambulance')
+                  i.fa.fa-ambulance.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-h-square')
+                  i.fa.fa-h-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-hospital-o')
+                  i.fa.fa-hospital-o.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-medkit')
+                  i.fa.fa-medkit.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-plus-square')
+                  i.fa.fa-plus-square.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-stethoscope')
+                  i.fa.fa-stethoscope.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-user-md')
+                  i.fa.fa-user-md.fa-fw
+                a.btn.btn-default(href='#icon-gen', data-toggle='tooltip', title='fa fa-wheelchair')
+                  i.fa.fa-wheelchair.fa-fw
+              // END Medical Icons
+            // END All Icons Block
+          // END Page Content
+        // END Main Container
+      // END Page Container
+    // END Page Wrapper
+    // Include Jquery library from Google's CDN but if something goes wrong get Jquery from local file (Remove 'http:' if you have SSL)
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+    script.
+      !window.jQuery && document.write(decodeURI('%3Cscript src="js/vendor/jquery-2.1.1.min.js"%3E%3C/script%3E'));
+    // Bootstrap.js, Jquery plugins and Custom JS code
+    script(src='js/vendor/bootstrap.min.js')
+    script(src='js/plugins.js')
+    script(src='js/app.js')
+    // Load and execute javascript code used only in this page
+    script(src='js/pages/uiIcons.js')
+    script.
+      $(function(){ UiIcons.init(); });

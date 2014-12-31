@@ -1,0 +1,362 @@
+doctype html
+//if IE 9
+  html.no-js.lt-ie10  
+// [if gt IE 9] <!
+html.no-js
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    title AppUI Frontend - Responsive Bootstrap Site Template
+    meta(name='description', content='AppUI Frontend is a Responsive Bootstrap Site Template created by pixelcave and added as a bonus in AppUI Admin Template package')
+    meta(name='author', content='pixelcave')
+    meta(name='robots', content='noindex, nofollow')
+    meta(name='viewport', content='width=device-width,initial-scale=1,maximum-scale=1.0')
+    // Icons
+    // The following icons can be replaced with your own, they are used by desktop and mobile browsers
+    link(rel='shortcut icon', href='img/favicon.png')
+    link(rel='apple-touch-icon', href='img/icon57.png', sizes='57x57')
+    link(rel='apple-touch-icon', href='img/icon72.png', sizes='72x72')
+    link(rel='apple-touch-icon', href='img/icon76.png', sizes='76x76')
+    link(rel='apple-touch-icon', href='img/icon114.png', sizes='114x114')
+    link(rel='apple-touch-icon', href='img/icon120.png', sizes='120x120')
+    link(rel='apple-touch-icon', href='img/icon144.png', sizes='144x144')
+    link(rel='apple-touch-icon', href='img/icon152.png', sizes='152x152')
+    link(rel='apple-touch-icon', href='img/icon180.png', sizes='180x180')
+    // END Icons
+    // Stylesheets
+    // Bootstrap is included in its original form, unaltered
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    // Related styles of various icon packs and plugins
+    link(rel='stylesheet', href='css/plugins.css')
+    // The main stylesheet of this template. All Bootstrap overwrites are defined in here
+    link(rel='stylesheet', href='css/main.css')
+    // The themes stylesheet of this template (for using specific theme color in individual elements - must included last)
+    link(rel='stylesheet', href='css/themes.css')
+    // END Stylesheets
+    // Modernizr (browser feature detection library)
+    script(src='js/vendor/modernizr-2.8.3.min.js')
+  body
+    // Page Container
+    #page-container
+      // Site Header
+      header
+        .container
+          // Site Logo
+          a.site-logo(href='index.html')
+            i.fa.fa-cube
+            |  App
+            strong UI
+          // END Site Logo
+          // Site Navigation
+          nav
+            // Menu Toggle
+            // Toggles menu on small screens
+            a.btn.btn-default.site-menu-toggle.visible-xs.visible-sm(href='javascript:void(0)')
+              | Menu
+            // END Menu Toggle
+            // Main Menu
+            ul.site-nav
+              li
+                a(href='index.html') Welcome
+              li
+                a(href='features.html') Features
+              li
+                a.active(href='pricing.html') Pricing
+              li
+                a(href='contact.html') Contact
+              li
+                a.site-nav-sub(href='javascript:void(0)')
+                  i.fa.fa-angle-down.site-nav-arrow
+                  | Pages
+                ul
+                  li
+                    a(href='blog.html') Blog
+                  li
+                    a(href='blog_post.html') Blog Post
+                  li
+                    a(href='portfolio.html') Portfolio
+                  li
+                    a(href='project.html') Project
+                  li
+                    a(href='team.html') Team
+                  li
+                    a(href='faq.html') FAQ
+                  li
+                    a(href='jobs.html') Jobs
+                  li
+                    a(href='search_results.html') Search Results
+              li
+                a.featured(href='http://pixelcave.com/demo/appui')
+                  | Get Started 
+                  i.fa.fa-arrow-right
+            // END Main Menu
+          // END Site Navigation
+      // END Site Header
+      // Intro
+      section.site-section.site-section-top.site-section-light.themed-background-dark
+        .container
+          h1.text-center.animation-fadeInQuickInv
+            strong Plans for everyone.
+      // END Intro
+      // Plans
+      section.site-content.site-section
+        .container
+          .site-block
+            .row
+              .col-sm-4
+                table.table.table-borderless.table-pricing
+                  thead
+                    tr
+                      th Tiny Plan
+                  tbody
+                    tr.active
+                      td
+                        h1
+                          | $
+                          strong 9
+                          small .99
+                          br
+                          small per month
+                    tr
+                      td
+                        strong 1
+                        |  Domain
+                    tr
+                      td
+                        strong 1GB
+                        |  Storage
+                    tr
+                      td
+                        strong 10GB
+                        |  Bandwidth
+                    tr
+                      td
+                        strong 1
+                        |  Databases
+                    tr.active
+                      td
+                        a.btn.btn-effect-ripple.btn-success(href='javascript:void(0)')
+                          i.fa.fa-arrow-right
+                          |  Sign Up Today
+                    tr
+                      td.text-muted
+                        small
+                          em * All plans include free support!
+              .col-sm-4
+                table.table.table-borderless.table-pricing
+                  thead
+                    tr
+                      th Medium Plan
+                  tbody
+                    tr.active
+                      td
+                        h1
+                          | $
+                          strong 19
+                          small .99
+                          br
+                          small per month
+                    tr
+                      td
+                        strong 5
+                        |  Domains
+                    tr
+                      td
+                        strong 10GB
+                        |  Storage
+                    tr
+                      td
+                        strong 1TB
+                        |  Bandwidth
+                    tr
+                      td
+                        strong 10
+                        |  Databases
+                    tr.active
+                      td
+                        a.btn.btn-effect-ripple.btn-success(href='javascript:void(0)')
+                          i.fa.fa-arrow-right
+                          |  Sign Up Today
+                    tr
+                      td.text-muted
+                        small
+                          em * All plans include free support!
+              .col-sm-4
+                table.table.table-borderless.table-pricing
+                  thead
+                    tr
+                      th Large Plan
+                  tbody
+                    tr.active
+                      td
+                        h1
+                          | $
+                          strong 39
+                          small .99
+                          br
+                          small per month
+                    tr
+                      td
+                        strong 10
+                        |  Domains
+                    tr
+                      td
+                        strong 20GB
+                        |  Storage
+                    tr
+                      td
+                        strong 5TB
+                        |  Bandwidth
+                    tr
+                      td
+                        strong 30
+                        |  Databases
+                    tr.active
+                      td
+                        a.btn.btn-effect-ripple.btn-success(href='javascript:void(0)')
+                          i.fa.fa-arrow-right
+                          |  Sign Up Today
+                    tr
+                      td.text-muted
+                        small
+                          em * All plans include free support!
+      // END Plans
+      // Quick Stats
+      section.site-content.site-section.themed-background-dark
+        .container
+          // Stats Row
+          // CountTo (initialized in js/app.js), for more examples you can check out https://github.com/mhuggins/jquery-countTo
+          .row
+            .col-sm-4
+              .counter.site-block
+                span(data-toggle='countTo', data-to='2120', data-after='+')
+                small Sales
+            .col-sm-4
+              .counter.site-block
+                span(data-toggle='countTo', data-to='530', data-after='+')
+                small Services
+            .col-sm-4
+              .counter.site-block
+                span(data-toggle='countTo', data-to='3200', data-after='+')
+                small Projects
+          // END Stats Row
+      // END Quick Stats
+      // Testimonials
+      section.site-content.site-section
+        .container
+          #testimonials-carousel.carousel.slide.carousel-html(data-ride='carousel', data-interval='4000')
+            .carousel-inner.text-center
+              .active.item
+                blockquote
+                  p
+                    img.img-circle.img-thumbnail.img-thumbnail-avatar-2x(src='img/placeholders/avatars/avatar13@2x.jpg', alt='avatar')
+                  h3 A big thanks! Our web app looks great!
+                  footer
+                    em
+                      strong Maria Clark
+                      | , http://example.com/
+              .item
+                blockquote
+                  p
+                    img.img-circle.img-thumbnail.img-thumbnail-avatar-2x(src='img/placeholders/avatars/avatar2@2x.jpg', alt='avatar')
+                  h3 It just works!
+                  footer
+                    em
+                      strong Roger Santos
+                      | , http://example.com/
+              .item
+                blockquote
+                  p
+                    img.img-circle.img-thumbnail.img-thumbnail-avatar-2x(src='img/placeholders/avatars/avatar1@2x.jpg', alt='avatar')
+                  h3 A great product at a great price!
+                  footer
+                    em
+                      strong Edward Duncan
+                      | , http://example.com/
+              .item
+                blockquote
+                  p
+                    img.img-circle.img-thumbnail.img-thumbnail-avatar-2x(src='img/placeholders/avatars/avatar7@2x.jpg', alt='avatar')
+                  h3 Awesome purchase, I&apos;m so happy I made it!
+                  footer
+                    em
+                      strong Scott Gray
+                      | , http://example.com/
+      // END Testimonials
+      // Footer
+      footer.site-footer.site-section.site-section-light
+        .container
+          // Footer Links
+          .row
+            .col-sm-4
+              h4.footer-heading Company
+              ul.footer-nav.ul-breath.list-unstyled
+                li
+                  a(href='javascript:void(0)') About Us
+                li
+                  a(href='javascript:void(0)') Our Team
+                li
+                  a(href='javascript:void(0)') Memberships
+                li
+                  a(href='javascript:void(0)') Terms &amp; Conditions
+                li
+                  a(href='javascript:void(0)') Privacy Policy
+            .col-sm-4
+              h4.footer-heading Need support?
+              ul.footer-nav.footer-nav-links.list-inline
+                li
+                  a(href='javascript:void(0)')
+                    i.fa.fa-fw.fa-book
+                    |  Knowledge Base
+                li
+                  a(href='javascript:void(0)')
+                    i.fa.fa-fw.fa-support
+                    |  FAQ
+              h4.footer-heading We are social!
+              ul.footer-nav.footer-nav-links.list-inline
+                li
+                  a.social-facebook(href='javascript:void(0)', data-toggle='tooltip', title='Like our Facebook page')
+                    i.fa.fa-fw.fa-facebook
+                li
+                  a.social-twitter(href='javascript:void(0)', data-toggle='tooltip', title='Follow us on Twitter')
+                    i.fa.fa-fw.fa-twitter
+                li
+                  a.social-google-plus(href='javascript:void(0)', data-toggle='tooltip', title='Like our Google+ page')
+                    i.fa.fa-fw.fa-google-plus
+                li
+                  a.social-dribbble(href='javascript:void(0)', data-toggle='tooltip', title='Follow us on Dribbble')
+                    i.fa.fa-fw.fa-dribbble
+                li
+                  a.social-youtube(href='javascript:void(0)', data-toggle='tooltip', title='Subscribe to our Youtube channel')
+                    i.fa.fa-fw.fa-youtube-play
+            .col-sm-4
+              h4.footer-heading Newsletter
+              form.form-inline(action='index.html', method='post', onsubmit='return false;')
+                .form-group
+                  label.sr-only(for='register-email') Your Email
+                  .input-group
+                    input#register-email.form-control(type='email', name='register-email', placeholder='Your Email..')
+                    span.input-group-btn
+                      button.btn.btn-primary(type='submit') Subscribe
+              h4.footer-heading
+                a(href='http://goo.gl/RcsdAh') AppUI - Frontend
+              em
+                span#year-copy
+              |  &copy; Crafted with 
+              i.fa.fa-heart.text-danger
+              |  by 
+              a(href='http://goo.gl/WCS84b') pixelcave
+          // END Footer Links
+      // END Footer
+    // END Page Container
+    // Scroll to top link, initialized in js/app.js - scrollToTop()
+    a#to-top(href='#')
+      i.fa.fa-arrow-up
+    // Include Jquery library from Google's CDN but if something goes wrong get Jquery from local file (Remove 'http:' if you have SSL)
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+    script.
+      !window.jQuery && document.write(decodeURI('%3Cscript src="js/vendor/jquery-2.1.1.min.js"%3E%3C/script%3E'));
+    // Bootstrap.js, Jquery plugins and Custom JS code
+    script(src='js/vendor/bootstrap.min.js')
+    script(src='js/plugins.js')
+    script(src='js/app.js')
