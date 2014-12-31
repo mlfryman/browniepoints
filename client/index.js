@@ -17,5 +17,5 @@
       }, function(){
         $rootScope.rootuser = null;
       });
-    }]);
+  }]);
 })();
