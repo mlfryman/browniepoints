@@ -1,0 +1,1827 @@
+doctype html
+//if IE 9
+  html.no-js.lt-ie10  
+// [if gt IE 9] <!
+html.no-js
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    title AppUI - Web App Bootstrap Admin Template
+    meta(name='description', content='AppUI is a Web App Bootstrap Admin Template created by pixelcave and published on Themeforest')
+    meta(name='author', content='pixelcave')
+    meta(name='robots', content='noindex, nofollow')
+    meta(name='viewport', content='width=device-width,initial-scale=1,maximum-scale=1.0')
+    // Icons
+    // The following icons can be replaced with your own, they are used by desktop and mobile browsers
+    link(rel='shortcut icon', href='img/favicon.png')
+    link(rel='apple-touch-icon', href='img/icon57.png', sizes='57x57')
+    link(rel='apple-touch-icon', href='img/icon72.png', sizes='72x72')
+    link(rel='apple-touch-icon', href='img/icon76.png', sizes='76x76')
+    link(rel='apple-touch-icon', href='img/icon114.png', sizes='114x114')
+    link(rel='apple-touch-icon', href='img/icon120.png', sizes='120x120')
+    link(rel='apple-touch-icon', href='img/icon144.png', sizes='144x144')
+    link(rel='apple-touch-icon', href='img/icon152.png', sizes='152x152')
+    link(rel='apple-touch-icon', href='img/icon180.png', sizes='180x180')
+    // END Icons
+    // Stylesheets
+    // Bootstrap is included in its original form, unaltered
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    // Related styles of various icon packs and plugins
+    link(rel='stylesheet', href='css/plugins.css')
+    // The main stylesheet of this template. All Bootstrap overwrites are defined in here
+    link(rel='stylesheet', href='css/main.css')
+    // Include a specific file here from css/themes/ folder to alter the default theme of the template
+    // The themes stylesheet of this template (for using specific theme color in individual elements - must included last)
+    link(rel='stylesheet', href='css/themes.css')
+    // END Stylesheets
+    // Modernizr (browser feature detection library)
+    script(src='js/vendor/modernizr-2.8.3.min.js')
+  body
+    // Page Wrapper
+    // In the PHP version you can set the following options from inc/config file
+    //
+      Available classes:
+      'page-loading'      enables page preloader
+    #page-wrapper.page-loading
+      // Preloader
+      // Preloader functionality (initialized in js/app.js) - pageLoading()
+      // Used only if page preloader enabled from inc/config (PHP version) or the class 'page-loading' is added in #page-wrapper element (HTML version)
+      .preloader
+        .inner
+          // Animation spinner for all modern browsers
+          .preloader-spinner.themed-background.hidden-lt-ie10
+          // Text for IE9
+          h3.text-primary.visible-lt-ie10
+            strong Loading..
+      // END Preloader
+      // Page Container
+      // In the PHP version you can set the following options from inc/config file
+      //
+        Available #page-container classes:
+        'sidebar-light'                                 for a light main sidebar (You can add it along with any other class)
+        'sidebar-visible-lg-mini'                       main sidebar condensed - Mini Navigation (> 991px)
+        'sidebar-visible-lg-full'                       main sidebar full - Full Navigation (> 991px)
+        'sidebar-alt-visible-lg'                        alternative sidebar visible by default (> 991px) (You can add it along with any other class)
+        'header-fixed-top'                              has to be added only if the class 'navbar-fixed-top' was added on header.navbar
+        'header-fixed-bottom'                           has to be added only if the class 'navbar-fixed-bottom' was added on header.navbar
+        'fixed-width'                                   for a fixed width layout (can only be used with a static header/main sidebar layout)
+        'enable-cookies'                                enables cookies for remembering active color theme when changed from the sidebar links (You can add it along with any other class)
+      #page-container.header-fixed-top.sidebar-visible-lg-full
+        // Alternative Sidebar
+        #sidebar-alt(tabindex='-1', aria-hidden='true')
+          // Toggle Alternative Sidebar Button (visible only in static layout)
+          a#sidebar-alt-close(href='javascript:void(0)', onclick="App.sidebar('toggle-sidebar-alt');")
+            i.fa.fa-times
+          // Wrapper for scrolling functionality
+          #sidebar-scroll-alt
+            // Sidebar Content
+            .sidebar-content
+              // Profile
+              .sidebar-section
+                h2.text-light Profile
+                form.form-control-borderless(action='index.html', method='post', onsubmit='return false;')
+                  .form-group
+                    label(for='side-profile-name') Name
+                    input#side-profile-name.form-control(type='text', name='side-profile-name', value='John Doe')
+                  .form-group
+                    label(for='side-profile-email') Email
+                    input#side-profile-email.form-control(type='email', name='side-profile-email', value='john.doe@example.com')
+                  .form-group
+                    label(for='side-profile-password') New Password
+                    input#side-profile-password.form-control(type='password', name='side-profile-password')
+                  .form-group
+                    label(for='side-profile-password-confirm') Confirm New Password
+                    input#side-profile-password-confirm.form-control(type='password', name='side-profile-password-confirm')
+                  .form-group.remove-margin
+                    button.btn.btn-effect-ripple.btn-primary(type='submit', onclick="App.sidebar('close-sidebar-alt');") Save
+              // END Profile
+              // Settings
+              .sidebar-section
+                h2.text-light Settings
+                form.form-horizontal.form-control-borderless(action='index.html', method='post', onsubmit='return false;')
+                  .form-group
+                    label.col-xs-7.control-label-fixed Notifications
+                    .col-xs-5
+                      label.switch.switch-success
+                        input(type='checkbox', checked='')
+                        span
+                  .form-group
+                    label.col-xs-7.control-label-fixed Public Profile
+                    .col-xs-5
+                      label.switch.switch-success
+                        input(type='checkbox', checked='')
+                        span
+                  .form-group
+                    label.col-xs-7.control-label-fixed Enable API
+                    .col-xs-5
+                      label.switch.switch-success
+                        input(type='checkbox')
+                        span
+                  .form-group.remove-margin
+                    button.btn.btn-effect-ripple.btn-primary(type='submit', onclick="App.sidebar('close-sidebar-alt');") Save
+              // END Settings
+            // END Sidebar Content
+          // END Wrapper for scrolling functionality
+        // END Alternative Sidebar
+        // Main Sidebar
+        #sidebar
+          // Sidebar Brand
+          #sidebar-brand.themed-background
+            a.sidebar-title(href='index.html')
+              i.fa.fa-cube
+              span.sidebar-nav-mini-hide
+                | App
+                strong UI
+          // END Sidebar Brand
+          // Wrapper for scrolling functionality
+          #sidebar-scroll
+            // Sidebar Content
+            .sidebar-content
+              // Sidebar Navigation
+              ul.sidebar-nav
+                li
+                  a(href='index.html')
+                    i.gi.gi-compass.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Dashboard
+                li.sidebar-separator
+                  i.fa.fa-ellipsis-h
+                li.active
+                  a.sidebar-nav-menu(href='#')
+                    i.fa.fa-chevron-left.sidebar-nav-indicator.sidebar-nav-mini-hide
+                    i.fa.fa-rocket.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide User Interface
+                  ul
+                    li
+                      a(href='page_ui_widgets.html') Widgets
+                    li
+                      a.sidebar-nav-submenu(href='#')
+                        i.fa.fa-chevron-left.sidebar-nav-indicator
+                        | Elements
+                      ul
+                        li
+                          a(href='page_ui_blocks_grid.html') Blocks &amp; Grid
+                        li
+                          a(href='page_ui_typography.html') Typography
+                        li
+                          a(href='page_ui_buttons_dropdowns.html') Buttons &amp; Dropdowns
+                        li
+                          a(href='page_ui_navigation_more.html') Navigation &amp; More
+                        li
+                          a(href='page_ui_progress_loading.html') Progress &amp; Loading
+                        li
+                          a(href='page_ui_tables.html') Tables
+                    li.active
+                      a.sidebar-nav-submenu(href='#')
+                        i.fa.fa-chevron-left.sidebar-nav-indicator
+                        | Forms
+                      ul
+                        li
+                          a.active(href='page_forms_components.html') Components
+                        li
+                          a(href='page_forms_wizard.html') Wizard
+                        li
+                          a(href='page_forms_validation.html') Validation
+                    li
+                      a.sidebar-nav-submenu(href='#')
+                        i.fa.fa-chevron-left.sidebar-nav-indicator
+                        | Icon Packs
+                      ul
+                        li
+                          a(href='page_ui_icons_fontawesome.html') Font Awesome
+                        li
+                          a(href='page_ui_icons_glyphicons_pro.html') Glyphicons Pro
+                li
+                  a.sidebar-nav-menu(href='#')
+                    i.fa.fa-chevron-left.sidebar-nav-indicator.sidebar-nav-mini-hide
+                    i.gi.gi-airplane.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Components
+                  ul
+                    li
+                      a(href='page_comp_todo.html') To-do List
+                    li
+                      a(href='page_comp_gallery.html') Gallery
+                    li
+                      a(href='page_comp_maps.html') Google Maps
+                    li
+                      a(href='page_comp_calendar.html') Calendar
+                    li
+                      a(href='page_comp_charts.html') Charts
+                    li
+                      a(href='page_comp_animations.html') CSS3 Animations
+                    li
+                      a(href='page_comp_tree.html') Tree View Lists
+                    li
+                      a(href='page_comp_nestable.html') Nestable &amp; Sortable Lists
+                li
+                  a.sidebar-nav-menu(href='#')
+                    i.fa.fa-chevron-left.sidebar-nav-indicator.sidebar-nav-mini-hide
+                    i.gi.gi-more_items.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide UI Layouts
+                  ul
+                    li
+                      a(href='page_layout_static.html') Static
+                    li
+                      a(href='page_layout_static_fixed_width.html') Static Fixed Width
+                    li
+                      a(href='page_layout_fixed_top.html') Top Header (Fixed)
+                    li
+                      a(href='page_layout_fixed_bottom.html') Bottom Header (Fixed)
+                    li
+                      a(href='page_layout_static_sidebar_mini.html') Sidebar Mini (Static)
+                    li
+                      a(href='page_layout_fixed_sidebar_mini.html') Sidebar Mini (Fixed)
+                    li
+                      a(href='page_layout_alternative_sidebar_visible.html') Visible Alternative Sidebar
+                li
+                  a.sidebar-nav-menu(href='#')
+                    i.fa.fa-chevron-left.sidebar-nav-indicator.sidebar-nav-mini-hide
+                    i.fa.fa-gift.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Extra Pages
+                  ul
+                    li
+                      a(href='page_ready_error.html') Error Page
+                    li
+                      a(href='page_ready_blank.html') Blank
+                    li
+                      a(href='page_ready_article.html') Article
+                    li
+                      a(href='page_ready_timeline.html') Timeline
+                    li
+                      a(href='page_ready_invoice.html') Invoice
+                    li
+                      a(href='page_ready_search_results.html') Search Results
+                    li
+                      a(href='page_ready_pricing_tables.html') Pricing Tables
+                    li
+                      a(href='page_ready_faq.html') FAQ
+                    li
+                      a(href='page_ready_profile.html') User Profile
+                    li
+                      a.sidebar-nav-submenu(href='#')
+                        i.fa.fa-chevron-left.sidebar-nav-indicator
+                        | Login, Register &amp; Lock
+                      ul
+                        li
+                          a(href='page_ready_login.html') Login
+                        li
+                          a(href='page_ready_reminder.html') Password Reminder
+                        li
+                          a(href='page_ready_register.html') Register
+                        li
+                          a(href='page_ready_lock_screen.html') Lock Screen
+                li.sidebar-separator
+                  i.fa.fa-ellipsis-h
+                li
+                  a(href='page_app_email.html')
+                    i.gi.gi-inbox.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Email Center
+                li
+                  a(href='page_app_social.html')
+                    i.fa.fa-share-alt.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Social Net
+                li
+                  a(href='page_app_media.html')
+                    i.gi.gi-picture.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide Media Box
+                li
+                  a(href='page_app_estore.html')
+                    i.gi.gi-shopping_cart.sidebar-nav-icon
+                    span.sidebar-nav-mini-hide eStore
+              // END Sidebar Navigation
+              // Color Themes
+              // Preview a theme on a page functionality can be found in js/app.js - colorThemePreview()
+              .sidebar-section.sidebar-nav-mini-hide
+                .sidebar-separator.push
+                  i.fa.fa-ellipsis-h
+                ul.sidebar-themes.clearfix
+                  li
+                    a.themed-background-default(href='javascript:void(0)', data-toggle='tooltip', title='Default', data-theme='default', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-default
+                      span.section-content
+                  li
+                    a.themed-background-classy(href='javascript:void(0)', data-toggle='tooltip', title='Classy', data-theme='css/themes/classy.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-classy
+                      span.section-content
+                  li
+                    a.themed-background-social(href='javascript:void(0)', data-toggle='tooltip', title='Social', data-theme='css/themes/social.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-social
+                      span.section-content
+                  li
+                    a.themed-background-flat(href='javascript:void(0)', data-toggle='tooltip', title='Flat', data-theme='css/themes/flat.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-flat
+                      span.section-content
+                  li
+                    a.themed-background-amethyst(href='javascript:void(0)', data-toggle='tooltip', title='Amethyst', data-theme='css/themes/amethyst.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-amethyst
+                      span.section-content
+                  li
+                    a.themed-background-creme(href='javascript:void(0)', data-toggle='tooltip', title='Creme', data-theme='css/themes/creme.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-creme
+                      span.section-content
+                  li
+                    a.themed-background-passion(href='javascript:void(0)', data-toggle='tooltip', title='Passion', data-theme='css/themes/passion.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='')
+                      span.section-side.themed-background-dark-passion
+                      span.section-content
+                  li
+                    a.themed-background-default(href='javascript:void(0)', data-toggle='tooltip', title='Default + Light Sidebar', data-theme='default', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-classy(href='javascript:void(0)', data-toggle='tooltip', title='Classy + Light Sidebar', data-theme='css/themes/classy.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-social(href='javascript:void(0)', data-toggle='tooltip', title='Social + Light Sidebar', data-theme='css/themes/social.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-flat(href='javascript:void(0)', data-toggle='tooltip', title='Flat + Light Sidebar', data-theme='css/themes/flat.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-amethyst(href='javascript:void(0)', data-toggle='tooltip', title='Amethyst + Light Sidebar', data-theme='css/themes/amethyst.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-creme(href='javascript:void(0)', data-toggle='tooltip', title='Creme + Light Sidebar', data-theme='css/themes/creme.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-passion(href='javascript:void(0)', data-toggle='tooltip', title='Passion + Light Sidebar', data-theme='css/themes/passion.css', data-theme-navbar='navbar-inverse', data-theme-sidebar='sidebar-light')
+                      span.section-side
+                      span.section-content
+                  li
+                    a.themed-background-default(href='javascript:void(0)', data-toggle='tooltip', title='Default + Light Header', data-theme='default', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-default
+                      span.section-content
+                  li
+                    a.themed-background-classy(href='javascript:void(0)', data-toggle='tooltip', title='Classy + Light Header', data-theme='css/themes/classy.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-classy
+                      span.section-content
+                  li
+                    a.themed-background-social(href='javascript:void(0)', data-toggle='tooltip', title='Social + Light Header', data-theme='css/themes/social.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-social
+                      span.section-content
+                  li
+                    a.themed-background-flat(href='javascript:void(0)', data-toggle='tooltip', title='Flat + Light Header', data-theme='css/themes/flat.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-flat
+                      span.section-content
+                  li
+                    a.themed-background-amethyst(href='javascript:void(0)', data-toggle='tooltip', title='Amethyst + Light Header', data-theme='css/themes/amethyst.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-amethyst
+                      span.section-content
+                  li
+                    a.themed-background-creme(href='javascript:void(0)', data-toggle='tooltip', title='Creme + Light Header', data-theme='css/themes/creme.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-creme
+                      span.section-content
+                  li
+                    a.themed-background-passion(href='javascript:void(0)', data-toggle='tooltip', title='Passion + Light Header', data-theme='css/themes/passion.css', data-theme-navbar='navbar-default', data-theme-sidebar='')
+                      span.section-header
+                      span.section-side.themed-background-dark-passion
+                      span.section-content
+              // END Color Themes
+            // END Sidebar Content
+          // END Wrapper for scrolling functionality
+          // Sidebar Extra Info
+          #sidebar-extra-info.sidebar-content.sidebar-nav-mini-hide
+            .push-bit
+              span.pull-right
+                a.text-muted(href='javascript:void(0)')
+                  i.fa.fa-plus
+              small
+                strong 78 GB
+                |  / 100 GB
+            .progress.progress-mini.push-bit
+              .progress-bar.progress-bar-primary(role='progressbar', aria-valuenow='78', aria-valuemin='0', aria-valuemax='100', style='width: 78%')
+            .text-center
+              small
+                | Crafted with 
+                i.fa.fa-heart.text-danger
+                |  by 
+                a(href='http://goo.gl/vNS3I', target='_blank') pixelcave
+              br
+              small
+                span#year-copy
+                |  &copy; 
+                a(href='http://goo.gl/RcsdAh', target='_blank') AppUI 2.1
+          // END Sidebar Extra Info
+        // END Main Sidebar
+        // Main Container
+        #main-container
+          // Header
+          // In the PHP version you can set the following options from inc/config file
+          //
+            Available header.navbar classes:
+            'navbar-default'            for the default light header
+            'navbar-inverse'            for an alternative dark header
+            'navbar-fixed-top'          for a top fixed header (fixed main sidebar with scroll will be auto initialized, functionality can be found in js/app.js - handleSidebar())
+            'header-fixed-top'      has to be added on #page-container only if the class 'navbar-fixed-top' was added
+            'navbar-fixed-bottom'       for a bottom fixed header (fixed main sidebar with scroll will be auto initialized, functionality can be found in js/app.js - handleSidebar()))
+            'header-fixed-bottom'   has to be added on #page-container only if the class 'navbar-fixed-bottom' was added
+          header.navbar.navbar-inverse.navbar-fixed-top
+            // Left Header Navigation
+            ul.nav.navbar-nav-custom
+              // Main Sidebar Toggle Button
+              li
+                a(href='javascript:void(0)', onclick="App.sidebar('toggle-sidebar');")
+                  i#sidebar-toggle-mini.fa.fa-ellipsis-v.fa-fw.animation-fadeInRight
+                  i#sidebar-toggle-full.fa.fa-bars.fa-fw.animation-fadeInRight
+              // END Main Sidebar Toggle Button
+              // Header Link
+              li.hidden-xs.animation-fadeInQuick
+                a(href='')
+                  strong FORMS
+              // END Header Link
+            // END Left Header Navigation
+            // Right Header Navigation
+            ul.nav.navbar-nav-custom.pull-right
+              // Search Form
+              li
+                form.navbar-form-custom(action='page_ready_search_results.html', method='post', role='search')
+                  input#top-search.form-control(type='text', name='top-search', placeholder='Search..')
+              // END Search Form
+              // Alternative Sidebar Toggle Button
+              li
+                a(href='javascript:void(0)', onclick="App.sidebar('toggle-sidebar-alt');")
+                  i.gi.gi-settings
+              // END Alternative Sidebar Toggle Button
+              // User Dropdown
+              li.dropdown
+                a.dropdown-toggle(href='javascript:void(0)', data-toggle='dropdown')
+                  img(src='img/placeholders/avatars/avatar9.jpg', alt='avatar')
+                ul.dropdown-menu.dropdown-menu-right
+                  li.dropdown-header
+                    strong ADMINISTRATOR
+                  li
+                    a(href='page_app_email.html')
+                      i.fa.fa-inbox.fa-fw.pull-right
+                      |                                             Inbox
+                  li
+                    a(href='page_app_social.html')
+                      i.fa.fa-pencil-square.fa-fw.pull-right
+                      |                                             Profile
+                  li
+                    a(href='page_app_media.html')
+                      i.fa.fa-picture-o.fa-fw.pull-right
+                      |                                             Media Manager
+                  li.divider
+                  li
+                  li
+                    a(href='javascript:void(0)', onclick="App.sidebar('toggle-sidebar-alt');")
+                      i.gi.gi-settings.fa-fw.pull-right
+                      |                                             Settings
+                  li
+                    a(href='page_ready_lock_screen.html')
+                      i.gi.gi-lock.fa-fw.pull-right
+                      |                                             Lock Account
+                  li
+                    a(href='page_ready_login.html')
+                      i.fa.fa-power-off.fa-fw.pull-right
+                      |                                             Log out
+              // END User Dropdown
+            // END Right Header Navigation
+          // END Header
+          // Page content
+          #page-content
+            // Forms Components Header
+            .content-header
+              .row
+                .col-sm-6
+                  .header-section
+                    h1 Form Components
+                .col-sm-6.hidden-xs
+                  .header-section
+                    ul.breadcrumb.breadcrumb-top
+                      li User Interface
+                      li Forms
+                      li
+                        a(href='') Components
+            // END Forms Components Header
+            // Form Components Row
+            .row
+              .col-md-6
+                // Horizontal Form Block
+                .block
+                  // Horizontal Form Title
+                  .block-title
+                    .block-options.pull-right
+                      a.btn.btn-effect-ripple.btn-default.toggle-bordered.enable-tooltip(href='javascript:void(0)', data-toggle='button', title='Toggles .form-bordered class') Borderless
+                    h2 Horizontal Form
+                  // END Horizontal Form Title
+                  // Horizontal Form Content
+                  form.form-horizontal.form-bordered(action='page_forms_components.html', method='post', onsubmit='return false;')
+                    .form-group
+                      label.col-md-3.control-label(for='example-hf-email') Email
+                      .col-md-9
+                        input#example-hf-email.form-control(type='email', name='example-hf-email')
+                        span.help-block Please enter your email
+                    .form-group
+                      label.col-md-3.control-label(for='example-hf-password') Password
+                      .col-md-9
+                        input#example-hf-password.form-control(type='password', name='example-hf-password')
+                        span.help-block Please enter your password
+                    .form-group.form-actions
+                      .col-md-9.col-md-offset-3
+                        button.btn.btn-effect-ripple.btn-primary(type='submit') Submit
+                        button.btn.btn-effect-ripple.btn-danger(type='reset') Reset
+                  // END Horizontal Form Content
+                // END Horizontal Form Block
+                // Labels on top Form Block
+                .block
+                  // Labels on top Form Title
+                  .block-title
+                    .block-options.pull-right
+                      a.btn.btn-effect-ripple.btn-default.toggle-bordered.enable-tooltip(href='javascript:void(0)', data-toggle='button', title='Toggles .form-bordered class') Borderless
+                    h2 Labels on top Form
+                  // END Labels on top Form Title
+                  // Labels on top Form Content
+                  form.form-bordered(action='page_forms_components.html', method='post', onsubmit='return false;')
+                    .form-group
+                      label(for='example-nf-email') Email
+                      input#example-nf-email.form-control(type='email', name='example-nf-email')
+                      span.help-block Please enter your email
+                    .form-group
+                      label(for='example-nf-password') Password
+                      input#example-nf-password.form-control(type='password', name='example-nf-password')
+                      span.help-block Please enter your password
+                    .form-group.form-actions
+                      button.btn.btn-effect-ripple.btn-primary(type='submit') Submit
+                      button.btn.btn-effect-ripple.btn-danger(type='reset') Reset
+                  // END Labels on top Form Content
+                // END Labels on top Form Block
+                // Inline Form Block
+                .block.full
+                  // Inline Form Title
+                  .block-title
+                    h2 Inline Form
+                  // END Inline Form Title
+                  // Inline Form Content
+                  form.form-inline(action='page_forms_components.html', method='post', onsubmit='return false;')
+                    .form-group
+                      label.sr-only(for='example-if-email') Email
+                      input#example-if-email.form-control(type='email', name='example-if-email', placeholder='Email')
+                    .form-group
+                      label.sr-only(for='example-if-password') Password
+                      input#example-if-password.form-control(type='password', name='example-if-password', placeholder='Password')
+                    .form-group
+                      button.btn.btn-effect-ripple.btn-primary(type='submit') Submit
+                      button.btn.btn-effect-ripple.btn-danger(type='reset') Reset
+                  // END Inline Form Content
+                // END Inline Form Block
+                // General Elements Block
+                .block
+                  // General Elements Title
+                  .block-title
+                    .block-options.pull-right
+                      a.btn.btn-effect-ripple.btn-default.toggle-bordered.enable-tooltip(href='javascript:void(0)', data-toggle='button', title='Toggles .form-bordered class') Borderless
+                    h2 General Elements
+                  // END General Elements Title
+                  // General Elements Content
+                  form.form-horizontal.form-bordered(action='page_forms_components.html', method='post', enctype='multipart/form-data', onsubmit='return false;')
+                    .form-group
+                      label.col-md-3.control-label Static
+                      .col-md-9
+                        p.form-control-static This is static text
+                    .form-group
+                      label.col-md-3.control-label(for='example-text-input') Text
+                      .col-md-6
+                        input#example-text-input.form-control(type='text', name='example-text-input', placeholder='Text')
+                        span.help-block This is a help text
+                    .form-group
+                      label.col-md-3.control-label(for='example-email') Email
+                      .col-md-6
+                        input#example-email.form-control(type='email', name='example-email', placeholder='Email')
+                    .form-group
+                      label.col-md-3.control-label(for='example-password') Password
+                      .col-md-6
+                        input#example-password.form-control(type='password', name='example-password', placeholder='Password')
+                    .form-group
+                      label.col-md-3.control-label(for='example-disabled') Disabled
+                      .col-md-6
+                        input#example-disabled.form-control(type='text', name='example-disabled', placeholder='Disabled', disabled='')
+                    .form-group
+                      label.col-md-3.control-label(for='example-textarea-input') Textarea
+                      .col-md-9
+                        textarea#example-textarea-input.form-control(name='example-textarea-input', rows='7', placeholder='Description..')
+                    .form-group
+                      label.col-md-3.control-label(for='example-select') Select
+                      .col-md-6
+                        select#example-select.form-control(name='example-select', size='1')
+                          option(value='0') Please select
+                          option(value='1') HTML
+                          option(value='2') CSS
+                          option(value='3') Javascript
+                    .form-group
+                      label.col-md-3.control-label(for='example-multiple-select') Multiple
+                      .col-md-6
+                        select#example-multiple-select.form-control(name='example-multiple-select', size='5', multiple='')
+                          option(value='1') Option #1
+                          option(value='2') Option #2
+                          option(value='3') Option #3
+                          option(value='4') Option #4
+                          option(value='5') Option #5
+                          option(value='6') Option #6
+                          option(value='7') Option #7
+                          option(value='8') Option #8
+                          option(value='9') Option #9
+                          option(value='10') Option #10
+                    .form-group
+                      label.col-md-3.control-label Radios
+                      .col-md-9
+                        .radio
+                          label(for='example-radio1')
+                            input#example-radio1(type='radio', name='example-radios', value='option1')
+                            |  HTML
+                        .radio
+                          label(for='example-radio2')
+                            input#example-radio2(type='radio', name='example-radios', value='option2')
+                            |  CSS
+                        .radio
+                          label(for='example-radio3')
+                            input#example-radio3(type='radio', name='example-radios', value='option3')
+                            |  Javascript
+                    .form-group
+                      label.col-md-3.control-label Inline Radios
+                      .col-md-9
+                        label.radio-inline(for='example-inline-radio1')
+                          input#example-inline-radio1(type='radio', name='example-inline-radios', value='option1')
+                          |  HTML
+                        label.radio-inline(for='example-inline-radio2')
+                          input#example-inline-radio2(type='radio', name='example-inline-radios', value='option2')
+                          |  CSS
+                        label.radio-inline(for='example-inline-radio3')
+                          input#example-inline-radio3(type='radio', name='example-inline-radios', value='option3')
+                          |  Javascript
+                    .form-group
+                      label.col-md-3.control-label Checkboxes
+                      .col-md-9
+                        .checkbox
+                          label(for='example-checkbox1')
+                            input#example-checkbox1(type='checkbox', name='example-checkbox1', value='option1')
+                            |  HTML
+                        .checkbox
+                          label(for='example-checkbox2')
+                            input#example-checkbox2(type='checkbox', name='example-checkbox2', value='option2')
+                            |  CSS
+                        .checkbox
+                          label(for='example-checkbox3')
+                            input#example-checkbox3(type='checkbox', name='example-checkbox3', value='option3')
+                            |  Javascript
+                    .form-group
+                      label.col-md-3.control-label Inline Checkboxes
+                      .col-md-9
+                        label.checkbox-inline(for='example-inline-checkbox1')
+                          input#example-inline-checkbox1(type='checkbox', name='example-inline-checkbox1', value='option1')
+                          |  HTML
+                        label.checkbox-inline(for='example-inline-checkbox2')
+                          input#example-inline-checkbox2(type='checkbox', name='example-inline-checkbox2', value='option2')
+                          |  CSS
+                        label.checkbox-inline(for='example-inline-checkbox3')
+                          input#example-inline-checkbox3(type='checkbox', name='example-inline-checkbox3', value='option3')
+                          |  Javascript
+                    .form-group
+                      label.col-md-3.control-label(for='example-file-input') File
+                      .col-md-9
+                        input#example-file-input(type='file', name='example-file-input')
+                    .form-group
+                      label.col-md-3.control-label(for='example-file-multiple-input') Multiple File
+                      .col-md-9
+                        input#example-file-multiple-input(type='file', name='example-file-multiple-input', multiple='')
+                    .form-group.form-actions
+                      .col-md-9.col-md-offset-3
+                        button.btn.btn-effect-ripple.btn-primary(type='submit') Submit
+                        button.btn.btn-effect-ripple.btn-danger(type='reset') Reset
+                  // END General Elements Content
+                // END General Elements Block
+                // Switches Block
+                .block
+                  // Switches Title
+                  .block-title
+                    .block-options.pull-right
+                      a.btn.btn-effect-ripple.btn-default.toggle-bordered.enable-tooltip(href='javascript:void(0)', data-toggle='button', title='Toggles .form-bordered class') Borderless
+                    h2 CSS Switches
+                  // END Switches Title
+                  // Switches Content
+                  form.form-horizontal.form-bordered(action='page_forms_components.html', method='post', onsubmit='return false;')
+                    .form-group
+                      label.col-sm-3.control-label Unchecked
+                      .col-sm-9
+                        label.switch.switch-default
+                          input(type='checkbox')
+                          span
+                        label.switch.switch-warning
+                          input(type='checkbox')
+                          span
+                        label.switch.switch-danger
+                          input(type='checkbox')
+                          span
+                        label.switch.switch-info
+                          input(type='checkbox')
+                          span
+                        label.switch.switch-success
+                          input(type='checkbox')
+                          span
+                        label.switch.switch-primary
+                          input(type='checkbox')
+                          span
+                    .form-group
+                      label.col-sm-3.control-label Checked
+                      .col-sm-9
+                        label.switch.switch-default
+                          input(type='checkbox', checked='')
+                          span
+                        label.switch.switch-warning
+                          input(type='checkbox', checked='')
+                          span
+                        label.switch.switch-danger
+                          input(type='checkbox', checked='')
+                          span
+                        label.switch.switch-info
+                          input(type='checkbox', checked='')
+                          span
+                        label.switch.switch-success
+                          input(type='checkbox', checked='')
+                          span
+                        label.switch.switch-primary
+                          input(type='checkbox', checked='')
+                          span
+                    .form-group.form-actions
+                      .col-sm-9.col-sm-offset-3
+                        button.btn.btn-effect-ripple.btn-primary(type='submit') Submit
+                        button.btn.btn-effect-ripple.btn-danger(type='reset') Reset
+                  // END Switches Content
+                // END Switches Block
+                // Checkboxes Block
+                .block
+                  // Checkboxes Title
+                  .block-title
+                    .block-options.pull-right
+                      a.btn.btn-effect-ripple.btn-default.toggle-bordered.enable-tooltip(href='javascript:void(0)', data-toggle='button', title='Toggles .form-bordered class') Borderless
+                    h2 CSS Checkboxes
+                  // END Checkboxes Title
+                  // Switches Content
+                  form.form-horizontal.form-bordered(action='page_forms_components.html', method='post', onsubmit='return false;')
+                    .form-group
+                      label.col-sm-3.control-label Unchecked
+                      .col-sm-9
+                        label.csscheckbox.csscheckbox-default
+                          input(type='checkbox')
+                          span
+                        label.csscheckbox.csscheckbox-warning
+                          input(type='checkbox')
+                          span
+                        label.csscheckbox.csscheckbox-danger
+                          input(type='checkbox')
+                          span
+                        label.csscheckbox.csscheckbox-info
+                          input(type='checkbox')
+                          span
+                        label.csscheckbox.csscheckbox-success
+                          input(type='checkbox')
+                          span
+                        label.csscheckbox.csscheckbox-primary
+                          input(type='checkbox')
+                          span
+                    .form-group
+                      label.col-sm-3.control-label Checked
+                      .col-sm-9
+                        label.csscheckbox.csscheckbox-default
+                          input(type='checkbox', checked='')
+                          span
+                        label.csscheckbox.csscheckbox-warning
+                          input(type='checkbox', checked='')
+                          span
+                        label.csscheckbox.csscheckbox-danger
+                          input(type='checkbox', checked='')
+                          span
+                        label.csscheckbox.csscheckbox-info
+                          input(type='checkbox', checked='')
+                          span
+                        label.csscheckbox.csscheckbox-success
+                          input(type='checkbox', checked='')
+                          span
+                        label.csscheckbox.csscheckbox-primary
+                          input(type='checkbox', checked='')
+                          span
+                    .form-group.form-actions
+                      .col-sm-9.col-sm-offset-3
+                        button.btn.btn-effect-ripple.btn-primary(type='submit') Submit
+                        button.btn.btn-effect-ripple.btn-danger(type='reset') Reset
+                  // END Checkboxes Content
+                // END Checkboxes Block
+                // Select Component Block
+                .block
+                  // Select Component Title
+                  .block-title
+                    .block-options.pull-right
+                      a.btn.btn-effect-ripple.btn-default.toggle-bordered.enable-tooltip(href='javascript:void(0)', data-toggle='button', title='Toggles .form-bordered class') Borderless
+                    h2 Select Component
+                  // END Select Component Title
+                  // Select Component Content
+                  form.form-horizontal.form-bordered(action='page_forms_components.html', method='post', onsubmit='return false;')
+                    // Chosen plugin (class is initialized in js/app.js -> uiInit()), for extra usage examples you can check out http://harvesthq.github.io/chosen/
+                    .form-group
+                      label.col-md-3.control-label(for='example-chosen') Chosen
+                      .col-md-5
+                        select#example-chosen.select-chosen(name='example-chosen', data-placeholder='Choose a Country..', style='width: 250px;')
+                          option
+                          // Required for data-placeholder attribute to work with Chosen plugin
+                          option(value='United States') United States
+                          option(value='United Kingdom') United Kingdom
+                          option(value='Afghanistan') Afghanistan
+                          option(value='Aland Islands') Aland Islands
+                          option(value='Albania') Albania
+                          option(value='Algeria') Algeria
+                          option(value='American Samoa') American Samoa
+                          option(value='Andorra') Andorra
+                          option(value='Angola') Angola
+                          option(value='Anguilla') Anguilla
+                          option(value='Antarctica') Antarctica
+                          option(value='Antigua and Barbuda') Antigua and Barbuda
+                          option(value='Argentina') Argentina
+                          option(value='Armenia') Armenia
+                          option(value='Aruba') Aruba
+                          option(value='Australia') Australia
+                          option(value='Austria') Austria
+                          option(value='Azerbaijan') Azerbaijan
+                          option(value='Bahamas') Bahamas
+                          option(value='Bahrain') Bahrain
+                          option(value='Bangladesh') Bangladesh
+                          option(value='Barbados') Barbados
+                          option(value='Belarus') Belarus
+                          option(value='Belgium') Belgium
+                          option(value='Belize') Belize
+                          option(value='Benin') Benin
+                          option(value='Bermuda') Bermuda
+                          option(value='Bhutan') Bhutan
+                          option(value='Bolivia, Plurinational State of') Bolivia, Plurinational State of
+                          option(value='Bonaire, Sint Eustatius and Saba') Bonaire, Sint Eustatius and Saba
+                          option(value='Bosnia and Herzegovina') Bosnia and Herzegovina
+                          option(value='Botswana') Botswana
+                          option(value='Bouvet Island') Bouvet Island
+                          option(value='Brazil') Brazil
+                          option(value='British Indian Ocean Territory') British Indian Ocean Territory
+                          option(value='Brunei Darussalam') Brunei Darussalam
+                          option(value='Bulgaria') Bulgaria
+                          option(value='Burkina Faso') Burkina Faso
+                          option(value='Burundi') Burundi
+                          option(value='Cambodia') Cambodia
+                          option(value='Cameroon') Cameroon
+                          option(value='Canada') Canada
+                          option(value='Cape Verde') Cape Verde
+                          option(value='Cayman Islands') Cayman Islands
+                          option(value='Central African Republic') Central African Republic
+                          option(value='Chad') Chad
+                          option(value='Chile') Chile
+                          option(value='China') China
+                          option(value='Christmas Island') Christmas Island
+                          option(value='Cocos (Keeling) Islands') Cocos (Keeling) Islands
+                          option(value='Colombia') Colombia
+                          option(value='Comoros') Comoros
+                          option(value='Congo') Congo
+                          option(value='Congo, The Democratic Republic of The') Congo, The Democratic Republic of The
+                          option(value='Cook Islands') Cook Islands
+                          option(value='Costa Rica') Costa Rica
+                          option(value="Cote D'ivoire") Cote D&apos;ivoire
+                          option(value='Croatia') Croatia
+                          option(value='Cuba') Cuba
+                          option(value='Curacao') Curacao
+                          option(value='Cyprus') Cyprus
+                          option(value='Czech Republic') Czech Republic
+                          option(value='Denmark') Denmark
+                          option(value='Djibouti') Djibouti
+                          option(value='Dominica') Dominica
+                          option(value='Dominican Republic') Dominican Republic
+                          option(value='Ecuador') Ecuador
+                          option(value='Egypt') Egypt
+                          option(value='El Salvador') El Salvador
+                          option(value='Equatorial Guinea') Equatorial Guinea
+                          option(value='Eritrea') Eritrea
+                          option(value='Estonia') Estonia
+                          option(value='Ethiopia') Ethiopia
+                          option(value='Falkland Islands (Malvinas)') Falkland Islands (Malvinas)
+                          option(value='Faroe Islands') Faroe Islands
+                          option(value='Fiji') Fiji
+                          option(value='Finland') Finland
+                          option(value='France') France
+                          option(value='French Guiana') French Guiana
+                          option(value='French Polynesia') French Polynesia
+                          option(value='French Southern Territories') French Southern Territories
+                          option(value='Gabon') Gabon
+                          option(value='Gambia') Gambia
+                          option(value='Georgia') Georgia
+                          option(value='Germany') Germany
+                          option(value='Ghana') Ghana
+                          option(value='Gibraltar') Gibraltar
+                          option(value='Greece') Greece
+                          option(value='Greenland') Greenland
+                          option(value='Grenada') Grenada
+                          option(value='Guadeloupe') Guadeloupe
+                          option(value='Guam') Guam
+                          option(value='Guatemala') Guatemala
+                          option(value='Guernsey') Guernsey
+                          option(value='Guinea') Guinea
+                          option(value='Guinea-bissau') Guinea-bissau
+                          option(value='Guyana') Guyana
+                          option(value='Haiti') Haiti
+                          option(value='Heard Island and Mcdonald Islands') Heard Island and Mcdonald Islands
+                          option(value='Holy See (Vatican City State)') Holy See (Vatican City State)
+                          option(value='Honduras') Honduras
+                          option(value='Hong Kong') Hong Kong
+                          option(value='Hungary') Hungary
+                          option(value='Iceland') Iceland
+                          option(value='India') India
+                          option(value='Indonesia') Indonesia
+                          option(value='Iran, Islamic Republic of') Iran, Islamic Republic of
+                          option(value='Iraq') Iraq
+                          option(value='Ireland') Ireland
+                          option(value='Isle of Man') Isle of Man
+                          option(value='Israel') Israel
+                          option(value='Italy') Italy
+                          option(value='Jamaica') Jamaica
+                          option(value='Japan') Japan
+                          option(value='Jersey') Jersey
+                          option(value='Jordan') Jordan
+                          option(value='Kazakhstan') Kazakhstan
+                          option(value='Kenya') Kenya
+                          option(value='Kiribati') Kiribati
+                          option(value="Korea, Democratic People's Republic of") Korea, Democratic People&apos;s Republic of
+                          option(value='Korea, Republic of') Korea, Republic of
+                          option(value='Kuwait') Kuwait
+                          option(value='Kyrgyzstan') Kyrgyzstan
+                          option(value="Lao People's Democratic Republic") Lao People&apos;s Democratic Republic
+                          option(value='Latvia') Latvia
+                          option(value='Lebanon') Lebanon
+                          option(value='Lesotho') Lesotho
+                          option(value='Liberia') Liberia
+                          option(value='Libya') Libya
+                          option(value='Liechtenstein') Liechtenstein
+                          option(value='Lithuania') Lithuania
+                          option(value='Luxembourg') Luxembourg
+                          option(value='Macao') Macao
+                          option(value='Macedonia, The Former Yugoslav Republic of') Macedonia, The Former Yugoslav Republic of
+                          option(value='Madagascar') Madagascar
+                          option(value='Malawi') Malawi
+                          option(value='Malaysia') Malaysia
+                          option(value='Maldives') Maldives
+                          option(value='Mali') Mali
+                          option(value='Malta') Malta
+                          option(value='Marshall Islands') Marshall Islands
+                          option(value='Martinique') Martinique
+                          option(value='Mauritania') Mauritania
+                          option(value='Mauritius') Mauritius
+                          option(value='Mayotte') Mayotte
+                          option(value='Mexico') Mexico
+                          option(value='Micronesia, Federated States of') Micronesia, Federated States of
+                          option(value='Moldova, Republic of') Moldova, Republic of
+                          option(value='Monaco') Monaco
+                          option(value='Mongolia') Mongolia
+                          option(value='Montenegro') Montenegro
+                          option(value='Montserrat') Montserrat
+                          option(value='Morocco') Morocco
+                          option(value='Mozambique') Mozambique
+                          option(value='Myanmar') Myanmar
+                          option(value='Namibia') Namibia
+                          option(value='Nauru') Nauru
+                          option(value='Nepal') Nepal
+                          option(value='Netherlands') Netherlands
+                          option(value='New Caledonia') New Caledonia
+                          option(value='New Zealand') New Zealand
+                          option(value='Nicaragua') Nicaragua
+                          option(value='Niger') Niger
+                          option(value='Nigeria') Nigeria
+                          option(value='Niue') Niue
+                          option(value='Norfolk Island') Norfolk Island
+                          option(value='Northern Mariana Islands') Northern Mariana Islands
+                          option(value='Norway') Norway
+                          option(value='Oman') Oman
+                          option(value='Pakistan') Pakistan
+                          option(value='Palau') Palau
+                          option(value='Palestinian Territory, Occupied') Palestinian Territory, Occupied
+                          option(value='Panama') Panama
+                          option(value='Papua New Guinea') Papua New Guinea
+                          option(value='Paraguay') Paraguay
+                          option(value='Peru') Peru
+                          option(value='Philippines') Philippines
+                          option(value='Pitcairn') Pitcairn
+                          option(value='Poland') Poland
+                          option(value='Portugal') Portugal
+                          option(value='Puerto Rico') Puerto Rico
+                          option(value='Qatar') Qatar
+                          option(value='Reunion') Reunion
+                          option(value='Romania') Romania
+                          option(value='Russian Federation') Russian Federation
+                          option(value='Rwanda') Rwanda
+                          option(value='Saint Barthelemy') Saint Barthelemy
+                          option(value='Saint Helena, Ascension and Tristan da Cunha') Saint Helena, Ascension and Tristan da Cunha
+                          option(value='Saint Kitts and Nevis') Saint Kitts and Nevis
+                          option(value='Saint Lucia') Saint Lucia
+                          option(value='Saint Martin (French part)') Saint Martin (French part)
+                          option(value='Saint Pierre and Miquelon') Saint Pierre and Miquelon
+                          option(value='Saint Vincent and The Grenadines') Saint Vincent and The Grenadines
+                          option(value='Samoa') Samoa
+                          option(value='San Marino') San Marino
+                          option(value='Sao Tome and Principe') Sao Tome and Principe
+                          option(value='Saudi Arabia') Saudi Arabia
+                          option(value='Senegal') Senegal
+                          option(value='Serbia') Serbia
+                          option(value='Seychelles') Seychelles
+                          option(value='Sierra Leone') Sierra Leone
+                          option(value='Singapore') Singapore
+                          option(value='Sint Maarten (Dutch part)') Sint Maarten (Dutch part)
+                          option(value='Slovakia') Slovakia
+                          option(value='Slovenia') Slovenia
+                          option(value='Solomon Islands') Solomon Islands
+                          option(value='Somalia') Somalia
+                          option(value='South Africa') South Africa
+                          option(value='South Georgia and The South Sandwich Islands') South Georgia and The South Sandwich Islands
+                          option(value='South Sudan') South Sudan
+                          option(value='Spain') Spain
+                          option(value='Sri Lanka') Sri Lanka
+                          option(value='Sudan') Sudan
+                          option(value='Suriname') Suriname
+                          option(value='Svalbard and Jan Mayen') Svalbard and Jan Mayen
+                          option(value='Swaziland') Swaziland
+                          option(value='Sweden') Sweden
+                          option(value='Switzerland') Switzerland
+                          option(value='Syrian Arab Republic') Syrian Arab Republic
+                          option(value='Taiwan, Province of China') Taiwan, Province of China
+                          option(value='Tajikistan') Tajikistan
+                          option(value='Tanzania, United Republic of') Tanzania, United Republic of
+                          option(value='Thailand') Thailand
+                          option(value='Timor-leste') Timor-leste
+                          option(value='Togo') Togo
+                          option(value='Tokelau') Tokelau
+                          option(value='Tonga') Tonga
+                          option(value='Trinidad and Tobago') Trinidad and Tobago
+                          option(value='Tunisia') Tunisia
+                          option(value='Turkey') Turkey
+                          option(value='Turkmenistan') Turkmenistan
+                          option(value='Turks and Caicos Islands') Turks and Caicos Islands
+                          option(value='Tuvalu') Tuvalu
+                          option(value='Uganda') Uganda
+                          option(value='Ukraine') Ukraine
+                          option(value='United Arab Emirates') United Arab Emirates
+                          option(value='United Kingdom') United Kingdom
+                          option(value='United States') United States
+                          option(value='United States Minor Outlying Islands') United States Minor Outlying Islands
+                          option(value='Uruguay') Uruguay
+                          option(value='Uzbekistan') Uzbekistan
+                          option(value='Vanuatu') Vanuatu
+                          option(value='Venezuela, Bolivarian Republic of') Venezuela, Bolivarian Republic of
+                          option(value='Viet Nam') Viet Nam
+                          option(value='Virgin Islands, British') Virgin Islands, British
+                          option(value='Virgin Islands, U.S.') Virgin Islands, U.S.
+                          option(value='Wallis and Futuna') Wallis and Futuna
+                          option(value='Western Sahara') Western Sahara
+                          option(value='Yemen') Yemen
+                          option(value='Zambia') Zambia
+                          option(value='Zimbabwe') Zimbabwe
+                    .form-group
+                      label.col-md-3.control-label(for='example-chosen-multiple') Chosen Multiple
+                      .col-md-5
+                        select#example-chosen-multiple.select-chosen(name='example-chosen-multiple', data-placeholder='Choose a Country..', style='width: 250px;', multiple='')
+                          option(value='United States') United States
+                          option(value='United Kingdom') United Kingdom
+                          option(value='Afghanistan') Afghanistan
+                          option(value='Aland Islands') Aland Islands
+                          option(value='Albania') Albania
+                          option(value='Algeria') Algeria
+                          option(value='American Samoa') American Samoa
+                          option(value='Andorra') Andorra
+                          option(value='Angola') Angola
+                          option(value='Anguilla') Anguilla
+                          option(value='Antarctica') Antarctica
+                          option(value='Antigua and Barbuda') Antigua and Barbuda
+                          option(value='Argentina') Argentina
+                          option(value='Armenia') Armenia
+                          option(value='Aruba') Aruba
+                          option(value='Australia') Australia
+                          option(value='Austria') Austria
+                          option(value='Azerbaijan') Azerbaijan
+                          option(value='Bahamas') Bahamas
+                          option(value='Bahrain') Bahrain
+                          option(value='Bangladesh') Bangladesh
+                          option(value='Barbados') Barbados
+                          option(value='Belarus') Belarus
+                          option(value='Belgium') Belgium
+                          option(value='Belize') Belize
+                          option(value='Benin') Benin
+                          option(value='Bermuda') Bermuda
+                          option(value='Bhutan') Bhutan
+                          option(value='Bolivia, Plurinational State of') Bolivia, Plurinational State of
+                          option(value='Bonaire, Sint Eustatius and Saba') Bonaire, Sint Eustatius and Saba
+                          option(value='Bosnia and Herzegovina') Bosnia and Herzegovina
+                          option(value='Botswana') Botswana
+                          option(value='Bouvet Island') Bouvet Island
+                          option(value='Brazil') Brazil
+                          option(value='British Indian Ocean Territory') British Indian Ocean Territory
+                          option(value='Brunei Darussalam') Brunei Darussalam
+                          option(value='Bulgaria') Bulgaria
+                          option(value='Burkina Faso') Burkina Faso
+                          option(value='Burundi') Burundi
+                          option(value='Cambodia') Cambodia
+                          option(value='Cameroon') Cameroon
+                          option(value='Canada') Canada
+                          option(value='Cape Verde') Cape Verde
+                          option(value='Cayman Islands') Cayman Islands
+                          option(value='Central African Republic') Central African Republic
+                          option(value='Chad') Chad
+                          option(value='Chile') Chile
+                          option(value='China') China
+                          option(value='Christmas Island') Christmas Island
+                          option(value='Cocos (Keeling) Islands') Cocos (Keeling) Islands
+                          option(value='Colombia') Colombia
+                          option(value='Comoros') Comoros
+                          option(value='Congo') Congo
+                          option(value='Congo, The Democratic Republic of The') Congo, The Democratic Republic of The
+                          option(value='Cook Islands') Cook Islands
+                          option(value='Costa Rica') Costa Rica
+                          option(value="Cote D'ivoire") Cote D&apos;ivoire
+                          option(value='Croatia') Croatia
+                          option(value='Cuba') Cuba
+                          option(value='Curacao') Curacao
+                          option(value='Cyprus') Cyprus
+                          option(value='Czech Republic') Czech Republic
+                          option(value='Denmark') Denmark
+                          option(value='Djibouti') Djibouti
+                          option(value='Dominica') Dominica
+                          option(value='Dominican Republic') Dominican Republic
+                          option(value='Ecuador') Ecuador
+                          option(value='Egypt') Egypt
+                          option(value='El Salvador') El Salvador
+                          option(value='Equatorial Guinea') Equatorial Guinea
+                          option(value='Eritrea') Eritrea
+                          option(value='Estonia') Estonia
+                          option(value='Ethiopia') Ethiopia
+                          option(value='Falkland Islands (Malvinas)') Falkland Islands (Malvinas)
+                          option(value='Faroe Islands') Faroe Islands
+                          option(value='Fiji') Fiji
+                          option(value='Finland') Finland
+                          option(value='France') France
+                          option(value='French Guiana') French Guiana
+                          option(value='French Polynesia') French Polynesia
+                          option(value='French Southern Territories') French Southern Territories
+                          option(value='Gabon') Gabon
+                          option(value='Gambia') Gambia
+                          option(value='Georgia') Georgia
+                          option(value='Germany') Germany
+                          option(value='Ghana') Ghana
+                          option(value='Gibraltar') Gibraltar
+                          option(value='Greece') Greece
+                          option(value='Greenland') Greenland
+                          option(value='Grenada') Grenada
+                          option(value='Guadeloupe') Guadeloupe
+                          option(value='Guam') Guam
+                          option(value='Guatemala') Guatemala
+                          option(value='Guernsey') Guernsey
+                          option(value='Guinea') Guinea
+                          option(value='Guinea-bissau') Guinea-bissau
+                          option(value='Guyana') Guyana
+                          option(value='Haiti') Haiti
+                          option(value='Heard Island and Mcdonald Islands') Heard Island and Mcdonald Islands
+                          option(value='Holy See (Vatican City State)') Holy See (Vatican City State)
+                          option(value='Honduras') Honduras
+                          option(value='Hong Kong') Hong Kong
+                          option(value='Hungary') Hungary
+                          option(value='Iceland') Iceland
+                          option(value='India') India
+                          option(value='Indonesia') Indonesia
+                          option(value='Iran, Islamic Republic of') Iran, Islamic Republic of
+                          option(value='Iraq') Iraq
+                          option(value='Ireland') Ireland
+                          option(value='Isle of Man') Isle of Man
+                          option(value='Israel') Israel
+                          option(value='Italy') Italy
+                          option(value='Jamaica') Jamaica
+                          option(value='Japan') Japan
+                          option(value='Jersey') Jersey
+                          option(value='Jordan') Jordan
+                          option(value='Kazakhstan') Kazakhstan
+                          option(value='Kenya') Kenya
+                          option(value='Kiribati') Kiribati
+                          option(value="Korea, Democratic People's Republic of") Korea, Democratic People&apos;s Republic of
+                          option(value='Korea, Republic of') Korea, Republic of
+                          option(value='Kuwait') Kuwait
+                          option(value='Kyrgyzstan') Kyrgyzstan
+                          option(value="Lao People's Democratic Republic") Lao People&apos;s Democratic Republic
+                          option(value='Latvia') Latvia
+                          option(value='Lebanon') Lebanon
+                          option(value='Lesotho') Lesotho
+                          option(value='Liberia') Liberia
+                          option(value='Libya') Libya
+                          option(value='Liechtenstein') Liechtenstein
+                          option(value='Lithuania') Lithuania
+                          option(value='Luxembourg') Luxembourg
+                          option(value='Macao') Macao
+                          option(value='Macedonia, The Former Yugoslav Republic of') Macedonia, The Former Yugoslav Republic of
+                          option(value='Madagascar') Madagascar
+                          option(value='Malawi') Malawi
+                          option(value='Malaysia') Malaysia
+                          option(value='Maldives') Maldives
+                          option(value='Mali') Mali
+                          option(value='Malta') Malta
+                          option(value='Marshall Islands') Marshall Islands
+                          option(value='Martinique') Martinique
+                          option(value='Mauritania') Mauritania
+                          option(value='Mauritius') Mauritius
+                          option(value='Mayotte') Mayotte
+                          option(value='Mexico') Mexico
+                          option(value='Micronesia, Federated States of') Micronesia, Federated States of
+                          option(value='Moldova, Republic of') Moldova, Republic of
+                          option(value='Monaco') Monaco
+                          option(value='Mongolia') Mongolia
+                          option(value='Montenegro') Montenegro
+                          option(value='Montserrat') Montserrat
+                          option(value='Morocco') Morocco
+                          option(value='Mozambique') Mozambique
+                          option(value='Myanmar') Myanmar
+                          option(value='Namibia') Namibia
+                          option(value='Nauru') Nauru
+                          option(value='Nepal') Nepal
+                          option(value='Netherlands') Netherlands
+                          option(value='New Caledonia') New Caledonia
+                          option(value='New Zealand') New Zealand
+                          option(value='Nicaragua') Nicaragua
+                          option(value='Niger') Niger
+                          option(value='Nigeria') Nigeria
+                          option(value='Niue') Niue
+                          option(value='Norfolk Island') Norfolk Island
+                          option(value='Northern Mariana Islands') Northern Mariana Islands
+                          option(value='Norway') Norway
+                          option(value='Oman') Oman
+                          option(value='Pakistan') Pakistan
+                          option(value='Palau') Palau
+                          option(value='Palestinian Territory, Occupied') Palestinian Territory, Occupied
+                          option(value='Panama') Panama
+                          option(value='Papua New Guinea') Papua New Guinea
+                          option(value='Paraguay') Paraguay
+                          option(value='Peru') Peru
+                          option(value='Philippines') Philippines
+                          option(value='Pitcairn') Pitcairn
+                          option(value='Poland') Poland
+                          option(value='Portugal') Portugal
+                          option(value='Puerto Rico') Puerto Rico
+                          option(value='Qatar') Qatar
+                          option(value='Reunion') Reunion
+                          option(value='Romania') Romania
+                          option(value='Russian Federation') Russian Federation
+                          option(value='Rwanda') Rwanda
+                          option(value='Saint Barthelemy') Saint Barthelemy
+                          option(value='Saint Helena, Ascension and Tristan da Cunha') Saint Helena, Ascension and Tristan da Cunha
+                          option(value='Saint Kitts and Nevis') Saint Kitts and Nevis
+                          option(value='Saint Lucia') Saint Lucia
+                          option(value='Saint Martin (French part)') Saint Martin (French part)
+                          option(value='Saint Pierre and Miquelon') Saint Pierre and Miquelon
+                          option(value='Saint Vincent and The Grenadines') Saint Vincent and The Grenadines
+                          option(value='Samoa') Samoa
+                          option(value='San Marino') San Marino
+                          option(value='Sao Tome and Principe') Sao Tome and Principe
+                          option(value='Saudi Arabia') Saudi Arabia
+                          option(value='Senegal') Senegal
+                          option(value='Serbia') Serbia
+                          option(value='Seychelles') Seychelles
+                          option(value='Sierra Leone') Sierra Leone
+                          option(value='Singapore') Singapore
+                          option(value='Sint Maarten (Dutch part)') Sint Maarten (Dutch part)
+                          option(value='Slovakia') Slovakia
+                          option(value='Slovenia') Slovenia
+                          option(value='Solomon Islands') Solomon Islands
+                          option(value='Somalia') Somalia
+                          option(value='South Africa') South Africa
+                          option(value='South Georgia and The South Sandwich Islands') South Georgia and The South Sandwich Islands
+                          option(value='South Sudan') South Sudan
+                          option(value='Spain') Spain
+                          option(value='Sri Lanka') Sri Lanka
+                          option(value='Sudan') Sudan
+                          option(value='Suriname') Suriname
+                          option(value='Svalbard and Jan Mayen') Svalbard and Jan Mayen
+                          option(value='Swaziland') Swaziland
+                          option(value='Sweden') Sweden
+                          option(value='Switzerland') Switzerland
+                          option(value='Syrian Arab Republic') Syrian Arab Republic
+                          option(value='Taiwan, Province of China') Taiwan, Province of China
+                          option(value='Tajikistan') Tajikistan
+                          option(value='Tanzania, United Republic of') Tanzania, United Republic of
+                          option(value='Thailand') Thailand
+                          option(value='Timor-leste') Timor-leste
+                          option(value='Togo') Togo
+                          option(value='Tokelau') Tokelau
+                          option(value='Tonga') Tonga
+                          option(value='Trinidad and Tobago') Trinidad and Tobago
+                          option(value='Tunisia') Tunisia
+                          option(value='Turkey') Turkey
+                          option(value='Turkmenistan') Turkmenistan
+                          option(value='Turks and Caicos Islands') Turks and Caicos Islands
+                          option(value='Tuvalu') Tuvalu
+                          option(value='Uganda') Uganda
+                          option(value='Ukraine') Ukraine
+                          option(value='United Arab Emirates') United Arab Emirates
+                          option(value='United Kingdom') United Kingdom
+                          option(value='United States') United States
+                          option(value='United States Minor Outlying Islands') United States Minor Outlying Islands
+                          option(value='Uruguay') Uruguay
+                          option(value='Uzbekistan') Uzbekistan
+                          option(value='Vanuatu') Vanuatu
+                          option(value='Venezuela, Bolivarian Republic of') Venezuela, Bolivarian Republic of
+                          option(value='Viet Nam') Viet Nam
+                          option(value='Virgin Islands, British') Virgin Islands, British
+                          option(value='Virgin Islands, U.S.') Virgin Islands, U.S.
+                          option(value='Wallis and Futuna') Wallis and Futuna
+                          option(value='Western Sahara') Western Sahara
+                          option(value='Yemen') Yemen
+                          option(value='Zambia') Zambia
+                          option(value='Zimbabwe') Zimbabwe
+                    // Select2 plugin (class is initialized in js/app.js -> uiInit()), for extra usage examples you can check out http://ivaynberg.github.io/select2/
+                    .form-group
+                      label.col-md-3.control-label(for='example-select2') Select2
+                      .col-md-5
+                        select#example-select2.select-select2(name='example-select2', style='width: 100%;', data-placeholder='Choose one..')
+                          option
+                          // Required for data-placeholder attribute to work with Select2 plugin
+                          option(value='HTML') HTML
+                          option(value='CSS') CSS
+                          option(value='Javascript') Javascript
+                          option(value='PHP') PHP
+                          option(value='MySQL') MySQL
+                    .form-group.form-actions
+                      .col-md-9.col-md-offset-3
+                        button.btn.btn-effect-ripple.btn-primary(type='submit') Submit
+                        button.btn.btn-effect-ripple.btn-danger(type='reset') Reset
+                  // END Select Component Content
+                // END Select Component Block
+                // Sliders Block
+                .block
+                  // Sliders Title
+                  .block-title
+                    .block-options.pull-right
+                      a.btn.btn-effect-ripple.btn-default.toggle-bordered.enable-tooltip(href='javascript:void(0)', data-toggle='button', title='Toggles .form-bordered class') Borderless
+                    h2 Sliders
+                  // END Sliders Title
+                  // Sliders Content
+                  form.form-horizontal.form-bordered(action='page_forms_components.html', method='post', onsubmit='return false;')
+                    // Slider for Bootstrap (class is initialized in js/app.js -> uiInit()), for extra usage examples you can check out http://www.eyecon.ro/bootstrap-slider
+                    .form-group
+                      label.col-md-3.control-label Contextual
+                      .col-md-9
+                        .input-slider-danger
+                          input#example-slider-context1.form-control.input-slider(type='text', name='example-slider-context1', data-slider-min='0', data-slider-max='100', data-slider-step='1', data-slider-value='20', data-slider-orientation='horizontal', data-slider-selection='before', data-slider-tooltip='hide')
+                        .input-slider-warning
+                          input#example-slider-context2.form-control.input-slider(type='text', name='example-slider-context2', data-slider-min='0', data-slider-max='100', data-slider-step='1', data-slider-value='40', data-slider-orientation='horizontal', data-slider-selection='before', data-slider-tooltip='hide')
+                        .input-slider-info
+                          input#example-slider-context3.form-control.input-slider(type='text', name='example-slider-context3', data-slider-min='0', data-slider-max='100', data-slider-step='1', data-slider-value='60', data-slider-orientation='horizontal', data-slider-selection='before', data-slider-tooltip='hide')
+                        .input-slider-success
+                          input#example-slider-context4.form-control.input-slider(type='text', name='example-slider-context4', data-slider-min='0', data-slider-max='100', data-slider-step='1', data-slider-value='80', data-slider-orientation='horizontal', data-slider-selection='before', data-slider-tooltip='hide')
+                        input#example-slider-context5.form-control.input-slider(type='text', name='example-slider-context5', data-slider-min='0', data-slider-max='100', data-slider-step='1', data-slider-value='100', data-slider-orientation='horizontal', data-slider-selection='before', data-slider-tooltip='hide')
+                    .form-group
+                      label.col-md-3.control-label Horizontal
+                      .col-md-9
+                        input#example-slider-hor1.form-control.input-slider(type='text', name='example-slider-hor1', data-slider-min='0', data-slider-max='100', data-slider-step='1', data-slider-value='25', data-slider-orientation='horizontal', data-slider-selection='before', data-slider-tooltip='show')
+                        input#example-slider-hor2.form-control.input-slider(type='text', name='example-slider-hor2', data-slider-min='0', data-slider-max='100', data-slider-step='1', data-slider-value='50', data-slider-orientation='horizontal', data-slider-selection='before', data-slider-tooltip='show')
+                        input#example-slider-hor3.form-control.input-slider(type='text', name='example-slider-hor3', data-slider-min='0', data-slider-max='100', data-slider-step='1', data-slider-value='75', data-slider-orientation='horizontal', data-slider-selection='before', data-slider-tooltip='show')
+                        input#example-slider-hor4.form-control.input-slider(type='text', name='example-slider-hor4', data-slider-min='0', data-slider-max='100', data-slider-step='1', data-slider-value='100', data-slider-orientation='horizontal', data-slider-selection='before', data-slider-tooltip='show')
+                    .form-group
+                      label.col-md-3.control-label Vertical
+                      .col-md-9
+                        input#example-slider-vert1.form-control.input-slider(type='text', name='example-slider-vert1', data-slider-min='0', data-slider-max='100', data-slider-step='1', data-slider-value='25', data-slider-orientation='vertical', data-slider-selection='after', data-slider-tooltip='hide')
+                        input#example-slider-vert2.form-control.input-slider(type='text', name='example-slider-vert2', data-slider-min='0', data-slider-max='100', data-slider-step='1', data-slider-value='75', data-slider-orientation='vertical', data-slider-selection='after', data-slider-tooltip='hide')
+                        input#example-slider-vert3.form-control.input-slider(type='text', name='example-slider-vert3', data-slider-min='0', data-slider-max='100', data-slider-step='1', data-slider-value='25', data-slider-orientation='vertical', data-slider-selection='after', data-slider-tooltip='hide')
+                        input#example-slider-vert4.form-control.input-slider(type='text', name='example-slider-vert4', data-slider-min='0', data-slider-max='100', data-slider-step='1', data-slider-value='75', data-slider-orientation='vertical', data-slider-selection='after', data-slider-tooltip='hide')
+                        input#example-slider-vert5.form-control.input-slider(type='text', name='example-slider-vert5', data-slider-min='0', data-slider-max='100', data-slider-step='1', data-slider-value='25', data-slider-orientation='vertical', data-slider-selection='after', data-slider-tooltip='hide')
+                    .form-group
+                      label.col-md-3.control-label Range
+                      .col-md-9
+                        input#example-slider-range1.form-control.input-slider(type='text', name='example-slider-range1', data-slider-min='0', data-slider-max='100', data-slider-step='1', data-slider-value='[40,60]', data-slider-orientation='horizontal', data-slider-tooltip='show')
+                        input#example-slider-range2.form-control.input-slider(type='text', name='example-slider-range2', data-slider-min='0', data-slider-max='100', data-slider-step='1', data-slider-value='[25,75]', data-slider-orientation='horizontal', data-slider-tooltip='hide')
+                        input#example-slider-range3.form-control.input-slider(type='text', name='example-slider-range3', data-slider-min='0', data-slider-max='100', data-slider-step='1', data-slider-value='[10,90]', data-slider-orientation='horizontal', data-slider-tooltip='hide')
+                        input#example-slider-range4.form-control.input-slider(type='text', name='example-slider-range4', data-slider-min='0', data-slider-max='100', data-slider-step='1', data-slider-value='[0,100]', data-slider-orientation='horizontal', data-slider-tooltip='hide')
+                    .form-group.form-actions
+                      .col-md-9.col-md-offset-3
+                        button.btn.btn-effect-ripple.btn-primary(type='submit') Submit
+                        button.btn.btn-effect-ripple.btn-danger(type='reset') Reset
+                  // END Sliders Content
+                // END Sliders Block
+              .col-md-6
+                // Input States Block
+                .block
+                  // Input States Title
+                  .block-title
+                    .block-options.pull-right
+                      a.btn.btn-effect-ripple.btn-default.toggle-bordered.enable-tooltip(href='javascript:void(0)', data-toggle='button', title='Toggles .form-bordered class') Borderless
+                    h2 Input States
+                  // END Input States Title
+                  // Input States Content
+                  form.form-horizontal.form-bordered(action='page_forms_components.html', method='post', onsubmit='return false;')
+                    .form-group
+                      label.col-md-3.control-label(for='state-normal') Normal
+                      .col-md-6
+                        input#state-normal.form-control(type='text', name='state-normal', placeholder='...')
+                    .form-group.has-success
+                      label.col-md-3.control-label(for='state-success') Success
+                      .col-md-6
+                        input#state-success.form-control(type='text', name='state-success', placeholder='...')
+                    .form-group.has-warning
+                      label.col-md-3.control-label(for='state-warning') Warning
+                      .col-md-6
+                        input#state-warning.form-control(type='text', name='state-warning', placeholder='...')
+                    .form-group.has-error
+                      label.col-md-3.control-label(for='state-danger') Danger
+                      .col-md-6
+                        input#state-danger.form-control(type='text', name='state-danger', placeholder='...')
+                    .form-group.form-actions
+                      .col-md-9.col-md-offset-3
+                        button.btn.btn-effect-ripple.btn-primary(type='submit') Submit
+                        button.btn.btn-effect-ripple.btn-danger(type='reset') Reset
+                  // END Input States Content
+                // END Input States Block
+                // Input Sizes Block
+                .block
+                  // Input Sizes Title
+                  .block-title
+                    .block-options.pull-right
+                      a.btn.btn-effect-ripple.btn-default.toggle-bordered.enable-tooltip(href='javascript:void(0)', data-toggle='button', title='Toggles .form-bordered class') Borderless
+                    h2 Input Sizes
+                  // END Input Sizes Title
+                  // Input Sizes Content
+                  form.form-horizontal.form-bordered(action='page_forms_components.html', method='post', onsubmit='return false;')
+                    .form-group
+                      label.col-sm-3.control-label(for='example-input-small') Small
+                      .col-sm-6
+                        input#example-input-small.form-control.input-sm(type='text', name='example-input-small', placeholder='.input-sm')
+                    .form-group
+                      label.col-sm-3.control-label(for='example-input-normal') Normal
+                      .col-sm-6
+                        input#example-input-normal.form-control(type='text', name='example-input-normal', placeholder='Normal')
+                    .form-group
+                      label.col-sm-3.control-label(for='example-input-large') Large
+                      .col-sm-6
+                        input#example-input-large.form-control.input-lg(type='text', name='example-input-large', placeholder='.input-lg')
+                    .form-group
+                      label.col-sm-3.control-label(for='example-input-large') Grid Sizes
+                      .col-sm-4
+                        input.form-control(type='text', placeholder='.col-sm-4')
+                    .form-group
+                      .col-sm-5.col-sm-offset-3
+                        input.form-control(type='text', placeholder='.col-sm-5')
+                    .form-group
+                      .col-sm-6.col-sm-offset-3
+                        input.form-control(type='text', placeholder='.col-sm-6')
+                    .form-group
+                      .col-sm-7.col-sm-offset-3
+                        input.form-control(type='text', placeholder='.col-sm-7')
+                    .form-group
+                      .col-sm-8.col-sm-offset-3
+                        input.form-control(type='text', placeholder='.col-sm-8')
+                    .form-group
+                      .col-sm-9.col-sm-offset-3
+                        input.form-control(type='text', placeholder='.col-sm-9')
+                    .form-group.form-actions
+                      .col-sm-9.col-sm-offset-3
+                        button.btn.btn-effect-ripple.btn-primary(type='submit') Action
+                        button.btn.btn-effect-ripple.btn-danger(type='button') Action
+                        button.btn.btn-effect-ripple.btn-warning(type='button') Action
+                        button.btn.btn-effect-ripple.btn-info(type='button') Action
+                        button.btn.btn-effect-ripple.btn-success(type='button') Action
+                  // END Input Sizes Content
+                // END Input Sizes Block
+                // Flexible Grid Block
+                .block
+                  // Flexible Grid Title
+                  .block-title
+                    .block-options.pull-right
+                      a.btn.btn-effect-ripple.btn-default.toggle-bordered.enable-tooltip(href='javascript:void(0)', data-toggle='button', title='Toggles .form-bordered class') Borderless
+                    h2 Flexible Grid
+                  // END Flexible Grid Title
+                  // Flexible Grid Content
+                  form.form-horizontal.form-bordered(action='page_forms_components.html', method='post', onsubmit='return false;')
+                    .form-group
+                      .col-xs-7
+                        input.form-control(type='text', placeholder='.col-xs-7')
+                      .col-xs-5
+                        input.form-control(type='text', placeholder='.col-xs-5')
+                    .form-group
+                      .col-xs-8
+                        input.form-control(type='text', placeholder='.col-xs-8')
+                      .col-xs-4
+                        input.form-control(type='text', placeholder='.col-xs-4')
+                    .form-group
+                      .col-xs-3
+                        input.form-control(type='text', placeholder='.col-xs-3')
+                      .col-xs-9
+                        input.form-control(type='text', placeholder='.col-xs-9')
+                    .form-group
+                      .col-xs-5
+                        input.form-control(type='text', placeholder='.col-xs-5')
+                      .col-xs-7
+                        input.form-control(type='text', placeholder='.col-xs-7')
+                    .form-group
+                      .col-xs-6
+                        input.form-control(type='text', placeholder='.col-xs-6')
+                      .col-xs-6
+                        input.form-control(type='text', placeholder='.col-xs-6')
+                    .form-group
+                      .col-md-8
+                        input.form-control(type='text', placeholder='.col-md-8')
+                      .col-md-4
+                        input.form-control(type='text', placeholder='.col-md-4')
+                    .form-group
+                      .col-md-3
+                        input.form-control(type='text', placeholder='.col-lg-3')
+                      .col-md-9
+                        input.form-control(type='text', placeholder='.col-lg-9')
+                    .form-group
+                      .col-md-7
+                        input.form-control(type='text', placeholder='.col-sm-7')
+                      .col-md-5
+                        input.form-control(type='text', placeholder='.col-sm-5')
+                    .form-group
+                      .col-md-6
+                        input.form-control(type='text', placeholder='.col-xs-6')
+                      .col-md-6
+                        input.form-control(type='text', placeholder='.col-xs-6')
+                    .form-group
+                      .col-md-3
+                        input.form-control(type='text', placeholder='.col-sm-3')
+                      .col-md-3
+                        input.form-control(type='text', placeholder='.col-sm-3')
+                      .col-md-3
+                        input.form-control(type='text', placeholder='.col-sm-3')
+                      .col-md-3
+                        input.form-control(type='text', placeholder='.col-sm-3')
+                    .form-group.form-actions
+                      .col-xs-12
+                        button.btn.btn-effect-ripple.btn-primary(type='submit') Action
+                        button.btn.btn-effect-ripple.btn-danger(type='button') Action
+                        button.btn.btn-effect-ripple.btn-warning(type='button') Action
+                        button.btn.btn-effect-ripple.btn-info(type='button') Action
+                        button.btn.btn-effect-ripple.btn-success(type='button') Action
+                  // END Flexible Grid Content
+                // END Flexible Grid Block
+                // Input Groups Block
+                .block
+                  // Input Groups Title
+                  .block-title
+                    .block-options.pull-right
+                      a.btn.btn-effect-ripple.btn-default.toggle-bordered.enable-tooltip(href='javascript:void(0)', data-toggle='button', title='Toggles .form-bordered class') Borderless
+                    h2 Input Groups
+                  // END Input Groups Title
+                  // Input Groups Content
+                  form.form-horizontal.form-bordered(action='page_forms_components.html', method='post', onsubmit='return false;')
+                    .form-group
+                      label.col-md-3.control-label(for='example-input1-group1') Static
+                      .col-md-9
+                        .input-group
+                          span.input-group-addon
+                            i.fa.fa-user
+                          input#example-input1-group1.form-control(type='text', name='example-input1-group1', placeholder='Username')
+                      .col-md-9.col-md-offset-3
+                        .input-group
+                          input#example-input2-group1.form-control(type='email', name='example-input2-group1', placeholder='Email')
+                          span.input-group-addon
+                            i.fa.fa-envelope-o
+                      .col-md-9.col-md-offset-3
+                        .input-group
+                          span.input-group-addon
+                            i.fa.fa-euro
+                          input#example-input3-group1.form-control(type='text', name='example-input3-group1', placeholder='..')
+                          span.input-group-addon .00
+                    .form-group
+                      label.col-md-3.control-label(for='example-input1-group2') Buttons
+                      .col-md-9
+                        .input-group
+                          span.input-group-btn
+                            button.btn.btn-effect-ripple.btn-primary(type='button')
+                              i.fa.fa-search
+                              |  Search
+                          input#example-input1-group2.form-control(type='text', name='example-input1-group2', placeholder='Username')
+                      .col-md-9.col-md-offset-3
+                        .input-group
+                          input#example-input2-group2.form-control(type='email', name='example-input2-group2', placeholder='Email')
+                          span.input-group-btn
+                            button.btn.btn-effect-ripple.btn-primary(type='button') Submit
+                      .col-md-9.col-md-offset-3
+                        .input-group
+                          span.input-group-btn
+                            button.btn.btn-effect-ripple.btn-primary(type='button')
+                              i.fa.fa-facebook
+                          input#example-input3-group2.form-control(type='text', name='example-input3-group2', placeholder='Search')
+                          span.input-group-btn
+                            button.btn.btn-effect-ripple.btn-primary(type='button')
+                              i.fa.fa-twitter
+                    .form-group
+                      label.col-md-3.control-label(for='example-input1-group3') Dropdowns
+                      .col-md-9
+                        .input-group
+                          .input-group-btn
+                            button.btn.btn-effect-ripple.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+                              | Action 
+                              span.caret
+                            ul.dropdown-menu
+                              li
+                                a(href='javascript:void(0)') Action
+                              li
+                                a(href='javascript:void(0)') Another action
+                              li.divider
+                              li
+                                a(href='javascript:void(0)') Separated link
+                          input#example-input1-group3.form-control(type='text', name='example-input1-group3', placeholder='Username')
+                      .col-md-9.col-md-offset-3
+                        .input-group
+                          input#example-input2-group3.form-control(type='email', name='example-input2-group3', placeholder='Email')
+                          .input-group-btn
+                            button.btn.btn-effect-ripple.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+                              | Action 
+                              span.caret
+                            ul.dropdown-menu.dropdown-menu-right
+                              li
+                                a(href='javascript:void(0)') Action
+                              li
+                                a(href='javascript:void(0)') Another action
+                              li.divider
+                              li
+                                a(href='javascript:void(0)') Separated link
+                      .col-md-9.col-md-offset-3
+                        .input-group
+                          .input-group-btn
+                            button.btn.btn-effect-ripple.btn-primary(type='button') Action
+                            button.btn.btn-effect-ripple.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+                              span.caret
+                            ul.dropdown-menu
+                              li
+                                a(href='javascript:void(0)') Action
+                              li
+                                a(href='javascript:void(0)') Another action
+                              li.divider
+                              li
+                                a(href='javascript:void(0)') Separated link
+                          input#example-input3-group3.form-control(type='text', name='example-input3-group3', placeholder='..')
+                          .input-group-btn
+                            button.btn.btn-effect-ripple.btn-primary.dropdown-toggle(type='button', data-toggle='dropdown')
+                              span.caret
+                            ul.dropdown-menu.dropdown-menu-right
+                              li
+                                a(href='javascript:void(0)') Action
+                              li
+                                a(href='javascript:void(0)') Another action
+                              li.divider
+                              li
+                                a(href='javascript:void(0)') Separated link
+                    .form-group.form-actions
+                      .col-md-9.col-md-offset-3
+                        button.btn.btn-effect-ripple.btn-primary(type='submit') Action
+                        button.btn.btn-effect-ripple.btn-danger(type='button') Action
+                        button.btn.btn-effect-ripple.btn-warning(type='button') Action
+                        button.btn.btn-effect-ripple.btn-info(type='button') Action
+                        button.btn.btn-effect-ripple.btn-success(type='button') Action
+                  // END Input Groups Content
+                // END Input Groups Block
+                // Tags Input Block
+                .block
+                  // Tags Input Title
+                  .block-title
+                    .block-options.pull-right
+                      a.btn.btn-effect-ripple.btn-default.toggle-bordered.enable-tooltip(href='javascript:void(0)', data-toggle='button', title='Toggles .form-bordered class') Borderless
+                    h2 Tags Input
+                  // END Tags Input Title
+                  // Tags Input Content
+                  form.form-horizontal.form-bordered(action='page_forms_components.html', method='post', onsubmit='return false;')
+                    // Jquery Tags Input (class is initialized in js/app.js -> uiInit()), for extra usage examples you can check out https://github.com/xoxco/jQuery-Tags-Input
+                    .form-group
+                      label.col-md-3.control-label Enter tags
+                      .col-md-9
+                        input#example-tags.input-tags(type='text', name='example-tags', value='HTML, CSS, Javascript')
+                    .form-group.form-actions
+                      .col-md-9.col-md-offset-3
+                        button.btn.btn-effect-ripple.btn-primary(type='submit') Submit
+                        button.btn.btn-effect-ripple.btn-danger(type='reset') Reset
+                  // END Tags Input Content
+                // END Tags Input Block
+                // Timepicker Block
+                .block
+                  // Timepicker Title
+                  .block-title
+                    .block-options.pull-right
+                      a.btn.btn-effect-ripple.btn-default.toggle-bordered.enable-tooltip(href='javascript:void(0)', data-toggle='button', title='Toggles .form-bordered class') Borderless
+                    h2 Timepicker
+                  // END Timepicker Title
+                  // Timepicker Content
+                  // Timepicker for Bootstrap (classes are initialized in js/app.js -> uiInit()), for extra usage examples you can check out http://jdewit.github.io/bootstrap-timepicker/
+                  form.form-horizontal.form-bordered(action='page_forms_components.html', method='post', onsubmit='return false;')
+                    .form-group
+                      label.col-md-3.control-label(for='example-timepicker24') Select Time (24h)
+                      .col-md-5
+                        .input-group.bootstrap-timepicker
+                          input#example-timepicker24.form-control.input-timepicker24(type='text', name='example-timepicker24')
+                          span.input-group-btn
+                            a.btn.btn-effect-ripple.btn-primary(href='javascript:void(0)')
+                              i.fa.fa-clock-o
+                    .form-group
+                      label.col-md-3.control-label(for='example-timepicker') Select Time
+                      .col-md-5
+                        .input-group.bootstrap-timepicker
+                          input#example-timepicker.form-control.input-timepicker(type='text', name='example-timepicker')
+                          span.input-group-btn
+                            a.btn.btn-effect-ripple.btn-primary(href='javascript:void(0)')
+                              i.fa.fa-clock-o
+                    .form-group.form-actions
+                      .col-md-9.col-md-offset-3
+                        button.btn.btn-effect-ripple.btn-primary(type='submit') Submit
+                        button.btn.btn-effect-ripple.btn-danger(type='reset') Reset
+                  // END Timepicker Content
+                // END Timepicker Block
+                // Datepicker Block
+                .block
+                  // Datepicker Title
+                  .block-title
+                    .block-options.pull-right
+                      a.btn.btn-effect-ripple.btn-default.toggle-bordered.enable-tooltip(href='javascript:void(0)', data-toggle='button', title='Toggles .form-bordered class') Borderless
+                    h2 Datepicker
+                  // END Datepicker Title
+                  // Datepicker Content
+                  form.form-horizontal.form-bordered(action='page_forms_components.html', method='post', onsubmit='return false;')
+                    // Datepicker for Bootstrap (classes are initialized in js/app.js -> uiInit()), for extra usage examples you can check out http://eternicode.github.io/bootstrap-datepicker
+                    .form-group
+                      label.col-md-3.control-label(for='example-daterange1') Date Range
+                      .col-md-9
+                        .input-group.input-daterange(data-date-format='mm/dd/yyyy')
+                          input#example-daterange1.form-control(type='text', name='example-daterange1', placeholder='From')
+                          span.input-group-addon
+                            i.fa.fa-chevron-right
+                          input#example-daterange2.form-control(type='text', name='example-daterange2', placeholder='To')
+                    .form-group
+                      label.col-md-3.control-label Inline Datepicker
+                      .col-md-7
+                        #example-datepicker-inline.input-datepicker
+                    .form-group
+                      label.col-md-3.control-label(for='example-datepicker') Datepicker
+                      .col-md-5
+                        input#example-datepicker.form-control.input-datepicker(type='text', name='example-datepicker', data-date-format='mm/dd/yy', placeholder='mm/dd/yy')
+                      .col-md-5.col-md-offset-3
+                        input#example-datepicker2.form-control.input-datepicker(type='text', name='example-datepicker2', data-date-format='dd/mm/yy', placeholder='dd/mm/yy')
+                      .col-md-5.col-md-offset-3
+                        input#example-datepicker3.form-control.input-datepicker(type='text', name='example-datepicker3', data-date-format='dd-mm-yyyy', placeholder='dd-mm-yyyy')
+                      .col-md-5.col-md-offset-3
+                        input#example-datepicker4.form-control.input-datepicker(type='text', name='example-datepicker4', data-date-format='mm-dd-yyyy', placeholder='mm-dd-yyyy')
+                    .form-group.form-actions
+                      .col-md-9.col-md-offset-3
+                        button.btn.btn-effect-ripple.btn-primary(type='submit') Submit
+                        button.btn.btn-effect-ripple.btn-danger(type='reset') Reset
+                  // END Datepicker Content
+                // END Datepicker Block
+                // Dropzone Block
+                .block.full
+                  // Dropzone Title
+                  .block-title
+                    h2 Dropzone.js
+                  // END Dropzone Title
+                  // Dropzone Content
+                  // Dropzone.js, You can check out https://github.com/enyo/dropzone/wiki for usage examples
+                  form.dropzone(action='page_forms_components.html')
+                  // END Dropzone Content
+                // END Dropzone Block
+            // END Form Components Row
+            // CKEditor Block
+            .block
+              // CKEditor Title
+              .block-title
+                .block-options.pull-right
+                  a.btn.btn-effect-ripple.btn-default.toggle-bordered.enable-tooltip(href='javascript:void(0)', data-toggle='button', title='Toggles .form-bordered class') Borderless
+                h2 CKEditor
+              // END CKEditor Title
+              // CKEditor Content
+              form.form-horizontal.form-bordered(action='page_forms_components.html', method='post', onsubmit='return false;')
+                // CKEditor, you just need to include the plugin (see at the bottom of this page) and add the class 'ckeditor' to your textarea
+                // More info can be found at http://ckeditor.com
+                .form-group
+                  .col-xs-12
+                    textarea#textarea-ckeditor.ckeditor(name='textarea-ckeditor')
+                .form-group.form-actions
+                  .col-xs-12
+                    button.btn.btn-effect-ripple.btn-primary(type='submit') Submit
+                    button.btn.btn-effect-ripple.btn-danger(type='reset') Reset
+              // END CKEditor Content
+            // END CKEditor Block
+          // END Page Content
+        // END Main Container
+      // END Page Container
+    // END Page Wrapper
+    // Include Jquery library from Google's CDN but if something goes wrong get Jquery from local file (Remove 'http:' if you have SSL)
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+    script.
+      !window.jQuery && document.write(decodeURI('%3Cscript src="js/vendor/jquery-2.1.1.min.js"%3E%3C/script%3E'));
+    // Bootstrap.js, Jquery plugins and Custom JS code
+    script(src='js/vendor/bootstrap.min.js')
+    script(src='js/plugins.js')
+    script(src='js/app.js')
+    // ckeditor.js, load it only in the page you would like to use CKEditor (it's a heavy plugin to include it with the others!)
+    script(src='js/plugins/ckeditor/ckeditor.js')
+    // Load and execute javascript code used only in this page
+    script(src='js/pages/formsComponents.js')
+    script.
+      $(function(){ FormsComponents.init(); });

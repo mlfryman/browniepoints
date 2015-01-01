@@ -1,0 +1,298 @@
+doctype html
+//if IE 9
+  html.no-js.lt-ie10  
+// [if gt IE 9] <!
+html.no-js
+  // <![endif]
+  head
+    meta(charset='utf-8')
+    title AppUI Frontend - Responsive Bootstrap Site Template
+    meta(name='description', content='AppUI Frontend is a Responsive Bootstrap Site Template created by pixelcave and added as a bonus in AppUI Admin Template package')
+    meta(name='author', content='pixelcave')
+    meta(name='robots', content='noindex, nofollow')
+    meta(name='viewport', content='width=device-width,initial-scale=1,maximum-scale=1.0')
+    // Icons
+    // The following icons can be replaced with your own, they are used by desktop and mobile browsers
+    link(rel='shortcut icon', href='img/favicon.png')
+    link(rel='apple-touch-icon', href='img/icon57.png', sizes='57x57')
+    link(rel='apple-touch-icon', href='img/icon72.png', sizes='72x72')
+    link(rel='apple-touch-icon', href='img/icon76.png', sizes='76x76')
+    link(rel='apple-touch-icon', href='img/icon114.png', sizes='114x114')
+    link(rel='apple-touch-icon', href='img/icon120.png', sizes='120x120')
+    link(rel='apple-touch-icon', href='img/icon144.png', sizes='144x144')
+    link(rel='apple-touch-icon', href='img/icon152.png', sizes='152x152')
+    link(rel='apple-touch-icon', href='img/icon180.png', sizes='180x180')
+    // END Icons
+    // Stylesheets
+    // Bootstrap is included in its original form, unaltered
+    link(rel='stylesheet', href='css/bootstrap.min.css')
+    // Related styles of various icon packs and plugins
+    link(rel='stylesheet', href='css/plugins.css')
+    // The main stylesheet of this template. All Bootstrap overwrites are defined in here
+    link(rel='stylesheet', href='css/main.css')
+    // The themes stylesheet of this template (for using specific theme color in individual elements - must included last)
+    link(rel='stylesheet', href='css/themes.css')
+    // END Stylesheets
+    // Modernizr (browser feature detection library)
+    script(src='js/vendor/modernizr-2.8.3.min.js')
+  body
+    // Page Container
+    #page-container
+      // Site Header
+      header
+        .container
+          // Site Logo
+          a.site-logo(href='index.html')
+            i.fa.fa-cube
+            |  App
+            strong UI
+          // END Site Logo
+          // Site Navigation
+          nav
+            // Menu Toggle
+            // Toggles menu on small screens
+            a.btn.btn-default.site-menu-toggle.visible-xs.visible-sm(href='javascript:void(0)')
+              | Menu
+            // END Menu Toggle
+            // Main Menu
+            ul.site-nav
+              li
+                a(href='index.html') Welcome
+              li
+                a(href='features.html') Features
+              li
+                a(href='pricing.html') Pricing
+              li
+                a(href='contact.html') Contact
+              li.active
+                a.site-nav-sub(href='javascript:void(0)')
+                  i.fa.fa-angle-down.site-nav-arrow
+                  | Pages
+                ul
+                  li
+                    a(href='blog.html') Blog
+                  li
+                    a(href='blog_post.html') Blog Post
+                  li
+                    a(href='portfolio.html') Portfolio
+                  li
+                    a.active(href='project.html') Project
+                  li
+                    a(href='team.html') Team
+                  li
+                    a(href='faq.html') FAQ
+                  li
+                    a(href='jobs.html') Jobs
+                  li
+                    a(href='search_results.html') Search Results
+              li
+                a.featured(href='http://pixelcave.com/demo/appui')
+                  | Get Started 
+                  i.fa.fa-arrow-right
+            // END Main Menu
+          // END Site Navigation
+      // END Site Header
+      // Intro
+      section.site-section.site-section-top.site-section-light.themed-background-dark
+        .container.text-center
+          h1.animation-fadeInQuickInv
+            strong Awesome Project
+      // END Intro
+      // Project Navigation
+      section.site-content.site-section-mini.themed-background-muted.border-bottom
+        .container
+          .site-block.clearfix
+            .btn-group.pull-right
+              a.btn.btn-primary(href='javascript:void(0)', data-toggle='tooltip', title='Previous Project')
+                i.fa.fa-chevron-left
+              a.btn.btn-primary(href='javascript:void(0)', data-toggle='tooltip', title='Next Project')
+                i.fa.fa-chevron-right
+            a.btn.btn-danger.pull-left(href='portfolio.html')
+              i.fa.fa-arrow-left
+              |  All projects
+      // END Project Navigation
+      // Project Info
+      section.site-content.site-section.border-bottom
+        .container
+          .row
+            .col-md-8.col-md-offset-2.site-block
+              // Carousel & Info
+              .row
+                .col-sm-7
+                  #project-carousel.carousel.slide(data-ride='carousel', data-interval='4000')
+                    // Wrapper for slides
+                    .carousel-inner.text-center
+                      .active.item
+                        img(src='img/placeholders/photos/photo22.jpg', alt='')
+                      .item
+                        img(src='img/placeholders/photos/photo23.jpg', alt='')
+                      .item
+                        img(src='img/placeholders/photos/photo24.jpg', alt='')
+                    // END Wrapper for slides
+                    // Controls
+                    a.left.carousel-control(href='#project-carousel', data-slide='prev')
+                      span
+                        i.fa.fa-chevron-left
+                    a.right.carousel-control(href='#project-carousel', data-slide='next')
+                      span
+                        i.fa.fa-chevron-right
+                    // END Controls
+                .col-sm-5
+                  table.table.table-bordered.table-striped
+                    tbody
+                      tr
+                        td(style='width: 40%;')
+                          strong Category
+                        td.text-right Web solution
+                      tr
+                        td
+                          strong Client
+                        td.text-right Travel Company
+                      tr
+                        td
+                          strong Budget
+                        td.text-right $120.000
+                      tr
+                        td
+                          strong Completion
+                        td.text-right 6 Months
+                      tr
+                        td
+                          strong URL
+                        td.text-right
+                          a.label.label-primary(href='javascript:void(0)') http://example.com
+              // END Carousel & Info
+              // Project Details
+              h3
+                strong Project Description
+              p
+                | Proin ac nibh rutrum lectus rhoncus eleifend. Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et facilisis nulla hendrerit non. Praesent at lacinia dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              p
+                | Maecenas ultrices, justo vel imperdiet gravida, urna ligula hendrerit nibh, ac cursus nibh sapien in purus. Mauris tincidunt tincidunt turpis in porta. Integer fermentum tincidunt auctor. Vestibulum ullamcorper, odio sed rhoncus imperdiet, enim elit sollicitudin orci, eget dictum leo mi nec lectus. Nam commodo turpis id lectus scelerisque vulputate. Integer sed dolor erat. Fusce erat ipsum, varius vel euismod sed, tristique et lectus? Etiam egestas fringilla enim, id convallis lectus laoreet at. Fusce purus nisi, gravida sed consectetur ut, interdum quis nisi. Quisque egestas nisl id lectus facilisis scelerisque? Proin rhoncus dui at ligula vestibulum ut facilisis ante sodales! Suspendisse potenti. Aliquam tincidunt sollicitudin sem nec ultrices. Sed at mi velit. Ut egestas tempor est, in cursus enim venenatis eget! Nulla quis ligula ipsum.
+              p
+                | In hac habitasse platea dictumst. Proin ac nibh rutrum lectus rhoncus eleifend. Sed porttitor pretium venenatis. Suspendisse potenti. Aliquam quis ligula elit. Aliquam at orci ac neque semper dictum. Sed tincidunt scelerisque ligula, et facilisis nulla hendrerit non. Suspendisse potenti. Pellentesque non accumsan orci. Praesent at lacinia dolor. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+              // END Project Details
+      // END Project Info
+      // Features
+      section.site-content.site-section.themed-background-muted.border-bottom
+        .container.text-center
+          .row.row-items
+            .col-sm-4
+              a.feature.visibility-none.themed-background-danger(href='javascript:void(0)', data-toggle='animation-appear', data-animation-class='animation-fadeInQuickInv', data-element-offset='-100')
+                i.fa.fa-fire
+              .visibility-none(data-toggle='animation-appear', data-animation-class='animation-fadeInQuick2Inv', data-element-offset='-100')
+                h4.site-heading.feature-heading
+                  strong Bootstrap Powered
+                p.feature-text.text-muted
+                  | Bootstrap is a sleek, intuitive, and powerful mobile first front-end framework for faster and easier web development. 
+                  strong AppUI
+                  |  was built on top, extending it to a large degree.
+            .col-sm-4
+              a.feature.visibility-none.themed-background-success(href='javascript:void(0)', data-toggle='animation-appear', data-animation-class='animation-fadeInQuickInv', data-element-offset='-100')
+                i.gi.gi-pizza
+              .visibility-none(data-toggle='animation-appear', data-animation-class='animation-fadeInQuick2Inv', data-element-offset='-100')
+                h4.site-heading.feature-heading
+                  strong 1200+ Font Based Icons
+                p.feature-text.text-muted
+                  | With so many unique icons included in 
+                  strong AppUI
+                  | , you don&apos;t have to worry about running out. Let&apos;s not talk about possible color and size variations.
+            .col-sm-4
+              a.feature.visibility-none.themed-background-info(href='javascript:void(0)', data-toggle='animation-appear', data-animation-class='animation-fadeInQuickInv', data-element-offset='-100')
+                i.fa.fa-book
+              .visibility-none(data-toggle='animation-appear', data-animation-class='animation-fadeInQuick2Inv', data-element-offset='-100')
+                h4.site-heading.feature-heading
+                  strong Documentation Included
+                p.feature-text.text-muted
+                  strong AppUI
+                  |  comes packed with a great documentation which covers all the basics to get you familiar with template&apos;s structure, files and plugins. It is the best way to get started.
+      // END Features
+      // Testimonial
+      section.site-content.site-section
+        .container.text-center
+          blockquote.site-block
+            p
+              img.img-circle.img-thumbnail.img-thumbnail-avatar-2x(src='img/placeholders/avatars/avatar13@2x.jpg', alt='avatar')
+            h3 A big thanks! Our web app looks great!
+            footer
+              em
+                strong Maria Clark
+                | , http://example.com/
+      // END Testimonial
+      // Footer
+      footer.site-footer.site-section.site-section-light
+        .container
+          // Footer Links
+          .row
+            .col-sm-4
+              h4.footer-heading Company
+              ul.footer-nav.ul-breath.list-unstyled
+                li
+                  a(href='javascript:void(0)') About Us
+                li
+                  a(href='javascript:void(0)') Our Team
+                li
+                  a(href='javascript:void(0)') Memberships
+                li
+                  a(href='javascript:void(0)') Terms &amp; Conditions
+                li
+                  a(href='javascript:void(0)') Privacy Policy
+            .col-sm-4
+              h4.footer-heading Need support?
+              ul.footer-nav.footer-nav-links.list-inline
+                li
+                  a(href='javascript:void(0)')
+                    i.fa.fa-fw.fa-book
+                    |  Knowledge Base
+                li
+                  a(href='javascript:void(0)')
+                    i.fa.fa-fw.fa-support
+                    |  FAQ
+              h4.footer-heading We are social!
+              ul.footer-nav.footer-nav-links.list-inline
+                li
+                  a.social-facebook(href='javascript:void(0)', data-toggle='tooltip', title='Like our Facebook page')
+                    i.fa.fa-fw.fa-facebook
+                li
+                  a.social-twitter(href='javascript:void(0)', data-toggle='tooltip', title='Follow us on Twitter')
+                    i.fa.fa-fw.fa-twitter
+                li
+                  a.social-google-plus(href='javascript:void(0)', data-toggle='tooltip', title='Like our Google+ page')
+                    i.fa.fa-fw.fa-google-plus
+                li
+                  a.social-dribbble(href='javascript:void(0)', data-toggle='tooltip', title='Follow us on Dribbble')
+                    i.fa.fa-fw.fa-dribbble
+                li
+                  a.social-youtube(href='javascript:void(0)', data-toggle='tooltip', title='Subscribe to our Youtube channel')
+                    i.fa.fa-fw.fa-youtube-play
+            .col-sm-4
+              h4.footer-heading Newsletter
+              form.form-inline(action='index.html', method='post', onsubmit='return false;')
+                .form-group
+                  label.sr-only(for='register-email') Your Email
+                  .input-group
+                    input#register-email.form-control(type='email', name='register-email', placeholder='Your Email..')
+                    span.input-group-btn
+                      button.btn.btn-primary(type='submit') Subscribe
+              h4.footer-heading
+                a(href='http://goo.gl/RcsdAh') AppUI - Frontend
+              em
+                span#year-copy
+              |  &copy; Crafted with 
+              i.fa.fa-heart.text-danger
+              |  by 
+              a(href='http://goo.gl/WCS84b') pixelcave
+          // END Footer Links
+      // END Footer
+    // END Page Container
+    // Scroll to top link, initialized in js/app.js - scrollToTop()
+    a#to-top(href='#')
+      i.fa.fa-arrow-up
+    // Include Jquery library from Google's CDN but if something goes wrong get Jquery from local file (Remove 'http:' if you have SSL)
+    script(src='http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+    script.
+      !window.jQuery && document.write(decodeURI('%3Cscript src="js/vendor/jquery-2.1.1.min.js"%3E%3C/script%3E'));
+    // Bootstrap.js, Jquery plugins and Custom JS code
+    script(src='js/vendor/bootstrap.min.js')
+    script(src='js/plugins.js')
+    script(src='js/app.js')
