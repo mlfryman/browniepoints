@@ -12,10 +12,11 @@ html.no-js(ng-app='browniepoints', lang='en')
     title BrowniePoints
     //- this points to the stylesheets partial
     include views/shared/stylesheets
-    script(src='/vendor/foundation/js/vendor/modernizr.js')
-   body
-     include views/nav/nav
-     include views/shared/body
-     include views/footer/footer
-     //-  this points to the scripts partial
-     include views/shared/scripts
+    script(src='/vendor/modernizr/modernizr.js')
+  body
+    #page-container
+      include views/nav/nav
+      include views/shared/body
+      include views/footer/footer
+      //-  this points to the scripts partial
+      include views/shared/scripts

@@ -6,7 +6,7 @@
       $urlRouterProvider.otherwise('/');
 
       $stateProvider
-        .state('home',         {url:'/',            templateUrl:'/views/home/home.html'})
+        .state('home',         {url:'/',            templateUrl:'/views/home/home2.html'})
         .state('register',     {url:'/register',    templateUrl:'/views/users/users.html',           controller:'UsersCtrl'})
         .state('login',        {url:'/login',       templateUrl:'/views/users/users.html',           controller:'UsersCtrl'})
         .state('profile',      {url:'/profile',     templateUrl:'/views/profile/profile.html',       controller:'ProfileCtrl'})

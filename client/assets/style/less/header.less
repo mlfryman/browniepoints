@@ -1,0 +1,286 @@
+@import 'variables.less';
+
+/*
+=================================================================
+    HEADER
+=================================================================
+*/
+
+/* Header */
+header.navbar-default,
+header.navbar-inverse {
+    padding: 0;
+    margin: 0;
+    min-width: 320px;
+    border: none;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 20px 0;
+    color: #ffffff;
+    z-index: 1000;
+    background: rgba(255, 255, 255, .05);
+    border-bottom: 1px solid rgba(255, 255, 255, .1);
+    -webkit-transition: padding .12s ease-out, background .6s ease-out;
+    transition: padding .12s ease-out, background .6s ease-out;
+}
+
+header.header-scroll {
+    padding: 0;
+    background-color: #5ccdde;
+    border-bottom-width: 0;
+}
+
+/* Logo */
+a.site-logo {
+    display: block;
+    float: left;
+    color: #ffffff;
+    font-size: 20px;
+    height: 42px;
+    line-height: 42px;
+}
+
+a.site-logo:hover {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a.site-logo > i {
+    font-size: 18px;
+    opacity: .5;
+}
+
+/* Menu */
+header nav {
+    float: right;
+}
+
+.site-nav {
+    position: fixed;
+    top: 0;
+    left: -220px;
+    bottom: 0;
+    overflow-y: auto;
+    list-style: none;
+    margin: 0;
+    padding: 42px 0 0;
+    width: 220px;
+    z-index: 1001;
+    background: rgba(40, 45, 51, 1);
+    -webkit-transition: -webkit-transform ease-out .3s;
+    transition: transform ease-out .3s;
+}
+
+.site-nav.site-nav-visible {
+    -webkit-transform: translateX(220px);
+    transform: translateX(220px);
+}
+
+.site-nav a {
+    display: block;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: 600;
+    padding: 0 20px;
+    height: 42px;
+    line-height: 42px;
+}
+
+.site-nav a.featured {
+    background: #5ccdde;
+}
+
+.site-nav a:hover,
+.site-nav a.featured:hover {
+    color: #454e59;
+    background: rgba(255, 255, 255, .75);
+    text-decoration: none;
+}
+
+.site-nav a.active,
+.site-nav li.active > a,
+.site-nav li:hover a.site-nav-sub {
+    color: #ffffff;
+    background: rgba(0, 0, 0, .25);
+}
+
+.site-nav i {
+    font-size: 14px;
+}
+
+.site-menu-toggle {
+    margin: 5px 0 !important;
+}
+
+.site-nav .site-nav-arrow {
+    float: right;
+    line-height: 34px;
+    margin-left: 10px;
+}
+
+/* Submenu */
+.site-nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0 0 0 20px;
+}
+
+.site-nav ul a {
+    color: rgba(255, 255, 255, .75);
+    height: auto;
+    line-height: normal;
+    font-weight: normal;
+    font-size: 13px;
+    padding: 7px 10px;
+}
+
+/* Header Nav */
+.navbar-default .navbar-nav > li > a {
+    color: @dark;
+}
+
+.navbar-inverse .navbar-nav > li > a {
+    color: @white;
+}
+
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus,
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus,
+.navbar-inverse .navbar-nav > li > a:hover,
+.navbar-inverse .navbar-nav > li > a:focus,
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus,
+.navbar-inverse .navbar-nav > .open > a,
+.navbar-inverse .navbar-nav > .open > a:hover,
+.navbar-inverse .navbar-nav > .open > a:focus {
+    color: @white;
+    background-color: @primary;
+}
+
+.navbar-inverse .collapse.in .navbar-nav .open .dropdown-menu > li > a {
+    color: @gray3;
+}
+
+.nav.navbar-nav-custom {
+    float: left;
+    margin: 0;
+}
+
+.nav.navbar-nav-custom > li {
+    min-height: 50px;
+    float: left;
+}
+
+.nav.navbar-nav-custom > li > a {
+    min-width: 50px;
+    padding: 5px 7px;
+    line-height: 40px;
+    text-align: center;
+    color: @dark;
+    position: relative;
+}
+
+.nav.navbar-nav-custom > li > a .gi,
+.nav.navbar-nav-custom > li > a .hi,
+.nav.navbar-nav-custom > li > a .si,
+.nav.navbar-nav-custom > li > a .fi {
+    margin-top: -3px;
+}
+
+.nav.navbar-nav-custom > li > a .label-indicator {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    min-width: 20px;
+    height: 20px;
+    line-height: 20px;
+    text-align: center;
+    border-radius: 50%;
+    font-weight: 600;
+    border-radius: 10px;
+}
+
+.navbar-inverse .nav.navbar-nav-custom > li > a {
+    color: @white;
+}
+
+.nav.navbar-nav-custom > li.open > a,
+.nav.navbar-nav-custom > li > a:hover,
+.nav.navbar-nav-custom > li > a:focus {
+    background-color: @primary;
+    color: @white;
+}
+
+.navbar-inverse .nav.navbar-nav-custom > li.open > a,
+.navbar-inverse .nav.navbar-nav-custom > li > a:hover,
+.navbar-inverse .nav.navbar-nav-custom > li > a:focus {
+    background: rgba(0, 0, 0, .15);
+    color: @white;
+}
+
+.nav.navbar-nav-custom > li > a > img {
+    width: 40px;
+    height: 40px;
+    border-width: 2px;
+    border-style: solid;
+    border-color: rgba(255, 255, 255, .75);
+    border-radius: 20px;
+    vertical-align: top;
+}
+
+.nav.navbar-nav-custom .dropdown-menu {
+    margin-top: 0;
+}
+
+/* Header Search */
+.navbar-form {
+    margin: 7px 0;
+}
+
+.collapsing .navbar-form,
+.collapse.in .navbar-form {
+    margin-left: -15px;
+    margin-right: -15px;
+}
+
+.collapsing .navbar-form .form-group,
+.collapse.in .navbar-form .form-group {
+    margin-bottom: 0;
+}
+
+.navbar-form-custom {
+    margin: 0;
+    padding: 5px 8px;
+    width: 140px;
+}
+
+.navbar-form-custom .form-control {
+    margin: 0;
+    padding-left: 20px;
+    padding-right: 20px;
+    height: 40px;
+    border: none;
+    background: @white;
+    border-radius: 20px;
+    opacity: .5;
+}
+
+.navbar-default .navbar-form-custom .form-control {
+    background: @gray1;
+}
+
+.navbar-form-custom .form-control:hover,
+.navbar-form-custom .form-control:focus {
+    opacity: 1;
+}
