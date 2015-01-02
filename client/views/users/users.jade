@@ -1,31 +1,26 @@
-.section-header.nine.columns.centered
-  h1 {{mode | uppercase}}
-
-.panel
-  .row
-    .small-12.columns
-      form
-        .row
-          .small-6.columns
-            label(for='username') Username
-            input#username(type='text', name='username', ng-model='user.username', autofocus)
-          .small-6.columns
-        .row(ng-show='mode === "register"')
-          .small-6.columns
-            label(for='email') Email
-            input#email(type='email', name='email', ng-model='user.email')
-          .small-6.columns
-        .row
-          .small-6.columns
-            label(for='password') Password
-            input#password(type='password', name='password', ng-model='user.password')
-          .small-6.columns
-        //- .row(ng-show='mode === "register"')
-        //-   .small-6.columns
-        //-     label(for='confirm') Confirm Password
-        //-     input#confirm(type='password', name='confirm', ng-model='user.confirm')
-        //-   .small-6.columns
-        .row
-          .small-6.columns
-            button.radius(ng-click='submit()') Submit
-          .small-6.columns
+#login-container
+  h1.h2.text-light.text-center.push-top-bottom.animation-slideDown
+    i.fa.fa-star
+    strong Welcome to BrowniePoints!
+  .block.animation-fadeInQuickInv
+    .block-title
+      h2 {{mode | uppercase}}
+  form#form-register
+    .form-group
+      .col-xs-12
+        label(for='username') Username
+        input#username.form-control(type='text', name='username', ng-model='user.username', placeholder='username', autofocus)
+    .form-group(ng-show='mode === "register"')
+      .col-xs-12
+        label(for='email') Email
+        input#email.form-control(type='email', name='email', placeholder='email address', ng-model='user.email')
+    .form-group
+      .col-xs-12
+        label(for='password') Password
+        input#password.form-control(type='password', name='password', placeholder='password', ng-model='user.password')
+    .form-group.form-actions
+      .col-xs-6
+      .col-xs-6.text-right
+        button.btn.btn-effect-ripple.btn-success(ng-click='submit()')
+          i.fa.fa-plus
+          |  Submit
