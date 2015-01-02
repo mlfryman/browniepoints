@@ -1,45 +1,39 @@
 body(id='')
-  header.header
+section.site-section.site-section-top.site-section-light.themed-background-dark-default
+  .container
+    .push.text-center
+      h1.animation-fadeInQuick2Inv
+        strong BrowniePoints
+      h2.text-light-op.animation-fadeInQuickInv.push-bit
+        strong Start hoarding points now!
+section.site-section.site-content.border-bottom.overflow-hidden
+  .container
     .row
-      .eight.columns.end
-        .header-content
-          h1#title BrowniePoints
-          h2.subheading
-            | stuff
-  // ABOUT SECTION
-  .about
-    .row
-      .eight.columns.centered
-        h1
-          small Hodor. Hodor. Hodor.
-          |  BrowniePoints
-        p.subheading
+      .col-sm-8.push
+        h2.site-heading
+          strong BrowniePoints
+        p.feature-text.text-muted.push
+          strong Hodor
           | Hodor! Hodor hodor, hodor hodor hodor? Hodor! Hodor hodor, hodor
           | hodor hodor? Hodor! Hodor hodor, hodor; hodor hodor hodor hodor?
           | Hodor, hodor... Hodor hodor hodor? Hodor hodor HODOR! Hodor hodor...
           | Hodor hodor hodor.
-        a.btn.btn-primary.btn-large.btn-raised(ui-sref='register', ng-hide='username') Sign Up
-  // CONTACT SECTION
-  section#team.our-team
-    .section-header.eight.columns.centered
-      h1 Contact Me
+        a.btn.btn-lg.btn-success.push-right-left(ui-sref='register', ng-hide='username') Sign Up
+
+section.site-content.site-section.themed-background-muted
+  .container
     .row
-      .large-12.small-12.columns
-        .team-member
-          figure.profile-pic.img-responsive
-            img(src='assets/img/melanie.jpg', alt='Melanie Fryman')
-          .member-details
-            h5.dark-text.yellow-border-bottom Melanie L. Fryman
-            .position
-              a(href='mailto:melanie@fryman.io') melanie@fryman.io
-          .social-icons
-            ul
-              li
-                a(href='www.linkedin.com/in/mlfryman')
-                  i.fa.fa-linkedin-square
-              li
-                a(href='https://twitter.com/mlfryman')
-                  i.fa.fa-twitter-square
-              li
-                a(href='https://github.com/mlfryman')
-                  i.fa.fa-github-square
+      .col-lg-12.col-sm-12
+        p.text-center
+          img.img-circle.img-thumbnail.img-thumbnail-avatar-2x(src='assets/img/melanie.jpg', alt='Melanie Fryman')
+        h3.text-center Melanie L. Fryman
+        footer
+          h4.text-center
+            a(href='mailto:melanie@fryman.io') melanie@fryman.io
+          ul.list-inline.text-center
+            li: a(href='www.linkedin.com/in/mlfryman')
+                i.fa.fa-2x.fa-linkedin-square
+            li: a(href='https://twitter.com/mlfryman')
+                i.fa.fa-2x.fa-twitter-square
+            li: a(href='https://github.com/mlfryman')
+                i.fa.fa-2x.fa-github-square

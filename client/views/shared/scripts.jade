@@ -1,9 +1,9 @@
 //------- Vendor Scripts -------//
 //- jQuery should be the first script
 script(src='/vendor/jquery/dist/jquery.min.js')
-//- this sticky footer script must be included below jquery
+//- this jquery helper script must be included below jquery
+script(src='/views/nav/header.js')
 //- script(src='/views/footer/footer.js')
-//- script(src='/vendor/foundation/js/foundation.min.js')
 script(src='/vendor/angular/angular.min.js')
 script(src='/vendor/bootstrap/dist/js/bootstrap.min.js')
 //- script(src='/vendor/angular-bootstrap/ui-bootstrap.min.js')
@@ -16,7 +16,6 @@ script(src='/vendor/angularjs-toaster/toaster.js')
 
 //------- App Scripts -------//
 script(src='/index.js')
-script(src='/assets/style/landing-app.js')
 script(src='/models/user.js')
 //- script(src='/models/prize.js')
 //- script(src='/models/message.js')
@@ -26,6 +25,4 @@ script(src='/views/profile/profile.js')
 script(src='/views/dashboard/dashboard.js')
 script(src='/views/prizes/prizes.js')
 script(src='/views/messages/messages.js')
-//- must be last script
-//- script.
-//-    $(document).foundation();
+

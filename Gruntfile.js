@@ -13,7 +13,7 @@ module.exports = function(grunt){
     // ---------------------------------------------------------------------- //
     jshint: {
       options: {jshintrc: '.jshintrc', reporter: require('jshint-stylish')},
-      all: ['Gruntfile.js', 'protractor.*', 'client/**/*.js', 'server/**/*.js', 'test/**/*.js', '!client/analytics.js', '!client/templates/**/*.js']
+      all: ['Gruntfile.js', 'protractor.*', 'client/**/*.js', 'server/**/*.js', 'test/**/*.js', '!client/analytics.js', '!client/templates/**/*.js', '!client/assets/style/*.js']
     },
     // ---------------------------------------------------------------------- //
     jscs: {

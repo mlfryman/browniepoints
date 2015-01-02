@@ -5,8 +5,6 @@
       handleMenu,
       scrollToTop;
 
-  // var App = function(){
-
   /* Initialization UI Code */
   uiInit = function(){
 
@@ -117,7 +115,4 @@
       uiInit(); // Initialize UI Code
     }
   };
-// }();
 })();
-/* Initialize app when page loads */
-// $(function(){App.init();});
