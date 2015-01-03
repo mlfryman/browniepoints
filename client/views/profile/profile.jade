@@ -8,7 +8,6 @@
         img(src='../assets/img/placeholders/photo1@2x.jpg', alt='image')
         .widget-image-content.text-center
           a.gravLink(href='https://en.gravatar.com/'): img.gravatar.img-circle.img-thumbnail.img-thumbnail-transparent.img-thumbnail-avatar-2x.push(ng-src='{{rootuser.gravatar}}' alt='Create your own Gravatar!')
-          //- img#avatarimg(ng-src='{{rootuser.gravatar}}')
           h2.widget-heading.text-light
             strong {{rootuser.first_name}} {{rootuser.last_name}}
           h4.widget-heading.text-light-op
@@ -29,5 +28,13 @@
               small
                 strong {{users.length || 0}}
                 |  Connections
+        //- .row.text-center
+        //-   .large-12.small-12.columns
+        //-     a.btn.btn-xtiny.btn-alert.radius.pull-right(href='#', data-reveal-id='editProfile', )
+        //-       i.fa.fa-lg.fa-edit
+        //-         | &nbsp; Edit Profile
+        //-     include edit-profile
   .large-8.small-9.columns
     //- include connections
+
+

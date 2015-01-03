@@ -43,6 +43,10 @@
       }
     }
 
-    return {create:create, query:query, show:show, count:count, nuke:nuke, upload:upload};
+    function edit(prize){
+      return $http.put('/prizes/' + prize.prize_id, prize);
+    }
+
+    return {create:create, query:query, show:show, count:count, nuke:nuke, upload:upload, edit:edit};
   }]);
 })();

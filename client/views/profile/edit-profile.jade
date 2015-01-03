@@ -1,6 +1,30 @@
-a(href='#', data-reveal-id='editProfile') Edit Profile
-#editProfile.reveal-modal(data-reveal='')
-  h2 Edit Profile
-  p.lead Your couch.  It is mine.
-  p I'm a cool paragraph that lives inside of an even cooler modal. Wins!
+#editProfile.reveal-modal(data-reveal='', ng-controller='EditProfileCtrl')
+  .row
+    .small-12.columns
+      h4 {{mode | uppercase}}
+  .row
+    .small-12.columns
+      form
+        .row
+          .small-6.columns
+            label(for='firstname') First Name
+            input#firstname(type='text', name='first_name', ng-model='user.first_name', autofocus)
+          .small-6.columns
+            label(for='lastname') Last Name
+            input#lastname(type='text', name='last_name', ng-model='user.last_name')
+        .row
+          .small-12.columns
+            label(for='tagline') Tagline
+            input#tagline(type='text', name='tagline', ng-model='user.tagline')
+        .row
+          .small-12.columns
+            label(for='email') Email
+            input#email(type='email', name='email', ng-model='user.email')
+        .row
+          .small-12.columns
+            label(for='password') Password
+            input#password(type='password', name='password', ng-model='user.password')
+        .row
+          .small-12.columns
+            button.radius.pull-right(ng-click='updateProfile()') Save
   a.close-reveal-modal ×

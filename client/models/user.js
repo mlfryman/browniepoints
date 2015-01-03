@@ -1,3 +1,5 @@
+/* jshint camelcase:false */
+
 (function(){
   'use strict';
 
@@ -16,6 +18,10 @@
         return $http.delete('/logout');
       }
 
-      return {register:register, login:login, logout:logout};
+      function editProfile(user){
+        return $http.put('/edit/' + user.user_id, user);
+      }
+
+      return {register:register, login:login, logout:logout, editProfile:editProfile};
     }]);
 })();

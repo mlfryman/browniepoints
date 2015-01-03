@@ -11,3 +11,50 @@
   ul.small-block-grid-3
     li(ng-repeat='url in prize.urls')
       img.th(ng-src='{{url}}')
+
+  //- a.btn.btn-xtiny.btn-alert.radius.pull-right(href='#', data-reveal-id='editPrize')
+  //-   i.fa.fa-lg.fa-edit
+  //-     | &nbsp; Edit Prize
+  //- #editPrize.reveal-modal(data-reveal='')
+  //-   .row
+  //-     .small-12.columns
+  //-       h4 Edit {{prize.title}}
+  //-   .row
+  //-     .twelve.columns
+  //-       form(name='editPrizeForm', enctype='multipart/form-data')
+  //-         .row
+  //-           .twelve.columns
+  //-             label(for='title') Title
+  //-             input#name(type='text', name='title', placeholder='{{prize.title}}', ng-model='prize.title', autofocus)
+  //-         .row
+  //-           .twelve.columns
+  //-             label(for='description') Description
+  //-             textarea#description(name='description', placeholder='Describe your prize', ng-model='prize.description')
+  //-         .row
+  //-           .three.columns
+  //-             label(for='cost') Cost
+  //-             input#cost(type='number', name='cost', ng-model='prize.cost')
+  //-           .nine.columns
+  //-               label(for='tags') Tags (comma separated)
+  //-               input#tags(type='text', name='tags', placeholder='tag1,tag2,tag3', ng-model='prize.tags')
+  //-         .row
+  //-           .six.columns
+  //-             label(for='files') Image
+  //-             input(type='file', ng-file-select='', name='files', ng-model='files', accept='image/*')
+  //-           //- .six.columns
+  //-           //-   label Upload Progress
+  //-           //-   table
+  //-           //-     thead
+  //-           //-       tr
+  //-           //-         th Files
+  //-           //-         th Uploaded
+  //-           //-     tbody
+  //-           //-       tr
+  //-           //-         td {{files.length}}
+  //-           //-         td {{count}}
+  //-       .row
+  //-         .twelve.columns
+  //-           a.button.expand.success.radius(ng-click='edit(prize)') Save
+  //-           a.close-reveal-modal ×
+
+
