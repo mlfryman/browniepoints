@@ -8,8 +8,8 @@ module.exports = {
   // allows us to test mobile app
   cors:{origin: ['http://localhost:8100'], credentials: true},
   handler: function(request, reply){
-    Prize.count(request.auth.credentials, function(err, prize){
-      reply({prize:prize}).code(err ? 400 : 200);
+    Prize.count(request.auth.credentials, function(err, count){
+      reply({count:count}).code(err ? 400 : 200);
     });
   }
 };
