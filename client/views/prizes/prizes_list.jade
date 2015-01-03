@@ -30,7 +30,8 @@
             .row
               .six.columns
                 label(for='files') Image
-                input(type='file', ng-file-select='', name='files', ng-model='files', ng-file-model='files', ng-multiple='true')
+                input(type='file', ng-file-select='', name='files', ng-model='files', accept='image/*')
+                //- input(type='file', ng-file-select='', name='files', ng-model='files', ng-file-model='files', ng-multiple='true')
               .six.columns
                 label Upload Progress
                 table

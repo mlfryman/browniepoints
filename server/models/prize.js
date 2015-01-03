@@ -52,7 +52,7 @@ Prize.nuke = function(user, prizeId, cb){
 };
 
 Prize.upload = function(user, file, name, prizeId, cb){
-  var s3   = new AWS.S3();
+  var s3 = new AWS.S3();
 
   crypto.randomBytes(48, function(ex, buf){
     var hex        = buf.toString('hex'),
