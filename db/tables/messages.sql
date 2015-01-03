@@ -1,9 +1,9 @@
 CREATE TABLE messages(
-  id serial PRIMARY KEY,
-  from_id integer NOT NULL REFERENCES users(id),
-  to_id integer NOT NULL REFERENCES users(id),
-  subject varchar(255) NOT NULL,
-  body text NOT NULL,
-  created_at timestamptz NOT NULL DEFAULT now(),
-  is_read boolean
+  id SERIAL PRIMARY KEY,
+  from_id INTEGER NOT NULL REFERENCES users(id),
+  to_id INTEGER NOT NULL REFERENCES users(id),
+  subject VARCHAR(255) NOT NULL,
+  body TEXT NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  is_read BOOLEAN
 );

@@ -1,9 +1,9 @@
 CREATE TABLE prizes(
-  id serial PRIMARY KEY,
-  title varchar(255) NOT NULL,
-  description varchar(255) NOT NULL,
-  cost integer NOT NULL DEFAULT 1,
-  created_at timestamptz NOT NULL DEFAULT now(),
-  updated_at timestamptz NOT NULL DEFAULT now(),
-  user_id integer NOT NULL REFERENCES users(id)
+  id SERIAL PRIMARY KEY,
+  title VARCHAR(255) NOT NULL,
+  description VARCHAR(255) NOT NULL,
+  cost INTEGER NOT NULL DEFAULT 1 CHECK (cost > 0),
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  user_id INTEGER NOT NULL REFERENCES users(id)
 );

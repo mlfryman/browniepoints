@@ -1,5 +1,5 @@
 .sticky#nav
-  nav.top-bar(data-topbar, role="navigation", ng-controller='NavCtrl')
+  nav.top-bar(data-topbar, role='navigation', ng-controller='NavCtrl')
     ul.title-area
       li.name
         h1
@@ -14,10 +14,9 @@
         li: a(ui-sref='login') Login
       ul.right(ng-show='rootuser.username')
         li: a(ui-sref='home') Home
-        li: a(ui-sref='profile') Profile
-        li: a(ui-sref='dashboard') Dashboard
-        //- li: a(ui-sref='prizes') Prizes
-        //- li: a(ui-sref='messages') Inbox
-
-       li.divider
+        li: a(ui-sref='prizes.list') Prizes
+        //- li: a(ui-sref='profile') Profile
+        //- li: a(ui-sref='dashboard') Dashboard
+        //- li: a(ui-sref='messages.list') Inbox
+        li.divider
         li: a#avatarlink(ng-click='logout()'): img#avatarimg(ng-src='{{rootuser.gravatar}}')

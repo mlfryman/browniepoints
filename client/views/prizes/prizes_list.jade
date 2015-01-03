@@ -1,0 +1,74 @@
+.section-header.nine.columns.centered
+  h1 {{mode | uppercase}}
+  hr
+
+.row
+  .six.columns
+    .panel
+      .row
+        .twelve.columns
+          h2 New Prize
+        hr
+      .row
+        .twelve.columns
+          form(name='newPrizeForm', enctype='multipart/form-data')
+            .row
+              .twelve.columns
+                label(for='title') Title
+                input#name(type='text', name='title', placeholder='Name your prize', ng-model='prize.title', autofocus)
+            .row
+              .twelve.columns
+                label(for='description') Description
+                textarea#description(name='description', placeholder='Describe your prize', ng-model='prize.description')
+            .row
+              .three.columns
+                label(for='cost') Cost
+                input#cost(type='number', name='cost', ng-model='prize.cost')
+              .nine.columns
+                  label(for='tags') Tags (comma separated)
+                  input#tags(type='text', name='tags', placeholder='tag1,tag2,tag3', ng-model='prize.tags')
+            .row
+              .six.columns
+                label(for='files') Image
+                input(type='file', ng-file-select='', name='files', ng-model='files', ng-file-model='files', ng-multiple='true')
+              .six.columns
+                label Upload Progress
+                table
+                  thead
+                    tr
+                      th Files
+                      th Uploaded
+                  tbody
+                    tr
+                      td {{files.length}}
+                      td {{count}}
+              .row
+                .twelve.columns
+                  a.button.expand.success.radius(ng-click='create(prize)') Create Prize
+  .six.columns
+    .row
+      .twelve.columns
+        h2 My Prizes
+    .row
+      .twelve.columns
+        table#prizes
+          thead
+            tr
+              th Title
+              th Tags
+              th Created
+              th Delete
+          tbody
+            tr(ng-repeat='prize in prizes')
+              td: a(ui-sref='prizes.detail({prizeId:prize.prize_id})') {{prize.title}}
+              td#tags
+                span.tag.round.secondary.label(ng-repeat='name in prize.tags')
+                  a(ui-sref='prizes.list({tag:name})') {{name}}
+              td {{moment(prize.created_at).calendar()}}
+              td
+                a.btn.btn-xtiny.btn-alert.radius.center(ng-click='nuke(prize)')
+                  i.fa.fa-lg.fa-trash-o
+        .pagination-centered
+          ul.pagination
+            li(ng-class='{current:isCurrent(page)}', ng-repeat='page in _.range(0,pages)')
+              a(ui-sref='prizes.index({page:page})') {{page}}

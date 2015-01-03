@@ -1,0 +1,13 @@
+.section-header.nine.columns.centered
+  h1 {{prize.title}}
+  hr
+  h3.subheader {{moment(prize.updated_at).format('LLLL')}}
+  h3#tags
+    span.tag.round.secondary.label(ng-repeat='tag in prize.tags')
+      a(ui-sref='prizes.list({tag:tag})') {{tag}}
+  blockquote
+    #body {{prize.body}}
+  h4 Attachments:
+  ul.small-block-grid-3
+    li(ng-repeat='url in prize.urls')
+      img.th(ng-src='{{url}}')

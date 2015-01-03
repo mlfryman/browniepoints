@@ -1,31 +1,59 @@
 .section-header.nine.columns.centered
-  h1 {{mode | uppercase}}
+  h2 Welcome to BrowniePoints!
 
-.panel
-  .row
-    .small-12.columns
+.row
+  .six.columns.centered
+    .signup-panel
+      p.welcome {{mode | uppercase}}
       form
-        .row
-          .small-6.columns
-            label(for='username') Username
-            input#username(type='text', name='username', ng-model='user.username', autofocus)
-          .small-6.columns
-        .row(ng-show='mode === "register"')
-          .small-6.columns
-            label(for='email') Email
-            input#email(type='email', name='email', ng-model='user.email')
-          .small-6.columns
-        .row
-          .small-6.columns
-            label(for='password') Password
-            input#password(type='password', name='password', ng-model='user.password')
-          .small-6.columns
-        //- .row(ng-show='mode === "register"')
-        //-   .small-6.columns
-        //-     label(for='confirm') Confirm Password
-        //-     input#confirm(type='password', name='confirm', ng-model='user.confirm')
-        //-   .small-6.columns
-        .row
-          .small-6.columns
-            button.radius(ng-click='submit()') Submit
-          .small-6.columns
+        .row.collapse
+          .small-2.columns
+            span.prefix
+              i.fa.fa-user
+          .small-10.columns
+            input#username(type='text', name='username', ng-model='user.username', placeholder='username', autofocus)
+        .row.collapse(ng-show='mode === "register"')
+          .small-2.columns
+            span.prefix
+              i.fa.fa-envelope
+          .small-10.columns
+            input#email(type='email', name='email', placeholder='email', ng-model='user.email')
+        .row.collapse
+          .small-2.columns
+            span.prefix
+              i.fa.fa-lock
+          .small-10.columns
+            input#password(type='password', name='password', placeholder='password', ng-model='user.password')
+      a.btn.btn-primary.btn-small.btn-raised.center(ng-click='submit()') Submit
+      .row
+        .small-12.columns.center
+          h6(ng-show='mode === "register"')
+            | Already have an account? &nbsp;
+            a(ui-sref='login') Login here »
+          h6(ng-show='mode === "login"')
+            | Already have an account? &nbsp;
+            a(ui-sref='register') Register here »
+
+//- .panel
+//-   .row
+//-     .small-12.columns
+//-       form
+//-         .row
+//-           .small-6.columns
+//-             label(for='username') Username
+//-             input#username(type='text', name='username', ng-model='user.username', autofocus)
+//-           .small-6.columns
+//-         .row(ng-show='mode === "register"')
+//-           .small-6.columns
+//-             label(for='email') Email
+//-             input#email(type='email', name='email', ng-model='user.email')
+//-           .small-6.columns
+//-         .row
+//-           .small-6.columns
+//-             label(for='password') Password
+//-             input#password(type='password', name='password', ng-model='user.password')
+//-           .small-6.columns
+//-         .row
+//-           .small-6.columns
+//-             button.radius(ng-click='submit()') Submit
+//-           .small-6.columns

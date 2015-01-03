@@ -1,6 +1,6 @@
 CREATE TABLE images(
-  id serial PRIMARY KEY,
-  url varchar(1000) NOT NULL,
-  prize_id integer NOT NULL REFERENCES prizes(id),
-  created_at timestamptz NOT NULL DEFAULT now()
+  id SERIAL PRIMARY KEY,
+  url VARCHAR(1000) NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  prize_id INTEGER NOT NULL REFERENCES prizes(id)
 );
