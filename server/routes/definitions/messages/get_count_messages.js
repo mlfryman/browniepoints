@@ -1,15 +1,16 @@
 'use strict';
 
-var Prize = require('../../../models/prize');
+var Message = require('../../../models/message');
 
 module.exports = {
-  description: 'Count all Prizes by User',
-  tags:['prizes'],
+  description: 'Count all Messages by User',
+  tags:['messages'],
   // allows us to test mobile app
   cors:{origin: ['http://localhost:8100'], credentials: true},
   handler: function(request, reply){
-    Prize.count(request.auth.credentials, function(err, prize){
-      reply({prize:prize}).code(err ? 400 : 200);
+    Message.count(request.auth.credentials, function(err, message){
+      reply({message:message}).code(err ? 400 : 200);
     });
   }
 };
+

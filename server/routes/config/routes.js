@@ -12,5 +12,11 @@ module.exports = [
   {method: 'POST',   path: '/prizes/{prizeId}/upload',      config: require('../definitions/prizes/post_upload_image')},
   {method: 'GET',    path: '/prizes/{prizeId}',             config: require('../definitions/prizes/get_show_prize')},
   {method: 'DELETE', path: '/prizes/{prizeId}',             config: require('../definitions/prizes/delete_nuke_prize')},
-  {method: 'GET',    path: '/prizes/count',                 config: require('../definitions/prizes/get_count_prizes')}
+  {method: 'GET',    path: '/prizes/count',                 config: require('../definitions/prizes/get_count_prizes')},
+  // MESSAGE ROUTES
+  {method: 'POST',   path: '/messages',                      config: require('../definitions/messages/post_create_message')},
+  {method: 'GET',    path: '/messages',                      config: require('../definitions/messages/get_query_messages')},
+  {method: 'GET',    path: '/messages/{messageId}',          config: require('../definitions/messages/get_show_message')},
+  {method: 'DELETE', path: '/messages/{messageId}',          config: require('../definitions/messages/delete_nuke_message')},
+  {method: 'GET',    path: '/messages/count',                config: require('../definitions/messages/get_count_messages')}
 ];

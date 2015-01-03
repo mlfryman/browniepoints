@@ -1,11 +1,11 @@
 'use strict';
 
 var Joi  = require('joi'),
-    Prize = require('../../../models/prize');
+    Message = require('../../../models/message');
 
 module.exports = {
-  description: 'Create a Prize',
-  tags:['prizes'],
+  description: 'Create a Message',
+  tags:['messages'],
   validate: {
     payload: {
       title: Joi.string().required(),
@@ -15,8 +15,8 @@ module.exports = {
     }
   },
   handler: function(request, reply){
-    Prize.create(request.auth.credentials, request.payload, function(err, prizeId){
-      reply({prizeId:prizeId}).code(err ? 400 : 200);
+    Message.create(request.auth.credentials, request.payload, function(err, messageId){
+      reply({messageId:messageId}).code(err ? 400 : 200);
     });
   }
 };
