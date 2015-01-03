@@ -1,19 +1,19 @@
 'use strict';
 
 var Joi  = require('joi'),
-    Prize = require('../../../models/prize');
+    Message = require('../../../models/message');
 
 module.exports = {
-  description: 'Delete a Prize',
-  tags:['prizes'],
+  description: 'Delete a Message',
+  tags:['messages'],
   validate: {
     params: {
-      prizeId: Joi.number().required()
+      messageId: Joi.number().required()
     }
   },
   handler: function(request, reply){
-    Prize.nuke(request.auth.credentials, request.params.prizeId, function(err, prizeId){
-      reply({prizeId:prizeId}).code(err ? 400 : 200);
+    Message.nuke(request.auth.credentials, request.params.messageId, function(err, messageId){
+      reply({messageId:messageId}).code(err ? 400 : 200);
     });
   }
 };

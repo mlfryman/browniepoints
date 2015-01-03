@@ -30,7 +30,8 @@
             .row
               .six.columns
                 label(for='files') Image
-                input(type='file', ng-file-select='', name='files', ng-model='files', ng-file-model='files', ng-multiple='true')
+                input(type='file', ng-file-select='', name='files', ng-model='files', accept='image/*')
+                //- input(type='file', ng-file-select='', name='files', ng-model='files', ng-file-model='files', ng-multiple='true')
               .six.columns
                 label Upload Progress
                 table
@@ -56,6 +57,7 @@
             tr
               th Title
               th Tags
+              th Points
               th Created
               th Delete
           tbody
@@ -64,11 +66,12 @@
               td#tags
                 span.tag.round.secondary.label(ng-repeat='name in prize.tags')
                   a(ui-sref='prizes.list({tag:name})') {{name}}
+              td {{prize.cost}}
               td {{moment(prize.created_at).calendar()}}
               td
                 a.btn.btn-xtiny.btn-alert.radius.center(ng-click='nuke(prize)')
                   i.fa.fa-lg.fa-trash-o
         .pagination-centered
           ul.pagination
-            li(ng-class='{current:isCurrent(page)}', ng-repeat='page in _.range(0,pages)')
+            li(ng-class='{current:isCurrent(page)}', ng-repeat='page in _.range(1,pages)')
               a(ui-sref='prizes.index({page:page})') {{page}}
