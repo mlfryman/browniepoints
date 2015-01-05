@@ -1,4 +1,4 @@
-/* jshint expr:true */
+/* jshint expr:true, camelcase:false */
 
 'use strict';
 
@@ -22,9 +22,11 @@ describe('User', function(){
 
   describe('constructor', function(){
     it('should create a User object', function(done){
-      var user = new User({username:'bob', email:'bob@boberson.com'});
+      var user = new User({first_name:'Bob', last_name:'Boberson', username:'bob', email:'bob@boberson.com'});
 
       expect(user).to.be.instanceof(User);
+      expect(user.first_name).to.equal('Bob');
+      expect(user.last_name).to.equal('Boberson');
       expect(user.username).to.equal('bob');
       expect(user.email).to.equal('bob@boberson.com');
       done();
@@ -33,7 +35,7 @@ describe('User', function(){
 
   describe('.register', function(){
     it('should register a new User', function(done){
-      User.register({username:'frank', email:'frank@frank.com', password:'456789'}, function(err, results){
+      User.register({first_name:'Frank', last_name:'Frankerson', username:'frank', email:'frank@frank.com', password:'456789'}, function(err, results){
         expect(err).to.be.null;
         expect(results).to.be.ok;
         expect(results).to.have.property('id');
@@ -41,7 +43,7 @@ describe('User', function(){
       });
     });
     it('should NOT register a new User - duplicate user', function(done){
-      User.register({username:'bob', email:'bob@boberson.com', password:'123456'}, function(err, results){
+      User.register({first_name:'Bob', last_name:'Boberson', username:'bob', email:'bob@boberson.com', password:'123456'}, function(err, results){
         expect(err).to.be.ok;
         done();
       });

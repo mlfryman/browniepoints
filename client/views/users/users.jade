@@ -6,12 +6,24 @@
     .signup-panel
       p.welcome {{mode | uppercase}}
       form
+        .row.collapse(ng-show='mode === "register"')
+          .small-2.columns
+            span.prefix
+              i.fa.fa-user
+          .small-10.columns
+            input#firstname(type='text', name='firstname', ng-model='user.first_name', placeholder='First Name', autofocus)
+        .row.collapse(ng-show='mode === "register"')
+          .small-2.columns
+            span.prefix
+              i.fa.fa-user
+          .small-10.columns
+            input#lastname(type='text', name='lastname', ng-model='user.last_name', placeholder='Last Name')
         .row.collapse
           .small-2.columns
             span.prefix
               i.fa.fa-user
           .small-10.columns
-            input#username(type='text', name='username', ng-model='user.username', placeholder='username', autofocus)
+            input#username(type='text', name='username', ng-model='user.username', placeholder='username')
         .row.collapse(ng-show='mode === "register"')
           .small-2.columns
             span.prefix

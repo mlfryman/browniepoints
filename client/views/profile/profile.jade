@@ -8,7 +8,6 @@
         img(src='../assets/img/placeholders/photo1@2x.jpg', alt='image')
         .widget-image-content.text-center
           a.gravLink(href='https://en.gravatar.com/'): img.gravatar.img-circle.img-thumbnail.img-thumbnail-transparent.img-thumbnail-avatar-2x.push(ng-src='{{rootuser.gravatar}}' alt='Create your own Gravatar!')
-          //- img#avatarimg(ng-src='{{rootuser.gravatar}}')
           h2.widget-heading.text-light
             strong {{rootuser.first_name}} {{rootuser.last_name}}
           h4.widget-heading.text-light-op
@@ -27,7 +26,7 @@
               i.fa.fa-group.text-primary.push
               br
               small
-                strong {{users.length || 0}}
-                |  Connections
+                strong {{friends.length || 0}}
+                |  Friends
   .large-8.small-9.columns
     //- include connections

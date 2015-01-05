@@ -1,3 +1,5 @@
+/* jshint camelcase:false */
+
 'use strict';
 
 var bcrypt  = require('bcrypt'),
@@ -5,6 +7,8 @@ var bcrypt  = require('bcrypt'),
     pg      = require('../postgres/manager');
 
 function User(obj){
+  this.first_name = obj.first_name;
+  this.last_name  = obj.last_name;
   this.username   = obj.username;
   this.email      = obj.email;
 }
@@ -18,8 +22,8 @@ User.register = function(obj, cb){
       emailHash  = crypto.createHash('md5').update(cleanEmail).digest('hex');
   user.gravatar  = 'https://secure.gravatar.com/avatar/' + emailHash + '?s=200&d=mm&f=y';
 
-  var psqlString = 'INSERT INTO users (username, email, password, token, gravatar) VALUES ($1, $2, $3, $4, $5) RETURNING id',
-      psqlParams = [user.username, user.email, user.password, user.token, user.gravatar];
+  var psqlString = 'INSERT INTO users (first_name, last_name, username, email, password, token, gravatar) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING id',
+      psqlParams = [user.first_name, user.last_name, user.username, user.email, user.password, user.token, user.gravatar];
   pg.query(psqlString, psqlParams, function(err, results){
     cb(err, results && results.rows ? results.rows[0] : null);
   });

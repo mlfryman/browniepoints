@@ -12,6 +12,8 @@ describe('register', function(){
   });
 
   it('should register a new user', function(){
+    element(by.model('user.first_name')).sendKeys('Sam');
+    element(by.model('user.last_name')).sendKeys('Samerson');
     element(by.model('user.username')).sendKeys('sam' + h.random(50000));
     element(by.model('user.email')).sendKeys('sam@sam'+ h.random(50000) + '.com');
     element(by.model('user.password')).sendKeys('456789');

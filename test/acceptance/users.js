@@ -1,4 +1,4 @@
-/* jshint expr:true */
+/* jshint expr:true, camelcase:false */
 
 'use strict';
 
@@ -42,6 +42,8 @@ describe('Users', function(){
         method: 'POST',
         url: '/register',
         payload: {
+          first_name:'Frank',
+          last_name:'Frankerson',
           username: 'frank',
           email: 'frank@frank.com',
           password: '456789'
@@ -58,6 +60,8 @@ describe('Users', function(){
         method: 'POST',
         url: '/register',
         payload: {
+          first_name: 'Bob',
+          last_name: 'Boberson',
           username: 'bob',
           email: 'bob@boberson.com',
           password: '123456'

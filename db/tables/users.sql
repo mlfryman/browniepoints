@@ -1,5 +1,7 @@
 CREATE TABLE users(
   id SERIAL PRIMARY KEY,
+  first_name VARCHAR(50),
+  last_name VARCHAR(50),
   username VARCHAR(255) NOT NULL UNIQUE,
   email VARCHAR(255) NOT NULL UNIQUE,
   password CHAR(60) NOT NULL,
@@ -7,8 +9,5 @@ CREATE TABLE users(
   gravatar VARCHAR(255) NOT NULL,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-  points INTEGER NOT NULL DEFAULT 0,
-  first_name VARCHAR(50),
-  last_name VARCHAR(50),
-  tagline VARCHAR(255)
+  points INTEGER NOT NULL DEFAULT 0
 );
