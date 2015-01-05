@@ -8,6 +8,5 @@ CREATE TABLE users(
   token VARCHAR(255) NOT NULL,
   gravatar VARCHAR(255) NOT NULL,
   created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-  updated_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-  points INTEGER NOT NULL DEFAULT 0
+  updated_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );

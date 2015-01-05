@@ -13,7 +13,7 @@ module.exports = {
       first_name: Joi.string().required(),
       last_name: Joi.string().required(),
       username: Joi.string().min(3).max(20).required(),
-      email:    Joi.string().required(),
+      email: Joi.string().required(),
       password: Joi.string().min(6).required()
     }
   },

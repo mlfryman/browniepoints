@@ -21,7 +21,7 @@
       tbody
         tr.results.search-results
           td(style='width: 100px;')
-            img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{rootuser.gravatar}}', alt='{{user.username}}')
+            img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{rootuser.avatar || rootuser.gravatar}}', alt='{{user.username}}')
           td {{rootuser.first_name}} {{rootuser.last_name}}
           td {{rootuser.username}}
           td {{rootuser.email}}

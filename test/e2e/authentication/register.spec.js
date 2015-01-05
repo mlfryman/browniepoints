@@ -8,7 +8,7 @@ describe('register', function(){
   });
 
   it('should get register page', function(){
-    expect(element(by.css('.section-header > h1')).getText()).toEqual('REGISTER');
+    expect(element(by.css('.signup-panel > p')).getText()).toEqual('REGISTER');
   });
 
   it('should register a new user', function(){
@@ -17,7 +17,8 @@ describe('register', function(){
     element(by.model('user.username')).sendKeys('sam' + h.random(50000));
     element(by.model('user.email')).sendKeys('sam@sam'+ h.random(50000) + '.com');
     element(by.model('user.password')).sendKeys('456789');
-    element(by.css('button[ng-click]')).click();
-    expect(element(by.css('.section-header > h1')).getText()).toEqual('LOGIN');
+    element(by.css('a.btn.btn-primary.btn-small.btn-raised.center[ng-click]')).click();
+    expect(element(by.css('.signup-panel > p')).getText()).toEqual('LOGIN');
   });
 });
+

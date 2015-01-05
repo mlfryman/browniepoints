@@ -30,6 +30,12 @@
               i.fa.fa-envelope
           .small-10.columns
             input#email(type='email', name='email', placeholder='email', ng-model='user.email')
+        .row.collapse(ng-show='mode === "register"')
+          .small-2.columns
+            span.prefix
+              i.fa.fa-picture
+          .small-10.columns
+            input#avatar(type='text', name='avatar', placeholder='http://your-avatar-picture.com', ng-model='user.avatar')
         .row.collapse
           .small-2.columns
             span.prefix
@@ -45,27 +51,3 @@
           h6(ng-show='mode === "login"')
             | Already have an account? &nbsp;
             a(ui-sref='register') Register here »
-
-//- .panel
-//-   .row
-//-     .small-12.columns
-//-       form
-//-         .row
-//-           .small-6.columns
-//-             label(for='username') Username
-//-             input#username(type='text', name='username', ng-model='user.username', autofocus)
-//-           .small-6.columns
-//-         .row(ng-show='mode === "register"')
-//-           .small-6.columns
-//-             label(for='email') Email
-//-             input#email(type='email', name='email', ng-model='user.email')
-//-           .small-6.columns
-//-         .row
-//-           .small-6.columns
-//-             label(for='password') Password
-//-             input#password(type='password', name='password', ng-model='user.password')
-//-           .small-6.columns
-//-         .row
-//-           .small-6.columns
-//-             button.radius(ng-click='submit()') Submit
-//-           .small-6.columns
