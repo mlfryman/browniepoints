@@ -1,9 +1,0 @@
-CREATE TABLE messages(
-  id SERIAL PRIMARY KEY,
-  from_id INTEGER NOT NULL REFERENCES users(id),
-  to_id INTEGER NOT NULL REFERENCES users(id),
-  subject VARCHAR(255) NOT NULL,
-  body TEXT NOT NULL,
-  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-  is_read BOOLEAN
-);

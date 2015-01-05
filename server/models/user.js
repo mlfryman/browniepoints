@@ -42,4 +42,36 @@ User.login = function(obj, cb){
   });
 };
 
+User.findByEmail = function(searchEmail, cb){
+  var psqlString = 'SELECT * FROM users WHERE email = $1',
+      psqlParams = [searchEmail];
+  pg.query(psqlString, psqlParams, function(err, results){
+    cb(err, results && results.rows ? results.rows[0] : null);
+  });
+};
+
+User.findAll = function(userId, cb){
+  pg.query('SELECT * FROM users WHERE id<>$1', [userId], function(err, results){
+    cb(err, results && results.rows ? results.rows[0] : null);
+  });
+};
+
+User.requestFriendship = function(){
+// this inits a new row in friendships table
+};
+
+// ALL OF THESE REQUIRE UNION OF 2 QUERIES
+User.pendingFriendships = function(){
+// this can give the badge notification of pending friendships
+};
+
+User.friendships = function(){
+// list all friendships
+};
+
+User.acceptFriendship = function(){
+// this updates the accepted column in pending friendship
+};
+
+// MAKE FORMS & FUNCTIONS TO ADD & SUBTRACT POINTS
 module.exports = User;

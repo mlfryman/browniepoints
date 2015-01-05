@@ -1,0 +1,39 @@
+.section-header.nine.columns.centered
+  h1 {{mode | uppercase}}
+  hr
+
+.row
+  .four.columns
+    form(name='searchUserForm')
+      fieldset
+        legend
+          i.fa.fa-search.fa-lg &nbsp; Find Friends
+        label Enter your friend's email address...
+          input#search(type='text', name='email', placeholder='friend@email.com', ng-model='email', autofocus)
+          a.button.success.radius.tiny(ng-click='findByEmail(searchEmail)')
+            i.fa.fa-search.fa-lg &nbsp; Search for Email
+          a.button.primary.radius.tiny(ng-click='findAll()')
+            i.fa.fa-search.fa-lg &nbsp; Search All Users
+  .eight.columns
+    h2 Search Results
+    hr
+    table
+      tbody
+        tr.results.search-results
+          td(style='width: 100px;')
+            img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{rootuser.gravatar}}', alt='gravatar')
+          td {{rootuser.first_name}} {{rootuser.last_name}}
+          td {{rootuser.username}}
+          td {{rootuser.email}}
+          td.centered(style='width: 100px;')
+            a.friend-btn.button.success.radius.tiny(ng-click='')
+              i.fa.fa-plus.fa-lg
+        tr(ng-repeat='user in users')
+          td(style='width: 100px;')
+            img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{user.gravatar}}', alt='gravatar')
+          td {{user.first_name}} {{user.last_name}}
+          td {{user.username}}
+          td {{user.email}}
+          td.text-center(style='width: 100px;')
+            a.friend-btn.button.success.radius.tiny(ng-click='')
+              i.fa.fa-plus.fa-lg

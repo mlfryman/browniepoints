@@ -1,0 +1,30 @@
+.section-header.nine.columns.centered
+  h1 Friend Detail Page
+.row
+  .large-4.small-3.columns
+    .widget
+      .widget-image.widget-image-sm
+        img(src='../assets/img/placeholders/photo1@2x.jpg', alt='image')
+        .widget-image-content.text-center
+          img.gravatar.img-circle.img-thumbnail.img-thumbnail-transparent.img-thumbnail-avatar-2x.push(ng-src='{{friend.gravatar}}')
+          h4.widget-heading.text-light
+            strong Test Bob Boberson
+          h5.widget-heading.text-light-op
+            em bobtest
+      .widget-content.widget-content-border
+        .row.text-center
+          .large-6.small-6.columns
+            h3.widget-heading
+              i.fa.fa-star.text-success.push
+              br
+              small
+                strong #
+                |  points
+          .large-6.small-6.columns
+            h3.widget-heading
+              i.fa.fa-group.text-primary.push
+              br
+              small
+                strong #
+                |  Friends
+  .large-8.small-9.columns

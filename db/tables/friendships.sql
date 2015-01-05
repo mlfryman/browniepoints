@@ -1,0 +1,8 @@
+CREATE TABLE friendships(
+  id SERIAL PRIMARY KEY,
+  user_id INTEGER NOT NULL REFERENCES users(id),
+  friend_id INTEGER NOT NULL REFERENCES users(id),
+  friend_points INTEGER NOT NULL DEFAULT 0,
+  accepted BOOLEAN NOT NULL DEFAULT FALSE
+);
+

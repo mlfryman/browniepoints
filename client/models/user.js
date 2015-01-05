@@ -16,6 +16,15 @@
         return $http.delete('/logout');
       }
 
-      return {register:register, login:login, logout:logout};
+      function findByEmail(searchEmail){
+        return $http.get('/users/' + searchEmail);
+      }
+
+      function findAll(){
+        return $http.get('/users');
+      }
+
+      return {register:register, login:login, logout:logout, findByEmail:findByEmail, findAll:findAll};
     }]);
 })();
+
