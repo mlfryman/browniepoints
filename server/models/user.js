@@ -46,8 +46,8 @@ User.findByEmail = function(searchEmail, cb){
   var psqlString = 'SELECT first_name, last_name, username, email, gravatar FROM users WHERE email = $1',
       psqlParams = [searchEmail];
   pg.query(psqlString, psqlParams, function(err, results){
-    console.log('SERVER USER MODEL - findByEmail ERROR: ', err);
-    console.log('SERVER USER MODEL - findByEmail RESULTS: ', results);
+    // console.log('SERVER USER MODEL - findByEmail ERROR: ', err);
+    // console.log('SERVER USER MODEL - findByEmail RESULTS: ', results);
     cb(err, results && results.rows ? results.rows[0] : null);
   });
 };
