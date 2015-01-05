@@ -4,11 +4,15 @@
   angular.module('browniepoints')
     .controller('UsersListCtrl', ['$rootScope', '$scope', '$state', 'User', function($rootScope, $scope, $state, User){
       $scope.mode  = 'Find Friends';
+      // $scope.user = null;
       $scope.users = [];
 
-      $scope.findByEmail = function(searchEmail){
+      $scope.search = function(searchEmail){
+        console.log('search(searchEmail): ', searchEmail);
         User.findByEmail(searchEmail).then(function(response){
-          $scope.users = response.data.users;
+          $scope.searchEmail = '';
+          $scope.user = response.data.user;
+          console.log('User.findByEmail $scope.user: ', $scope.user);
         });
       };
 

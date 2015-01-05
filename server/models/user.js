@@ -43,15 +43,17 @@ User.login = function(obj, cb){
 };
 
 User.findByEmail = function(searchEmail, cb){
-  var psqlString = 'SELECT * FROM users WHERE email = $1',
+  var psqlString = 'SELECT first_name, last_name, username, email, gravatar FROM users WHERE email = $1',
       psqlParams = [searchEmail];
   pg.query(psqlString, psqlParams, function(err, results){
+    console.log('SERVER USER MODEL - findByEmail ERROR: ', err);
+    console.log('SERVER USER MODEL - findByEmail RESULTS: ', results);
     cb(err, results && results.rows ? results.rows[0] : null);
   });
 };
 
 User.findAll = function(userId, cb){
-  pg.query('SELECT * FROM users WHERE id<>$1', [userId], function(err, results){
+  pg.query('SELECT * FROM users WHERE id <> $1', [userId], function(err, results){
     cb(err, results && results.rows ? results.rows[0] : null);
   });
 };
