@@ -5,7 +5,7 @@
   .six.columns.centered
     .signup-panel
       p.welcome {{mode | uppercase}}
-      form
+      form(name='userAuthForm')
         .row.collapse(ng-show='mode === "register"')
           .small-2.columns
             span.prefix
@@ -30,12 +30,6 @@
               i.fa.fa-envelope
           .small-10.columns
             input#email(type='email', name='email', placeholder='email', ng-model='user.email')
-        .row.collapse(ng-show='mode === "register"')
-          .small-2.columns
-            span.prefix
-              i.fa.fa-picture
-          .small-10.columns
-            input#avatar(type='text', name='avatar', placeholder='http://your-avatar-picture.com', ng-model='user.avatar')
         .row.collapse
           .small-2.columns
             span.prefix

@@ -17,32 +17,51 @@
   .eight.columns
     h2 Search Results
     hr
-    table
-      tbody
-        tr.results.search-results
-          td(style='width: 100px;')
-            img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{rootuser.avatar || rootuser.gravatar}}', alt='{{user.username}}')
-          td {{rootuser.first_name}} {{rootuser.last_name}}
-          td {{rootuser.username}}
-          td {{rootuser.email}}
-          td.centered(style='width: 100px;')
-            a.friend-btn.button.success.radius.tiny(ng-click='')
-              i.fa.fa-plus.fa-lg
-        tr.results.search-results(ng-show='user.email')
-          td
-            img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{user.gravatar}}', alt='{{user.username}}')
-          td {{user.first_name}} {{user.last_name}}
-          td {{user.username}}
-          td {{user.email}}
-          td.centered
-            a.friend-btn.button.success.radius.tiny(ng-click='')
-              i.fa.fa-plus.fa-lg
-        //- tr(ng-repeat='user in users')
-        //-   td(style='width: 100px;')
-        //-     img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{user.gravatar}}', alt='gravatar')
-        //-   td {{user.first_name}} {{user.last_name}}
-        //-   td {{user.username}}
-        //-   td {{user.email}}
-        //-   td.text-center(style='width: 100px;')
-        //-     a.friend-btn.button.success.radius.tiny(ng-click='')
-        //-       i.fa.fa-plus.fa-lg
+    #results
+      table.table-borderless.remove-margin-bottom
+        tbody
+          tr
+            td(style='width: 100px;')
+              img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{rootuser.gravatar}}', alt='{{rootuser.username}}')
+            td
+              h5
+                strong {{rootuser.first_name}} {{rootuser.last_name}}
+              i.fa.fa-fw.fa-user
+              |  {{rootuser.username}}
+              br
+              i.fa.fa-fw.fa-envelope
+              |  {{rootuser.email}}
+            td.centered(style='width: 100px;')
+              a.friend-btn.button.success.radius.tiny(ng-click='', data-toggle='tooltip', title='Add Friend')
+                i.fa.fa-fw.fa-plus.fa-lg
+          tr(ng-show='user.email')
+            td(style='width: 100px;')
+              img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{user.gravatar}}', alt='{{user.username}}')
+            td
+              h5
+                strong {{user.first_name}} {{user.last_name}}
+              i.fa.fa-fw.fa-user
+              |  {{user.username}}
+              br
+              i.fa.fa-fw.fa-envelope
+              |  {{user.email}}
+            td.centered(style='width: 100px;')
+              form(name='friendRequestForm')
+                input#userId(type='hidden', name='userId', ng-model='userId', value='{{rootuser.id}}')
+                input#friendId(type='hidden', name='friendId', ng-model='friendId', value='{{user.id}}')
+              a.friend-btn.button.success.radius.tiny(ng-click='friendRequest(friendship)', data-toggle='tooltip', title='Send Friend Request')
+                i.fa.fa-fw.fa-plus.fa-lg
+          //- tr(ng-repeat='user in users')
+          //-   td(style='width: 100px;')
+          //-     img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{user.gravatar}}', alt='{{user.username}}')
+          //-   td
+          //-     h5
+          //-       strong {{user.first_name}} {{user.last_name}}
+          //-     i.fa.fa-fw.fa-user
+          //-     |  {{user.username}}
+          //-     br
+          //-     i.fa.fa-fw.fa-envelope
+          //-     |  {{user.email}}
+          //-   td.centered(style='width: 100px;')
+          //-     a.friend-btn.button.success.radius.tiny(ng-click='', data-toggle='tooltip', title='Add Friend')
+          //-       i.fa.fa-fw.fa-plus.fa-lg

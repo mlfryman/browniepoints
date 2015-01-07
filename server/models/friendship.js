@@ -4,6 +4,8 @@
 
 // var pg = require('../postgres/manager');
 
+// MAKE FORMS & FUNCTIONS TO ADD & SUBTRACT POINTS
+
 // function Friendship(obj){
 //   this. = obj.;
 // }

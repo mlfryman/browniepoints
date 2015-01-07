@@ -24,7 +24,35 @@
         return $http.get('/users');
       }
 
-      return {register:register, login:login, logout:logout, findByEmail:findByEmail, findAll:findAll};
+      function friendRequest(friendId){
+        return $http.post('/friends/request', friendId);
+      }
+
+      return {register:register,
+        login:login,
+        logout:logout,
+        // upload:upload,
+        findByEmail:findByEmail,
+        findAll:findAll,
+        friendRequest:friendRequest
+      };
     }]);
 })();
 
+
+      // function upload(userId, files){
+      //   var count = 0;
+      //   for (var i = 0; i < files.length; i++){
+      //     var file = files[i];
+      //     $upload.upload({
+      //       url: '/users/' + userId + '/upload',
+      //       method: 'POST',
+      //       file: file
+      //     }).success(function(data, status, headers, config){
+      //       count++;
+      //       $rootScope.$broadcast('upload', count);
+      //     }).error(function(){
+      //       console.log('An error has occurred uploading an avatar.');
+      //     });
+      //   }
+      // }

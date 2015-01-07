@@ -2,11 +2,11 @@
 
 'use strict';
 
-var pg     = require('../postgres/manager'),
-    AWS    = require('aws-sdk'),
+var AWS    = require('aws-sdk'),
     crypto = require('crypto'),
+    concat = require('concat-stream'),
     path   = require('path'),
-    concat = require('concat-stream');
+    pg     = require('../postgres/manager');
 
 function Prize(){
 }
