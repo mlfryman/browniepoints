@@ -12,8 +12,6 @@
           input#search(type='text', name='searchEmail', placeholder='friend@email.com', ng-model='searchEmail', autofocus)
           a.button.success.radius.tiny(ng-click='search(searchEmail)')
             i.fa.fa-envelope.fa-lg &nbsp; Find Friend
-        //- a.button.primary.radius.tiny(ng-click='findAll()')
-        //-   i.fa.fa-users.fa-lg &nbsp; List Users
   .eight.columns
     h2 Search Results
     hr
@@ -48,17 +46,3 @@
             td.centered(style='width: 100px;')
               a.friend-btn.button.success.radius.tiny(ng-click='friendRequest({friendId:user.id})', data-toggle='tooltip', title='Send Friend Request')
                 i.fa.fa-fw.fa-plus.fa-lg
-          //- tr(ng-repeat='user in users')
-          //-   td(style='width: 100px;')
-          //-     img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{user.gravatar}}', alt='{{user.username}}')
-          //-   td
-          //-     h5
-          //-       strong {{user.first_name}} {{user.last_name}}
-          //-     i.fa.fa-fw.fa-user
-          //-     |  {{user.username}}
-          //-     br
-          //-     i.fa.fa-fw.fa-envelope
-          //-     |  {{user.email}}
-          //-   td.centered(style='width: 100px;')
-          //-     a.friend-btn.button.success.radius.tiny(ng-click='', data-toggle='tooltip', title='Add Friend')
-          //-       i.fa.fa-fw.fa-plus.fa-lg

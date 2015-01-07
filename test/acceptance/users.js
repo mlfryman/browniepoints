@@ -28,8 +28,6 @@ describe('Users', function(){
       };
 
       server.inject(options, function(response){
-        // must put set-cookie in brackets since property name is invalid JS syntax
-        // @ index[0], since it returns an array of cookies
         cookie = response.headers['set-cookie'][0].match(/hapi-cookie=[^;]+/)[0];
         done();
       });
@@ -138,6 +136,43 @@ describe('Users', function(){
 
       server.inject(options, function(response){
         expect(response.statusCode).to.equal(200);
+        done();
+      });
+    });
+  });
+
+  describe('POST /users/request', function(){
+    it('should create a friend request', function(done){
+      var options = {
+        method: 'POST',
+        url: '/users/request',
+        payload: {
+          friendId: 2
+        },
+        headers:{
+          cookie:cookie
+        }
+      };
+
+      server.inject(options, function(response){
+        expect(response.statusCode).to.equal(200);
+        done();
+      });
+    });
+    it('should NOT create a friend request - user does not exist', function(done){
+      var options = {
+        method: 'POST',
+        url: '/users/requests',
+        payload: {
+          friendId: 9
+        },
+        headers:{
+          cookie:cookie
+        }
+      };
+
+      server.inject(options, function(response){
+        expect(response.statusCode).to.equal(404);
         done();
       });
     });

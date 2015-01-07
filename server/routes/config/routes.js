@@ -9,7 +9,7 @@ module.exports = [
   // {method: 'POST',   path: '/users/{userId}/upload',        config: require('../definitions/users/post_upload_avatar')},
   {method: 'GET',    path: '/users',                        config: require('../definitions/users/get_all_users')},
   {method: 'GET',    path: '/users/{searchEmail}',          config: require('../definitions/users/get_user')},
-  {method: 'POST',   path: '/friends/request',              config: require('../definitions/users/post_friends_request')},
+  {method: 'POST',   path: '/users/request',                config: require('../definitions/users/post_friend_request')},
 
   // PRIZE ROUTES
   {method: 'POST',   path: '/prizes',                       config: require('../definitions/prizes/post_create_prize')},

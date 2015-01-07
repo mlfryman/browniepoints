@@ -25,7 +25,6 @@
       };
 
       $scope.friendRequest = function(friendId){
-        console.log('User.friendRequest friendId: ', friendId);
         User.friendRequest(friendId).then(function(response){
           $state.reload();
         });
