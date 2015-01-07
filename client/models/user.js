@@ -1,3 +1,5 @@
+/* jshint camelcase:false */
+
 (function(){
   'use strict';
 
@@ -25,6 +27,7 @@
       }
 
       function friendRequest(friendId){
+        console.log('CLIENT USER MODEL - User.friendRequest friendId: ', friendId);
         return $http.post('/friends/request', friendId);
       }
 

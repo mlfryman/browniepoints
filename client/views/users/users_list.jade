@@ -46,10 +46,7 @@
               i.fa.fa-fw.fa-envelope
               |  {{user.email}}
             td.centered(style='width: 100px;')
-              form(name='friendRequestForm')
-                input#userId(type='hidden', name='userId', ng-model='userId', value='{{rootuser.id}}')
-                input#friendId(type='hidden', name='friendId', ng-model='friendId', value='{{user.id}}')
-              a.friend-btn.button.success.radius.tiny(ng-click='friendRequest(friendship)', data-toggle='tooltip', title='Send Friend Request')
+              a.friend-btn.button.success.radius.tiny(ng-click='friendRequest({friendId:user.id})', data-toggle='tooltip', title='Send Friend Request')
                 i.fa.fa-fw.fa-plus.fa-lg
           //- tr(ng-repeat='user in users')
           //-   td(style='width: 100px;')

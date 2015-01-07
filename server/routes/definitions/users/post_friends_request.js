@@ -16,7 +16,8 @@ module.exports = {
   handler: function(request, reply){
     request.payload.userId = request.auth.credentials.id;
     User.friendRequest(request.payload, function(err){
-      if(err){console.log('SERVER ERROR - USER CTRL User.friendRequest: ', err);}
+      if(err){console.log('SERVER ERROR - USER CTRL User.friendRequest ERROR: ', err);}
+      // if(err){console.log('SERVER ERROR - USER CTRL User.friendRequest friendshipId: ', friendshipId);}
       reply().code(err ? 400 : 200);
     });
   }

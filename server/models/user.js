@@ -59,9 +59,9 @@ User.findAll = function(userId, cb){
   });
 };
 
-User.friendRequest = function(userId, friendId, cb){
+User.friendRequest = function(obj, cb){
   var psqlString = 'INSERT INTO friendships (user_id, friend_id) VALUES ($1, $2) RETURNING id',
-      psqlParams = [];
+      psqlParams = [obj.userId, obj.friendId];
   pg.query(psqlString, psqlParams, function(err, results){
     console.log('SERVER USER MODEL - User.friendRequest ERROR: ', err);
     console.log('SERVER USER MODEL - User.friendRequest RESULTS: ', results);
