@@ -51,16 +51,13 @@
 //     });
 //   });
 
-//   describe('POST /friendships', function(){
-//     it('should create a friendship', function(done){
+//   describe('POST /friends/request', function(){
+//     it('should create a friend request', function(done){
 //       var options = {
 //         method: 'POST',
-//         url: '/friendships',
+//         url: '/friends/request',
 //         payload: {
-//           title: 'a',
-//           description: 'b',
-//           cost: 1,
-//           tags: 'c,d,e'
+//           friend2Id: 2
 //         },
 //         headers:{
 //           cookie:cookie
@@ -72,136 +69,13 @@
 //         done();
 //       });
 //     });
-//     it('should NOT create a friendship - missing title', function(done){
+//     it('should NOT create a friend request - friend does not exist', function(done){
 //       var options = {
 //         method: 'POST',
-//         url: '/friendships',
+//         url: '/friends/requests',
 //         payload: {
-//           description: 'b',
-//           cost: 1,
-//           tags: 'c,d,e'
+//           friend2Id: 9
 //         },
-//         headers:{
-//           cookie:cookie
-//         }
-//       };
-
-//       server.inject(options, function(response){
-//         expect(response.statusCode).to.equal(400);
-//         done();
-//       });
-//     });
-//   });
-
-//   describe('GET /friendships', function(){
-//     it('should get friendships', function(done){
-//       var options = {
-//         method: 'GET',
-//         url: '/friendships',
-//         headers:{
-//           cookie:cookie
-//         }
-//       };
-
-//       server.inject(options, function(response){
-//         expect(response.statusCode).to.equal(200);
-//         expect(response.result.friendships).to.have.length(1);
-//         done();
-//       });
-//     });
-//     it('should NOT get friendships - user logged out', function(done){
-//       var options = {
-//         method: 'GET',
-//         url: '/friendships'
-//       };
-
-//       server.inject(options, function(response){
-//         expect(response.statusCode).to.equal(401);
-//         done();
-//       });
-//     });
-//   });
-
-//   describe('GET /friendships/count', function(){
-//     it('should get friendships count', function(done){
-//       var options = {
-//         method: 'GET',
-//         url: '/friendships/count',
-//         headers:{
-//           cookie:cookie
-//         }
-//       };
-
-//       server.inject(options, function(response){
-//         expect(response.statusCode).to.equal(200);
-//         expect(response.result.count).to.equal('1');
-//         done();
-//       });
-//     });
-//     it('should NOT get friendships count - user logged out', function(done){
-//       var options = {
-//         method: 'GET',
-//         url: '/friendships/count'
-//       };
-
-//       server.inject(options, function(response){
-//         expect(response.statusCode).to.equal(401);
-//         done();
-//       });
-//     });
-//   });
-
-
-//   describe('GET /friendships/3', function(){
-//     it('should show a friendship', function(done){
-//       var options = {
-//         method: 'GET',
-//         url: '/friendships/' + friendshipId,
-//         headers:{
-//           cookie:cookie
-//         }
-//       };
-
-//       server.inject(options, function(response){
-//         expect(response.statusCode).to.equal(200);
-//         done();
-//       });
-//     });
-//     it('should NOT show a friendship - invalid friendshipId', function(done){
-//       var options = {
-//         method: 'GET',
-//         url: '/friendships/',
-//         headers:{
-//           cookie:cookie
-//         }
-//       };
-
-//       server.inject(options, function(response){
-//         expect(response.statusCode).to.equal(404);
-//         done();
-//       });
-//     });
-//   });
-
-//   describe('DELETE /friendships/3', function(){
-//     it('should delete a friendship', function(done){
-//       var options = {
-//         method: 'DELETE',
-//         url: '/friendships/' + friendshipId,
-//         headers:{
-//           cookie:cookie
-//         }
-//       };
-
-//       server.inject(options, function(response){
-//         expect(response.statusCode).to.equal(200);
-//         done();
-//       });
-//     });
-//     it('should NOT delete a friendship - missing friendshipId', function(done){
-//       var options = {
-//         method: 'DELETE',
-//         url: '/friendships/',
 //         headers:{
 //           cookie:cookie
 //         }

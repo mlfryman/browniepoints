@@ -17,7 +17,6 @@
           i.fa.fa-group
         li: a(ui-sref='prizes.list') Prizes
         li: a(ui-sref='profile') Profile
-        //- li: a(ui-sref='dashboard') Dashboard
-        //- li: a(ui-sref='messages.list') Inbox
+        li: a(ui-sref='dashboard') Dashboard
         li.divider
         li: a#avatarlink(ng-click='logout()'): img#avatarimg(ng-src='{{rootuser.gravatar}}')

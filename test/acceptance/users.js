@@ -140,41 +140,4 @@ describe('Users', function(){
       });
     });
   });
-
-  describe('POST /users/request', function(){
-    it('should create a friend request', function(done){
-      var options = {
-        method: 'POST',
-        url: '/users/request',
-        payload: {
-          friendId: 2
-        },
-        headers:{
-          cookie:cookie
-        }
-      };
-
-      server.inject(options, function(response){
-        expect(response.statusCode).to.equal(200);
-        done();
-      });
-    });
-    it('should NOT create a friend request - user does not exist', function(done){
-      var options = {
-        method: 'POST',
-        url: '/users/requests',
-        payload: {
-          friendId: 9
-        },
-        headers:{
-          cookie:cookie
-        }
-      };
-
-      server.inject(options, function(response){
-        expect(response.statusCode).to.equal(404);
-        done();
-      });
-    });
-  });
 });

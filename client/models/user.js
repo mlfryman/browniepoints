@@ -26,16 +26,11 @@
         return $http.get('/users');
       }
 
-      function friendRequest(friendId){
-        return $http.post('/users/request', friendId);
-      }
-
       return {register:register,
         login:login,
         logout:logout,
         findByEmail:findByEmail,
-        findAll:findAll,
-        friendRequest:friendRequest
-      };
+        findAll:findAll
+       };
     }]);
 })();

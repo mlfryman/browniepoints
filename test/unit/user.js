@@ -86,19 +86,4 @@ describe('User', function(){
       });
     });
   });
-
-  describe('.friendRequest', function(){
-    it('should create a friend request', function(done){
-      User.friendRequest({userId:1, friendId:2}, function(err, results){
-        expect(err).to.be.null;
-        done();
-      });
-    });
-    it('should NOT create a friend request - user does not exist', function(done){
-      User.friendRequest({userId:1, friendId:9}, function(err, results){
-        expect(err).to.be.ok;
-        done();
-      });
-    });
-  });
 });

@@ -10,20 +10,31 @@ function Friendship(){
 }
 
 Friendship.request = function(obj, cb){
-  var psqlString = 'INSERT INTO friendships (user_id, friend_id) VALUES ($1, $2) RETURNING id',
-      psqlParams = [obj.userId, obj.friendId];
-  pg.query(psqlString, psqlParams, function(err, results){
-    cb(err, results && results.rows ? results.rows[0] : null);
+  console.log('SERVER FRIENDSHIP MODEL - Friendship.request OBJ): ', obj);
+  generatePK(obj.friend1Id, obj.friend2Id, function(friendshipId){
+    obj.friendshipId = friendshipId;
+    var psqlString = 'INSERT INTO friendships (id, friend1_id, friend2_id) VALUES ($1, $2, $3) RETURNING id',
+        psqlParams = [obj.friendshipId, obj.friend1Id, obj.friend2Id];
+    pg.query(psqlString, psqlParams, function(err, results){
+     cb(err, results && results.rows ? results.rows[0] : null);
+    });
   });
 };
 
-// ALL OF THESE REQUIRE UNION OF 2 QUERIES
-Friendship.pending = function(){
-// this can give the badge notification of pending friendships
+Friendship.pending = function(userId, cb){
+  var psqlString = 'SELECT * FROM pending_friendships($1)',
+      psqlParams = [userId];
+  pg.query(psqlString, psqlParams, function(err, results){
+    cb(err, results && results.rows ? results.rows : null);
+  });
 };
 
-Friendship.index = function(){
-// list all friendships
+Friendship.findAll = function(userId, cb){
+  var psqlString = 'SELECT * FROM query_prizes($1, $2, $3, $4)',
+      psqlParams = [userId];
+  pg.query(psqlString, psqlParams, function(err, results){
+    cb(err, results && results.rows ? results.rows : null);
+  });
 };
 
 Friendship.accept = function(){
@@ -37,3 +48,16 @@ Friendship.deny = function(){
 // console.log('SERVER USER MODEL - Friendship.friendRequest ERROR: ', err);
 
 module.exports = Friendship;
+
+function generatePK(id1, id2, cb){
+ var small, large;
+  if(id1 > id2){
+    large = id1.toString();
+    small = id2.toString();
+  }else{
+    small=id1.toString();
+    large=id2.toString();
+  }
+  var friendshipId = ((small + large) * 1);
+  cb(friendshipId);
+}

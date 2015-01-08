@@ -52,15 +52,7 @@ User.findByEmail = function(searchEmail, cb){
 };
 
 User.findAll = function(userId, cb){
-  pg.query('SELECT * FROM users WHERE id <> $1', [userId], function(err, results){
-    cb(err, results && results.rows ? results.rows[0] : null);
-  });
-};
-
-User.friendRequest = function(obj, cb){
-  var psqlString = 'INSERT INTO friendships (user_id, friend_id) VALUES ($1, $2) RETURNING id',
-      psqlParams = [obj.userId, obj.friendId];
-  pg.query(psqlString, psqlParams, function(err, results){
+  pg.query('SELECT id, first_name, last_name, username, email, gravatar FROM users WHERE id <> $1', [userId], function(err, results){
     cb(err, results && results.rows ? results.rows[0] : null);
   });
 };
