@@ -42,4 +42,19 @@ describe('Friendship', function(){
       });
     });
   });
+
+   describe('.pending', function(){
+    it('should get all pending friend requests by User', function(done){
+      Friendship.pending(1, function(err, results){
+        expect(err).to.be.null;
+        done();
+      });
+    });
+    it('should NOT get all pending friend requests by User - no pending requests', function(done){
+      Friendship.pending(2, function(err, results){
+        expect(results).to.be.empty;
+        done();
+      });
+    });
+  });
 });

@@ -8,8 +8,7 @@ module.exports = {
   handler: function(request, reply){
     request.payload.userId = request.auth.credentials.id;
     Friendship.pending(request.payload, function(err, pending){
-      if(err){console.log('SERVER USER CTRL - Friendship.pending ERROR: ', err);}
-      if(err){console.log('SERVER USER CTRL - Friendship.pending PENDING: ', pending);}
+      if(err){console.log('SERVER FRIENDSHIP CTRL - Friendship.pending ERROR: ', err);}
       reply({pending:pending}).code(err ? 400 : 200);
     });
   }

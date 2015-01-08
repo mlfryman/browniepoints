@@ -10,7 +10,6 @@ function Friendship(){
 }
 
 Friendship.request = function(obj, cb){
-  console.log('SERVER FRIENDSHIP MODEL - Friendship.request OBJ): ', obj);
   generatePK(obj.friend1Id, obj.friend2Id, function(friendshipId){
     obj.friendshipId = friendshipId;
     var psqlString = 'INSERT INTO friendships (id, friend1_id, friend2_id) VALUES ($1, $2, $3) RETURNING id',
@@ -22,7 +21,7 @@ Friendship.request = function(obj, cb){
 };
 
 Friendship.pending = function(userId, cb){
-  var psqlString = 'SELECT * FROM pending_friendships($1)',
+  var psqlString = 'SELECT * FROM pending_friendships_by_user($1)',
       psqlParams = [userId];
   pg.query(psqlString, psqlParams, function(err, results){
     cb(err, results && results.rows ? results.rows : null);
@@ -30,9 +29,12 @@ Friendship.pending = function(userId, cb){
 };
 
 Friendship.findAll = function(userId, cb){
-  var psqlString = 'SELECT * FROM query_prizes($1, $2, $3, $4)',
+  console.log('SERVER FRIENDSHIP MODEL - Friendship.findAll userId): ', userId);
+  var psqlString = 'SELECT * FROM list_friends($1)',
       psqlParams = [userId];
   pg.query(psqlString, psqlParams, function(err, results){
+    console.log('SERVER FRIENDSHIP MODEL - Friendship.findAll ERROR): ', err);
+    console.log('SERVER FRIENDSHIP MODEL - Friendship.findAll RESULTS): ', results);
     cb(err, results && results.rows ? results.rows : null);
   });
 };

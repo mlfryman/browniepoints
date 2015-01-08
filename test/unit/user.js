@@ -73,15 +73,15 @@ describe('User', function(){
 
   describe('.findByEmail', function(){
     it('should find a User by email', function(done){
-      User.findByEmail({id:1}, {searchEmail:'melanie@fryman.io'}, function(err, results){
+      User.findByEmail('melanie@fryman.io', function(err, results){
         expect(err).to.be.null;
-        expect(results).to.have.length(1);
+        expect(results.id).to.equal(2);
         done();
       });
     });
     it('should NOT find a User - email does not exist', function(done){
-      User.findByEmail({id:1}, {searchEmail:'steve@fryman.io'}, function(err, results){
-        expect(err).to.be.ok;
+      User.findByEmail('steve@fryman.io', function(err, results){
+        expect(results).to.be.undefined;
         done();
       });
     });

@@ -15,7 +15,7 @@
         .state('prizes',          {url:'/prizes',      templateUrl:'/views/prizes/prizes.html',            abstract:true})
         .state('prizes.list',     {url:'?tag&page',    templateUrl:'/views/prizes/prizes_list.html',       controller:'PrizesListCtrl'})
         .state('prizes.detail',   {url:'/{prizeId}',   templateUrl:'/views/prizes/prizes_detail.html',     controller:'PrizesDetailCtrl'})
-        .state('friends',          {url:'/friends',    templateUrl:'/views/friends/friends.html',            abstract:true})
+        .state('friends',          {url:'/friends',    templateUrl:'/views/friends/friends.html',          abstract:true})
         .state('friends.list',    {url:'?tag&page',    templateUrl:'/views/friends/friends_list.html',     controller:'FriendsListCtrl'})
         .state('friends.detail',  {url:'/{friendId}',  templateUrl:'/views/friends/friends_detail.html',   controller:'FriendsDetailCtrl'});
     }])
