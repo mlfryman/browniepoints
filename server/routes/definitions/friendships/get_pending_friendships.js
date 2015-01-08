@@ -6,10 +6,14 @@ module.exports = {
   description: 'Get all pending Friendships',
   tags:['friendships'],
   handler: function(request, reply){
-    request.payload.userId = request.auth.credentials.id;
-    Friendship.pending(request.payload, function(err, pending){
+    // console.log('SERVER FRIENDSHIP CTRL - Friendship.pending request: ', request);
+    console.log('SERVER FRIENDSHIP CTRL - Friendship.pending reply: ', reply);
+    console.log('SERVER FRIENDSHIP CTRL - Friendship.pending request.payload: ', request.payload);
+    // request.payload.userId = request.auth.credentials.id;
+    Friendship.pending(request.auth.credentials, function(err, friendships){
+      console.log('SERVER FRIENDSHIP CTRL - Friendship.pending FRIENDSHIPS: ', friendships);
       if(err){console.log('SERVER FRIENDSHIP CTRL - Friendship.pending ERROR: ', err);}
-      reply({pending:pending}).code(err ? 400 : 200);
+      reply({friendships:friendships}).code(err ? 400 : 200);
     });
   }
 };

@@ -35,17 +35,17 @@
     #friends
       table.table-borderless.remove-margin-bottom
         tbody
-          tr(ng-repeat='friend in friends')
+          tr(ng-repeat='friendship in friendships')
             td(style='width: 100px;')
-              img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{friend.gravatar}}', alt='{{friend.username}}')
+              img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{friendship.friendGravatar}}', alt='{{friendship.friendUsername}}')
             td
               h5
-                strong {{friend.first_name}} {{friend.last_name}}
+                strong {{friendship.friendFirstName}} {{friendship.friendLastName}}
               i.fa.fa-fw.fa-friend
-              |  {{friend.username}}
+              |  {{friendship.friendUsername}}
               br
               i.fa.fa-fw.fa-star
-              |  {{friend.points}}
+              |  {{friendship.friendPoints}}
             td.centered(style='width: 100px;')
               a.friend-btn.button.success.radius.tiny(ng-click='accept()', data-toggle='tooltip', title='Reject Friend Request')
                 i.fa.fa-fw.fa-thumbs-o-up.fa-lg

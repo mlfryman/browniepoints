@@ -7,9 +7,12 @@
     .controller('DashboardCtrl', ['$rootScope', '$scope', '$state', 'User', 'Prize', 'Friendship', function($rootScope, $scope, $state, User, Prize, Friendship){
       $scope.mode = 'dashboard';
       $scope.moment = moment;
+      // $scope.friendships = [];
+      // $scope.friendship = {};
 
       Friendship.pending().then(function(response){
-        $scope.pending = response.data.pending;
+        console.log('CLIENT DASHBOAD CTRL - Friendship.pending: ', response);
+        $scope.friendships = response;
       });
     }]);
 })();

@@ -20,9 +20,9 @@ Friendship.request = function(obj, cb){
   });
 };
 
-Friendship.pending = function(userId, cb){
+Friendship.pending = function(user, cb){
   var psqlString = 'SELECT * FROM pending_friendships_by_user($1)',
-      psqlParams = [userId];
+      psqlParams = [user.id];
   pg.query(psqlString, psqlParams, function(err, results){
     cb(err, results && results.rows ? results.rows : null);
   });
