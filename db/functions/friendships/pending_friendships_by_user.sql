@@ -1,9 +1,9 @@
 CREATE OR REPLACE FUNCTION pending_friendships_by_user (u_id INTEGER)
-RETURNS TABLE ("friendshipId" INTEGER, "friendFirstName" VARCHAR, "friendLastName" VARCHAR, "friendUsername" VARCHAR, "friendEmail" VARCHAR, "friendGravatar" VARCHAR) AS $$
+RETURNS TABLE ("friendshipId" INTEGER, "date" TIMESTAMPTZ, "firstName" VARCHAR, "lastName" VARCHAR, "username" VARCHAR, "email" VARCHAR, "gravatar" VARCHAR) AS $$
 DECLARE
 BEGIN
   RETURN QUERY
-    SELECT f.id AS "friendshipId", u.first_name AS "friendFirstName", u.last_name AS "friendLastName", u.username AS "friendUsername", u.email AS "friendEmail", u.gravatar AS "friendGravatar"
+    SELECT f.id AS "friendshipId", f.created_at AS "date", u.first_name AS "firstName", u.last_name AS "lastName", u.username AS "username", u.email AS "email", u.gravatar AS "gravatar"
     FROM users u, friendships f
     WHERE
       CASE

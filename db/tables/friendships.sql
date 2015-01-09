@@ -4,6 +4,7 @@ CREATE TABLE friendships(
   friend2_id INTEGER NOT NULL REFERENCES users(id),
   friend1_points INTEGER NOT NULL DEFAULT 0,
   friend2_points INTEGER NOT NULL DEFAULT 0,
-  accepted BOOLEAN NOT NULL DEFAULT FALSE
+  accepted BOOLEAN NOT NULL DEFAULT FALSE,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
 );
 

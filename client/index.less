@@ -70,6 +70,10 @@
     margin-right: 15px;
 }
 
+.push-left {
+    margin-left: 15px;
+}
+
 .overflow-hidden {
     overflow: hidden;
 }
@@ -660,10 +664,11 @@ table thead tr th, table thead tr td {
   font-weight: bold;
   color: @MAIN;
 }
+
 .helper {
   margin-bottom: 25px;
   font-size: 12px;
-  color: @MAIN;
+  color: #dddddd;
 }
 
 .text-light {
@@ -728,8 +733,11 @@ a:hover, a:focus {
 
 
 //--------Buttons Styling--------//
+.button {
+  font-family: 'Lato', Helvetica, Arial, sans-serif!important;
+}
 .btn {
-  font-family: "Lato", Helvetica, Arial, sans-serif!important;
+  font-family: 'Lato', Helvetica, Arial, sans-serif!important;
   font-weight: 700;
   cursor: pointer;
   text-align: center;
@@ -906,6 +914,13 @@ a:hover, a:focus {
 .btn-xlarge.btn-raised {
   padding: 21px 47px 20px;
 }
+
+.badge {
+  font-family: 'Lato', Helvetica, Arial, sans-serif!important;
+  font-size: 13px;
+  padding: 6px 10px 6px;
+  vertical-align: top;
+}
 //-------END Button Styles-------//
 
 
@@ -914,7 +929,7 @@ a:hover, a:focus {
   width: 1000px;
   max-width: 100%;
   // min-width: 768px;
-  margin: 0 auto;
+  margin: 0 15%;
 }
 
 .row:before,.row:after {

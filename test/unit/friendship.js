@@ -47,11 +47,43 @@ describe('Friendship', function(){
     it('should get all pending friend requests by User', function(done){
       Friendship.pending(1, function(err, results){
         expect(err).to.be.null;
-        done();
+       done();
       });
     });
     it('should NOT get all pending friend requests by User - no pending requests', function(done){
       Friendship.pending(2, function(err, results){
+        expect(results).to.be.empty;
+        done();
+      });
+    });
+  });
+
+  describe('.accept', function(){
+    it('should accept a pending friend request', function(done){
+      Friendship.accept(13, function(err, results){
+        expect(err).to.be.null;
+        expect(results).to.have.length(1);
+       done();
+      });
+    });
+    it('should NOT accept a pending friend request - wrong friendshipId', function(done){
+      Friendship.accept(99, function(err, results){
+        expect(results).to.be.empty;
+        done();
+      });
+    });
+  });
+
+  describe('.deny', function(){
+    it('should deny a pending friend request', function(done){
+      Friendship.deny(14, function(err, results){
+        expect(err).to.be.null;
+        expect(results).to.have.length(1);
+        done();
+      });
+    });
+    it('should NOT deny a pending friend request - wrong friendshipId', function(done){
+      Friendship.deny(99, function(err, results){
         expect(results).to.be.empty;
         done();
       });

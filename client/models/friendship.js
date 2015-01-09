@@ -14,15 +14,15 @@
       return $http.get('/friends/pending');
     }
 
-    function accept(){
-      return $http.post('/friends/accept');
+    function accept(friendshipId){
+      return $http.put('/friends/' + friendshipId + '/accept');
     }
 
-    function deny(){
-      return $http.post('/friends/deny');
+    function deny(friendshipId){
+      return $http.delete('/friends/' + friendshipId + '/deny');
     }
 
-    function index(){
+    function list(){
       return $http.get('/friends');
     }
 
@@ -35,7 +35,7 @@
       pending:pending,
       accept:accept,
       deny:deny,
-      index:index,
+      list:list,
       count:count
     };
   }]);

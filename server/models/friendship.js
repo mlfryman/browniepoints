@@ -4,8 +4,6 @@
 
 var pg = require('../postgres/manager');
 
-// MAKE FORMS & FUNCTIONS TO ADD & SUBTRACT POINTS
-
 function Friendship(){
 }
 
@@ -33,21 +31,25 @@ Friendship.findAll = function(userId, cb){
   var psqlString = 'SELECT * FROM list_friends($1)',
       psqlParams = [userId];
   pg.query(psqlString, psqlParams, function(err, results){
-    console.log('SERVER FRIENDSHIP MODEL - Friendship.findAll ERROR): ', err);
-    console.log('SERVER FRIENDSHIP MODEL - Friendship.findAll RESULTS): ', results);
     cb(err, results && results.rows ? results.rows : null);
   });
 };
 
-Friendship.accept = function(){
-// this updates the accepted column in pending friendship
+Friendship.accept = function(friendshipId, cb){
+  var psqlString = 'UPDATE friendships SET accepted=true WHERE id = $1 RETURNING id;',
+      psqlParams = [friendshipId];
+  pg.query(psqlString, psqlParams, function(err, results){
+    cb(err, results && results.rows ? results.rows : null);
+  });
 };
 
-Friendship.deny = function(){
-// this updates the accepted column in pending friendship
+Friendship.deny = function(friendshipId, cb){
+  var psqlString = 'DELETE FROM friendships WHERE id = $1 RETURNING id;',
+      psqlParams = [friendshipId];
+  pg.query(psqlString, psqlParams, function(err, results){
+    cb(err, results && results.rows ? results.rows : null);
+  });
 };
-
-// console.log('SERVER USER MODEL - Friendship.friendRequest ERROR: ', err);
 
 module.exports = Friendship;
 

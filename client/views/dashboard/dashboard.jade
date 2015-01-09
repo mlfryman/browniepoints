@@ -27,27 +27,34 @@
               i.fa.fa-group.push
               br
               small
-                strong {{friends.length || 0}}
+                strong {{friendships.length || 0}}
                 |  Friends
-  .eight.columns
+  .two.columns
+  .six.columns
     h2 Pending Friend Requests
+      span.label.badge.alert.push-left.round(ng-cloak, ng-show='pending.length')
+        {{pending.length}}
     hr
-    #friends
-      table.table-borderless.remove-margin-bottom
-        tbody
-          tr(ng-repeat='friendship in friendships')
-            td(style='width: 100px;')
-              img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{friendship.friendGravatar}}', alt='{{friendship.friendUsername}}')
-            td
-              h5
-                strong {{friendship.friendFirstName}} {{friendship.friendLastName}}
-              i.fa.fa-fw.fa-friend
-              |  {{friendship.friendUsername}}
-              br
-              i.fa.fa-fw.fa-star
-              |  {{friendship.friendPoints}}
-            td.centered(style='width: 100px;')
-              a.friend-btn.button.success.radius.tiny(ng-click='accept()', data-toggle='tooltip', title='Reject Friend Request')
-                i.fa.fa-fw.fa-thumbs-o-up.fa-lg
-              a.friend-btn.button.danger.radius.tiny(ng-click='deny()', data-toggle='tooltip', title='Deny Friend Request')
-                i.fa.fa-fw.fa-thumbs-o-down.fa-lg
+    .row
+      .twelve.columns
+        #friends
+          table.table-borderless.remove-margin-bottom(ng-cloak, style='width: 100%;')
+            tbody
+              tr(ng-repeat='p in pending | orderBy : "date"')
+                td(style='width: 100px;')
+                  img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{p.gravatar}}', alt='{{p.username}}')
+                td
+                  h5
+                    strong {{p.firstName}} {{p.lastName}}
+                  i.fa.fa-fw.fa-user
+                  |  {{p.username}}
+                  br
+                  i.fa.fa-fw.fa-envelope
+                  |  {{p.email}}
+                td.centered
+                  ul.button-group.pull-right.push-right.round
+                    li: a.button.success.tiny(ng-click='accept(p.friendshipId)', data-toggle='tooltip', title='Confirm')
+                      i.fa.fa-check &nbsp;
+                    li: a.button.alert.tiny(ng-click='deny(p.friendshipId)', data-toggle='tooltip', title='Delete')
+                      i.fa.fa-times &nbsp;
+
