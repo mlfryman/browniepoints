@@ -5,5 +5,8 @@ INSERT INTO users (id,first_name,last_name,username,email,password,token,gravata
 
 INSERT INTO friendships (id, friend1_id, friend2_id) VALUES (13, 1, 3);
 INSERT INTO friendships (id, friend1_id, friend2_id) VALUES (14, 1, 4);
-INSERT INTO friendships (id, friend1_id, friend2_id, accepted) VALUES (23, 3, 2, TRUE);
+INSERT INTO friendships (id, friend1_id, friend2_id) VALUES (23, 3, 2);
 INSERT INTO friendships (id, friend1_id, friend2_id) VALUES (34, 4, 3);
+
+UPDATE friendships SET accepted = TRUE WHERE id = 13;
+UPDATE friendships SET accepted = TRUE WHERE id = 23;

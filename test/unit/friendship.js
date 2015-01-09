@@ -50,8 +50,8 @@ describe('Friendship', function(){
        done();
       });
     });
-    it('should NOT get all pending friend requests by User - no pending requests', function(done){
-      Friendship.pending(2, function(err, results){
+    it('should NOT get all pending friend requests by User - bad userId', function(done){
+      Friendship.pending(99, function(err, results){
         expect(results).to.be.empty;
         done();
       });
@@ -84,6 +84,22 @@ describe('Friendship', function(){
     });
     it('should NOT deny a pending friend request - wrong friendshipId', function(done){
       Friendship.deny(99, function(err, results){
+        expect(results).to.be.empty;
+        done();
+      });
+    });
+  });
+
+  describe('.findAll', function(){
+    it('should find all Friendships for a User', function(done){
+      Friendship.findAll({id:1}, function(err, results){
+        expect(err).to.be.null;
+        expect(results).to.have.length(1);
+        done();
+      });
+    });
+    it('should NOT find all Friendships for a User - wrong friendshipId', function(done){
+      Friendship.findAll({id:99}, function(err, results){
         expect(results).to.be.empty;
         done();
       });

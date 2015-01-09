@@ -22,12 +22,12 @@
       return $http.delete('/friends/' + friendshipId + '/deny');
     }
 
-    function list(){
+    function findAll(){
       return $http.get('/friends');
     }
 
-    function count(){
-      return $http.get('/friends/count');
+    function show(friendshipId){
+      return $http.get('/friends/' + friendshipId);
     }
 
     return {
@@ -35,8 +35,8 @@
       pending:pending,
       accept:accept,
       deny:deny,
-      list:list,
-      count:count
+      findAll:findAll,
+      show:show
     };
   }]);
 })();

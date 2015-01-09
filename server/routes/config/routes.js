@@ -6,7 +6,6 @@ module.exports = [
   {method: 'POST',   path: '/login',                          config: require('../definitions/users/post_login')},
   {method: 'DELETE', path: '/logout',                         config: require('../definitions/users/delete_logout')},
   {method: 'GET',    path: '/status',                         config: require('../definitions/users/get_status')},
-  // {method: 'POST',   path: '/users/{userId}/upload',        config: require('../definitions/users/post_upload_avatar')},
   {method: 'GET',    path: '/users',                          config: require('../definitions/users/get_all_users')},
   {method: 'GET',    path: '/users/{searchEmail}',            config: require('../definitions/users/get_user')},
 
@@ -21,8 +20,8 @@ module.exports = [
   // FRIENDSHIPS ROUTES
   {method: 'POST',   path: '/friends/request',                config: require('../definitions/friendships/post_friend_request')},
   {method: 'GET',    path: '/friends/pending',                config: require('../definitions/friendships/get_pending_friendships')},
-  // {method: 'GET',    path: '/friends',                     config: require('../definitions/friendships/get_all_friends')}
-  // {method: 'GET',    path: '/friends/{friendId}',          config: require('../definitions/friendships/get_show_friend')},
   {method: 'PUT',    path: '/friends/{friendshipId}/accept',  config: require('../definitions/friendships/put_accept_friendship')},
-  {method: 'DELETE', path: '/friends/{friendshipId}/deny',    config: require('../definitions/friendships/delete_deny_friendship')}
+  {method: 'DELETE', path: '/friends/{friendshipId}/deny',    config: require('../definitions/friendships/delete_deny_friendship')},
+  {method: 'GET',    path: '/friends',                        config: require('../definitions/friendships/get_all_friends')}
+  // {method: 'GET',    path: '/friends/{friendId}',          config: require('../definitions/friendships/get_show_friend')}
 ];

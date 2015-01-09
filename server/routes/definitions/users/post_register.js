@@ -20,6 +20,7 @@ module.exports = {
   auth: false,
   handler: function(request, reply){
     User.register(request.payload, function(err){
+      if(err){console.log('SERVER USER CTRL - .register ERROR: ', err);}
       reply().code(err ? 400 : 200);
     });
   }

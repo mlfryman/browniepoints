@@ -8,21 +8,23 @@
       $scope.mode = 'dashboard';
       $scope.moment = moment;
       $scope.pending = [];
-      $scope.friendship = [];
+      $scope.friends = [];
 
       Friendship.pending().then(function(response){
         $scope.pending = response.data;
       });
 
+      Friendship.findAll().then(function(response){
+        $scope.friends = response.data;
+      });
+
       $scope.accept = function(friendshipId){
-        console.log('CLIENT DASHBOAD CTRL - @param accept(friendshipId): ', friendshipId);
         Friendship.accept(friendshipId).then(function(response){
           $state.reload();
         });
       };
 
       $scope.deny = function(friendshipId){
-        console.log('CLIENT DASHBOAD CTRL - @param deny(friendshipId): ', friendshipId);
         Friendship.deny(friendshipId).then(function(response){
           $state.reload();
         });

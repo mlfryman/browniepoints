@@ -19,24 +19,23 @@ Friendship.request = function(obj, cb){
 };
 
 Friendship.pending = function(user, cb){
-  var psqlString = 'SELECT * FROM pending_friendships_by_user($1)',
+  var psqlString = 'SELECT * FROM find_pending_friends($1)',
       psqlParams = [user.id];
   pg.query(psqlString, psqlParams, function(err, results){
     cb(err, results && results.rows ? results.rows : null);
   });
 };
 
-Friendship.findAll = function(userId, cb){
-  console.log('SERVER FRIENDSHIP MODEL - Friendship.findAll userId): ', userId);
-  var psqlString = 'SELECT * FROM list_friends($1)',
-      psqlParams = [userId];
+Friendship.findAll = function(user, cb){
+  var psqlString = 'SELECT * FROM find_all_friends($1)',
+      psqlParams = [user.id];
   pg.query(psqlString, psqlParams, function(err, results){
     cb(err, results && results.rows ? results.rows : null);
   });
 };
 
 Friendship.accept = function(friendshipId, cb){
-  var psqlString = 'UPDATE friendships SET accepted=true WHERE id = $1 RETURNING id;',
+  var psqlString = 'UPDATE friendships SET accepted = TRUE WHERE id = $1 RETURNING id;',
       psqlParams = [friendshipId];
   pg.query(psqlString, psqlParams, function(err, results){
     cb(err, results && results.rows ? results.rows : null);

@@ -15,7 +15,7 @@ module.exports = {
   handler: function(request, reply){
     request.payload.userId = request.auth.credentials.id;
     User.upload(request.auth.credentials, request.payload.file, request.payload.file.hapi.filename, request.params.userId, function(err){
-      if(err){console.log('SERVER ERROR - USER CTRL User.upload: ', err);}
+      if(err){console.log('SERVER USER CTRL - .upload ERROR: ', err);}
       reply().code(err ? 400 : 200);
     });
   }

@@ -5,6 +5,7 @@ CREATE TABLE friendships(
   friend1_points INTEGER NOT NULL DEFAULT 0,
   friend2_points INTEGER NOT NULL DEFAULT 0,
   accepted BOOLEAN NOT NULL DEFAULT FALSE,
-  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
+  requested_at TIMESTAMPTZ NOT NULL DEFAULT now(),
+  accepted_at TIMESTAMPTZ
 );
 
