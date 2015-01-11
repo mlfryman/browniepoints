@@ -7,6 +7,7 @@
   .controller('FriendshipDetailCtrl', ['$scope', '$state', 'User', 'Prize', 'Friendship', function($scope, $state, User, Prize, Friendship){
     $scope.friendshipId = $state.params.friendshipId;
     $scope.transaction  = {};
+    $scope.transactions = [];
     $scope.moment       = moment;
 
     $scope.showModal = function(modalId){
@@ -39,6 +40,10 @@
 
     Friendship.findOne($state.params.friendshipId).then(function(response){
       $scope.friend = response.data;
+    });
+
+    Friendship.findAllTransactions($state.params.friendshipId).then(function(response){
+      $scope.transactions = response.data;
     });
   }]);
 })();

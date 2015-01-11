@@ -74,6 +74,14 @@ Friendship.punish = function(friendshipId, obj, cb){
   });
 };
 
+Friendship.findAllTransactions = function(friendshipId, cb){
+  var psqlString = 'SELECT * FROM find_all_transactions (friendship_id) VALUES ($1) RETURNING id',
+      psqlParams = [friendshipId];
+  pg.query(psqlString, psqlParams, function(err, results){
+    cb(err, results && results.rows ? results.rows[0] : null);
+  });
+};
+
 module.exports = Friendship;
 
 function generatePK(id1, id2, cb){

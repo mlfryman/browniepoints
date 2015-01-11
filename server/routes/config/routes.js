@@ -27,5 +27,6 @@ module.exports = [
 
   // FRIENDSHIPS-TRANSACTIONS ROUTES
   {method: 'POST',   path: '/transactions/{friendshipId}/reward',  config: require('../definitions/friendships/post_reward_friendship')},
-  {method: 'POST',   path: '/transactions/{friendshipId}/punish',  config: require('../definitions/friendships/post_punish_friendship')}
+  {method: 'POST',   path: '/transactions/{friendshipId}/punish',  config: require('../definitions/friendships/post_punish_friendship')},
+  {method: 'GET',    path: '/transactions/{friendshipId}',         config: require('../definitions/friendships/get_all_transactions')}
 ];

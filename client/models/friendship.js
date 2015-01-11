@@ -31,15 +31,16 @@
     }
 
     function reward(friendshipId, transaction){
-      console.log('CLIENT FRIENDSHIP MODEL - @params reward(friendshipId)', friendshipId);
-      console.log('CLIENT FRIENDSHIP MODEL - @params reward(transaction)', transaction);
       return $http.post('/transactions/' + friendshipId + '/reward', transaction);
     }
 
     function punish(friendshipId, transaction){
-      console.log('CLIENT FRIENDSHIP MODEL - @params punish(friendshipId)', friendshipId);
-      console.log('CLIENT FRIENDSHIP MODEL - @params punish(transaction)', transaction);
       return $http.post('/transactions/' + friendshipId + '/punish', transaction);
+    }
+
+    function findAllTransactions(friendshipId){
+      console.log('CLIENT FRIENDSHIP MODEL - @params findAllTransactions(friendshipId)', friendshipId);
+      return $http.get('/transactions/' + friendshipId);
     }
 
     return {
@@ -50,7 +51,8 @@
       findAll:findAll,
       findOne:findOne,
       reward:reward,
-      punish:punish
+      punish:punish,
+      findAllTransactions:findAllTransactions
     };
   }]);
 })();

@@ -29,5 +29,32 @@
                   i.fa.fa-check &nbsp;
                 li: a.button.alert.tiny(ng-click=('showModal(\'#punishModal\')'), data-toggle='tooltip', title='Punish')
                   i.fa.fa-times &nbsp;
+
+  .six.columns
+    h2 Transactions
+      span.label.badge.alert.push-left.round(ng-cloak, ng-show='transactions.length')
+        {{transactions.length}}
+    hr
+    .row
+      .twelve.columns(ng-show='!transactions.length')
+        h5.text-centered You have 0 updates.
+      .twelve.columns(ng-show='transactions.length')
+        #transactions
+          table.table-borderless.remove-margin-bottom(ng-cloak, style='width: 100%;')
+            tbody
+              tr(ng-repeat='t in transactions | orderBy : "date"')
+                td(style='width: 100px;')
+                  //- img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{p.gravatar}}', alt='{{p.username}}')
+                td
+                  h5
+                    strong {{t.firstName}} {{t.lastName}}
+                  i.fa.fa-fw.fa-user
+                  |  {{t.username}}
+                  br
+                  i.fa.fa-fw.fa-envelope
+                  |  {{p.email}}
+                td
+                  em {{moment(t.date).calendar()}}
+
 include modals/reward
 include modals/punish
