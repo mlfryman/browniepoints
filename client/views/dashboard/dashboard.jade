@@ -35,7 +35,7 @@
       .twelve.columns
         h2 Pending Friend Requests
           span.label.badge.alert.push-left.round(ng-cloak, ng-show='pending.length')
-            {{pending.length}}
+            | {{pending.length}}
         hr
         .row
           .twelve.columns(ng-show='!pending.length')
@@ -70,7 +70,7 @@
       .twelve.columns
         h2 Friends
           span.label.badge.primary.push-left.round(ng-cloak, ng-show='friends.length')
-            {{friends.length}}
+            | {{friends.length}}
         hr
         .row
           .twelve.columns(ng-show='!friends.length')

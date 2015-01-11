@@ -13,7 +13,7 @@ module.exports = {
     }
   },
   handler: function(request, reply){
-    Friendship.findAllTransactions(request.params.friendshipId, request.auth.credentials.id, function(err, results){
+    Friendship.findAllTransactions(request.params.friendshipId, function(err, results){
       if(err){console.log('SERVER FRIENDSHIP CTRL - .findAllTransactions ERROR: ', err);}
       reply(results).code(err ? 400 : 200);
     });

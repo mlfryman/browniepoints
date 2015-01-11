@@ -10,3 +10,10 @@ INSERT INTO friendships (id, friend1_id, friend2_id) VALUES (34, 4, 3);
 
 UPDATE friendships SET accepted = TRUE WHERE id = 13;
 UPDATE friendships SET accepted = TRUE WHERE id = 23;
+
+INSERT INTO transactions (id, friendship_id, from_id, to_id, body, points) VALUES (1, 13, 1, 3, 'Thanks for helping me move!', 20);
+INSERT INTO transactions (id, friendship_id, from_id, to_id, body, points) VALUES (2, 13, 1, 3, 'You broke my lamp. Lame!', -10);
+INSERT INTO transactions (id, friendship_id, from_id, to_id, body, points) VALUES (3, 13, 3, 1, 'Just because!', 10);
+INSERT INTO transactions (id, friendship_id, from_id, to_id, body, points) VALUES (4, 13, 1, 3, 'You disappoint me.', -5);
+
+UPDATE transactions SET read = TRUE WHERE id = 1;
