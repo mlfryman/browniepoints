@@ -22,6 +22,10 @@ module.exports = [
   {method: 'GET',    path: '/friends/pending',                config: require('../definitions/friendships/get_pending_friendships')},
   {method: 'PUT',    path: '/friends/{friendshipId}/accept',  config: require('../definitions/friendships/put_accept_friendship')},
   {method: 'DELETE', path: '/friends/{friendshipId}/deny',    config: require('../definitions/friendships/delete_deny_friendship')},
-  {method: 'GET',    path: '/friends',                        config: require('../definitions/friendships/get_all_friends')}
-  // {method: 'GET',    path: '/friends/{friendId}',          config: require('../definitions/friendships/get_show_friend')}
+  {method: 'GET',    path: '/friends',                        config: require('../definitions/friendships/get_all_friendships')},
+  {method: 'GET',    path: '/friends/{friendshipId}',         config: require('../definitions/friendships/get_show_friendship')},
+
+  // FRIENDSHIPS-TRANSACTIONS ROUTES
+  {method: 'POST',   path: '/transactions/{friendshipId}/reward',  config: require('../definitions/friendships/post_reward_friendship')},
+  {method: 'POST',   path: '/transactions/{friendshipId}/punish',  config: require('../definitions/friendships/post_punish_friendship')}
 ];

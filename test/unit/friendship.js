@@ -105,4 +105,19 @@ describe('Friendship', function(){
       });
     });
   });
+  describe('.findOne', function(){
+    it('should find one Friendship by ID', function(done){
+      Friendship.findOne({id:1}, 13, function(err, results){
+        expect(err).to.be.null;
+        expect(results).to.have.property('firstName');
+        done();
+      });
+    });
+    it('should NOT find a Friendship by ID - bad friendshipId', function(done){
+      Friendship.findOne({id:1}, 99, function(err, results){
+        expect(results).to.be.empty;
+        done();
+      });
+    });
+  });
 });

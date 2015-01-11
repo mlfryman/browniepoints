@@ -9,11 +9,9 @@
       $scope.users      = [];
 
       $scope.search = function(searchEmail){
-        // console.log('search(searchEmail): ', searchEmail);
         User.findByEmail(searchEmail).then(function(response){
           $scope.searchEmail = '';
           $scope.user = response.data.user;
-          // console.log('User.findByEmail $scope.user: ', $scope.user);
         });
       };
 

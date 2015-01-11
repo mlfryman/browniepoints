@@ -26,8 +26,20 @@
       return $http.get('/friends');
     }
 
-    function show(friendshipId){
+    function findOne(friendshipId){
       return $http.get('/friends/' + friendshipId);
+    }
+
+    function reward(friendshipId, transaction){
+      console.log('CLIENT FRIENDSHIP MODEL - @params reward(friendshipId)', friendshipId);
+      console.log('CLIENT FRIENDSHIP MODEL - @params reward(transaction)', transaction);
+      return $http.post('/transactions/' + friendshipId + '/reward', transaction);
+    }
+
+    function punish(friendshipId, transaction){
+      console.log('CLIENT FRIENDSHIP MODEL - @params punish(friendshipId)', friendshipId);
+      console.log('CLIENT FRIENDSHIP MODEL - @params punish(transaction)', transaction);
+      return $http.post('/transactions/' + friendshipId + '/punish', transaction);
     }
 
     return {
@@ -36,7 +48,9 @@
       accept:accept,
       deny:deny,
       findAll:findAll,
-      show:show
+      findOne:findOne,
+      reward:reward,
+      punish:punish
     };
   }]);
 })();

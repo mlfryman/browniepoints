@@ -1,0 +1,33 @@
+.section-header.nine.columns.centered
+  h1 {{friend.username | uppercase}}'S DASHBOARD
+
+.row
+  .four.columns
+    .widget
+      .widget-image.widget-image-sm
+        img(src='../assets/img/bg-silver.png')
+        .widget-image-content.text-center
+          img.gravatar.img-circle.img-thumbnail.img-thumbnail-transparent.img-thumbnail-avatar-2x.push(ng-src='{{friend.gravatar}}' alt='{{friend.username}}')
+          h2.widget-heading.text-light
+            strong {{friend.firstName}} {{friend.lastName}}
+          h4.widget-heading.text-light-op
+            em {{friend.username}}
+      .widget-content.widget-content-full.widget-content-border
+        .row.text-center
+          .twelve.columns.push-inner-top-bottom
+            h3.widget-heading
+              small
+                strong {{friend.points || 0}}
+                |  Brownie Points
+        .row.text-center
+          .twelve.columns.push-inner-top-bottom
+            h3.widget-heading
+              small
+                strong Points
+              ul.button-group.centered.round
+                li: a.button.success.tiny(ng-click=('showModal(\'#rewardModal\')'), data-toggle='tooltip', title='Reward')
+                  i.fa.fa-check &nbsp;
+                li: a.button.alert.tiny(ng-click=('showModal(\'#punishModal\')'), data-toggle='tooltip', title='Punish')
+                  i.fa.fa-times &nbsp;
+include modals/reward
+include modals/punish

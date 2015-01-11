@@ -1,0 +1,16 @@
+#rewardModal.reveal-modal.small(data-reveal='')
+  h2
+    i.fa.fa-plus &nbsp;
+      | Give Points
+  hr
+  form(name='rewardForm')
+    fieldset
+      legend &nbsp;
+        img.img-circle.img-thumbnail.img-thumbnail-avatar-sm(ng-src='{{friend.gravatar}}', alt='{{friend.username}}')
+      label Why are you giving {{friend.firstName}} brownie points?
+        textarea#why(name='body', ng-model='transaction.body', placeholder='Thanks for helping me move!', autofocus, required)
+      label Points
+        input#points(type='number', name='points', ng-model='transaction.points', min='1', required)
+      a.button.success.radius.tiny(ng-click='reward(transaction)')
+        i.fa.fa-trophy.fa-lg &nbsp; Reward
+    a.close-reveal-modal &#215;

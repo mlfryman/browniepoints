@@ -81,7 +81,7 @@
               table.table-borderless.remove-margin-bottom(ng-cloak, style='width: 100%;')
                 tbody
                   tr(ng-repeat='f in friends | orderBy : "username"')
-                    td(style='width: 100px;'): a(ui-sref='friendship.detail({friendshipId:f.friendshipId})')
+                    td(style='width: 100px;'): a(ui-sref='friendships.detail({friendshipId:f.friendshipId})')
                       img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{f.gravatar}}', alt='{{f.username}}')
                     td
                       h5
@@ -93,7 +93,7 @@
                       |  {{f.email}}
                     td.centered
                       ul.button-group.pull-right.push-right.round
-                        li: a.button.success.tiny(ng-click='add()', data-toggle='tooltip', title='Add Points')
+                        li: a.button.success.tiny.disabled(ng-click='add()', data-toggle='tooltip', title='Add Points')
                           i.fa.fa-plus &nbsp;
-                        li: a.button.alert.tiny(ng-click='subtract()', data-toggle='tooltip', title='Subtract Points')
+                        li: a.button.alert.tiny.disabled(ng-click='subtract()', data-toggle='tooltip', title='Subtract Points')
                           i.fa.fa-minus &nbsp;

@@ -15,15 +15,15 @@
             .row
               .twelve.columns
                 label(for='title') Title
-                input#name(type='text', name='title', placeholder='Name your prize', ng-model='prize.title', autofocus)
+                input#name(type='text', name='title', placeholder='Name your prize', ng-model='prize.title', autofocus, required)
             .row
               .twelve.columns
                 label(for='description') Description
-                textarea#description(name='description', placeholder='Describe your prize', ng-model='prize.description')
+                textarea#description(name='description', placeholder='Describe your prize', ng-model='prize.description', required)
             .row
               .three.columns
                 label(for='cost') Cost
-                input#cost(type='number', name='cost', ng-model='prize.cost')
+                input#cost(type='number', name='cost', ng-model='prize.cost', min='1', required)
               .nine.columns
                   label(for='tags') Tags (comma separated)
                   input#tags(type='text', name='tags', placeholder='tag1,tag2,tag3', ng-model='prize.tags')

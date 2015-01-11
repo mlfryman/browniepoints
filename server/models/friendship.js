@@ -13,7 +13,7 @@ Friendship.request = function(obj, cb){
     var psqlString = 'INSERT INTO friendships (id, friend1_id, friend2_id) VALUES ($1, $2, $3) RETURNING id',
         psqlParams = [obj.friendshipId, obj.friend1Id, obj.friend2Id];
     pg.query(psqlString, psqlParams, function(err, results){
-     cb(err, results && results.rows ? results.rows[0] : null);
+      cb(err, results && results.rows ? results.rows[0] : null);
     });
   });
 };
@@ -34,6 +34,14 @@ Friendship.findAll = function(user, cb){
   });
 };
 
+Friendship.findOne = function(user, friendshipId, cb){
+  var psqlString = 'SELECT * FROM show_friend($1, $2)',
+      psqlParams = [user.id, friendshipId];
+  pg.query(psqlString, psqlParams, function(err, results){
+    cb(err, results && results.rows ? results.rows[0] : null);
+  });
+};
+
 Friendship.accept = function(friendshipId, cb){
   var psqlString = 'UPDATE friendships SET accepted = TRUE WHERE id = $1 RETURNING id;',
       psqlParams = [friendshipId];
@@ -47,6 +55,22 @@ Friendship.deny = function(friendshipId, cb){
       psqlParams = [friendshipId];
   pg.query(psqlString, psqlParams, function(err, results){
     cb(err, results && results.rows ? results.rows : null);
+  });
+};
+
+Friendship.reward = function(friendshipId, obj, cb){
+  var psqlString = 'INSERT INTO transactions (friendship_id, from_id, to_id, body, points) VALUES ($1, $2, $3, $4, $5) RETURNING id',
+      psqlParams = [friendshipId, obj.from_id, obj.to_id, obj.body, obj.points];
+  pg.query(psqlString, psqlParams, function(err, results){
+    cb(err, results && results.rows ? results.rows[0] : null);
+  });
+};
+
+Friendship.punish = function(friendshipId, obj, cb){
+  var psqlString = 'INSERT INTO transactions (friendship_id, from_id, to_id, body, points) VALUES ($1, $2, $3, $4, $5) RETURNING id',
+      psqlParams = [friendshipId, obj.from_id, obj.to_id, obj.body, obj.points];
+  pg.query(psqlString, psqlParams, function(err, results){
+    cb(err, results && results.rows ? results.rows[0] : null);
   });
 };
 
@@ -64,3 +88,12 @@ function generatePK(id1, id2, cb){
   var friendshipId = ((small + large) * 1);
   cb(friendshipId);
 }
+
+// function myId(user, friendship, cb){
+//   if(user.id === friendship.friend1_id){
+//     return friendship.friend1_id;
+//   }else{
+//     return friendship.friend2_id;
+//   }
+//   cb(myId);
+// }
