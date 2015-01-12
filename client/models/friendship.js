@@ -7,7 +7,7 @@
   .factory('Friendship', ['$rootScope', '$http', '$upload', function($rootScope, $http, $upload){
 
     function request(friend2Id){
-      return $http.post('/friends/request', friend2Id);
+      return $http.post('/friends/request/' + friend2Id);
     }
 
     function pending(){
@@ -31,16 +31,15 @@
     }
 
     function reward(friendshipId, transaction){
-      return $http.post('/transactions/' + friendshipId + '/reward', transaction);
+     return $http.post('/friends/' + friendshipId + '/reward', transaction);
     }
 
     function punish(friendshipId, transaction){
-      return $http.post('/transactions/' + friendshipId + '/punish', transaction);
+      return $http.post('/friends/' + friendshipId + '/punish', transaction);
     }
 
     function findAllTransactions(friendshipId){
-      console.log('CLIENT FRIENDSHIP MODEL - @params findAllTransactions(friendshipId)', friendshipId);
-      return $http.get('/transactions/' + friendshipId);
+      return $http.get('/friends/' + friendshipId + '/transactions');
     }
 
     return {

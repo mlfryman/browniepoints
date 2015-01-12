@@ -2,9 +2,7 @@ CREATE TABLE friendships(
   id INTEGER PRIMARY KEY,
   friend1_id INTEGER NOT NULL REFERENCES users(id),
   friend2_id INTEGER NOT NULL REFERENCES users(id),
-  friend1_wallet INTEGER NOT NULL DEFAULT 0,
-  friend2_wallet INTEGER NOT NULL DEFAULT 0,
+  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   accepted BOOLEAN NOT NULL DEFAULT FALSE,
-  requested_at TIMESTAMPTZ NOT NULL DEFAULT now(),
   accepted_at TIMESTAMPTZ
 );

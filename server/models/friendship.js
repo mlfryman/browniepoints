@@ -13,6 +13,7 @@ Friendship.request = function(obj, cb){
     var psqlString = 'INSERT INTO friendships (id, friend1_id, friend2_id) VALUES ($1, $2, $3) RETURNING id',
         psqlParams = [obj.friendshipId, obj.friend1Id, obj.friend2Id];
     pg.query(psqlString, psqlParams, function(err, results){
+      console.log('SERVER FRIENDSHIP MODEL - .request RESULTS: ', results);
       cb(err, results && results.rows ? results.rows[0] : null);
     });
   });
@@ -22,6 +23,7 @@ Friendship.pending = function(user, cb){
   var psqlString = 'SELECT * FROM find_pending_friends($1)',
       psqlParams = [user.id];
   pg.query(psqlString, psqlParams, function(err, results){
+    // console.log('SERVER FRIENDSHIP MODEL - .pending RESULTS: ', results);
     cb(err, results && results.rows ? results.rows : null);
   });
 };
@@ -90,18 +92,9 @@ function generatePK(id1, id2, cb){
     large = id1.toString();
     small = id2.toString();
   }else{
-    small=id1.toString();
-    large=id2.toString();
+    small = id1.toString();
+    large = id2.toString();
   }
   var friendshipId = ((small + large) * 1);
   cb(friendshipId);
 }
-
-// function myId(user, friendship, cb){
-//   if(user.id === friendship.friend1_id){
-//     return friendship.friend1_id;
-//   }else{
-//     return friendship.friend2_id;
-//   }
-//   cb(myId);
-// }

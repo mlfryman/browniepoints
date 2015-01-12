@@ -1,6 +1,0 @@
-CREATE TABLE images(
-  id SERIAL PRIMARY KEY,
-  url VARCHAR(1000) NOT NULL,
-  created_at TIMESTAMPTZ NOT NULL DEFAULT now(),
-  prize_id INTEGER NOT NULL REFERENCES prizes(id)
-);

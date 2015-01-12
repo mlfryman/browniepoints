@@ -1,6 +1,0 @@
-CREATE TABLE avatars(
-  id SERIAL PRIMARY KEY,
-  user_id INTEGER NOT NULL REFERENCES users(id),
-  url VARCHAR(1000) NOT NULL,
-  created_at TIMESTAMPTZ NOT NULL DEFAULT now()
-);

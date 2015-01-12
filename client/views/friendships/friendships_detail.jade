@@ -1,6 +1,5 @@
 .section-header.nine.columns.centered
-  h1 {{friend.username | uppercase}}'S DASHBOARD
-
+  h1
 .row
   .four.columns
     .widget
@@ -14,49 +13,96 @@
             em {{friend.username}}
       .widget-content.widget-content-full.widget-content-border
         .row.text-center
-          .twelve.columns.push-inner-top-bottom
-            h3.widget-heading
-              small
-                strong {{friend.points || 0}}
-                |  Brownie Points
-        .row.text-center
-          .twelve.columns.push-inner-top-bottom
+          .six.columns.push-inner-top-bottom
             h3.widget-heading
               small
                 strong Points
               ul.button-group.centered.round
                 li: a.button.success.tiny(ng-click=('showModal(\'#rewardModal\')'), data-toggle='tooltip', title='Reward')
-                  i.fa.fa-check &nbsp;
+                  i.fa.fa-lg.fa-plus
                 li: a.button.alert.tiny(ng-click=('showModal(\'#punishModal\')'), data-toggle='tooltip', title='Punish')
-                  i.fa.fa-times &nbsp;
+                  i.fa.fa-lg.fa-minus
+          .six.columns.push-inner-top-bottom
+            h3.widget-heading
+              small
+                strong Prize
+              ul.button-group.centered.round
+                li: a.button.success.tiny(ng-click=('showModal(\'#addPrizeModal\')'), data-toggle='tooltip', title='Add Prize')
+                  i.fa.fa-lg.fa-plus &nbsp;&nbsp;
+                    i.fa.fa-lg.fa-gift
+        .row.text-center
+          .twelve.columns.push-inner-top-bottom
+            h3.widget-heading
+              small
+                strong {{friend.wallet || 0}}
+                |  Brownie Points
 
   .eight.columns
-    h2 Transactions
-      span.label.badge.alert.push-left.round(ng-cloak, ng-show='transactions.length')
-        | {{transactions.length}}
-    hr
     .row
-      .twelve.columns(ng-show='!transactions.length')
-        h5.text-centered You have 0 updates.
-      .twelve.columns(ng-show='transactions.length')
-        #transactions
-          table.table-borderless.remove-margin-bottom(ng-cloak, style='width: 100%;')
-            thead
-              tr
-                th From
-                th Date
-                th Message
-                th Points
-            tbody
-              tr(ng-repeat='t in transactions | orderBy : "date"')
-                td(style='width: 100px;')
-                  img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{p.gravatar}}', alt='{{p.username}}')
-                td
-                  em {{moment(t.date).calendar()}}
-                td
-                  h6 {{t.body}}
-                td.align-right
-                  h6 {{t.points}}
-
+      .twelve.columns
+        h2 Transactions
+        //- TODO: change badge to show # of unread notifications
+          //- span.label.badge.alert.push-left.round(ng-cloak, ng-show='transactions.length')
+            //- | {{transactions.length}}
+        hr
+        .row
+          .twelve.columns(ng-show='!transactions.length')
+            h5.text-centered You have 0 updates.
+          .twelve.columns(ng-show='transactions.length')
+            #transactions
+              table.table-borderless.remove-margin-bottom(ng-cloak, style='width: 100%;')
+                thead
+                  tr
+                    th From
+                    th Date
+                    th Message
+                    th Points
+                tbody
+                  tr(ng-repeat='t in transactions | orderBy : "date"')
+                    td(style='width: 100px;')
+                      img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{t.fromGravatar}}')
+                    td
+                      em {{moment(t.date).calendar()}}
+                    td
+                      h6 {{t.body}}
+                    td.align-right
+                      h6 {{t.points}}
+    .row
+      .twelve.columns
+        h2 Prizes
+        hr
+        .row
+          .twelve.columns(ng-show='!prizes.length')
+            h4.text-centered Create some prizes to cash in on your brownie points!
+              a.button.success.tiny.round.right(ng-click=('showModal(\'#addPrizeModal\')'), data-toggle='tooltip', title='Add Prize')
+                i.fa.fa-2x.fa-gift
+          .twelve.columns(ng-show='prizes.length')
+            #prizes
+              table.table-borderless.remove-margin-bottom(ng-cloak, style='width: 100%;')
+                thead
+                  tr
+                    th From
+                    th Title
+                    th Description
+                    th Cost
+                    th(ng-show='{{!myId === friend.friendId}}')
+                      | Buy
+                    th(ng-show='{{myId === friend.friendId}}')
+                      | Delete
+                tbody
+                  tr(ng-repeat='p in prizes | orderBy : "date"')
+                    td(style='width: 100px;')
+                      img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{p.fromGravatar}}')
+                    td
+                      h6 {{p.title}}
+                    td
+                      em {{p.description}}
+                    td.align-right
+                      h6 {{p.cost}}
+                    td(ng-show='{{!myId === friend.friendId}}')
+                      i.fa.fa-gift
+                    td(ng-show='{{myId === friend.friendId}}')
+                      i.fa.fa-trash
 include modals/reward
 include modals/punish
+include modals/add_prize

@@ -8,6 +8,7 @@ module.exports = {
   handler: function(request, reply){
     Friendship.pending(request.auth.credentials, function(err, results){
       if(err){console.log('SERVER FRIENDSHIP CTRL - Friendship.pending ERROR: ', err);}
+      console.log('SERVER FRIENDSHIP CTRL - .pending RESULTS: ', results);
       reply(results).code(err ? 400 : 200);
     });
   }

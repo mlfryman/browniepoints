@@ -3,7 +3,7 @@ RETURNS TABLE ("friendshipId" INTEGER, "date" TIMESTAMPTZ, "firstName" VARCHAR, 
 DECLARE
 BEGIN
   RETURN QUERY
-    SELECT f.id AS "friendshipId", f.requested_at AS "date", u.first_name AS "firstName", u.last_name AS "lastName", u.username AS "username", u.email AS "email", u.gravatar AS "gravatar"
+    SELECT f.id AS "friendshipId", f.created_at AS "date", u.first_name AS "firstName", u.last_name AS "lastName", u.username AS "username", u.email AS "email", u.gravatar AS "gravatar"
     FROM users u, friendships f
     WHERE
       CASE
@@ -13,7 +13,7 @@ BEGIN
         THEN f.friend1_id = u.id
       END
     AND f.accepted = FALSE
-    ORDER BY f.requested_at;
+    ORDER BY f.created_at;
 
 END;
 $$ LANGUAGE plpgsql;

@@ -1,11 +1,12 @@
 CREATE OR REPLACE FUNCTION find_all_transactions (f_id INTEGER)
-RETURNS TABLE ("transactionId" INTEGER, "fromId" INTEGER, "toId" INTEGER, "body" TEXT, "points" INTEGER, "date" TIMESTAMPTZ, "read" BOOLEAN) AS $$
+RETURNS TABLE ("transactionId" INTEGER, "fromGravatar" VARCHAR, "fromId" INTEGER, "toId" INTEGER, "body" TEXT, "points" INTEGER, "date" TIMESTAMPTZ, "read" BOOLEAN) AS $$
 DECLARE
 
 BEGIN
   RETURN QUERY
     SELECT
       t.id AS "transactionId",
+      u.gravatar AS "fromGravatar",
       t.from_id AS "fromId",
       t.to_id AS "toId",
       t.body AS "body",
@@ -14,8 +15,9 @@ BEGIN
       t.read AS "read"
     FROM transactions t
     INNER JOIN friendships f ON f.id = t.friendship_id
+    INNER JOIN users u ON u.id = t.from_id
     WHERE f.id = f_id
-    GROUP BY t.id, t.body
+    GROUP BY t.id, t.body, u.gravatar
     ORDER BY t.created_at;
 
 END;

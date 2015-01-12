@@ -10,7 +10,7 @@ module.exports = {
   tags:['friendships', 'transactions'],
   validate: {
     params: {
-      friendshipId: Joi.number().required()
+      friendshipId: Joi.number().min(1).required()
     },
     payload: {
       to_id: Joi.number().min(1).required(),

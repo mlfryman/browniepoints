@@ -1,0 +1,21 @@
+#addPrizeModal.reveal-modal.medium(data-reveal='')
+  h2
+    i.fa.fa-gift &nbsp;
+      | Add Prize
+  hr
+  form(name='newPrizeForm')
+    fieldset
+      legend &nbsp;
+        img.img-circle.img-thumbnail.img-thumbnail-avatar-sm(ng-src='{{friend.gravatar}}', alt='{{friend.username}}')
+      label(for='title') Title
+        input#name(type='text', name='title', placeholder='Give our prize a fancy name!', ng-model='prize.title', autofocus, required)
+      label(for='description') Description
+        textarea#description(name='description', placeholder='Then, briefly describe it.', ng-model='prize.description', required)
+      label(for='cost') Cost
+        input#cost(type='number', name='cost', ng-model='prize.cost', min='1', required)
+      label(for='category') Category
+        select(name='category', ng-model='category', ng-options='c as c.name for c in categories | orderBy:\'name\'')
+          option(value='') Select a Category
+      a.button.alert.radius.tiny(ng-click='createPrize(prize)')
+        i.fa.fa-gift.fa-lg &nbsp; Create
+    a.close-reveal-modal &#215;

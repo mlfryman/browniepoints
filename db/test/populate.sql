@@ -11,9 +11,25 @@ INSERT INTO friendships (id, friend1_id, friend2_id) VALUES (34, 4, 3);
 UPDATE friendships SET accepted = TRUE WHERE id = 13;
 UPDATE friendships SET accepted = TRUE WHERE id = 23;
 
-INSERT INTO transactions (id, friendship_id, from_id, to_id, body, points) VALUES (1, 13, 1, 3, 'Thanks for helping me move!', 20);
-INSERT INTO transactions (id, friendship_id, from_id, to_id, body, points) VALUES (2, 13, 1, 3, 'You broke my lamp. Lame!', -10);
-INSERT INTO transactions (id, friendship_id, from_id, to_id, body, points) VALUES (3, 13, 3, 1, 'Just because!', 10);
-INSERT INTO transactions (id, friendship_id, from_id, to_id, body, points) VALUES (4, 13, 1, 3, 'You disappoint me.', -5);
+INSERT INTO transactions (friendship_id, from_id, to_id, body, points) VALUES (13, 1, 3, 'Thanks for helping me move!', 20);
+INSERT INTO transactions (friendship_id, from_id, to_id, body, points) VALUES (13, 1, 3, 'You broke my lamp. Lame!', -10);
+INSERT INTO transactions (friendship_id, from_id, to_id, body, points) VALUES (13, 3, 1, 'Just because!', 10);
+INSERT INTO transactions (friendship_id, from_id, to_id, body, points) VALUES (13, 1, 3, 'You disappoint me.', -5);
 
-UPDATE transactions SET read = TRUE WHERE id = 1;
+-- UPDATE transactions SET read = TRUE WHERE id = 1;
+
+INSERT INTO categories (id, name, image) VALUES (1, 'Misc', 'https://s3.amazonaws.com/mlf-browniepoints-test/categories/present.png');
+INSERT INTO categories (id, name, image) VALUES (2, 'Event', 'https://s3.amazonaws.com/mlf-browniepoints-test/categories/calendar.png');
+INSERT INTO categories (id, name, image) VALUES (3, 'Chores', 'https://s3.amazonaws.com/mlf-browniepoints-test/categories/dolly.png');
+INSERT INTO categories (id, name, image) VALUES (4, 'Games', 'https://s3.amazonaws.com/mlf-browniepoints-test/categories/game.png');
+INSERT INTO categories (id, name, image) VALUES (5, 'Movie', 'https://s3.amazonaws.com/mlf-browniepoints-test/categories/movie.png');
+INSERT INTO categories (id, name, image) VALUES (6, 'Travel', 'https://s3.amazonaws.com/mlf-browniepoints-test/categories/car.png');
+INSERT INTO categories (id, name, image) VALUES (7, 'Personal', 'https://s3.amazonaws.com/mlf-browniepoints-test/categories/heart.png');
+INSERT INTO categories (id, name, image) VALUES (8, 'Surprise', 'https://s3.amazonaws.com/mlf-browniepoints-test/categories/magicwand.png');
+INSERT INTO categories (id, name, image) VALUES (9, 'Concert', 'https://s3.amazonaws.com/mlf-browniepoints-test/categories/music.png');
+
+INSERT INTO prizes (friendship_id, owner_id, from_id, to_id, title, description, cost, category_id) VALUES (13, 1, 1, 3, 'Game night', 'Choose a date for a game night.', 10, 4);
+INSERT INTO prizes (friendship_id, owner_id, from_id, to_id, title, description, cost, category_id) VALUES (13, 3, 3, 1, 'Surprise', 'I hope you trust me, because this prize is a surprise!', 25, 8);
+INSERT INTO prizes (friendship_id, owner_id, from_id, to_id, title, description, cost, category_id) VALUES (23, 2, 2, 3, 'Picnic', 'Picnic on a day of your choosing.', 60, 1);
+INSERT INTO prizes (friendship_id, owner_id, from_id, to_id, title, description, cost, category_id) VALUES (23, 3, 3, 2, 'Black Sabbath', 'Black Sabbath Concert!', 100, 9);
+INSERT INTO prizes (friendship_id, owner_id, from_id, to_id, title, description, cost, category_id) VALUES (13, 1, 1, 3, 'Unlimited Hugs', 'You get unlimited hugs for a week.', 35, 7);
