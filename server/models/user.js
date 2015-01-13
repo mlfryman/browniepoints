@@ -14,7 +14,7 @@ function User(obj){
 }
 
 User.register = function(obj, cb){
-  var user = new User(obj);
+  var user      = new User(obj);
   user.password = bcrypt.hashSync(obj.password, 8);
   user.token    = crypto.createHash('sha1').update(obj.email).digest('hex');
 
@@ -43,37 +43,17 @@ User.login = function(obj, cb){
 };
 
 User.findByEmail = function(searchEmail, cb){
-  var psqlString = 'SELECT first_name, last_name, username, email, gravatar FROM users WHERE email = $1',
+  var psqlString = 'SELECT id, first_name, last_name, username, email, gravatar FROM users WHERE email = $1',
       psqlParams = [searchEmail];
   pg.query(psqlString, psqlParams, function(err, results){
-    // console.log('SERVER USER MODEL - findByEmail ERROR: ', err);
-    // console.log('SERVER USER MODEL - findByEmail RESULTS: ', results);
     cb(err, results && results.rows ? results.rows[0] : null);
   });
 };
 
 User.findAll = function(userId, cb){
-  pg.query('SELECT * FROM users WHERE id <> $1', [userId], function(err, results){
+  pg.query('SELECT id, first_name, last_name, username, email, gravatar FROM users WHERE id <> $1', [userId], function(err, results){
     cb(err, results && results.rows ? results.rows[0] : null);
   });
 };
 
-User.requestFriendship = function(){
-// this inits a new row in friendships table
-};
-
-// ALL OF THESE REQUIRE UNION OF 2 QUERIES
-User.pendingFriendships = function(){
-// this can give the badge notification of pending friendships
-};
-
-User.friendships = function(){
-// list all friendships
-};
-
-User.acceptFriendship = function(){
-// this updates the accepted column in pending friendship
-};
-
-// MAKE FORMS & FUNCTIONS TO ADD & SUBTRACT POINTS
 module.exports = User;

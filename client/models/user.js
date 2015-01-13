@@ -1,3 +1,5 @@
+/* jshint camelcase:false */
+
 (function(){
   'use strict';
 
@@ -24,7 +26,11 @@
         return $http.get('/users');
       }
 
-      return {register:register, login:login, logout:logout, findByEmail:findByEmail, findAll:findAll};
+      return {register:register,
+        login:login,
+        logout:logout,
+        findByEmail:findByEmail,
+        findAll:findAll
+       };
     }]);
 })();
-

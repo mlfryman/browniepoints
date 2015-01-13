@@ -13,11 +13,14 @@
         li: a(ui-sref='register') Register
         li: a(ui-sref='login') Login
       ul.right(ng-show='rootuser.username')
-        li: a(ui-sref='users_list') Find &nbsp;
+        li: a(ui-sref='dashboard')
+          i.fa.fa-dashboard
+            | &nbsp; Dashboard
+        li: a(ui-sref='users_list')
+          i.fa.fa-search
+            | &nbsp; Find
+        li: a(ui-sref='friendships.list')
           i.fa.fa-group
-        li: a(ui-sref='prizes.list') Prizes
-        li: a(ui-sref='profile') Profile
-        //- li: a(ui-sref='dashboard') Dashboard
-        //- li: a(ui-sref='messages.list') Inbox
+            | &nbsp; Friends
         li.divider
-        li: a#avatarlink(ng-click='logout()'): img#avatarimg(ng-src='{{rootuser.gravatar}}')
+        li: a#avatarlink(ng-click='logout()'): img#avatarimg(ng-src='{{rootuser.avatar || rootuser.gravatar}}')

@@ -8,11 +8,13 @@ module.exports = {
   tags:['prizes'],
   validate: {
     params: {
-      prizeId: Joi.number().required()
+      friendshipId: Joi.number().min(1).required(),
+      prizeId: Joi.number().min(1).required()
     }
   },
   handler: function(request, reply){
-    Prize.nuke(request.auth.credentials, request.params.prizeId, function(err, prizeId){
+    Prize.nuke(request.params.friendshipId, request.params.prizeId, function(err, prizeId){
+      if(err){console.log('SERVER PRIZE CTRL - Prize.nuke ERROR: ', err);}
       reply({prizeId:prizeId}).code(err ? 400 : 200);
     });
   }

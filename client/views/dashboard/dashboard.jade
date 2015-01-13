@@ -1,2 +1,97 @@
 .section-header.nine.columns.centered
   h1 {{mode | uppercase}}
+  hr
+
+.row
+  .four.columns
+    .widget
+      .widget-image.widget-image-sm
+        img(src='../assets/img/bg-silver.png')
+        .widget-image-content.text-center
+          a.gravLink(href='https://en.gravatar.com/'): img.gravatar.img-circle.img-thumbnail.img-thumbnail-transparent.img-thumbnail-avatar-2x.push(ng-src='{{rootuser.avatar || rootuser.gravatar}}' alt='Create your own Gravatar!')
+          h2.widget-heading.text-light
+            strong {{rootuser.first_name}} {{rootuser.last_name}}
+          h4.widget-heading.text-light-op
+            em {{rootuser.username}}
+      .widget-content.widget-content-full.widget-content-border
+        .row.text-center
+          .large-6.small-6.columns.push-inner-top-bottom.border-right
+            h3.widget-heading
+              i.fa.fa-user.push
+              br
+              small
+                strong {{pending.length || 0}}
+                |  Pending
+          .large-6.small-6.columns.push-inner-top-bottom
+            h3.widget-heading
+              i.fa.fa-group.push
+              br
+              small
+                strong {{friends.length || 0}}
+                |  Friends
+  .one.columns
+  .seven.columns
+    .row
+      .twelve.columns
+        h2 Pending Friend Requests
+          span.label.badge.alert.push-left.round(ng-cloak, ng-show='pending.length')
+            | {{pending.length}}
+        hr
+        .row
+          .twelve.columns(ng-show='!pending.length')
+            h4 Feeling lonely? &nbsp;
+              a(ui-sref='users_list') Find your friends!
+            h6.text-centered You have 0 pending friend requests.
+          .twelve.columns(ng-show='pending.length')
+            #friends
+              table.table-borderless.remove-margin-bottom(ng-cloak, style='width: 100%;')
+                tbody
+                  tr(ng-repeat='p in pending | orderBy : "date"')
+                    td(style='width: 100px;')
+                      img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{p.avatar || p.gravatar}}', alt='{{p.username}}')
+                    td
+                      h5
+                        strong {{p.name}}
+                      i.fa.fa-fw.fa-user
+                      |  {{p.username}}
+                      br
+                      i.fa.fa-fw.fa-envelope
+                      |  {{p.email}}
+                    td
+                      em {{moment(p.date).calendar()}}
+                    td.centered
+                      ul.button-group.pull-right.push-right.round
+                        li: a.button.success.tiny(ng-click='accept(p.friendshipId)', data-toggle='tooltip', title='Confirm')
+                          i.fa.fa-check
+                        li: a.button.alert.tiny(ng-click='deny(p.friendshipId)', data-toggle='tooltip', title='Delete')
+                          i.fa.fa-times
+    br
+    .row
+      .twelve.columns
+        h2 Friends
+          span.label.badge.primary.push-left.round(ng-cloak, ng-show='friends.length')
+            | {{friends.length}}
+        hr
+        .row
+          .twelve.columns(ng-show='!friends.length')
+            h4 Feeling lonely? &nbsp;
+              a(ui-sref='users_list') Find your friends!
+          .twelve.columns(ng-show='friends.length')
+            #friends
+              table.table-borderless.remove-margin-bottom(ng-cloak, style='width: 100%;')
+                tbody
+                  tr(ng-repeat='f in friends | orderBy : "username"')
+                    td(style='width: 100px;'): a(ui-sref='friendships.detail({friendshipId:f.friendshipId})')
+                      img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{f.avatar || f.gravatar}}', alt='{{f.username}}')
+                    td
+                      h5
+                        strong {{f.name}}
+                      i.fa.fa-fw.fa-user
+                      |  {{f.username}}
+                      br
+                      i.fa.fa-fw.fa-envelope
+                      |  {{f.email}}
+                    td.centered
+                      a.button.primary.tiny.round(ui-sref='friendships.detail({friendshipId:f.friendshipId})')
+                        i.fa.fa-lg.fa-eye &nbsp;
+                          | View

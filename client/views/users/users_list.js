@@ -1,17 +1,27 @@
+/* jshint camelcase:false */
+
 (function(){
   'use strict';
 
   angular.module('browniepoints')
-    .controller('UsersListCtrl', ['$rootScope', '$scope', '$state', 'User', function($rootScope, $scope, $state, User){
-      $scope.mode  = 'Find Friends';
-      $scope.users = [];
+    .controller('UsersListCtrl', ['$rootScope', '$scope', '$state', 'User', 'Friendship', function($rootScope, $scope, $state, User, Friendship){
+      $scope.mode       = 'Find Friends';
+      $scope.users      = [];
 
       $scope.search = function(searchEmail){
-        console.log('search(searchEmail): ', searchEmail);
         User.findByEmail(searchEmail).then(function(response){
           $scope.searchEmail = '';
           $scope.user = response.data.user;
-          console.log('User.findByEmail $scope.user: ', $scope.user);
+          console.log('CLIENT USERS LIST CTRL - search USER: ', $scope.user);
+        });
+      };
+
+      $scope.request = function(){
+        $scope.friend2Id = $scope.user.id;
+        Friendship.request($scope.friend2Id).then(function(response){
+          console.log('CLIENT USERS LIST CTRL - request $scope.friendId2: ', $scope.friendId2);
+          console.log('CLIENT USERS LIST CTRL - request RESPONSE: ', response);
+          $state.go('dashboard');
         });
       };
 

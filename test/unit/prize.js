@@ -85,7 +85,7 @@ describe('Prize', function(){
   });
 
   describe('.upload', function(){
-    it('should upload an image for the prize avatar', function(done){
+    it('should upload an image for the prize', function(done){
       var file = fs.createReadStream(__dirname + '/../fixtures/flag.png');
       Prize.upload({token:'tok'}, file, 'flag.png', prizeId, function(err, results){
         expect(err).to.be.null;

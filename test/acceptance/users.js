@@ -28,8 +28,6 @@ describe('Users', function(){
       };
 
       server.inject(options, function(response){
-        // must put set-cookie in brackets since property name is invalid JS syntax
-        // @ index[0], since it returns an array of cookies
         cookie = response.headers['set-cookie'][0].match(/hapi-cookie=[^;]+/)[0];
         done();
       });

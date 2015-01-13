@@ -71,37 +71,19 @@ describe('User', function(){
     });
   });
 
-  // describe('.findByEmail', function(){
-  //   it('should find a User by email', function(done){
-  //     User.findByEmail({email:'melanie@fryman.io'}, {}, function(err, results){
-  //       expect(err).to.be.null;
-  //       expect(results).to.have.property('email');
-  //       done();
-  //     });
-  //   });
-  //   it('should NOT find a User - email does not exist', function(done){
-  //     User.findByEmail({email:'steve@fryman.io'}, {}, function(err, results){
-  //       expect(err).to.be.ok;
-  //       expect(results).to.have.length(0);
-  //       done();
-  //     });
-  //   });
-  // });
-
-  // describe('.findAll', function(){
-  //   it('should find all Users', function(done){
-  //     User.findAll({id:1}, {}, function(err, results){
-  //       expect(err).to.be.null;
-  //       expect(results).to.have.length(1);
-  //       done();
-  //     });
-  //   });
-  //   it('should NOT find all Users - wrong id', function(done){
-  //     User.findAll({id:0}, {}, function(err, results){
-  //       expect(err).to.be.ok;
-  //       expect(results).to.have.length(0);
-  //       done();
-  //     });
-  //   });
-  // });
+  describe('.findByEmail', function(){
+    it('should find a User by email', function(done){
+      User.findByEmail('melanie@fryman.io', function(err, results){
+        expect(err).to.be.null;
+        expect(results.id).to.equal(2);
+        done();
+      });
+    });
+    it('should NOT find a User - email does not exist', function(done){
+      User.findByEmail('steve@fryman.io', function(err, results){
+        expect(results).to.be.undefined;
+        done();
+      });
+    });
+  });
 });

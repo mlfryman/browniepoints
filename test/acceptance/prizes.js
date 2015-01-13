@@ -177,7 +177,6 @@ describe('Prizes', function(){
       };
 
       server.inject(options, function(response){
-        //- expect status = prize NOT FOUND
         expect(response.statusCode).to.equal(404);
         done();
       });
@@ -209,7 +208,6 @@ describe('Prizes', function(){
       };
 
       server.inject(options, function(response){
-        //- expect status = prize NOT FOUND
         expect(response.statusCode).to.equal(404);
         done();
       });

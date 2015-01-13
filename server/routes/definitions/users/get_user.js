@@ -13,8 +13,9 @@ module.exports = {
   },
   handler: function(request, reply){
     User.findByEmail(request.params.searchEmail, function(err, user){
-      if(err){console.log('SERVER ERROR - USER CTRL User.findByEmail: ', err);}
+      if(err){console.log('SERVER USER CTRL - .findByEmail ERROR: ', err);}
       reply({user:user}).code(err ? 400 : 200);
     });
   }
 };
+

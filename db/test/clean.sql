@@ -1,5 +1,5 @@
-DELETE FROM prizes_tags;
-DELETE FROM images;
+DELETE FROM transactions;
 DELETE FROM prizes;
-DELETE FROM tags;
+DELETE FROM categories;
+DELETE FROM friendships;
 DELETE FROM users;
