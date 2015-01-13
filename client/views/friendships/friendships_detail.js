@@ -59,6 +59,7 @@
       $scope.prize.to_id = $scope.friend.friendId;
       Prize.create($scope.friendshipId, prize).then(function(response){
         $scope.prize = {};
+        $state.reload();
         $('#addPrizeModal').foundation('reveal', 'close');
       }, function(response){
         console.log('Error creating a prize: ', response);

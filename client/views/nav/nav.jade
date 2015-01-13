@@ -19,8 +19,8 @@
         li: a(ui-sref='users_list')
           i.fa.fa-search
             | &nbsp; Find
-        li: a(ui-sref='friendships.list')
-          i.fa.fa-group
-            | &nbsp; Friends
+        //- li: a(ui-sref='friendships.list')
+        //-   i.fa.fa-group
+        //-     | &nbsp; Friends
         li.divider
         li: a#avatarlink(ng-click='logout()'): img#avatarimg(ng-src='{{rootuser.avatar || rootuser.gravatar}}')

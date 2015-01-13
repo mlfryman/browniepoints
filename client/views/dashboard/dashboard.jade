@@ -3,7 +3,7 @@
   hr
 
 .row
-  .four.columns
+  .twelve.columns
     .widget
       .widget-image.widget-image-sm
         img(src='../assets/img/bg-silver.png')
@@ -29,10 +29,10 @@
               small
                 strong {{friends.length || 0}}
                 |  Friends
-  .one.columns
-  .seven.columns
+.row
+  .twelve.columns
     .row
-      .twelve.columns
+      .six.columns
         h2 Pending Friend Requests
           span.label.badge.alert.push-left.round(ng-cloak, ng-show='pending.length')
             | {{pending.length}}
@@ -65,9 +65,7 @@
                           i.fa.fa-check
                         li: a.button.alert.tiny(ng-click='deny(p.friendshipId)', data-toggle='tooltip', title='Delete')
                           i.fa.fa-times
-    br
-    .row
-      .twelve.columns
+      .six.columns
         h2 Friends
           span.label.badge.primary.push-left.round(ng-cloak, ng-show='friends.length')
             | {{friends.length}}
