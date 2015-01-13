@@ -23,4 +23,4 @@
           i.fa.fa-group
             | &nbsp; Friends
         li.divider
-        li: a#avatarlink(ng-click='logout()'): img#avatarimg(ng-src='{{rootuser.gravatar}}')
+        li: a#avatarlink(ng-click='logout()'): img#avatarimg(ng-src='{{rootuser.avatar || rootuser.gravatar}}')

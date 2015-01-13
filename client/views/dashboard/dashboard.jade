@@ -8,7 +8,7 @@
       .widget-image.widget-image-sm
         img(src='../assets/img/bg-silver.png')
         .widget-image-content.text-center
-          a.gravLink(href='https://en.gravatar.com/'): img.gravatar.img-circle.img-thumbnail.img-thumbnail-transparent.img-thumbnail-avatar-2x.push(ng-src='{{rootuser.gravatar}}' alt='Create your own Gravatar!')
+          a.gravLink(href='https://en.gravatar.com/'): img.gravatar.img-circle.img-thumbnail.img-thumbnail-transparent.img-thumbnail-avatar-2x.push(ng-src='{{rootuser.avatar || rootuser.gravatar}}' alt='Create your own Gravatar!')
           h2.widget-heading.text-light
             strong {{rootuser.first_name}} {{rootuser.last_name}}
           h4.widget-heading.text-light-op
@@ -48,10 +48,10 @@
                 tbody
                   tr(ng-repeat='p in pending | orderBy : "date"')
                     td(style='width: 100px;')
-                      img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{p.gravatar}}', alt='{{p.username}}')
+                      img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{p.avatar || p.gravatar}}', alt='{{p.username}}')
                     td
                       h5
-                        strong {{p.firstName}} {{p.lastName}}
+                        strong {{p.name}}
                       i.fa.fa-fw.fa-user
                       |  {{p.username}}
                       br
@@ -82,18 +82,16 @@
                 tbody
                   tr(ng-repeat='f in friends | orderBy : "username"')
                     td(style='width: 100px;'): a(ui-sref='friendships.detail({friendshipId:f.friendshipId})')
-                      img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{f.gravatar}}', alt='{{f.username}}')
+                      img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{f.avatar || f.gravatar}}', alt='{{f.username}}')
                     td
                       h5
-                        strong {{f.firstName}} {{f.lastName}}
+                        strong {{f.name}}
                       i.fa.fa-fw.fa-user
                       |  {{f.username}}
                       br
                       i.fa.fa-fw.fa-envelope
                       |  {{f.email}}
                     td.centered
-                      ul.button-group.pull-right.push-right.round
-                        li: a.button.success.tiny.disabled(ng-click='add()', data-toggle='tooltip', title='Add Points')
-                          i.fa.fa-plus
-                        li: a.button.alert.tiny.disabled(ng-click='subtract()', data-toggle='tooltip', title='Subtract Points')
-                          i.fa.fa-minus
+                      a.button.primary.tiny.round(ui-sref='friendships.detail({friendshipId:f.friendshipId})')
+                        i.fa.fa-lg.fa-eye &nbsp;
+                          | View

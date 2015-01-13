@@ -43,7 +43,6 @@
     }
 
     function myWallet(friendshipId){
-      console.log('CLIENT FRIENDSHIP MODEL - .myWallet @ params friendshipId: ', friendshipId);
       return $http.get('/friends/' + friendshipId + '/wallets');
     }
 

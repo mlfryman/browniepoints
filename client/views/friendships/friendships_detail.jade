@@ -1,12 +1,12 @@
 .section-header.nine.columns.centered
   h1
 .row
-  .four.columns
+  .twelve.columns.centered
     .widget
       .widget-image.widget-image-sm
         img(src='../assets/img/bg-silver.png')
         .widget-image-content.text-center
-          img.gravatar.img-circle.img-thumbnail.img-thumbnail-transparent.img-thumbnail-avatar-2x.push(ng-src='{{friend.gravatar}}' alt='{{friend.username}}')
+          img.gravatar.img-circle.img-thumbnail.img-thumbnail-transparent.img-thumbnail-avatar-2x.push(ng-src='{{friend.avatar || friend.gravatar}}' alt='{{friend.username}}')
           h2.widget-heading.text-light
             strong {{friend.name}}
           h4.widget-heading.text-light-op
@@ -36,8 +36,8 @@
               small
                 strong {{friend.wallet || 0}}
                 |  Brownie Points
-
-  .eight.columns
+.row
+  .six.columns
     .row
       .twelve.columns
         h2 Ledger
@@ -57,13 +57,14 @@
                 tbody
                   tr(ng-repeat='t in transactions | orderBy : "date"')
                     td(style='width: 100px;')
-                      img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{t.fromGravatar}}')
+                      img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{t.fromAvatar || t.fromGravatar}}')
                     td
                       em {{moment(t.date).calendar()}}
                     td
                       h6 {{t.body}}
                     td.align-right
                       h6 {{t.points}}
+  .six.columns
     .row
       .twelve.columns
         h2 Prizes
@@ -74,7 +75,7 @@
               a.button.success.tiny.round.right(ng-click=('showModal(\'#addPrizeModal\')'), data-toggle='tooltip', title='Add Prize')
                 i.fa.fa-2x.fa-gift
           .twelve.columns(ng-show='prizes.length')
-            #prizes
+            #prizes(ng-cloak)
               table.table-borderless.remove-margin-bottom(ng-cloak, style='width: 100%;')
                 thead
                   tr
@@ -82,22 +83,22 @@
                     th Title
                     th Description
                     th Cost
-                    th Buy
-                    th Delete
+                    th(ng-hide='!myId === p.fromId') Buy
+                    th(ng-hide='myId === p.fromId') Delete
                 tbody
                   tr(ng-repeat='p in prizes | orderBy : "date"')
                     td(style='width: 100px;')
-                      img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{p.fromGravatar}}')
+                      img.img-circle.img-thumbnail.img-thumbnail-avatar-tiny(ng-src='{{p.fromAvatar || p.fromGravatar}}')
                     td
                       h6 {{p.title}}
                     td
                       em {{p.description}}
                     td.align-right
                       h6 {{p.cost}}
-                    td.centered
+                    td.centered(ng-hide='!myId === p.fromId')
                       a.button.success.tiny.round(ng-click='buy(p)', data-toggle='tooltip', title='Buy Prize')
                         i.fa.fa-lg.fa-gift
-                    td.centered
+                    td.centered(ng-hide='!myId === p.fromId')
                       a.button.alert.tiny.round(ng-click='nuke(p.prizeId)', data-toggle='tooltip', title='Delete Prize')
                           i.fa.fa-lg.fa-trash
 include modals/reward

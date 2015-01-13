@@ -20,10 +20,10 @@
         tbody
           tr(ng-show='user.email')
             td(style='width: 100px;')
-              img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{user.gravatar}}', alt='{{user.username}}')
+              img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{user.avatar || user.gravatar}}', alt='{{user.username}}')
             td
               h5
-                strong {{user.first_name}} {{user.last_name}}
+                strong {{user.name}}
               i.fa.fa-fw.fa-user
               |  {{user.username}}
               br
