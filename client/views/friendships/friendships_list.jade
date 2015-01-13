@@ -12,10 +12,10 @@
         tbody
           tr(ng-repeat='f in friends | orderBy : "username"')
             td(style='width: 100px;'): a(ui-sref='friendships.detail({friendshipId:f.friendshipId})')
-              img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{f.gravatar}}', alt='{{f.username}}')
+              img.img-circle.img-thumbnail.img-thumbnail-avatar(ng-src='{{f.avatar || f.gravatar}}', alt='{{f.username}}')
             td
               h5
-                strong {{f.firstName}} {{f.lastName}}
+                strong {{f.name}}
               i.fa.fa-fw.fa-user
               |  {{f.username}}
               br

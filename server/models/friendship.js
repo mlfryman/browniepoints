@@ -84,6 +84,22 @@ Friendship.findAllTransactions = function(friendshipId, cb){
   });
 };
 
+Friendship.myWallet = function(friendshipId, myId, cb){
+  var psqlString = 'SELECT sum(points) FROM transactions t, friendships f WHERE(t.to_id = $2 OR t.from_id = $2) AND f.id = $1',
+      psqlParams = [friendshipId, myId];
+  pg.query(psqlString, psqlParams, function(err, results){
+    cb(err, results && results.rows ? results.rows : null);
+  });
+};
+
+Friendship.friendWallet = function(friendshipId, friendId, cb){
+  var psqlString = 'SELECT sum(points) FROM transactions t, friendships f WHERE(t.to_id = $2 OR t.from_id = $2) AND f.id = $1',
+      psqlParams = [friendshipId, friendId];
+  pg.query(psqlString, psqlParams, function(err, results){
+    cb(err, results && results.rows ? results.rows : null);
+  });
+};
+
 module.exports = Friendship;
 
 function generatePK(id1, id2, cb){
@@ -98,3 +114,4 @@ function generatePK(id1, id2, cb){
   var friendshipId = ((small + large) * 1);
   cb(friendshipId);
 }
+

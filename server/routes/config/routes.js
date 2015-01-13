@@ -20,13 +20,15 @@ module.exports = [
   // FRIENDSHIPS-TRANSACTIONS ROUTES
   {method: 'POST',   path: '/friends/{friendshipId}/reward',  config: require('../definitions/friendships/post_reward_friendship')},
   {method: 'POST',   path: '/friends/{friendshipId}/punish',  config: require('../definitions/friendships/post_punish_friendship')},
-  {method: 'GET',    path: '/friends/{friendshipId}/transactions',         config: require('../definitions/friendships/get_all_transactions')},
+  {method: 'GET',    path: '/friends/{friendshipId}/transactions',  config: require('../definitions/friendships/get_all_transactions')},
+  {method: 'GET',    path: '/friends/{friendshipId}/wallet',        config: require('../definitions/friendships/get_my_wallet')},
+  {method: 'GET',    path: '/friends/{friendshipId}/wallet/{friendId}',        config: require('../definitions/friendships/get_friend_wallet')},
 
   // PRIZE ROUTES
   {method: 'GET',    path: '/categories',                                     config: require('../definitions/prizes/get_categories')},
   {method: 'POST',   path: '/friends/{friendshipId}/prizes',                  config: require('../definitions/prizes/post_create_prize')},
-  {method: 'GET',    path: '/friends/{friendshipId}/prizes',                  config: require('../definitions/prizes/get_query_prizes')},
+  {method: 'GET',    path: '/friends/{friendshipId}/prizes',                  config: require('../definitions/prizes/get_all_prizes')},
   {method: 'GET',    path: '/friends/{friendshipId}/prizes/{prizeId}',        config: require('../definitions/prizes/get_show_prize')},
   {method: 'DELETE', path: '/friends/{friendshipId}/prizes/{prizeId}',        config: require('../definitions/prizes/delete_nuke_prize')},
-  {method: 'GET',    path: '/friends/{friendshipId}/prizes/count',            config: require('../definitions/prizes/get_count_prizes')}
+  {method: 'POST',   path: '/friends/{friendshipId}/prizes/{prizeId}',        config: require('../definitions/prizes/post_buy_prize')}
 ];

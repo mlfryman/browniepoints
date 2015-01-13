@@ -1,9 +1,24 @@
 CREATE OR REPLACE FUNCTION find_pending_friends (u_id INTEGER)
-RETURNS TABLE ("friendshipId" INTEGER, "date" TIMESTAMPTZ, "firstName" VARCHAR, "lastName" VARCHAR, "username" VARCHAR, "email" VARCHAR, "gravatar" VARCHAR) AS $$
+RETURNS TABLE (
+               "friendshipId" INTEGER,
+               "name" TEXT,
+               "username" VARCHAR,
+               "email" VARCHAR,
+               "gravatar" VARCHAR,
+               "avatar" VARCHAR,
+               "date" TIMESTAMPTZ
+               ) AS $$
 DECLARE
 BEGIN
   RETURN QUERY
-    SELECT f.id AS "friendshipId", f.created_at AS "date", u.first_name AS "firstName", u.last_name AS "lastName", u.username AS "username", u.email AS "email", u.gravatar AS "gravatar"
+    SELECT
+      f.id AS "friendshipId",
+      RTRIM(u.first_name) || ' ' || RTRIM(u.last_name) AS "name",
+      u.username AS "username",
+      u.email AS "email",
+      u.gravatar AS "gravatar",
+      u.avatar AS "avatar",
+      f.requested_at AS "date"
     FROM users u, friendships f
     WHERE
       CASE
@@ -13,7 +28,7 @@ BEGIN
         THEN f.friend1_id = u.id
       END
     AND f.accepted = FALSE
-    ORDER BY f.created_at;
+    ORDER BY f.requested_at;
 
 END;
 $$ LANGUAGE plpgsql;

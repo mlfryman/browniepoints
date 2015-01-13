@@ -8,7 +8,7 @@
         .widget-image-content.text-center
           img.gravatar.img-circle.img-thumbnail.img-thumbnail-transparent.img-thumbnail-avatar-2x.push(ng-src='{{friend.gravatar}}' alt='{{friend.username}}')
           h2.widget-heading.text-light
-            strong {{friend.firstName}} {{friend.lastName}}
+            strong {{friend.name}}
           h4.widget-heading.text-light-op
             em {{friend.username}}
       .widget-content.widget-content-full.widget-content-border
@@ -40,10 +40,7 @@
   .eight.columns
     .row
       .twelve.columns
-        h2 Transactions
-        //- TODO: change badge to show # of unread notifications
-          //- span.label.badge.alert.push-left.round(ng-cloak, ng-show='transactions.length')
-            //- | {{transactions.length}}
+        h2 Ledger
         hr
         .row
           .twelve.columns(ng-show='!transactions.length')
@@ -71,7 +68,7 @@
       .twelve.columns
         h2 Prizes
         hr
-        .row
+        .row(ng-cloak)
           .twelve.columns(ng-show='!prizes.length')
             h4.text-centered Create some prizes to cash in on your brownie points!
               a.button.success.tiny.round.right(ng-click=('showModal(\'#addPrizeModal\')'), data-toggle='tooltip', title='Add Prize')
@@ -85,10 +82,8 @@
                     th Title
                     th Description
                     th Cost
-                    th(ng-show='{{!myId === friend.friendId}}')
-                      | Buy
-                    th(ng-show='{{myId === friend.friendId}}')
-                      | Delete
+                    th Buy
+                    th Delete
                 tbody
                   tr(ng-repeat='p in prizes | orderBy : "date"')
                     td(style='width: 100px;')
@@ -99,10 +94,12 @@
                       em {{p.description}}
                     td.align-right
                       h6 {{p.cost}}
-                    td(ng-show='{{!myId === friend.friendId}}')
-                      i.fa.fa-gift
-                    td(ng-show='{{myId === friend.friendId}}')
-                      i.fa.fa-trash
+                    td.centered
+                      a.button.success.tiny.round(ng-click='buy(p)', data-toggle='tooltip', title='Buy Prize')
+                        i.fa.fa-lg.fa-gift
+                    td.centered
+                      a.button.alert.tiny.round(ng-click='nuke(p.prizeId)', data-toggle='tooltip', title='Delete Prize')
+                          i.fa.fa-lg.fa-trash
 include modals/reward
 include modals/punish
 include modals/add_prize

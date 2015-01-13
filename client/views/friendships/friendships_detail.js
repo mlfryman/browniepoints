@@ -5,7 +5,7 @@
 
   angular.module('browniepoints')
   .controller('FriendshipDetailCtrl', ['$rootScope', '$scope', '$state', 'User', 'Prize', 'Friendship', function($rootScope, $scope, $state, User, Prize, Friendship){
-    $scope.myId         = $rootScope.rootuser;
+    $scope.myId         = $rootScope.rootuser.id;
     $scope.friendshipId = $state.params.friendshipId;
     $scope.friend       = {};
     $scope.transaction  = {};
@@ -15,6 +15,8 @@
     $scope.categories   = [];
     $scope.category     = null;
     $scope.moment       = moment;
+    $scope.myWallet     = null;
+    $scope.friendWallet = null;
 
     $scope.showModal = function(modalId){
       $(modalId).foundation('reveal', 'open');
@@ -67,5 +69,35 @@
     Prize.categories().then(function(response){
       $scope.categories = response.data.categories;
     });
+
+    Prize.findAll($state.params.friendshipId).then(function(response){
+      $scope.prizes = response.data.prizes;
+    });
+
+    $scope.nuke = function(prizeId){
+      Prize.nuke($scope.friendshipId, prizeId).then(function(response){
+        $state.reload();
+      });
+    };
+
+    $scope.buy = function(prize){
+      Prize.buy($state.params.friendshipId, prize).then(function(response){
+        $state.reload();
+      });
+    };
+
+    Friendship.myWallet($state.params.friendshipId).then(function(response){
+      console.log('CLIENT FRIENDSHIP DETAIL CTRL - Friendships.myWallet @params $scope.params.friendshipId: ', $scope.params.friendshipId);
+      $scope.myWallet = response.data;
+    });
+
+    $scope.myWallet = function(){
+      $scope.friendId = $scope.friend.friendId;
+      Friendship.myWallet($state.params.friendshipId, $scope.friendId).then(function(response){
+        console.log('CLIENT FRIENDSHIP DETAIL CTRL - Friendships.friendWallet @params $scope.params.friendshipId: ', $scope.params.friendshipId);
+        console.log('CLIENT FRIENDSHIP DETAIL CTRL - Friendships.friendWallet @payload $scope.friendId: ', $scope.friendId);
+        $scope.friendWallet = response.data;
+      });
+    };
   }]);
 })();

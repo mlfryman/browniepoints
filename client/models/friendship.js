@@ -42,6 +42,16 @@
       return $http.get('/friends/' + friendshipId + '/transactions');
     }
 
+    function myWallet(friendshipId){
+      console.log('CLIENT FRIENDSHIP MODEL - .myWallet @ params friendshipId: ', friendshipId);
+      return $http.get('/friends/' + friendshipId + '/wallets');
+    }
+
+    function friendWallet(friendshipId, friendId){
+      console.log('CLIENT FRIENDSHIP MODEL - .friendWallet @ params friendshipId: ', friendshipId);
+      return $http.get('/friends/' + friendshipId + '/wallets/' + friendId);
+    }
+
     return {
       request:request,
       pending:pending,
@@ -51,7 +61,9 @@
       findOne:findOne,
       reward:reward,
       punish:punish,
-      findAllTransactions:findAllTransactions
+      findAllTransactions:findAllTransactions,
+      myWallet:myWallet,
+      friendWallet:friendWallet
     };
   }]);
 })();

@@ -1,9 +1,22 @@
 CREATE OR REPLACE FUNCTION find_all_friends (u_id INTEGER)
-RETURNS TABLE ("friendshipId" INTEGER, "firstName" VARCHAR, "lastName" VARCHAR, "username" VARCHAR, "email" VARCHAR, "gravatar" VARCHAR) AS $$
+RETURNS TABLE (
+               "friendshipId" INTEGER,
+               "name" TEXT,
+               "username" VARCHAR,
+               "email" VARCHAR,
+               "gravatar" VARCHAR,
+               "avatar" VARCHAR
+               ) AS $$
 DECLARE
 BEGIN
   RETURN QUERY
-    SELECT f.id AS "friendshipId", u.first_name AS "firstName", u.last_name AS "lastName", u.username AS "username", u.email AS "email", u.gravatar AS "gravatar"
+    SELECT
+      f.id AS "friendshipId",
+      RTRIM(u.first_name) || ' ' || RTRIM(u.last_name) AS "name",
+      u.username AS "username",
+      u.email AS "email",
+      u.gravatar AS "gravatar",
+      u.avatar AS "avatar"
     FROM users u, friendships f
     WHERE
       CASE

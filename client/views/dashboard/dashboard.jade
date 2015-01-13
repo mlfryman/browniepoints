@@ -17,11 +17,11 @@
         .row.text-center
           .large-6.small-6.columns.push-inner-top-bottom.border-right
             h3.widget-heading
-              i.fa.fa-star.push
+              i.fa.fa-user.push
               br
               small
-                strong {{rootuser.points}}
-                |  Brownie Points
+                strong {{pending.length || 0}}
+                |  Pending
           .large-6.small-6.columns.push-inner-top-bottom
             h3.widget-heading
               i.fa.fa-group.push
@@ -62,9 +62,9 @@
                     td.centered
                       ul.button-group.pull-right.push-right.round
                         li: a.button.success.tiny(ng-click='accept(p.friendshipId)', data-toggle='tooltip', title='Confirm')
-                          i.fa.fa-check &nbsp;
+                          i.fa.fa-check
                         li: a.button.alert.tiny(ng-click='deny(p.friendshipId)', data-toggle='tooltip', title='Delete')
-                          i.fa.fa-times &nbsp;
+                          i.fa.fa-times
     br
     .row
       .twelve.columns
@@ -94,6 +94,6 @@
                     td.centered
                       ul.button-group.pull-right.push-right.round
                         li: a.button.success.tiny.disabled(ng-click='add()', data-toggle='tooltip', title='Add Points')
-                          i.fa.fa-plus &nbsp;
+                          i.fa.fa-plus
                         li: a.button.alert.tiny.disabled(ng-click='subtract()', data-toggle='tooltip', title='Subtract Points')
-                          i.fa.fa-minus &nbsp;
+                          i.fa.fa-minus

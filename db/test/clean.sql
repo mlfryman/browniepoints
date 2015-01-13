@@ -1,4 +1,3 @@
-DELETE FROM wallets;
 DELETE FROM transactions;
 DELETE FROM prizes;
 DELETE FROM categories;
