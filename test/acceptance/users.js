@@ -22,7 +22,7 @@ describe('Users', function(){
         method: 'POST',
         url: '/login',
         payload: {
-          username: 'bob',
+          username: 'solo',
           password: '123456'
         }
       };
@@ -58,10 +58,10 @@ describe('Users', function(){
         method: 'POST',
         url: '/register',
         payload: {
-          first_name: 'Bob',
-          last_name: 'Boberson',
-          username: 'bob',
-          email: 'bob@boberson.com',
+          first_name: 'Han',
+          last_name: 'Solo',
+          username: 'solo',
+          email: 'han@solo.io',
           password: '123456'
         }
       };
@@ -79,14 +79,14 @@ describe('Users', function(){
         method: 'POST',
         url: '/login',
         payload: {
-          username: 'bob',
+          username: 'solo',
           password: '123456'
         }
       };
 
       server.inject(options, function(response){
         expect(response.statusCode).to.equal(200);
-        expect(response.result.username).to.equal('bob');
+        expect(response.result.username).to.equal('solo');
         done();
       });
     });

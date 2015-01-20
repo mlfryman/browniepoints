@@ -30,7 +30,7 @@ describe('Friendship', function(){
 
   describe('.request', function(){
     it('should create a friend request', function(done){
-      Friendship.request({friend1Id:1, friend2Id:2}, function(err, results){
+      Friendship.request({friend1Id:1, friend2Id:4}, function(err, results){
         expect(err).to.be.null;
         done();
       });
@@ -45,7 +45,7 @@ describe('Friendship', function(){
 
    describe('.pending', function(){
     it('should get all pending friend requests by User', function(done){
-      Friendship.pending(1, function(err, results){
+      Friendship.pending({id:1}, function(err, results){
         expect(err).to.be.null;
        done();
       });
@@ -76,7 +76,7 @@ describe('Friendship', function(){
 
   describe('.deny', function(){
     it('should deny a pending friend request', function(done){
-      Friendship.deny(14, function(err, results){
+      Friendship.deny(13, function(err, results){
         expect(err).to.be.null;
         expect(results).to.have.length(1);
         done();
@@ -107,15 +107,80 @@ describe('Friendship', function(){
   });
   describe('.findOne', function(){
     it('should find one Friendship by ID', function(done){
-      Friendship.findOne({id:1}, 13, function(err, results){
+      Friendship.findOne({id:1}, 12, function(err, results){
         expect(err).to.be.null;
-        expect(results).to.have.property('firstName');
+        expect(results).to.have.property('name');
         done();
       });
     });
     it('should NOT find a Friendship by ID - bad friendshipId', function(done){
       Friendship.findOne({id:1}, 99, function(err, results){
         expect(results).to.be.empty;
+        done();
+      });
+    });
+  });
+
+  describe('.reward', function(){
+    it('should create a reward transaction for a Friend', function(done){
+      Friendship.reward(12, {from_id:1, to_id:2, body:'a', points:5}, function(err, results){
+        expect(err).to.be.null;
+        expect(results).to.have.property('id');
+        done();
+      });
+    });
+    it('should NOT create a reward transaction for a Friend - body missing', function(done){
+      Friendship.reward(12, {from_id:1, to_id:2, points:1}, function(err, results){
+        expect(results).to.be.null;
+        done();
+      });
+    });
+  });
+
+  describe('.punish', function(){
+    it('should create a punish transaction for a Friend', function(done){
+      Friendship.reward(12, {from_id:1, to_id:2, body:'a', points:-5}, function(err, results){
+        expect(err).to.be.null;
+        expect(results).to.have.property('id');
+        done();
+      });
+    });
+    it('should NOT create a punish transaction for a Friend - to_id missing', function(done){
+      Friendship.reward(12, {from_id:1, body:'a',points:1}, function(err, results){
+        expect(results).to.be.null;
+        done();
+      });
+    });
+  });
+
+  describe('.findAllTransactions', function(){
+    it('should find all transactions for a Friendship', function(done){
+      Friendship.findAllTransactions(12, function(err, results){
+        expect(err).to.be.null;
+        expect(results).to.have.length(1);
+        done();
+      });
+    });
+    it('should NOT find all transactions for a Friendship - bad friendship id', function(done){
+      Friendship.findAllTransactions(99, function(err, results){
+        expect(results).to.be.empty;
+        done();
+      });
+    });
+  });
+
+  describe('.myWallet', function(){
+    it('should calculate the sum of a User\'s wallet per Friendship', function(done){
+      Friendship.myWallet(12, 1, function(err, results){
+        expect(err).to.be.null;
+        expect(results).to.be.ok;
+        done();
+      });
+    });
+    it('should NOT calculate the sum of a User\'s wallet per Friendship - bad friendship id', function(done){
+      Friendship.myWallet(16, 1, function(err, results){
+        expect(err).to.be.null;
+        expect(results.length).to.equal(0);
         done();
       });
     });

@@ -13,7 +13,7 @@ Friendship.request = function(obj, cb){
     var psqlString = 'INSERT INTO friendships (id, friend1_id, friend2_id) VALUES ($1, $2, $3) RETURNING id',
         psqlParams = [obj.friendshipId, obj.friend1Id, obj.friend2Id];
     pg.query(psqlString, psqlParams, function(err, results){
-      console.log('SERVER FRIENDSHIP MODEL - .request RESULTS: ', results);
+      // console.log('SERVER FRIENDSHIP MODEL - .request RESULTS: ', results);
       cb(err, results && results.rows ? results.rows[0] : null);
     });
   });
@@ -32,6 +32,7 @@ Friendship.findAll = function(user, cb){
   var psqlString = 'SELECT * FROM find_all_friends($1)',
       psqlParams = [user.id];
   pg.query(psqlString, psqlParams, function(err, results){
+    // console.log('SERVER FRIENDSHIP MODEL - .findAll RESULTS: ', results);
     cb(err, results && results.rows ? results.rows : null);
   });
 };
@@ -40,6 +41,7 @@ Friendship.findOne = function(user, friendshipId, cb){
   var psqlString = 'SELECT * FROM show_friend($1, $2)',
       psqlParams = [user.id, friendshipId];
   pg.query(psqlString, psqlParams, function(err, results){
+    // console.log('SERVER FRIENDSHIP MODEL - .findOne RESULTS: ', results);
     cb(err, results && results.rows ? results.rows[0] : null);
   });
 };
@@ -48,6 +50,8 @@ Friendship.accept = function(friendshipId, cb){
   var psqlString = 'UPDATE friendships SET accepted = TRUE WHERE id = $1 RETURNING id;',
       psqlParams = [friendshipId];
   pg.query(psqlString, psqlParams, function(err, results){
+    // console.log('SERVER FRIENDSHIP MODEL - .accept ERROR: ', err);
+    // console.log('SERVER FRIENDSHIP MODEL - .accept RESULTS: ', results);
     cb(err, results && results.rows ? results.rows : null);
   });
 };
@@ -56,6 +60,8 @@ Friendship.deny = function(friendshipId, cb){
   var psqlString = 'DELETE FROM friendships WHERE id = $1 RETURNING id;',
       psqlParams = [friendshipId];
   pg.query(psqlString, psqlParams, function(err, results){
+    // console.log('SERVER FRIENDSHIP MODEL - .deny ERROR: ', err);
+    // console.log('SERVER FRIENDSHIP MODEL - .deny RESULTS: ', results);
     cb(err, results && results.rows ? results.rows : null);
   });
 };
@@ -64,6 +70,7 @@ Friendship.reward = function(friendshipId, obj, cb){
   var psqlString = 'INSERT INTO transactions (friendship_id, from_id, to_id, body, points) VALUES ($1, $2, $3, $4, $5) RETURNING id',
       psqlParams = [friendshipId, obj.from_id, obj.to_id, obj.body, obj.points];
   pg.query(psqlString, psqlParams, function(err, results){
+    // console.log('SERVER FRIENDSHIP MODEL - .reward RESULTS: ', results);
     cb(err, results && results.rows ? results.rows[0] : null);
   });
 };
@@ -72,6 +79,7 @@ Friendship.punish = function(friendshipId, obj, cb){
   var psqlString = 'INSERT INTO transactions (friendship_id, from_id, to_id, body, points) VALUES ($1, $2, $3, $4, $5) RETURNING id',
       psqlParams = [friendshipId, obj.from_id, obj.to_id, obj.body, obj.points];
   pg.query(psqlString, psqlParams, function(err, results){
+    // console.log('SERVER FRIENDSHIP MODEL - .punish RESULTS: ', results);
     cb(err, results && results.rows ? results.rows[0] : null);
   });
 };
@@ -80,22 +88,34 @@ Friendship.findAllTransactions = function(friendshipId, cb){
   var psqlString = 'SELECT * FROM find_all_transactions($1)',
       psqlParams = [friendshipId];
   pg.query(psqlString, psqlParams, function(err, results){
+    // console.log('SERVER FRIENDSHIP MODEL - .findAllTransactions RESULTS: ', results);
     cb(err, results && results.rows ? results.rows : null);
   });
 };
 
 Friendship.myWallet = function(friendshipId, myId, cb){
-  var psqlString = 'SELECT sum(points) FROM transactions t, friendships f WHERE(t.to_id = $2 OR t.from_id = $2) AND f.id = $1',
+  var psqlString = 'SELECT * FROM sum_my_wallet($1,$2)',
       psqlParams = [friendshipId, myId];
   pg.query(psqlString, psqlParams, function(err, results){
+    console.log('SERVER FRIENDSHIP MODEL - .myWallet RESULTS: ', results);
     cb(err, results && results.rows ? results.rows : null);
   });
 };
 
+// Friendship.myWallet = function(friendshipId, myId, cb){
+//   var psqlString = 'SELECT sum(points) FROM transactions t, friendships f WHERE(t.to_id = $2 OR t.from_id = $2) AND f.id = $1',
+//       psqlParams = [friendshipId, myId];
+//   pg.query(psqlString, psqlParams, function(err, results){
+//     console.log('SERVER FRIENDSHIP MODEL - .myWallet RESULTS: ', results);
+//     cb(err, results && results.rows ? results.rows : null);
+//   });
+// };
+
 Friendship.friendWallet = function(friendshipId, friendId, cb){
-  var psqlString = 'SELECT sum(points) FROM transactions t, friendships f WHERE(t.to_id = $2 OR t.from_id = $2) AND f.id = $1',
+  var psqlString = 'SELECT * FROM sum_friend_wallet($1,$2)',
       psqlParams = [friendshipId, friendId];
   pg.query(psqlString, psqlParams, function(err, results){
+    console.log('SERVER FRIENDSHIP MODEL - .friendWallet RESULTS: ', results);
     cb(err, results && results.rows ? results.rows : null);
   });
 };

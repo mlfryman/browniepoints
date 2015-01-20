@@ -28,7 +28,6 @@ module.exports = [
   {method: 'GET',    path: '/categories',                                     config: require('../definitions/prizes/get_categories')},
   {method: 'POST',   path: '/friends/{friendshipId}/prizes',                  config: require('../definitions/prizes/post_create_prize')},
   {method: 'GET',    path: '/friends/{friendshipId}/prizes',                  config: require('../definitions/prizes/get_all_prizes')},
-  {method: 'GET',    path: '/friends/{friendshipId}/prizes/{prizeId}',        config: require('../definitions/prizes/get_show_prize')},
   {method: 'DELETE', path: '/friends/{friendshipId}/prizes/{prizeId}',        config: require('../definitions/prizes/delete_nuke_prize')},
   {method: 'POST',   path: '/friends/{friendshipId}/prizes/{prizeId}',        config: require('../definitions/prizes/post_buy_prize')}
 ];

@@ -22,13 +22,13 @@ describe('User', function(){
 
   describe('constructor', function(){
     it('should create a User object', function(done){
-      var user = new User({first_name:'Bob', last_name:'Boberson', username:'bob', email:'bob@boberson.com'});
+      var user = new User({first_name:'Han', last_name:'Solo', username:'solo', email:'han@solo.io'});
 
       expect(user).to.be.instanceof(User);
-      expect(user.first_name).to.equal('Bob');
-      expect(user.last_name).to.equal('Boberson');
-      expect(user.username).to.equal('bob');
-      expect(user.email).to.equal('bob@boberson.com');
+      expect(user.first_name).to.equal('Han');
+      expect(user.last_name).to.equal('Solo');
+      expect(user.username).to.equal('solo');
+      expect(user.email).to.equal('han@solo.io');
       done();
     });
   });
@@ -43,7 +43,7 @@ describe('User', function(){
       });
     });
     it('should NOT register a new User - duplicate user', function(done){
-      User.register({first_name:'Bob', last_name:'Boberson', username:'bob', email:'bob@boberson.com', password:'123456'}, function(err, results){
+      User.register({first_name:'Han', last_name:'Solo', username:'solo', email:'han@solo.io', password:'123456'}, function(err, results){
         expect(err).to.be.ok;
         done();
       });
@@ -52,8 +52,8 @@ describe('User', function(){
 
   describe('.login', function(){
     it('should login a User', function(done){
-      User.login({username:'bob', password:'123456'}, function(user){
-        expect(user.username).to.equal('bob');
+      User.login({username:'solo', password:'123456'}, function(user){
+        expect(user.username).to.equal('solo');
         done();
       });
     });
@@ -64,7 +64,7 @@ describe('User', function(){
       });
     });
     it('should NOT login a User - wrong password', function(done){
-      User.login({username:'bob', password:'wrong'}, function(user){
+      User.login({username:'solo', password:'wrong'}, function(user){
         expect(user).to.be.undefined;
         done();
       });
@@ -73,7 +73,7 @@ describe('User', function(){
 
   describe('.findByEmail', function(){
     it('should find a User by email', function(done){
-      User.findByEmail('melanie@fryman.io', function(err, results){
+      User.findByEmail('chewie@bacca.com', function(err, results){
         expect(err).to.be.null;
         expect(results.id).to.equal(2);
         done();
