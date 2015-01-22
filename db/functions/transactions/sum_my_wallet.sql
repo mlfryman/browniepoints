@@ -1,15 +1,14 @@
 CREATE OR REPLACE FUNCTION sum_my_wallet (friendshipId INTEGER, myId INTEGER)
-RETURNS TABLE ("myWallet" BIGINT) AS $$
+RETURNS BIGINT AS $$
 DECLARE
   myWallet BIGINT;
 BEGIN
-  RETURN QUERY
-    SELECT
-      sum(points) AS "myWallet"
-    FROM transactions t, friendships f
-    WHERE(t.to_id = myId OR t.from_id = myId)
-    AND f.id = friendshipId
-    GROUP BY f.id;
+
+    myWallet := (SELECT sum(points) AS "myWallet"
+                   FROM transactions t WHERE(t.to_id = myId OR t.from_id = myId)
+                   AND t.friendship_id = friendshipId);
+
+    RETURN myWallet;
 
 END;
 $$ LANGUAGE plpgsql;

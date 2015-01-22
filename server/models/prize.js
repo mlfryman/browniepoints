@@ -20,7 +20,7 @@ Prize.categories = function(cb){
   var psqlString = 'SELECT * FROM find_categories()',
       psqlParams = [];
   pg.query(psqlString, psqlParams, function(err, results){
-    console.log('SERVER PRIZE MODEL - .categories RESULTS: ', results);
+    // console.log('SERVER PRIZE MODEL - .categories RESULTS: ', results);
     cb(err, results && results.rows ? results.rows : null);
   });
 };
@@ -29,7 +29,7 @@ Prize.findAll = function(friendshipId, cb){
   var psqlString = 'SELECT * FROM find_all_prizes($1)',
       psqlParams = [friendshipId];
   pg.query(psqlString, psqlParams, function(err, results){
-    console.log('SERVER PRIZE MODEL - .findAll RESULTS: ', results);
+    // console.log('SERVER PRIZE MODEL - .findAll RESULTS: ', results);
     cb(err, results && results.rows ? results.rows : null);
   });
 };
@@ -38,8 +38,9 @@ Prize.nuke = function(friendshipId, prizeId, cb){
   var psqlString = 'SELECT nuke_prize($1, $2)',
       psqlParams = [friendshipId, prizeId];
   pg.query(psqlString, psqlParams, function(err, results){
-    console.log('SERVER PRIZE MODEL - .nuke RESULTS: ', results);
-    cb(err, results && results.rows ? results.rows[0].nuke_note : null);
+    var pid = (results || {rows:[{}]}).rows[0].nuke_prize;
+    console.log('SERVER PRIZE MODEL - Prize.nuke PID: ', pid);
+    cb(err, pid);
   });
 };
 
@@ -52,14 +53,14 @@ Prize.buy = function(friendshipId, prize, cb){
   t.toId = p.fromId;
   t.body = p.toUsername.toUpperCase() + ' is cashing in ' + p.title.toUpperCase() +  ' for ' + p.cost + ' points. Time to pay up, ' + p.fromUsername.toUpperCase() + '!';
   t.points = (p.cost * -1);
-  console.log('t.fromId :: p.toId = ', t.fromId, p.toId);
-  console.log('SERVER PRIZE MODEL - .buy @params p: ', p);
+  // console.log('t.fromId :: p.toId = ', t.fromId, p.toId);
+  // console.log('SERVER PRIZE MODEL - .buy @params p: ', p);
   var psqlString = 'SELECT buy_prize($1, $2, $3, $4, $5, $6)',
       psqlParams = [t.prizeId, friendshipId, t.toId, t.fromId, t.body, t.points];
-      console.log('SERVER PRIZE MODEL - .buy @params PSQLPARAMS: ', psqlParams);
+      // console.log('SERVER PRIZE MODEL - .buy @params PSQLPARAMS: ', psqlParams);
   pg.query(psqlString, psqlParams, function(err, results){
     // console.log('SERVER PRIZE MODEL - .buy ERROR: ', err);
-    console.log('SERVER PRIZE MODEL - .buy RESULTS: ', results);
+    // console.log('SERVER PRIZE MODEL - .buy RESULTS: ', results);
     cb(err, results && results.rows ? results.rows : null);
   });
 };

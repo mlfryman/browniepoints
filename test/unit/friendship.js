@@ -171,16 +171,33 @@ describe('Friendship', function(){
 
   describe('.myWallet', function(){
     it('should calculate the sum of a User\'s wallet per Friendship', function(done){
-      Friendship.myWallet(12, 1, function(err, results){
+      Friendship.myWallet(12, 1, function(err, myWallet){
         expect(err).to.be.null;
-        expect(results).to.be.ok;
+        expect(myWallet).to.equal('20');
         done();
       });
     });
     it('should NOT calculate the sum of a User\'s wallet per Friendship - bad friendship id', function(done){
       Friendship.myWallet(16, 1, function(err, results){
         expect(err).to.be.null;
-        expect(results.length).to.equal(0);
+        expect(results).to.be.null;
+        done();
+      });
+    });
+  });
+
+  describe('.friendWallet', function(){
+    it('should calculate the sum of a Friend\'s wallet per Friendship', function(done){
+      Friendship.friendWallet(12, 2, function(err, results){
+        expect(err).to.be.null;
+        expect(results).to.be.ok;
+        done();
+      });
+    });
+    it('should NOT calculate the sum of a Friend\'s wallet per Friendship - bad friendship id', function(done){
+      Friendship.friendWallet(26, 2, function(err, results){
+        expect(err).to.be.null;
+        expect(results).to.be.null;
         done();
       });
     });

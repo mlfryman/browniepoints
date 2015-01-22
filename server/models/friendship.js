@@ -97,26 +97,19 @@ Friendship.myWallet = function(friendshipId, myId, cb){
   var psqlString = 'SELECT * FROM sum_my_wallet($1,$2)',
       psqlParams = [friendshipId, myId];
   pg.query(psqlString, psqlParams, function(err, results){
-    console.log('SERVER FRIENDSHIP MODEL - .myWallet RESULTS: ', results);
-    cb(err, results && results.rows ? results.rows : null);
+    var myWallet = (results || {rows:[{}]}).rows[0].sum_my_wallet;
+    // console.log('SERVER FRIENDSHIP MODEL - .myWallet myWallet: ', myWallet);
+    cb(err, myWallet);
   });
 };
-
-// Friendship.myWallet = function(friendshipId, myId, cb){
-//   var psqlString = 'SELECT sum(points) FROM transactions t, friendships f WHERE(t.to_id = $2 OR t.from_id = $2) AND f.id = $1',
-//       psqlParams = [friendshipId, myId];
-//   pg.query(psqlString, psqlParams, function(err, results){
-//     console.log('SERVER FRIENDSHIP MODEL - .myWallet RESULTS: ', results);
-//     cb(err, results && results.rows ? results.rows : null);
-//   });
-// };
 
 Friendship.friendWallet = function(friendshipId, friendId, cb){
   var psqlString = 'SELECT * FROM sum_friend_wallet($1,$2)',
       psqlParams = [friendshipId, friendId];
   pg.query(psqlString, psqlParams, function(err, results){
-    console.log('SERVER FRIENDSHIP MODEL - .friendWallet RESULTS: ', results);
-    cb(err, results && results.rows ? results.rows : null);
+    var friendWallet = (results || {rows:[{}]}).rows[0].sum_friend_wallet;
+    // console.log('SERVER FRIENDSHIP MODEL - .friendWallet friendWallet: ', friendWallet);
+    cb(err, friendWallet);
   });
 };
 
@@ -134,4 +127,3 @@ function generatePK(id1, id2, cb){
   var friendshipId = ((small + large) * 1);
   cb(friendshipId);
 }
-
