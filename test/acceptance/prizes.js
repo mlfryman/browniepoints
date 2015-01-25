@@ -32,13 +32,14 @@ describe('Prizes', function(){
         var options2 = {
           method: 'POST',
           url: '/friends/' + friendshipId + '/prizes',
+          params: {
+            friendshipId:12
+          },
           payload: {
-            owner_id:1,
-            from_id:1,
             to_id:2,
             title:'a',
             description:'b',
-            category:1,
+            category_id:1,
             cost:10
           },
           headers:{
@@ -59,13 +60,14 @@ describe('Prizes', function(){
       var options = {
         method: 'POST',
         url: '/friends/' + friendshipId + '/prizes',
+        params: {
+          friendshipId:12
+        },
         payload: {
-          owner_id:1,
-          from_id:1,
           to_id:2,
           title:'a',
           description:'b',
-          category:1,
+          category_id:1,
           cost:10
         },
         headers:{
@@ -82,13 +84,13 @@ describe('Prizes', function(){
       var options = {
         method: 'POST',
         url: '/friends/' + friendshipId + '/prizes',
+        params: {
+          friendshipId:12
+        },
         payload: {
-          owner_id:1,
-          from_id:1,
           to_id:2,
-          title:'a',
           description:'b',
-          category:1,
+          category_id:1,
           cost:10
         },
         headers:{
@@ -115,7 +117,7 @@ describe('Prizes', function(){
 
       server.inject(options, function(response){
         expect(response.statusCode).to.equal(200);
-        expect(response.result.prizes).to.have.length(1);
+        expect(response.result.prizes).to.have.length(2);
         done();
       });
     });
