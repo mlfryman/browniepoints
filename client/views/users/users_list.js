@@ -12,15 +12,15 @@
         User.findByEmail(searchEmail).then(function(response){
           $scope.searchEmail = '';
           $scope.user = response.data.user;
-          console.log('CLIENT USERS LIST CTRL - search USER: ', $scope.user);
+          // console.log('CLIENT USERS LIST CTRL - search USER: ', $scope.user);
         });
       };
 
       $scope.request = function(){
         $scope.friend2Id = $scope.user.id;
         Friendship.request($scope.friend2Id).then(function(response){
-          console.log('CLIENT USERS LIST CTRL - request $scope.friendId2: ', $scope.friendId2);
-          console.log('CLIENT USERS LIST CTRL - request RESPONSE: ', response);
+          // console.log('CLIENT USERS LIST CTRL - request $scope.friend2Id: ', $scope.friend2Id);
+          // console.log('CLIENT USERS LIST CTRL - request RESPONSE: ', response);
           $state.go('dashboard');
         });
       };

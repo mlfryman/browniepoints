@@ -33,7 +33,7 @@ describe('Prizes', function(){
           method: 'POST',
           url: '/friends/' + friendshipId + '/prizes',
           params: {
-            friendshipId:12
+            friendshipId: 12
           },
           payload: {
             to_id:2,
@@ -61,7 +61,7 @@ describe('Prizes', function(){
         method: 'POST',
         url: '/friends/' + friendshipId + '/prizes',
         params: {
-          friendshipId:12
+          friendshipId: 12
         },
         payload: {
           to_id:2,
@@ -85,7 +85,7 @@ describe('Prizes', function(){
         method: 'POST',
         url: '/friends/' + friendshipId + '/prizes',
         params: {
-          friendshipId:12
+          friendshipId: 12
         },
         payload: {
           to_id:2,

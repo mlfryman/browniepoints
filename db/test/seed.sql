@@ -17,8 +17,6 @@ INSERT INTO transactions (friendship_id, from_id, to_id, body, points) VALUES (1
 INSERT INTO transactions (friendship_id, from_id, to_id, body, points) VALUES (12, 2, 1, 'Just because!', 10);
 INSERT INTO transactions (friendship_id, from_id, to_id, body, points) VALUES (12, 1, 2, 'You disappoint me.', -5);
 
--- UPDATE transactions SET read = TRUE WHERE id = 1;
-
 INSERT INTO categories (id, name, image) VALUES (1, 'Misc', 'https://s3.amazonaws.com/mlf-browniepoints-test/categories/present.png');
 INSERT INTO categories (id, name, image) VALUES (2, 'Event', 'https://s3.amazonaws.com/mlf-browniepoints-test/categories/calendar.png');
 INSERT INTO categories (id, name, image) VALUES (3, 'Chores', 'https://s3.amazonaws.com/mlf-browniepoints-test/categories/dolly.png');

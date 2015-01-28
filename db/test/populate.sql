@@ -19,3 +19,4 @@ INSERT INTO categories (id, name, image) VALUES (9, 'Concert', 'https://s3.amazo
 INSERT INTO prizes (friendship_id, owner_id, from_id, to_id, title, description, cost, category_id) VALUES (12, 1, 1, 2, 'Game night', 'Choose a date for a game night.', 10, 4);
 
 INSERT INTO transactions (friendship_id, from_id, to_id, body, points) VALUES (12, 1, 2, 'Thanks for helping me move!', 20);
+

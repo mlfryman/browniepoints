@@ -16,9 +16,10 @@ module.exports = {
   handler: function(request, reply){
     request.payload.friend1Id = request.auth.credentials.id;
     request.payload.friend2Id = request.params.friend2Id;
-    Friendship.request(request.payload, function(err){
+    Friendship.request(request.payload, function(err, fid){
+      console.log('SERVER FRIENDSHIP CTRL - Friendship.request PAYLOAD: ', request.payload);
       if(err){console.log('SERVER FRIENDSHIP CTRL - Friendship.request ERROR: ', err);}
-      reply().code(err ? 400 : 200);
+      reply({fid:fid}).code(err ? 400 : 200);
     });
   }
 };
