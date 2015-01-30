@@ -14,7 +14,7 @@ var expect     = require('chai').expect,
     db         = h.getDB();
 
 describe('Friendships', function(){
-  var cookie, fid, friend2Id_a = 4, friend2Id_b = 9;
+  var cookie, fid, friend2Id_a = 4, friend2Id_b = 9, friendshipId = 12;
 
   beforeEach(function(done){
     cp.execFile(__dirname + '/../scripts/clean-db.sh', [db], {cwd:__dirname + '/../scripts'}, function(err, stdout, stderr){
@@ -49,8 +49,6 @@ describe('Friendships', function(){
       };
 
       server.inject(options, function(response){
-        console.log('FRIENDSHIP ACCEPTANCE TEST - Friendship.request OPTIONS: ', options);
-        console.log('FRIENDSHIP ACCEPTANCE TEST - Friendship.request RESPONSE: ', response);
         expect(response.statusCode).to.equal(200);
         done();
       });
@@ -68,10 +66,110 @@ describe('Friendships', function(){
       };
 
       server.inject(options, function(response){
-        console.log('FRIENDSHIP ACCEPTANCE TEST - NOT Friendship.request RESPONSE: ', response);
         expect(response.statusCode).to.equal(400);
         done();
       });
     });
   });
+
+  describe('GET /friends/pending', function(){
+    it('should get pending friend requests for a User', function(done){
+      var options = {
+        method: 'GET',
+        url: '/friends/pending',
+        headers:{
+          cookie:cookie
+        }
+      };
+
+      server.inject(options, function(response){
+        expect(response.statusCode).to.equal(200);
+        expect(response.result.pending).to.have.length(1);
+        done();
+      });
+    });
+    it('should NOT get pending friend requests for a User - missing credentials', function(done){
+      var options = {
+        method: 'GET',
+        url: '/friends/pending'
+      };
+
+      server.inject(options, function(response){
+        expect(response.statusCode).to.equal(401);
+        done();
+      });
+    });
+  });
+
+  describe('GET /friends', function(){
+    it('should get all friendships for a User', function(done){
+      var options = {
+        method: 'GET',
+        url: '/friends',
+        headers:{
+          cookie:cookie
+        }
+      };
+
+      server.inject(options, function(response){
+        expect(response.statusCode).to.equal(200);
+        expect(response.result.friendships).to.have.length(1);
+        done();
+      });
+    });
+    it('should NOT get all friendships for a User - missing credentials', function(done){
+      var options = {
+        method: 'GET',
+        url: '/friends'
+      };
+
+      server.inject(options, function(response){
+        expect(response.statusCode).to.equal(401);
+        done();
+      });
+    });
+  });
+
+  describe('GET /friends/13', function(){
+    it('should get a friendship by ID for a User', function(done){
+      var options = {
+        method: 'GET',
+        url: '/friends/' + friendshipId,
+        params:{
+          friendshipId: 12
+        },
+        headers:{
+          cookie:cookie
+        }
+      };
+
+      server.inject(options, function(response){
+        expect(response.statusCode).to.equal(200);
+        done();
+      });
+    });
+    it('should NOT get a friendship by ID for a User - friendship is pending approval', function(done){
+      var options = {
+        method: 'GET',
+        url: '/friends/' + 13,
+        params: {
+          friendshipId: 13
+        },
+        headers:{
+          cookie:cookie
+        }
+      };
+
+      server.inject(options, function(response){
+        expect(response.statusCode).to.equal(400);
+        done();
+      });
+    });
+  });
+// last bracket
 });
+
+// FRIENDSHIPS ROUTES
+  // {method: 'PUT',    path: '/friends/{friendshipId}/accept',  config: require('../definitions/friendships/put_accept_friendship')},
+  // {method: 'DELETE', path: '/friends/{friendshipId}/deny',    config: require('../definitions/friendships/delete_deny_friendship')},
+  // {method: 'GET',    path: '/friends/{friendshipId}',         config: require('../definitions/friendships/get_show_friendship')},

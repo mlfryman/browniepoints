@@ -31,8 +31,6 @@ describe('Friendship', function(){
   describe('.request', function(){
     it('should create a friend request', function(done){
       Friendship.request({friend1Id:1, friend2Id:4}, function(err, fid){
-        console.log('FRIENDSHIP UNIT TEST - Friendship.request ERROR: ', err);
-        console.log('FRIENDSHIP UNIT TEST - Friendship.request FID: ', fid);
         expect(err).to.be.null;
         expect(fid).to.equal(14);
         done();
@@ -40,8 +38,6 @@ describe('Friendship', function(){
     });
     it('should NOT create a friend request - user does not exist', function(done){
       Friendship.request({friend1Id:1, friend2Id:9}, function(err, fid){
-        console.log('FRIENDSHIP UNIT TEST - NOT Friendship.request ERROR: ', err);
-        console.log('FRIENDSHIP UNIT TEST - NOT Friendship.request FID: ', fid);
         expect(err).to.be.ok;
         done();
       });

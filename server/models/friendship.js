@@ -8,16 +8,13 @@ function Friendship(){
 }
 
 Friendship.request = function(obj, cb){
-  console.log('SERVER FRIENDSHIP MODEL - Friendship.request OBJ: ', obj);
   generatePK(obj.friend1Id, obj.friend2Id, function(friendshipId){
     obj.friendshipId = friendshipId;
     var psqlString = 'SELECT * FROM request_friendship($1,$2,$3)',
         psqlParams = [obj.friendshipId, obj.friend1Id, obj.friend2Id];
     pg.query(psqlString, psqlParams, function(err, results){
-      console.log('SERVER FRIENDSHIP MODEL - .request ERROR: ', err);
-      console.log('SERVER FRIENDSHIP MODEL - .request RESULTS: ', results);
       var fid = (results || {rows:[{}]}).rows[0].request_friendship;
-      console.log('SERVER FRIENDSHIP MODEL - Friendship.request FID: ', fid);
+      // console.log('SERVER FRIENDSHIP MODEL - Friendship.request FID: ', fid);
       cb(err, fid);
     });
   });
