@@ -12,10 +12,12 @@
 
       Friendship.pending().then(function(response){
         $scope.pending = response.data;
+        console.log('Friendship.pending - $scope.pending: ', $scope.pending);
       });
 
       Friendship.findAll().then(function(response){
         $scope.friends = response.data;
+        console.log('Friendship.findAll - $scope.friends: ', $scope.friends);
       });
 
       $scope.accept = function(friendshipId){
