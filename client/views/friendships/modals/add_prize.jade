@@ -16,6 +16,6 @@
       label(for='category') Category
         select(name='category', ng-model='category', ng-options='c as c.name for c in categories | orderBy:\'name\'')
           option(value='') Select a Category
-      a.button.alert.radius.tiny(ng-click='createPrize(prize)')
+      a.button.success.radius.tiny(ng-click='createPrize(prize)')
         i.fa.fa-gift.fa-lg &nbsp; Create
     a.close-reveal-modal &#215;
